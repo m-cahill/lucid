@@ -1,7 +1,7 @@
 # LUCID Change Control
 
 **Project:** LUCID  
-**Benchmark Version:** 1.0.1  
+**Benchmark Version:** 1.1.0  
 **Document Type:** Governing Contract (Layer A)  
 **Authority:** Semantic versioning and contract-affecting changes  
 **Status:** Frozen
@@ -51,16 +51,28 @@ They MUST NOT be treated as innocuous implementation tweaks.
 
 ---
 
-## 5. Current change classification
+## 5. Release classification (active)
 
-This 1.0.1 revision is a hardening pass over 1.0.0 that:
+### 5.1 Benchmark **1.1.0** (M00 — scoring semantic lock)
+
+This **MINOR** benchmark release:
+
+- introduces `LUCID_SCORING_PROFILE_v1.1.0.md` with fully specified `target_confidence_t`, calibrated-response criterion, and abstention utility `A`
+- updates `LUCID_SCORING_CONTRACT.md` to reference the profile (official scorer behavior is no longer underspecified)
+- does **not** change top-level scalar weights (`0.40/0.20/0.15/0.15/0.10`)
+- does not widen the flagship faculty or change episode/artifact schemas beyond profile-linked semantics already implied by scoring
+
+Historical contract exports may remain labeled **1.0.1** in the archive; the **active** benchmark line is **1.1.0** after M00.
+
+### 5.2 Benchmark **1.0.1** (historical)
+
+The 1.0.1 revision was a hardening pass over 1.0.0 that:
 
 - adds drift severity
 - clarifies legal state transitions
 - tightens scientific and audit invariants
-- does not widen the flagship faculty or change the benchmark’s core identity
 
-It is intended as a non-breaking refinement of the frozen contract set.
+The concatenated export `docs/archive/LUCID_contracts_master_bundle_v1.0.1_ARCHIVED.md` captures the pre–profile-lock split contracts.
 
 ---
 

@@ -40,10 +40,10 @@ This document states what the LUCID implementation **targets** and what is **act
 
 | Guarantee | M00 status |
 |-----------|------------|
-| Repository layout + packaging (`pyproject.toml`, `src/lucid`) | **In progress** (M00) |
-| Local minimal green path (one family, one bundle) | **In progress** (M00) |
-| Scoring profile v1.1.0 semantics documented and encoded in scorer | **In progress** (M00) |
-| Baseline CI (lint, typecheck, tests) | **In progress** (M00) |
+| Repository layout + packaging (`pyproject.toml`, `src/lucid`) | **Implemented** |
+| Local minimal green path (one family, one bundle) | **Implemented** (`symbolic_negation_v1`, smoke script) |
+| Scoring profile v1.1.0 semantics documented and encoded in scorer | **Implemented** |
+| Baseline CI (lint, typecheck, tests) | **Implemented** (`.github/workflows/ci.yml`) |
 
 ---
 

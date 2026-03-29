@@ -1,7 +1,7 @@
 # LUCID Contract Index
 
 **Project:** LUCID  
-**Benchmark Version:** 1.0.1  
+**Benchmark Version:** 1.1.0  
 **Document Type:** Contract Index and Authority Map  
 **Authority:** Meta-governing index for the contract set  
 **Status:** Frozen contract map
@@ -21,6 +21,8 @@ LUCID is a benchmark for metacognitive calibration under instructional drift. Th
 - how results may be reported without overstating support
 
 This index is the entry point for the frozen contract set. It does not replace the contracts; it defines how they fit together.
+
+**Canonical editable sources** are the **individual Markdown files** in this `docs/contracts/` directory. A historical concatenated export of the v1.0.1 era lives in `docs/archive/LUCID_contracts_master_bundle_v1.0.1_ARCHIVED.md` and is **not** maintained in parallel.
 
 ---
 
@@ -102,6 +104,9 @@ Defines what a template family is, what it must declare, including family scorin
 ### 4.11 `LUCID_SCORING_CONTRACT.md`
 Defines official metric formulas, leaderboard versus diagnostic metrics, weighting, and scoring-profile versioning.
 
+### 4.11a `LUCID_SCORING_PROFILE_v1.1.0.md`
+Defines the **active** concrete scoring semantics for benchmark **1.1.0**: `target_confidence_t`, calibrated-response criterion, and abstention utility `A`.
+
 ### 4.12 `LUCID_ARTIFACT_BUNDLE_CONTRACT.md`
 Defines the episode spec artifact, episode result artifact, bundle manifest, and canonical hashing/serialization rules.
 
@@ -166,8 +171,10 @@ The following documents are adjacent to the contract set and SHOULD be retained 
 - `LUCID_BOUNDARIES.md`
 - `LUCID_ASSUMED_GUARANTEES.md`
 - `LUCID_STACK_INTERACTION.md`
+- `LUCID_TERMINOLOGY_GUIDE_LLM.md`
+- `LUCID_COMPETITION_ALIGNMENT.md`
 
-These documents provide project identity, substrate posture, and scope boundaries. They should not duplicate the contract set, but the contract set should remain consistent with them.
+These documents provide project identity, substrate posture, scope boundaries, writing discipline, and competition facts. They should not duplicate the contract set, but the contract set should remain consistent with them.
 
 ---
 
@@ -183,9 +190,10 @@ For a new engineer, researcher, or AI agent, the recommended reading order is:
 6. `LUCID_DETERMINISTIC_GENERATION_CONTRACT.md`
 7. `LUCID_TEMPLATE_FAMILY_CONTRACT.md`
 8. `LUCID_SCORING_CONTRACT.md`
-9. `LUCID_ARTIFACT_BUNDLE_CONTRACT.md`
-10. `LUCID_CHANGE_CONTROL.md`
-11. `LUCID_SUBMISSION_DOCTRINE.md`
+9. `LUCID_SCORING_PROFILE_v1.1.0.md`
+10. `LUCID_ARTIFACT_BUNDLE_CONTRACT.md`
+11. `LUCID_CHANGE_CONTROL.md`
+12. `LUCID_SUBMISSION_DOCTRINE.md`
 
 ---
 

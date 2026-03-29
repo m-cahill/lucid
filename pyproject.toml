@@ -23,6 +23,9 @@ classifiers = [
 
 dependencies = []
 
+[project.scripts]
+lucid-smoke = "lucid.runner:main"
+
 [project.optional-dependencies]
 dev = [
   "mypy>=1.8.0",
@@ -35,16 +38,19 @@ dev = [
 packages = ["src/lucid"]
 
 [tool.hatch.build.targets.sdist]
-include = ["src/lucid", "README.md", "LICENSE"]
+include = ["src/lucid", "README.md", "LICENSE", "pyproject.toml"]
 
 [tool.ruff]
 line-length = 100
 target-version = "py311"
 fix = true
-extend-select = ["I"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
+extend-select = ["I"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/lucid/scorer.py" = ["E741"]
 
 [tool.mypy]
 python_version = "3.11"

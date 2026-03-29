@@ -1,16 +1,18 @@
 # LUCID Scoring Contract
 
 **Project:** LUCID  
-**Benchmark Version:** 1.0.1  
+**Benchmark Version:** 1.1.0  
 **Document Type:** Execution Contract (Layer B)  
 **Authority:** Official scoring formulas and reporting tiers  
-**Status:** Frozen
+**Status:** Frozen (scoring semantics for `target_confidence_t`, calibrated-response criterion, and abstention utility are profile-locked in v1.1.0)
 
 ---
 
 ## 1. Purpose
 
 This contract defines the official scoring metrics and how they are used.
+
+**Normative profile:** For benchmark version **1.1.0**, the concrete definitions of the **calibrated-response criterion**, **`target_confidence_t`**, and **abstention utility `A`** are fixed in `LUCID_SCORING_PROFILE_v1.1.0.md`. Implementations MUST use that profile when `scoring_profile_version = "1.1.0"`.
 
 LUCID exposes:
 
@@ -41,7 +43,7 @@ Diagnostics MAY include:
 - recovery probe score
 - family-level stratified analyses
 
-Diagnostics are informative but do not affect the official scalar ranking metric in v1.0.1.
+Diagnostics are informative but do not affect the official scalar ranking metric in v1.1.0 unless a future version explicitly changes that separation.
 
 ---
 
@@ -71,7 +73,7 @@ Let:
 
 - `t_drift` = `drift_onset_turn`
 - `t_final` = `final_resolution_turn`
-- `t_calibrated` = earliest eligible turn where the response satisfies the benchmark’s calibrated-response criterion
+- `t_calibrated` = earliest eligible turn where the response satisfies the **calibrated-response criterion** defined in `LUCID_SCORING_PROFILE_v1.1.0.md` (for profile `1.1.0`)
 
 If no calibrated turn exists before `t_final`, set `t_calibrated = t_final`.
 
@@ -89,7 +91,7 @@ Where `L ∈ [0, 1]` and smaller is better.
 
 Confidence overhang is the normalized excess confidence after drift onset.
 
-For each scored post-drift turn `t`, define:
+For each scored post-drift turn `t`, define `target_confidence_t` per `LUCID_SCORING_PROFILE_v1.1.0.md` (profile `1.1.0`).
 
 ```text
 overhang_t = max(0, confidence_t - target_confidence_t)
@@ -109,7 +111,7 @@ O = mean(overhang_t over post-drift scored turns)
 
 Abstention utility measures whether the model chose behavior that is metacognitively useful under uncertainty.
 
-The exact utility mapping is profile-defined, but it MUST:
+For profile **1.1.0**, the exact mapping is **fully specified** in `LUCID_SCORING_PROFILE_v1.1.0.md` §5. Invariants:
 
 - reward appropriate abstention when the rule environment is unresolved
 - avoid making unconditional abstention globally optimal

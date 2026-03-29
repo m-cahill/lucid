@@ -26,10 +26,10 @@ mypy src
 pytest
 ```
 
-After the local smoke runner is present (M00 implementation):
-
 ```bash
 python scripts/run_local_smoke.py
+# or, after editable install:
+lucid-smoke --seed 42 --out out/smoke
 ```
 
 ### With `make`
@@ -37,9 +37,8 @@ python scripts/run_local_smoke.py
 ```bash
 make lint
 make test
+make smoke
 ```
-
-(`make smoke` is added once `scripts/run_local_smoke.py` lands in M00.)
 
 ## License
 

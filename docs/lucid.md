@@ -52,8 +52,8 @@ When documents or code disagree, use this order:
 |------|--------|
 | Active template families | **symbolic_negation_v1** (documented in M00; see `docs/families/`) |
 | Active scoring profile | **LUCID_SCORING_PROFILE v1.1.0** |
-| Local minimal green path | **Target M00** — generate → typed response → score → bundle |
-| Kaggle Community Benchmarks E2E | **Deferred to M01** (documentation alignment only in M00) |
+| Local minimal green path | **Complete (M00)** — `scripts/run_local_smoke.py` + tests |
+| Kaggle Community Benchmarks E2E | **Deferred to M01** (M00 = docs alignment + local smoke only) |
 
 ---
 
@@ -76,8 +76,8 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 
 | Milestone | Goal | Status |
 |-----------|------|--------|
-| **M00** | Bootstrap repo, semantic lock, local minimal green path, baseline CI | **In progress** |
-| **M01** | Kaggle Community Benchmarks E2E verification | Planned |
+| **M00** | Bootstrap repo, semantic lock, local minimal green path, baseline CI | **Complete** |
+| **M01** | Kaggle Community Benchmarks E2E verification | **Next** |
 
 ---
 
