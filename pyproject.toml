@@ -1,0 +1,73 @@
+[build-system]
+requires = ["hatchling>=1.21.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lucid-benchmark"
+version = "0.1.0"
+description = "LUCID — metacognitive calibration benchmark under instructional drift (Kaggle Measuring AGI)"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+authors = [{ name = "LUCID contributors" }]
+keywords = ["benchmark", "metacognition", "evaluation", "drift"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.8.0",
+  "pytest>=8.0.0",
+  "pytest-cov>=4.1.0",
+  "ruff>=0.3.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lucid"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/lucid", "README.md", "LICENSE"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+fix = true
+extend-select = ["I"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.11"
+packages = ["lucid"]
+mypy_path = "src"
+strict = true
+warn_unused_ignores = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers --cov=lucid --cov-report=term-missing --cov-fail-under=85"
+pythonpath = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["lucid"]
+omit = ["*/tests/*"]
+
+[tool.coverage.report]
+fail_under = 85
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:", "\\.\\.\\."]
