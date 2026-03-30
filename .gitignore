@@ -35,3 +35,6 @@ Thumbs.db
 # Local smoke output (default paths)
 out/
 smoke_out/
+
+# Local packaging / venv experiments
+_venv_wheeltest/

@@ -18,10 +18,13 @@
 1. Create or open a Kaggle notebook in the **Community Benchmarks** flow (see competition / platform UI for the current entry point).
 2. **Add input:** install LUCID from GitHub (pin a commit SHA or tag once M01 merges), e.g.  
    `pip install -q "git+https://github.com/m-cahill/lucid.git@<ref>"`  
-   Use the first code cell in `notebooks/lucid_kaggle_benchmark.ipynb` as the template (uncomment / adjust ref).
-3. Copy the remaining cells from the repo notebook so task names and `%choose` stay aligned.
-4. **Model:** prefer a **Kaggle-hosted** model (e.g. examples in the upstream cookbook). One model is enough for the acceptance run; add a second only after the first proof is green.
-5. **Save Version** after a successful run.
+   The distribution metadata name is **`lucid-benchmark`** (`pip show lucid-benchmark`), while imports use **`lucid`** / **`lucid.kaggle`**.
+3. **Avoid path shadowing:** do not attach a **partial** `lucid/` source folder as a dataset if it would appear **before** `site-packages` on `sys.path` and omit `lucid/kaggle/`. Prefer install-from-git only, or ensure any attached source matches the full repository tree.
+4. After install, run the verification snippet in the notebook (or `python -c "import importlib; importlib.import_module('lucid.kaggle')"`) to confirm `lucid.kaggle` resolves.
+5. Use the first code cell in `notebooks/lucid_kaggle_benchmark.ipynb` as the template (uncomment / adjust ref).
+6. Copy the remaining cells from the repo notebook so task names and `%choose` stay aligned.
+7. **Model:** prefer a **Kaggle-hosted** model (e.g. examples in the upstream cookbook). One model is enough for the acceptance run; add a second only after the first proof is green.
+8. **Save Version** after a successful run.
 
 ---
 

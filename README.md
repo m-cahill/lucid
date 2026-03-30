@@ -6,6 +6,16 @@
 - **Competition:** [Kaggle — Measuring Progress Toward AGI](https://www.kaggle.com/competitions/kaggle-measuring-agi)
 - **Kaggle Benchmarks E2E:** planned for milestone **M01** (not part of M00)
 
+## Install name vs import name
+
+- **pip / PyPI distribution name:** `lucid-benchmark` (see `pyproject.toml`).
+- **Python import package:** `lucid` (and subpackages such as `lucid.kaggle`).
+- **Check the installed distribution:** `pip show lucid-benchmark` (not `pip show lucid`).
+- **After `pip install git+https://...`**, verify transport code:  
+  `python -c "import importlib; importlib.import_module('lucid.kaggle')"`
+
+If `import lucid` works but `lucid.kaggle` is missing, a **partial `lucid/` tree** on `PYTHONPATH` (for example an attached Kaggle dataset or stale checkout) can **shadow** the wheel installed into `site-packages`. Remove or fix that path so the installed package wins.
+
 ## Quick start (development)
 
 Requires **Python 3.11+**.
@@ -20,8 +30,8 @@ pip install -e ".[dev]"
 ### Without `make` (Windows-friendly)
 
 ```bash
-ruff check src tests
-ruff format --check src tests
+ruff check src tests scripts
+ruff format --check src tests scripts
 mypy src
 pytest
 ```

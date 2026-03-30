@@ -27,3 +27,4 @@ def test_kaggle_notebook_has_single_choose_and_main_task_name() -> None:
     assert "lucid_symbolic_negation_row" in joined
     assert "%choose lucid_main_task" in joined
     assert joined.count("%choose") == 1
+    assert "find_spec" in joined and "lucid.kaggle" in joined

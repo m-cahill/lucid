@@ -4,8 +4,8 @@ install:
 	python -m pip install -e ".[dev]"
 
 lint:
-	ruff check src tests
-	ruff format --check src tests
+	ruff check src tests scripts
+	ruff format --check src tests scripts
 	mypy src
 
 test:
