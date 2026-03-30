@@ -38,3 +38,4 @@ smoke_out/
 
 # Local packaging / venv experiments
 _venv_wheeltest/
+_kaggle_wheel_smoke/
