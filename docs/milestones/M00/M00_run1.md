@@ -107,3 +107,16 @@
 | **URL** | https://github.com/m-cahill/lucid/actions/runs/23727633205 |
 
 Same job matrix as run 1 (`lint-test`). **Purpose:** re-validate after doc-only changes to ledger + `M00_run1.md` + summary/audit.
+
+---
+
+## Appendix — follow-up `pull_request` run (ledger head SHA line)
+
+| Field | Value |
+|-------|--------|
+| **Run ID** | **23727660719** |
+| **Conclusion** | **success** |
+| **PR head at run** | `7526d3b5b6a954bb197f21c5be997de2a3f51d68` |
+| **URL** | https://github.com/m-cahill/lucid/actions/runs/23727660719 |
+
+Doc-only change: `docs/lucid.md` remote CI row updated to match latest PR head after CI verification.
