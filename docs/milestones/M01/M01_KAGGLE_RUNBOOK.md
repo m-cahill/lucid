@@ -3,6 +3,8 @@
 **Milestone:** M01 — transport proof for benchmark line **1.1.0**  
 **Purpose:** Execute the **real Kaggle platform** steps after repo-side assets are merged. This document is **not** a substitute for the [Kaggle Benchmarks cookbook](https://github.com/Kaggle/kaggle-benchmarks/blob/ci/cookbook.md).
 
+**Honesty rule:** **M01 Kaggle E2E is not complete** until a real on-platform notebook/task run succeeds with evidence captured. Install transport and CI green are necessary but not sufficient.
+
 ---
 
 ## 1. Repo-side prerequisites (offline)
@@ -13,29 +15,74 @@
 
 ---
 
-## 2. Kaggle notebook setup
+## 2. Installing LUCID on Kaggle (transport order)
 
-1. Create or open a Kaggle notebook in the **Community Benchmarks** flow (see competition / platform UI for the current entry point).
-2. **Add input:** install LUCID from GitHub (pin a commit SHA or tag once M01 merges), e.g.  
-   `pip install -q "git+https://github.com/m-cahill/lucid.git@<ref>"`  
-   The distribution metadata name is **`lucid-benchmark`** (`pip show lucid-benchmark`), while imports use **`lucid`** / **`lucid.kaggle`**.
-3. **Avoid path shadowing:** do not attach a **partial** `lucid/` source folder as a dataset if it would appear **before** `site-packages` on `sys.path` and omit `lucid/kaggle/`. Prefer install-from-git only, or ensure any attached source matches the full repository tree.
-4. After install, run the verification snippet in the notebook (or `python -c "import importlib; importlib.import_module('lucid.kaggle')"`) to confirm `lucid.kaggle` resolves.
-5. Use the first code cell in `notebooks/lucid_kaggle_benchmark.ipynb` as the template (uncomment / adjust ref).
-6. Copy the remaining cells from the repo notebook so task names and `%choose` stay aligned.
-7. **Model:** prefer a **Kaggle-hosted** model (e.g. examples in the upstream cookbook). One model is enough for the acceptance run; add a second only after the first proof is green.
-8. **Save Version** after a successful run.
+Many Kaggle notebook kernels **do not include `git`**, so `pip install git+https://...` often fails. Prefer the following order:
+
+### 2.1 Preferred — pinned GitHub archive ZIP (no git)
+
+**Branch tip (moves with branch head):**
+
+```text
+%pip install -q "https://github.com/m-cahill/lucid/archive/refs/heads/m01-kaggle-transport-proof.zip"
+```
+
+**Commit-pinned (reproducible; replace `<FULL_SHA>` with the 40-character commit):**
+
+```text
+%pip install -q "https://github.com/m-cahill/lucid/archive/<FULL_SHA>.zip"
+```
+
+After install, verify (distribution metadata name is **`lucid-benchmark`**; import package is **`lucid`**):
+
+```python
+import importlib
+importlib.import_module("lucid.kaggle")
+```
+
+### 2.2 Fallback — wheel uploaded as a Kaggle dataset
+
+Build a wheel locally (`python -m build --wheel`); CI also verifies the wheel contains `lucid/kaggle/episode_llm.py`. Upload the `.whl` as a **notebook input dataset**, then install from the mounted path (adjust folder/filename to match your dataset):
+
+```text
+%pip install -q /kaggle/input/<your-dataset-name>/lucid_benchmark-0.1.0-py3-none-any.whl
+```
+
+Re-run the same `importlib.import_module("lucid.kaggle")` check.
+
+### 2.3 Last resort — `git+https` (only if `git` exists)
+
+Use only after confirming `git --version` works in the notebook session:
+
+```text
+%pip install -q "git+https://github.com/m-cahill/lucid.git@<ref>"
+```
+
+### 2.4 Path shadowing
+
+Do not attach a **partial** `lucid/` source tree as a dataset if it would appear **before** `site-packages` on `sys.path` and omit `lucid/kaggle/`. Prefer one clean install path (ZIP or wheel) per session.
 
 ---
 
-## 3. Leaderboard / main task
+## 3. Kaggle notebook workflow
+
+1. Create or open a Kaggle notebook in the **Community Benchmarks** flow (see competition / platform UI for the current entry point).
+2. Install LUCID using **§2.1** (or **§2.2** / **§2.3** as needed).
+3. Use the code cells in `notebooks/lucid_kaggle_benchmark.ipynb` as the template (the notebook includes a `lucid.kaggle` existence check).
+4. Copy any remaining cells so task names and `%choose` stay aligned.
+5. **Model:** prefer a **Kaggle-hosted** model (e.g. examples in the upstream cookbook). One model is enough for the acceptance run; add a second only after the first proof is green.
+6. **Save Version** after a successful run.
+
+---
+
+## 4. Leaderboard / main task
 
 - The notebook must expose **exactly one** main leaderboard task via `%choose` in the **final** code cell (see cookbook: [Publishing Your Task to the Leaderboard](https://github.com/Kaggle/kaggle-benchmarks/blob/ci/cookbook.md)).
 - Dataset evaluation uses `.evaluate(...)` over the fixed three-row slice; the main task aggregates per-row scores (see notebook implementation).
 
 ---
 
-## 4. Evidence capture (commit back to `docs/milestones/M01/`)
+## 5. Evidence capture (commit back to `docs/milestones/M01/`)
 
 Fill `M01_KAGGLE_EVIDENCE_TEMPLATE.md` (or rename to `M01_run1.md` once populated) with:
 
@@ -43,12 +90,13 @@ Fill `M01_KAGGLE_EVIDENCE_TEMPLATE.md` (or rename to `M01_run1.md` once populate
 - Task and Community Benchmark identifiers (as shown in the UI)
 - Model identifier used on platform
 - Screenshots or exports if links are brittle
+- Install method used (ZIP SHA, wheel dataset name, etc.)
 - Any manual steps, friction, or permission blockers
 
 **Honesty rule:** If a full platform run cannot be completed, **do not** claim M01 E2E complete; record the blocker and keep CI green on offline transport checks only.
 
 ---
 
-## 5. Semantic freeze
+## 6. Semantic freeze
 
 - **No** change to scoring profile **1.1.0**, output meaning, or family semantics under the banner of “Kaggle compatibility.” Transport-only differences must be documented as such.
