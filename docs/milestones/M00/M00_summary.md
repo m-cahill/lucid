@@ -3,7 +3,7 @@
 **Project:** LUCID  
 **Milestone:** M00 — Bootstrap, semantic lock, and local minimal green path  
 **Timeframe:** UNKNOWN → 2026-03-29  
-**Status:** **Implementation complete locally** — **remote CI / PR verification pending** (push and first GitHub Actions run not yet authoritative at document time)
+**Status:** **Implementation complete locally**; **first remote GitHub Actions run on PR #1 succeeded** (2026-03-30, run `23727613962`; see `M00_run1.md`). Merge remains subject to maintainer policy.
 
 ---
 
@@ -44,14 +44,14 @@ Establish a canonical repository with an honest **benchmark version 1.1.0** scor
 
 - **Local (authoritative for implementation correctness):** `ruff`, `mypy`, `pytest` with coverage gate **≥85%** on `src/lucid/`
 - `python scripts/run_local_smoke.py` writes a full episode bundle under `--out`
-- **Remote:** GitHub Actions **not** claimed green until a real **`pull_request`** (or equivalent) run completes on GitHub after push
+- **Remote:** GitHub Actions **`pull_request`** run **23727613962** — **success** (see `M00_run1.md`)
 
 ---
 
 ## 5. CI / automation
 
 - Workflow: `.github/workflows/ci.yml` on `push` to `main`/`master` and `pull_request`
-- **Status:** Workflow is **committed**; **merge-blocking green on GitHub** remains **to be verified** post-push
+- **Status:** Workflow **ran green** on PR #1 (run `23727613962`)
 
 ---
 
@@ -80,13 +80,13 @@ No blocking issues recorded at closeout beyond the explicit **remote CI pending*
 | Criterion | Status |
 |-----------|--------|
 | M00 plan acceptance (local implementation + tests + CI config) | **Met locally** |
-| Remote CI green | **Pending** — verify after PR |
+| Remote CI green | **Met** — PR #1 run `23727613962` |
 
 ---
 
 ## 10. Final verdict
 
-M00 **implementation and documentation** objectives are met **on the development machine**. **Do not** treat the milestone as fully closed for release purposes until **GitHub Actions** has passed on the **M00 PR** and `M00_run1.md` records that run.
+M00 **implementation and documentation** objectives are met **locally** and **first-pass remote CI** on **PR #1** is **green** (`M00_run1.md`). Final **merge** remains a maintainer decision.
 
 ---
 
