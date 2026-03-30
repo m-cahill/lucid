@@ -54,6 +54,11 @@ When documents or code disagree, use this order:
 | Active scoring profile | **LUCID_SCORING_PROFILE v1.1.0** |
 | Local minimal green path | **Complete (M00)** — `scripts/run_local_smoke.py` + tests |
 | Kaggle Community Benchmarks E2E | **Deferred to M01** (M00 = docs alignment + local smoke only) |
+| Remote GitHub Actions | **Pending** — verify on the PR after push (not a substitute for local runs) |
+
+### Local execution posture
+
+**GPU:** NVIDIA **RTX 5090** (**Blackwell**) — used for **local training** workloads when GPU-backed training is part of the workflow.
 
 ---
 
@@ -87,7 +92,9 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 
 **Goal:** Prove that the local LUCID benchmark structure can be represented, run, and validated through Kaggle’s benchmark/task workflow **without changing** core benchmark semantics.
 
-Details will live in `docs/milestones/M01/M01_plan_stub.md` after M00 closeout.
+Details: `docs/milestones/M01/M01_plan_stub.md`.
+
+**M01 setup (observations only — do not execute before M01 is opened):** the next milestone should prove transport of the **1.1.0** benchmark line through **Kaggle Community Benchmarks** (tasks/benchmarks, documented in `docs/LUCID_COMPETITION_ALIGNMENT.md`) without changing scoring semantics. Record platform-specific friction in the M01 milestone folder when work starts.
 
 ---
 
