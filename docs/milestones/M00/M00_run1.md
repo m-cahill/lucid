@@ -94,3 +94,16 @@
 
 - Analysis format guided by `docs/prompts/workflowprompt.md`.
 - Local pre-run checks (superseded as merge authority by this run for remote truth): see earlier revision history if needed.
+
+---
+
+## Appendix — follow-up `pull_request` run (after this file landed on the PR)
+
+| Field | Value |
+|-------|--------|
+| **Run ID** | **23727633205** |
+| **Conclusion** | **success** |
+| **PR head at run** | `6c69f10fdeed88706307a80d2130f1d0b1216b64` |
+| **URL** | https://github.com/m-cahill/lucid/actions/runs/23727633205 |
+
+Same job matrix as run 1 (`lint-test`). **Purpose:** re-validate after doc-only changes to ledger + `M00_run1.md` + summary/audit.
