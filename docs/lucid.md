@@ -54,7 +54,7 @@ When documents or code disagree, use this order:
 | Active scoring profile | **LUCID_SCORING_PROFILE v1.1.0** |
 | Local minimal green path | **Complete (M00)** — `scripts/run_local_smoke.py` + tests |
 | Kaggle Community Benchmarks E2E | **Deferred to M01** (M00 = docs alignment + local smoke only) |
-| Remote GitHub Actions | **Verified (PR #1)** — first `pull_request` run **23727613962** green; see `docs/milestones/M00/M00_run1.md` |
+| Remote GitHub Actions | **Verified (PR #1)** — `pull_request` CI green (see `M00_run1.md`; latest head `3a798cc80910a48fca793d6740dea1d5ba0ec4f6`) |
 
 ### Local execution posture
 
