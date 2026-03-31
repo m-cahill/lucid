@@ -1,6 +1,6 @@
 # M01 — Kaggle platform evidence (template)
 
-**Status:** _Pending — populate after a real on-platform run._
+**Status:** **Superseded for M01 closeout** — authoritative record is **`M01_run1.md`**. Use this template for **future milestones** or local note-taking.
 
 | Field | Value |
 |--------|--------|

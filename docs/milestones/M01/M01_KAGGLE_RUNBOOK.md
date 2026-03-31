@@ -1,15 +1,15 @@
 # M01 — Kaggle Community Benchmarks handoff runbook
 
-**Milestone:** M01 — transport proof for benchmark line **1.1.0**  
-**Purpose:** Execute the **real Kaggle platform** steps after repo-side assets are merged. This document is **not** a substitute for the [Kaggle Benchmarks cookbook](https://github.com/Kaggle/kaggle-benchmarks/blob/ci/cookbook.md).
+**Milestone:** M01 — transport proof for benchmark line **1.1.0** (**M01 closed** — see `M01_run1.md`, `M01_summary.md`)  
+**Purpose:** Historical **handbook** for how the Kaggle transport was executed. This document is **not** a substitute for the [Kaggle Benchmarks cookbook](https://github.com/Kaggle/kaggle-benchmarks/blob/ci/cookbook.md).
 
-**Honesty rule:** **M01 Kaggle E2E is not complete** until a real on-platform notebook/task run succeeds with evidence captured. Install transport and CI green are necessary but not sufficient.
+**M01 outcome:** Platform proof and hosted-model scores were captured; authoritative evidence is **`docs/milestones/M01/M01_run1.md`** and the score ledger in **`docs/lucid.md` §6**. Use this runbook for **repeat runs** or onboarding; do not treat CI alone as platform proof for **new** milestones.
 
 ---
 
 ## 1. Repo-side prerequisites (offline)
 
-- Transport work lives on **`m01-kaggle-transport-proof`** (pushed to `origin`); open PR for review — **do not merge** until milestone owner approves.
+- Transport work was developed on **`m01-kaggle-transport-proof`** (pushed to `origin`). Post-closeout merges follow normal project policy.
 - Canonical notebook: `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (regenerate with `scripts/generate_kaggle_notebook.py`). Contract: `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md`.
 - **One** `%choose` selecting **`lucid_main_task`**; **one** `@kbench.task` only.
 - Deterministic slice matches `tests/fixtures/kaggle_transport/transport_manifest.json` (seeds **100/LOW**, **42/MEDIUM**, **200/HIGH**).
@@ -96,16 +96,18 @@ Do not attach a **partial** `lucid/` source tree as a dataset if it would appear
 
 ## 5. Evidence capture (commit back to `docs/milestones/M01/`)
 
-Fill `M01_KAGGLE_EVIDENCE_TEMPLATE.md` (or rename to `M01_run1.md` once populated) with:
+**M01:** Authoritative evidence is **`M01_run1.md`** plus the hosted-model ledger in **`docs/lucid.md` §6**. The template `M01_KAGGLE_EVIDENCE_TEMPLATE.md` remains for **future milestones** or scratch notes.
+
+For **new** platform runs, record:
 
 - Notebook URL / version identifier
 - Task and Community Benchmark identifiers (as shown in the UI)
-- Model identifier used on platform
+- Model identifier(s) used on platform
 - Screenshots or exports if links are brittle
 - Install method used (ZIP SHA, wheel dataset name, etc.)
 - Any manual steps, friction, or permission blockers
 
-**Honesty rule:** If a full platform run cannot be completed, **do not** claim M01 E2E complete; record the blocker and keep CI green on offline transport checks only.
+**Honesty rule:** CI green alone does not substitute for platform evidence when a milestone claims an external run.
 
 ---
 

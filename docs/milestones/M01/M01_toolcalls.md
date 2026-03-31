@@ -1,6 +1,6 @@
 # M01 — Tool call log
 
-Milestone: M01 — Kaggle Community Benchmarks E2E (planned)
+Milestone: M01 — Kaggle Community Benchmarks E2E (**complete**)
 
 ---
 
@@ -17,3 +17,4 @@ Milestone: M01 — Kaggle Community Benchmarks E2E (planned)
 | 2026-03-31 | docs | Ledger + runbook: canonical notebook path, generator authority, **pin SHA** `da080cd…` vs tip (§5.1 contract); M01 still **open** pending platform proof. | `docs/lucid.md`, `M01_KAGGLE_RUNBOOK.md` | done |
 | 2026-03-31 | feat / generator | **M01.1:** `lucid.kaggle.text_adapter.parse_turn_payload(require_answer=…)`, prompts in `prompts.py`; generator imports package (no inlined parser fork); removed unsafe `llm` debug cells; notebook regenerated; **pin** `45cfa43be89575fc7d94545eae838e413abd30e7`; M01 **open** pending Kaggle proof. | `src/lucid/kaggle/`, `scripts/`, `notebooks/` | done |
 | 2026-03-31 | git push | Pushed `m01-kaggle-transport-proof` to `origin` so commit-pinned ZIP `https://github.com/m-cahill/lucid/archive/45cfa43be89575fc7d94545eae838e413abd30e7.zip` resolves (fixes 404 before push). | `origin` | done |
+| 2026-03-31 | docs / closeout | **M01 closed:** `M01_run1.md`, `M01_summary.md`, `M01_audit.md`; `docs/lucid.md` ledger + §6 score table as evidence; `M02/` stub seeded. | `docs/milestones/M01/`, `docs/milestones/M02/`, `docs/lucid.md` | done |
