@@ -43,7 +43,8 @@ When documents or code disagree, use this order:
 | Operating manual | `docs/LUCID_OPERATING_MANUAL.md` |
 | Archived bundle export (v1.0.1) | `docs/archive/LUCID_contracts_master_bundle_v1.0.1_ARCHIVED.md` |
 | Milestone plans | `docs/milestones/MNN/` |
-| Kaggle transport notebook (M01) | `notebooks/lucid_kaggle_benchmark.ipynb` |
+| Kaggle notebook contract (standing) | `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` |
+| Canonical Kaggle notebook (generated) | `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (`scripts/generate_kaggle_notebook.py`) |
 | Kaggle transport fixture manifest | `tests/fixtures/kaggle_transport/transport_manifest.json` |
 | M01 Kaggle handoff runbook | `docs/milestones/M01/M01_KAGGLE_RUNBOOK.md` |
 
@@ -109,7 +110,7 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 
 **Authoritative plan:** `docs/milestones/M01/M01_plan.md` (supersedes the historical stub `M01_plan_stub.md`).
 
-**Repo-side status (this commit):** transport package under `src/lucid/kaggle/`, deterministic fixture manifest, offline equivalence tests, and `notebooks/lucid_kaggle_benchmark.ipynb` (one main task via `%choose`). **Kaggle platform proof** is tracked via `docs/milestones/M01/M01_KAGGLE_EVIDENCE_TEMPLATE.md` and the handoff steps in `M01_KAGGLE_RUNBOOK.md`.
+**Repo-side status (this commit):** transport package under `src/lucid/kaggle/`, deterministic fixture manifest, offline equivalence tests, **`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md`**, and the **generated** canonical notebook `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (plain-text adapter + one `lucid_main_task` + `%choose`). **M01.1** added the contract and generator to prevent notebook drift; older schema-based notebooks are **archived** under `notebooks/archive/` (non-canonical). **Kaggle platform proof** is tracked via `docs/milestones/M01/M01_KAGGLE_EVIDENCE_TEMPLATE.md` and `M01_KAGGLE_RUNBOOK.md`. **M01 is not closed** until a real on-platform run with evidence.
 
 **Competition alignment:** `docs/LUCID_COMPETITION_ALIGNMENT.md`.
 

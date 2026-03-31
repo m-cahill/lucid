@@ -39,3 +39,6 @@ jobs:
           python -m pip install build
           python -m build --wheel
           python scripts/verify_wheel_has_kaggle.py
+
+      - name: Verify canonical Kaggle notebook matches generator (HEAD)
+        run: python scripts/generate_kaggle_notebook.py --check -o notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb

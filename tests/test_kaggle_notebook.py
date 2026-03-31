@@ -1,4 +1,4 @@
-"""Validate repo-tracked Kaggle notebook structure (offline; not a Kaggle platform run)."""
+"""Validate canonical Kaggle notebook structure (offline; not a Kaggle platform run)."""
 
 from __future__ import annotations
 
@@ -6,10 +6,10 @@ import json
 from pathlib import Path
 
 _ROOT = Path(__file__).resolve().parents[1]
-_NOTEBOOK = _ROOT / "notebooks" / "lucid_kaggle_benchmark.ipynb"
+_NOTEBOOK = _ROOT / "notebooks" / "lucid_kaggle_transport_text_adapter_m_01.ipynb"
 
 
-def test_kaggle_notebook_has_single_choose_and_main_task_name() -> None:
+def test_canonical_kaggle_notebook_contract() -> None:
     data = json.loads(_NOTEBOOK.read_text(encoding="utf-8"))
     assert data.get("nbformat") == 4
     code_sources: list[str] = []
@@ -23,8 +23,43 @@ def test_kaggle_notebook_has_single_choose_and_main_task_name() -> None:
             code_sources.append(str(src))
 
     joined = "\n".join(code_sources)
-    assert "@kbench.task(name=" in joined
-    assert "lucid_symbolic_negation_row" in joined
-    assert "%choose lucid_main_task" in joined
+
+    assert joined.count("@kbench.task") == 1
+    assert 'name="lucid_main_task"' in joined
+    assert "lucid_symbolic_negation_row" not in joined
     assert joined.count("%choose") == 1
-    assert "find_spec" in joined and "lucid.kaggle" in joined
+    assert "%choose lucid_main_task" in joined
+    assert "lucid_main_task.run(kbench.llm)" in joined
+    assert "schema=" not in joined
+    assert "JSON_OBJECT_RE = re.compile" in joined
+    assert r"\{[^{}]*\}" in joined or "[^{}]*" in joined
+    assert "EVAL_ROWS" in joined
+    assert '"generation_seed": 100' in joined
+    assert "parse_turn_payload" in joined
+    assert "def _strip_code_fences" in joined
+    md_all = "".join(
+        "".join(c.get("source", [])) for c in data["cells"] if c.get("cell_type") == "markdown"
+    )
+    assert "Repository pin (commit SHA)" in md_all
+    assert "scoring profile" in md_all.lower() or "Scoring profile" in md_all
+
+
+def test_generator_check_matches_committed_notebook() -> None:
+    """Requires `python scripts/generate_kaggle_notebook.py --check` to pass."""
+    import subprocess
+    import sys
+
+    r = subprocess.run(
+        [
+            sys.executable,
+            str(_ROOT / "scripts" / "generate_kaggle_notebook.py"),
+            "--check",
+            "-o",
+            "notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb",
+        ],
+        cwd=_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert r.returncode == 0, r.stdout + r.stderr

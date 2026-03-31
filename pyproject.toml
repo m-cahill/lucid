@@ -60,6 +60,7 @@ extend-select = ["I"]
 
 [tool.ruff.lint.per-file-ignores]
 "src/lucid/scorer.py" = ["E741"]
+"scripts/generate_kaggle_notebook.py" = ["E501"]
 
 [tool.mypy]
 python_version = "3.11"

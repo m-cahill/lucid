@@ -9,7 +9,8 @@
 
 ## 1. Repo-side prerequisites (offline)
 
-- Branch contains `notebooks/lucid_kaggle_benchmark.ipynb` with **one** `%choose` selecting **`lucid_main_task`**.
+- Canonical notebook: `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (regenerate with `scripts/generate_kaggle_notebook.py`). Contract: `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md`.
+- **One** `%choose` selecting **`lucid_main_task`**; **one** `@kbench.task` only.
 - Deterministic slice matches `tests/fixtures/kaggle_transport/transport_manifest.json` (seeds **100/LOW**, **42/MEDIUM**, **200/HIGH**).
 - Local gates green: `ruff`, `mypy`, `pytest`, `python scripts/run_local_smoke.py`.
 
@@ -68,7 +69,7 @@ Do not attach a **partial** `lucid/` source tree as a dataset if it would appear
 
 1. Create or open a Kaggle notebook in the **Community Benchmarks** flow (see competition / platform UI for the current entry point).
 2. Install LUCID using **§2.1** (or **§2.2** / **§2.3** as needed).
-3. Use the code cells in `notebooks/lucid_kaggle_benchmark.ipynb` as the template (the notebook includes a `lucid.kaggle` existence check).
+3. Use the code cells in the **canonical** notebook `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (generated; see `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md`).
 4. Copy any remaining cells so task names and `%choose` stay aligned.
 5. **Model:** prefer a **Kaggle-hosted** model (e.g. examples in the upstream cookbook). One model is enough for the acceptance run; add a second only after the first proof is green.
 6. **Save Version** after a successful run.
