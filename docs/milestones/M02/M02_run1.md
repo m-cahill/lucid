@@ -4,8 +4,9 @@
 **Status:** **Complete** (repository record)  
 **Benchmark:** LUCID **1.1.0** (unchanged)
 
-**Repository HEAD (workspace at authoritative pass):** `bffc72aacf72cec9428b398af517e8b1e7c2edc9`  
-**Branch (workspace):** `m01-kaggle-transport-proof` (see merge-readiness report for merge state)
+**Merge to `main`:** PR [#3](https://github.com/m-cahill/lucid/pull/3) — merge commit **`4e47f8e5a16c74860e97a6b76167eaae02bf8c99`** (2026-03-31).
+
+**Pre-merge feature tip (M02 commit):** `552711607b39afb37daf01d0142d4268798c1943` (`docs(m02): finalize closeout and seed M03`).
 
 ---
 
@@ -32,17 +33,34 @@ If `pytest` / `--check` ever fails on drift, regenerate the canonical notebook w
 
 ---
 
-## 3. GitHub Actions (reference)
+## 3. GitHub Actions (authoritative)
+
+### 3.1 PR #3 — `CI` workflow (pre-merge)
 
 | Field | Value |
 |--------|--------|
-| **Latest green `CI` on `main` (queried via `gh`)** | Run ID **23821168938** |
-| **URL** | https://github.com/m-cahill/lucid/actions/runs/23821168938 |
+| **Run ID** | **23824700359** |
+| **URL** | https://github.com/m-cahill/lucid/actions/runs/23824700359 |
 | **Conclusion** | success |
-| **Event** | push to `main` (merge PR #2) |
-| **Run `headSha` (GitHub metadata)** | `e9a31d4fc893ba66564985c59944d35ab075bd99` |
+| **Trigger** | `pull_request` on `m01-kaggle-transport-proof` |
+| **`headSha`** | `552711607b39afb37daf01d0142d4268798c1943` |
+| **Job** | `lint-test` (required) |
 
-**Interpretation:** That run validates **`main` at the M01 merge**, not necessarily the current working tree. **M02 doc changes** on a feature branch should pass the same local gates above; **a new green workflow run on `main`** is expected **after** M02 changes are merged and pushed.
+### 3.2 `main` — post-merge push (authoritative for `main` @ M02 merge)
+
+| Field | Value |
+|--------|--------|
+| **Run ID** | **23824719452** |
+| **URL** | https://github.com/m-cahill/lucid/actions/runs/23824719452 |
+| **Conclusion** | success |
+| **Trigger** | `push` to `main` (merge PR #3) |
+| **`headSha`** | `4e47f8e5a16c74860e97a6b76167eaae02bf8c99` |
+
+### 3.3 Workflow analysis (brief)
+
+**Workflow:** `CI` (`.github/workflows/ci.yml`). **Signal:** Both runs concluded **success**; required job **`lint-test`** completed green. **Change context:** M02 docs/governance + M03 stubs + canonical notebook parity — **release-related** milestone closure, not corrective. **Invariant:** Benchmark semantics unchanged (**1.1.0**); gates match local verification table in §1.
+
+**Historical (pre-M02 on `main`):** Run **23821168938** (merge PR #2 / M01) — https://github.com/m-cahill/lucid/actions/runs/23821168938 — superseded for M02 closure by §3.1–3.2.
 
 ---
 
