@@ -110,7 +110,11 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 
 **Authoritative plan:** `docs/milestones/M01/M01_plan.md` (supersedes the historical stub `M01_plan_stub.md`).
 
-**Repo-side status (this commit):** transport package under `src/lucid/kaggle/`, deterministic fixture manifest, offline equivalence tests, **`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md`**, and the **generated** canonical notebook `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (plain-text adapter + one `lucid_main_task` + `%choose`). **M01.1** added the contract and generator to prevent notebook drift; older schema-based notebooks are **archived** under `notebooks/archive/` (non-canonical). **Kaggle platform proof** is tracked via `docs/milestones/M01/M01_KAGGLE_EVIDENCE_TEMPLATE.md` and `M01_KAGGLE_RUNBOOK.md`. **M01 is not closed** until a real on-platform run with evidence.
+**Repo-side status:** transport package under `src/lucid/kaggle/`, deterministic fixture manifest, offline equivalence tests, **`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md`**, and the **generated** canonical notebook `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (plain-text adapter + one `lucid_main_task` + `%choose`). **M01.1** added the contract and generator to prevent notebook drift; older schema-based notebooks are **archived** under `notebooks/archive/` (non-canonical).
+
+**Branch / CI:** `m01-kaggle-transport-proof` is pushed to `origin`; latest pushed head (for PR / CI) should match GitHub. The canonical notebook’s **install pin** may trail tip when only docs/generator/notebook churn; see **`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1** — bump the pin if `src/lucid/` changes.
+
+**Kaggle platform proof** is tracked via `docs/milestones/M01/M01_KAGGLE_EVIDENCE_TEMPLATE.md` and `M01_KAGGLE_RUNBOOK.md`. **M01 is not closed** until a real on-platform run with evidence.
 
 **Competition alignment:** `docs/LUCID_COMPETITION_ALIGNMENT.md`.
 

@@ -9,6 +9,7 @@
 
 ## 1. Repo-side prerequisites (offline)
 
+- Transport work lives on **`m01-kaggle-transport-proof`** (pushed to `origin`); open PR for review — **do not merge** until milestone owner approves.
 - Canonical notebook: `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (regenerate with `scripts/generate_kaggle_notebook.py`). Contract: `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md`.
 - **One** `%choose` selecting **`lucid_main_task`**; **one** `@kbench.task` only.
 - Deterministic slice matches `tests/fixtures/kaggle_transport/transport_manifest.json` (seeds **100/LOW**, **42/MEDIUM**, **200/HIGH**).
@@ -22,13 +23,19 @@ Many Kaggle notebook kernels **do not include `git`**, so `pip install git+https
 
 ### 2.1 Preferred — pinned GitHub archive ZIP (no git)
 
-**Branch tip (moves with branch head):**
+**M01.1 proof pin (matches canonical notebook banner + install cell):** use this for an audit-clean install aligned with `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (same `src/lucid` as branch tip while pin trails only notebook/docs commits — see `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1):
+
+```text
+%pip install -q "https://github.com/m-cahill/lucid/archive/da080cda0760ff742c7e4a69a0a873822049620c.zip"
+```
+
+**Branch tip (moves with branch head; not commit-pinned):**
 
 ```text
 %pip install -q "https://github.com/m-cahill/lucid/archive/refs/heads/m01-kaggle-transport-proof.zip"
 ```
 
-**Commit-pinned (reproducible; replace `<FULL_SHA>` with the 40-character commit):**
+**Arbitrary commit (reproducible; replace `<FULL_SHA>` with the 40-character commit):**
 
 ```text
 %pip install -q "https://github.com/m-cahill/lucid/archive/<FULL_SHA>.zip"

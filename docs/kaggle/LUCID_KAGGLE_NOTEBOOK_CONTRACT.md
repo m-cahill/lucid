@@ -70,13 +70,22 @@ If future payloads need nesting, replace with balanced-brace extraction and docu
 
 The **generated** install cell must use the **same SHA** as the metadata banner.
 
+### 5.1 Pin SHA vs branch tip (audit coherence)
+
+The banner and `%pip` URL may reference a commit **older than** the branch tip when later commits touch **only** docs, the generator, or notebook JSON — not **`src/lucid/`** or packaging inputs. That is coherent for transport if the installed package is unchanged:
+
+- Verify with `git diff <PIN_SHA>..<BRANCH_TIP> -- src/` (empty diff ⇒ same `lucid` code as tip).
+- **Bump the pin** (regenerate with a new `--pin-sha`) whenever **`src/lucid/`** or wheel-relevant metadata changes.
+
+**M01.1 current pin:** `da080cda0760ff742c7e4a69a0a873822049620c` — matches `src/lucid` at branch tip through `d3fd3aec06a18cd1490fbb23f4c3c3628aef1a52` (no `src/` changes between pin and tip).
+
 ---
 
 ## 6. Pre-submission checklist (notebook readiness)
 
 Before claiming the notebook is ready for a Kaggle proof run:
 
-- [ ] Regenerated with `python scripts/generate_kaggle_notebook.py --pin-sha $(git rev-parse HEAD)` and committed.
+- [ ] Regenerated with `python scripts/generate_kaggle_notebook.py` using an explicit `--pin-sha <40-char>` (or `auto` at release time), then committed; `python scripts/generate_kaggle_notebook.py --check` passes locally and in CI.
 - [ ] Notebook runs top-to-bottom in a Kaggle-like environment (after install).
 - [ ] Exactly one `@kbench.task` and one `%choose`.
 - [ ] No `schema=` on `llm.prompt`.
