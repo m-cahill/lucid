@@ -47,6 +47,12 @@ When documents or code disagree, use this order:
 | Canonical Kaggle notebook (generated) | `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (`scripts/generate_kaggle_notebook.py`) |
 | Kaggle transport fixture manifest | `tests/fixtures/kaggle_transport/transport_manifest.json` |
 | M01 Kaggle handoff runbook | `docs/milestones/M01/M01_KAGGLE_RUNBOOK.md` |
+| Competition alignment (submission strategy, judging, family priorities) | `docs/LUCID_COMPETITION_ALIGNMENT.md` |
+| M01 closeout (complete) | `docs/milestones/M01/M01_run1.md`, `docs/milestones/M01/M01_summary.md`, `docs/milestones/M01/M01_audit.md` |
+| M02 plan & closeout (complete) | `docs/milestones/M02/M02_plan.md`, `docs/milestones/M02/M02_summary.md`, `docs/milestones/M02/M02_audit.md` |
+| M02 evidence / CI run record | `docs/milestones/M02/M02_run1.md` |
+| M03 plan (stub; next milestone) | `docs/milestones/M03/M03_plan.md` |
+| M03 tool log | `docs/milestones/M03/M03_toolcalls.md` |
 
 ---
 
@@ -57,7 +63,7 @@ When documents or code disagree, use this order:
 | Active template families | **symbolic_negation_v1** (documented in M00; see `docs/families/`) |
 | Active scoring profile | **LUCID_SCORING_PROFILE v1.1.0** |
 | Local minimal green path | **Complete (M00)** — `scripts/run_local_smoke.py` + tests |
-| Kaggle Community Benchmarks E2E | **In progress (M01)** — repo transport + offline equivalence; **platform proof pending** real Kaggle run (see `docs/milestones/M01/`) |
+| Kaggle Community Benchmarks E2E | **Complete (M01)** — repo transport + offline equivalence + **Kaggle platform proof** (hosted models, task wiring, scores); see `docs/milestones/M01/M01_run1.md` and §6 score ledger |
 | Remote GitHub Actions | **Verified** — `pull_request` / `push` CI per `.github/workflows/ci.yml`; historical evidence in `docs/milestones/M00/M00_run1.md` |
 
 ### Proof classes (audit-clean ledger)
@@ -70,7 +76,7 @@ Use these labels consistently in milestone docs and run analyses:
 | **GitHub CI proof** | Lint/type/test gates on `ubuntu-latest` in CI | Green workflow run logs / run IDs |
 | **Kaggle platform proof** | Real execution in Kaggle’s benchmark/task environment | Notebook version, task/benchmark links, model run outputs (see `M01_KAGGLE_EVIDENCE_TEMPLATE.md`) |
 
-**Rule:** **Kaggle Community Benchmarks E2E** is satisfied only when **Kaggle platform proof** exists. CI green alone is **not** external platform proof.
+**Rule:** **Kaggle Community Benchmarks E2E** requires **Kaggle platform proof** (not CI alone). **M01** delivered that proof; **future milestones** must record their own external evidence when they claim platform work.
 
 ### Local execution posture
 
@@ -89,48 +95,168 @@ Use these labels consistently in milestone docs and run analyses:
 
 ## 6. Competition alignment
 
-Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark construction** entry. Full facts, links, and scope (M00 docs-only vs M01 E2E) are in **`docs/LUCID_COMPETITION_ALIGNMENT.md`**.
+Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark construction** entry. Full facts, links, scope (M00 docs-only vs M01 E2E), submission strategy, and family priorities are in **`docs/LUCID_COMPETITION_ALIGNMENT.md`**.
+
+### 6.1 Competition win conditions (standing)
+
+| Judged axis (priority) | Role for LUCID |
+|------------------------|----------------|
+| **Dataset quality & task construction** | Highest-value axis; synthetic rule-worlds, explicit drift, audit-ready episodes. |
+| **Novelty / insights / discriminatory power** | Second; hosted-model sweeps and family-level spread must show a meaningful gradient. |
+| **Writeup quality** | Third; judge-facing narrative and evidence packaging. |
+
+**Primary faculty (one):** LUCID optimizes for **metacognition** (detection, calibration, recovery under instructional drift) — not solver performance or multi-faculty sprawl.
+
+**Standing rule:** Each future milestone should state **which judged axis** it primarily advances.
+
+### 6.2 Submission posture
+
+- **M01** established **transport proof** and an initial **hosted-model spread** on a fixed acceptance slice (`symbolic_negation_v1`).
+- LUCID is **not submission-ready** after M01.
+- **Remaining gaps** before a competition-ready submission include: benchmark-family **depth**, **defensibility**, broader **Kaggle evidence** on a mature benchmark pack, and **writeup / packaging** aligned to the rules.
+
+### 6.3 Standing family promotion rules (at milestone close)
+
+Each future benchmark-family milestone must record:
+
+1. **Sample size** (episodes / scale).
+2. **Hosted-model spread summary** (or equivalent discriminatory evidence).
+3. **Family verdict:** **promote**, **retain provisionally**, or **drop**.
+
+This guards against faculty sprawl and “benchmark theater.”
+
+### 6.4 Submission blockers (standing)
+
+Until addressed, the entry should not be treated as submission-complete:
+
+- **Mature family depth** beyond the M01 transport slice.
+- **Family-level discriminatory power** evidence on scaled packs.
+- **Defensibility / ambiguity audit** (contamination resistance, task clarity).
+- **Final writeup pack** (figures, narrative, judge-facing framing).
+- **Final Kaggle benchmark / task / writeup linkage** per competition requirements.
+
+### Kaggle hosted models — score ledger (reference)
+
+**Coverage:** The table below is the **full set of competition-available hosted models** we track for this entry.
+
+**Run posture:** We intend to run **all** of these models on **each** benchmark pass — the marginal cost is low, so exhaustive coverage is the default.
+
+| Score | Model |
+|------:|--------|
+| 0.90 | Claude Opus 4.1 |
+| 0.90 | Claude Sonnet 4 |
+| 0.89 | Claude Sonnet 4.5 |
+| 0.89 | Gemini 2.5 Pro |
+| 0.89 | GLM-5 |
+| 0.89 | Qwen 3 Coder 480B |
+| 0.83 | Claude Haiku 4.5 |
+| 0.68 | Claude Sonnet 4.6 |
+| 0.68 | Gemini 2.0 Flash |
+| 0.68 | Gemma 3 27B |
+| 0.68 | Qwen 3 235B A22B Instruct |
+| 0.67 | Claude Opus 4.5 |
+| 0.67 | Gemini 2.0 Flash Lite |
+| 0.67 | Gemma 3 12B |
+| 0.67 | Qwen 3 Next 80B Instruct |
+| 0.66 | Claude Opus 4.6 |
+| 0.66 | DeepSeek-R1 |
+| 0.66 | Gemini 3.1 Flash-Lite Preview |
+| 0.66 | Gemini 3.1 Pro Preview |
+| 0.65 | DeepSeek V3.2 |
+| 0.65 | Gemini 2.5 Flash |
+| 0.65 | Qwen 3 Next 80B Thinking |
+| 0.64 | Gemini 3 Flash Preview |
+| 0.47 | Deepseek V3.1 |
+| 0.47 | Gemma 3 4B |
+| 0.46 | Gemma 3 1B |
+
+_Update this table when new platform runs produce different aggregates; cite notebook / task version in milestone evidence._
+
+**M01 closeout:** This ledger was populated during **M01** with hosted-model scores and the “run all models” posture; it is **M01 evidence** — preserve when editing surrounding text.
 
 ---
 
 ## 7. Milestone ledger
 
+Planned milestone arc (competition charter locked in **M02**):
+
 | Milestone | Goal | Status |
 |-----------|------|--------|
 | **M00** | Bootstrap repo, semantic lock, local minimal green path, baseline CI | **Complete** |
-| **M01** | Kaggle Community Benchmarks E2E verification | **Open / in progress** |
+| **M01** | Kaggle Community Benchmarks E2E verification | **Complete** |
+| **M02** | Competition charter lock & milestone arc formalization | **Complete** |
+| **M03** | Family 1 scale-up — symbolic negation / local rule-reversal dataset expansion | **Planned** |
+| **M04** | Family 1 analytics — difficulty ladder, spread analysis, and promotion decision | **Planned** |
+| **M05** | Family 2 — contradiction / clarification benchmark family | **Planned** |
+| **M06** | Family 3 — scope / precedence / exception drift family | **Planned** |
+| **M07** | Unified benchmark pack normalization across families | **Planned** |
+| **M08** | Defensibility, QA, and contamination-resistance hardening | **Planned** |
+| **M09** | Expanded Kaggle evidence run on mature benchmark | **Planned** |
+| **M10** | Writeup evidence pack, figures, and judge-facing narrative | **Planned** |
+| **M11** | Submission lock: final benchmark freeze and submission checklist | **Planned** |
+| **M12** | Contingency A — platform / benchmark replacement buffer | **Planned** |
+| **M13** | Contingency B — final polish / writeup / evidence cleanup buffer | **Planned** |
+
+**Benchmark family priorities (first three, locked in M02):**
+
+1. **Family 1 — symbolic negation / local rule reversal:** transport already proven in M01; fastest path to dataset scale.  
+2. **Family 2 — contradiction / clarification:** metacognitive honesty, abstention, recovery.  
+3. **Family 3 — scope / precedence / exception drift:** broadens drift taxonomy within the same faculty thesis.
 
 ---
 
-## 8. Active milestone (M01)
+## 8. Historical milestones (closed)
 
-**Priority:** **Kaggle Community Benchmarks E2E verification.**
+### M01 — Kaggle Community Benchmarks E2E verification
 
-**Goal:** Prove that the local LUCID **1.1.0** benchmark line can be transported into Kaggle’s benchmark/task workflow and executed on-platform **without changing** core benchmark semantics.
+**Closed:** 2026-03-31 (repository record). **M01.1** (notebook contract, generator, text adapter) was **in-milestone** hardening, not a separate milestone.
 
-**Authoritative plan:** `docs/milestones/M01/M01_plan.md` (supersedes the historical stub `M01_plan_stub.md`).
+**What M01 proved**
 
-**Repo-side status:** transport package under `src/lucid/kaggle/`, deterministic fixture manifest, offline equivalence tests, **`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md`**, and the **generated** canonical notebook `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (plain-text adapter + one `lucid_main_task` + `%choose`). **M01.1** added the contract and generator to prevent notebook drift; older schema-based notebooks are **archived** under `notebooks/archive/` (non-canonical).
+- **Repo:** Transport under `src/lucid/kaggle/`, deterministic fixtures, equivalence tests, generated canonical notebook `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb`, standing contract `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md`, CI notebook `--check`.
+- **Kaggle:** Canonical notebook uploaded / used with the Community Benchmarks workflow; **single** main task `lucid_main_task`; benchmark execution on **hosted models** with **numeric scores**.
+- **Signal:** Initial **discriminative spread** across the full hosted-model set (see §6); not a claim of final benchmark maturity.
 
-**Branch / CI:** `m01-kaggle-transport-proof` is pushed to `origin`; latest pushed head (for PR / CI) should match GitHub. The canonical notebook’s **install pin** may trail tip when only docs/generator/notebook churn; see **`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1** — bump the pin if `src/lucid/` changes.
+**Authoritative plan (archived goal):** `docs/milestones/M01/M01_plan.md`  
+**Evidence:** `docs/milestones/M01/M01_run1.md`, `docs/milestones/M01/M01_summary.md`, `docs/milestones/M01/M01_audit.md`  
+**Handbook:** `docs/milestones/M01/M01_KAGGLE_RUNBOOK.md`
 
-**Kaggle platform proof** is tracked via `docs/milestones/M01/M01_KAGGLE_EVIDENCE_TEMPLATE.md` and `M01_KAGGLE_RUNBOOK.md`. **M01 is not closed** until a real on-platform run with evidence.
+### M02 — Competition charter lock & milestone arc formalization
+
+**Closed:** 2026-03-31 (repository record).
+
+**What M02 delivered**
+
+- **Charter:** Submission strategy locked around **metacognition under instructional drift**; judged axes and standing promotion rules recorded in this ledger and in `docs/LUCID_COMPETITION_ALIGNMENT.md`.
+- **Arc:** Planned milestones **M03–M13** recorded in §7; first three benchmark-family priorities fixed at planning level (no new family implementation in M02).
+- **Scope:** Documentation and governance only — **no** benchmark semantic change, **no** transport change, **no** Kaggle rerun, benchmark version remains **1.1.0**.
+
+**Plan / evidence:** `docs/milestones/M02/M02_plan.md`, `docs/milestones/M02/M02_summary.md`, `docs/milestones/M02/M02_audit.md`, `docs/milestones/M02/M02_run1.md`  
+**Tool log:** `docs/milestones/M02/M02_toolcalls.md`
+
+### Canonical notebook regeneration rule (standing)
+
+- **Never** hand-edit the canonical `.ipynb`; regenerate via `scripts/generate_kaggle_notebook.py` after changing `src/lucid/kaggle/` or the generator; **`--check`** must pass.
+- **Pin** ZIP installs to a commit whose tree includes required transport code (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1).
 
 **Competition alignment:** `docs/LUCID_COMPETITION_ALIGNMENT.md`.
 
-### Canonical notebook regeneration rule (M01.1+)
+---
 
-- **Never** edit `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` by hand (cell-by-cell patches in the IDE). That path previously caused fence/truncation bugs and drifts from CI.
-- **Always** change transport behavior in **`src/lucid/kaggle/`** (and tests), update **`scripts/generate_kaggle_notebook.py`** if cell narrative or wiring changes, then run  
-  `python scripts/generate_kaggle_notebook.py --pin-sha <40-char-SHA> -o notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb`  
-  and commit the regenerated JSON. **`--check`** must pass.
-- **Pin:** use a commit SHA whose tree includes any **`src/lucid`** change the notebook imports at runtime (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1).
+## 9. Active milestone — M03 (next)
 
-**M01.1 (repo-side):** text adapter (`lucid.kaggle.text_adapter.parse_turn_payload` with `require_answer` split), prompts centralized in `lucid.kaggle.prompts`, unsafe top-level `llm` debug cells removed from the generated notebook; **Kaggle hosted-model proof still pending**.
+**Status:** **Planned / not opened** — stubs only until M03 execution begins (see §7).
+
+**Goal (from planned arc):** Family 1 scale-up — symbolic negation / local rule-reversal dataset expansion.
+
+**Plan (stub):** `docs/milestones/M03/M03_plan.md`  
+**Tool log:** `docs/milestones/M03/M03_toolcalls.md`
+
+M03 continues from M01/M02 evidence **without** redefining LUCID as a solver or widening benchmark semantics outside change control.
 
 ---
 
-## 9. Governance rule
+## 10. Governance rule
 
 - **Canonical contracts** = files under `docs/contracts/`.  
 - **No manual dual maintenance** of the archived master bundle vs individual contracts.  

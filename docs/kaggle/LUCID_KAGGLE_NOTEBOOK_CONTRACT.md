@@ -99,7 +99,7 @@ Before claiming the notebook is ready for a Kaggle proof run:
 - [ ] First hosted model run succeeds (platform).
 - [ ] Evidence recorded (`M01_KAGGLE_EVIDENCE_TEMPLATE.md` or `M01_run1.md`).
 
-**Honesty:** **M01 Kaggle E2E** is not complete until **Kaggle platform proof** exists with evidence — see `docs/lucid.md` proof classes.
+**Honesty:** **M01** closed with **Kaggle platform proof** recorded in `docs/milestones/M01/M01_run1.md` and the hosted-model ledger in `docs/lucid.md` §6. **Later milestones** that touch Kaggle must capture their own platform evidence — CI alone is not external proof.
 
 ---
 

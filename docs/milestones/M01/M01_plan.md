@@ -1,5 +1,7 @@
 # M01 Plan — Kaggle Community Benchmarks E2E Verification
 
+**Status:** **Complete (closed)** — repository record 2026-03-31. See `M01_summary.md`, `M01_audit.md`, `M01_run1.md`.
+
 **Project:** LUCID  
 **Milestone:** M01  
 **Benchmark line:** 1.1.0 (locked)  
