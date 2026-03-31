@@ -31,11 +31,13 @@ def test_canonical_kaggle_notebook_contract() -> None:
     assert "%choose lucid_main_task" in joined
     assert "lucid_main_task.run(kbench.llm)" in joined
     assert "schema=" not in joined
-    assert "JSON_OBJECT_RE = re.compile" in joined
-    assert r"\{[^{}]*\}" in joined or "[^{}]*" in joined
+    assert "lucid.kaggle.text_adapter" in joined
+    assert "require_answer=False" in joined
+    assert "require_answer=True" in joined
     assert "EVAL_ROWS" in joined
     assert '"generation_seed": 100' in joined
     assert "parse_turn_payload" in joined
+    assert "def parse_turn_payload" not in joined  # lives in package, not inlined
     assert "def _strip_code_fences" in joined
     md_all = "".join(
         "".join(c.get("source", [])) for c in data["cells"] if c.get("cell_type") == "markdown"

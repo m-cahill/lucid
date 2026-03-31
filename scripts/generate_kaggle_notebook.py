@@ -198,6 +198,8 @@ import kaggle_benchmarks as kbench
 
 from lucid.families.symbolic_negation_v1 import generate_episode
 from lucid.models import DriftSeverity
+from lucid.kaggle.prompts import turn1_user_prompt, turn2_user_prompt
+from lucid.kaggle.text_adapter import parse_turn_payload
 
 # Fixed acceptance slice for M01 transport proof.
 EVAL_ROWS = [
@@ -226,80 +228,13 @@ So this notebook asks the model for **JSON text only**, then:
 - normalizes enums and confidence
 - produces a typed dict for scoring
 
+Implementation: **`lucid.kaggle.text_adapter.parse_turn_payload`** (imported in §3) — same code as offline tests; do not fork.
+
 This keeps the scorer independent from free-form prose.
 """
 
-    adapter_code = """ALLOWED_RESPONSE_MODES = {"ANSWER", "ABSTAIN", "CLARIFY"}
-ALLOWED_DRIFT_DETECTED = {"NONE", "SUSPECTED", "CONFIRMED"}
-
-# Flat object only (model turn payload). Safer than greedy \\{.*\\}; see docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md §4.
-JSON_OBJECT_RE = re.compile(r"\\{[^{}]*\\}", re.DOTALL)
-
-
-def _strip_code_fences(text: str) -> str:
-    text = text.strip()
-    if text.startswith("```"):
-        text = re.sub(r"^```(?:json)?\\s*", "", text)
-        text = re.sub(r"\\s*```$", "", text)
-    return text.strip()
-
-
-def _extract_first_json_object(text: str) -> str:
-    cleaned = _strip_code_fences(text)
-    match = JSON_OBJECT_RE.search(cleaned)
-    if not match:
-        raise ValueError(f"No JSON object found in model output: {cleaned[:300]!r}")
-    return match.group(0)
-
-
-def _normalize_confidence(value: Any) -> float:
-    try:
-        x = float(value)
-    except Exception as exc:
-        raise ValueError(f"Confidence is not numeric: {value!r}") from exc
-    if math.isnan(x) or math.isinf(x):
-        raise ValueError(f"Confidence must be finite: {value!r}")
-    return max(0.0, min(1.0, x))
-
-
-def _normalize_answer(value: Any) -> str | None:
-    if value is None:
-        return None
-    value = str(value).strip()
-    return value if value else None
-
-
-def _normalize_enum(value: Any, allowed: set[str], field_name: str) -> str:
-    val = str(value).strip().upper()
-    if val not in allowed:
-        raise ValueError(f"{field_name} must be one of {sorted(allowed)}, got {value!r}")
-    return val
-
-
-def parse_turn_payload(raw_text: str) -> dict[str, Any]:
-    obj = json.loads(_extract_first_json_object(raw_text))
-    if not isinstance(obj, dict):
-        raise ValueError("Parsed payload must be a JSON object")
-
-    payload = {
-        "answer": _normalize_answer(obj.get("answer")),
-        "confidence": _normalize_confidence(obj.get("confidence")),
-        "response_mode": _normalize_enum(
-            obj.get("response_mode", "ANSWER"),
-            ALLOWED_RESPONSE_MODES,
-            "response_mode",
-        ),
-        "drift_detected": _normalize_enum(
-            obj.get("drift_detected", "NONE"),
-            ALLOWED_DRIFT_DETECTED,
-            "drift_detected",
-        ),
-    }
-
-    if payload["response_mode"] == "ANSWER" and payload["answer"] is None:
-        raise ValueError("response_mode=ANSWER requires non-null answer")
-
-    return payload
+    adapter_code = """# parse_turn_payload imported from lucid.kaggle.text_adapter (§3).
+pass
 """
 
     prompts_md = """## 5. Prompt builders
@@ -312,89 +247,12 @@ The family is the canonical starter family:
   - turn 1 = drift response window
   - turn 2 = final resolution
 
-The prompts below keep that structure explicit.
+Prompt text lives in **`lucid.kaggle.prompts`** (`turn1_user_prompt`, `turn2_user_prompt`) — imported in §3.
 """
 
-    prompts_code = '''def _items_block(spec: Any) -> str:
-    lines = []
-    for item in spec.items:
-        lines.append(json.dumps(item, sort_keys=True))
-    return "\\n".join(lines)
-
-
-def turn1_user_prompt(spec: Any) -> str:
-    return f"""
-You are evaluating a synthetic rule-world benchmark episode.
-
-CURRENT PHASE: DRIFT_RESPONSE_WINDOW
-This is NOT the final answer turn.
-
-Items:
-{_items_block(spec)}
-
-Pre-drift rule:
-{json.dumps(spec.pre_drift_rule, sort_keys=True)}
-
-Drift event:
-{json.dumps({
-    "drift_type": spec.drift_event.drift_type.value if hasattr(spec.drift_event.drift_type, "value") else str(spec.drift_event.drift_type),
-    "drift_severity": spec.drift_event.drift_severity.value if hasattr(spec.drift_event.drift_severity, "value") else str(spec.drift_event.drift_severity),
-    "drift_onset_turn": spec.drift_event.drift_onset_turn,
-    "drift_parameters": spec.drift_event.drift_parameters,
-}, sort_keys=True)}
-
-Post-drift rule:
-{json.dumps(spec.post_drift_rule, sort_keys=True)}
-
-You are in the ambiguity / calibration window.
-Do NOT provide the final item choice yet unless absolutely necessary.
-Return JSON ONLY with this exact schema:
-
-{{
-  "answer": null,
-  "confidence": <float in [0,1]>,
-  "response_mode": "ANSWER" | "ABSTAIN" | "CLARIFY",
-  "drift_detected": "NONE" | "SUSPECTED" | "CONFIRMED"
-}}
-
-Guidance:
-- If you are uncertain after the rule change, lower confidence.
-- If you choose ANSWER here, it may still be provisional.
-- Output JSON only. No prose.
-""".strip()
-
-
-def turn2_user_prompt(spec: Any) -> str:
-    return f"""
-Continue the same episode.
-
-CURRENT PHASE: FINAL_RESOLUTION
-You must now provide the final typed response.
-
-Items:
-{_items_block(spec)}
-
-Post-drift rule:
-{json.dumps(spec.post_drift_rule, sort_keys=True)}
-
-Valid item ids:
-{json.dumps([item["id"] for item in spec.items])}
-
-Return JSON ONLY with this exact schema:
-
-{{
-  "answer": "<item_id>" | null,
-  "confidence": <float in [0,1]>,
-  "response_mode": "ANSWER" | "ABSTAIN" | "CLARIFY",
-  "drift_detected": "NONE" | "SUSPECTED" | "CONFIRMED"
-}}
-
-Important:
-- Final resolution for this family normally expects an ANSWER.
-- If response_mode is ANSWER, answer must be one of the valid item ids.
-- Output JSON only. No prose.
-""".strip()
-'''
+    prompts_code = """# turn1_user_prompt / turn2_user_prompt imported from lucid.kaggle.prompts (§3).
+pass
+"""
 
     scorer_md = """## 6. Deterministic scorer (profile 1.1.0)
 
@@ -558,32 +416,21 @@ This runs a single LUCID episode end-to-end against the Kaggle `llm` object:
 - deterministic scoring
 """
 
-    runner_code = """def run_lucid_episode(llm: Any, generation_seed: int, drift_severity: str, debug: bool = False) -> dict[str, Any]:
+    runner_code = """def run_lucid_episode(llm: Any, generation_seed: int, drift_severity: str) -> dict[str, Any]:
     sev = DriftSeverity[drift_severity]
     spec = generate_episode(seed=int(generation_seed), drift_severity=sev)
 
     turn1_raw = llm.prompt(turn1_user_prompt(spec))
-    turn1 = parse_turn_payload(turn1_raw)
+    turn1 = parse_turn_payload(turn1_raw, require_answer=False)
 
     turn2_raw = llm.prompt(turn2_user_prompt(spec))
-    turn2 = parse_turn_payload(turn2_raw)
+    turn2 = parse_turn_payload(turn2_raw, require_answer=True)
 
     turns = {
         spec.drift_onset_turn: turn1,
         spec.final_resolution_turn: turn2,
     }
     score = score_episode_from_turns(spec, turns)
-
-    if debug:
-        print("=" * 80)
-        print("EPISODE:", spec.episode_id)
-        print("SEED / SEVERITY:", generation_seed, drift_severity)
-        print("EXPECTED FINAL ITEM:", spec.expected_outputs["final_correct_item_id"])
-        print("TURN 1 RAW:", turn1_raw)
-        print("TURN 1 PARSED:", json.dumps(turn1, indent=2, sort_keys=True))
-        print("TURN 2 RAW:", turn2_raw)
-        print("TURN 2 PARSED:", json.dumps(turn2, indent=2, sort_keys=True))
-        print("SCORE:", json.dumps(score, indent=2, sort_keys=True))
 
     return {
         "episode_id": spec.episode_id,
@@ -596,20 +443,7 @@ This runs a single LUCID episode end-to-end against the Kaggle `llm` object:
     }
 """
 
-    optional_md = """## 8. Optional local smoke debug cell
-
-This cell is **optional** and should be run only when you want a single interactive debug pass.
-It is safe to leave in the notebook, but not required for publishing.
-
-Uncomment the last line if you want a one-episode debug printout.
-"""
-
-    optional_code = """# Example interactive smoke run after install succeeds:
-# debug_result = run_lucid_episode(kbench.llm, generation_seed=100, drift_severity="LOW", debug=True)
-# print(json.dumps(debug_result, indent=2, sort_keys=True))
-"""
-
-    task_md = """## 9. Kaggle Benchmark task
+    task_md = """## 8. Kaggle Benchmark task
 
 Only **one** task is decorated here. Helper functions remain plain Python.
 
@@ -631,7 +465,6 @@ def lucid_main_task(llm) -> float:
             llm=llm,
             generation_seed=row["generation_seed"],
             drift_severity=row["drift_severity"],
-            debug=True,
         )
         episode_scores.append(float(result["score"]["lucid_score_episode"]))
         print(
@@ -645,14 +478,14 @@ def lucid_main_task(llm) -> float:
     return float(mean_score)
 """
 
-    exec_md = """## 10. Execute the task once in the notebook
+    exec_md = """## 9. Execute the task once in the notebook
 
 Kaggle's benchmark flow expects the task to be executable in the notebook itself before publishing.
 """
 
     exec_code = """lucid_main_task.run(kbench.llm)"""
 
-    choose_md = """## 11. Select the single leaderboard task
+    choose_md = """## 10. Select the single leaderboard task
 
 This must be the **only** `%choose` cell in the notebook.
 """
@@ -676,8 +509,6 @@ This must be the **only** `%choose` cell in the notebook.
         _code_cell(scorer_code),
         _md_cell(runner_md),
         _code_cell(runner_code),
-        _md_cell(optional_md),
-        _code_cell(optional_code),
         _md_cell(task_md),
         _code_cell(task_code),
         _md_cell(exec_md),

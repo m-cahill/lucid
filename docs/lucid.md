@@ -118,6 +118,16 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 
 **Competition alignment:** `docs/LUCID_COMPETITION_ALIGNMENT.md`.
 
+### Canonical notebook regeneration rule (M01.1+)
+
+- **Never** edit `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` by hand (cell-by-cell patches in the IDE). That path previously caused fence/truncation bugs and drifts from CI.
+- **Always** change transport behavior in **`src/lucid/kaggle/`** (and tests), update **`scripts/generate_kaggle_notebook.py`** if cell narrative or wiring changes, then run  
+  `python scripts/generate_kaggle_notebook.py --pin-sha <40-char-SHA> -o notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb`  
+  and commit the regenerated JSON. **`--check`** must pass.
+- **Pin:** use a commit SHA whose tree includes any **`src/lucid`** change the notebook imports at runtime (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1).
+
+**M01.1 (repo-side):** text adapter (`lucid.kaggle.text_adapter.parse_turn_payload` with `require_answer` split), prompts centralized in `lucid.kaggle.prompts`, unsafe top-level `llm` debug cells removed from the generated notebook; **Kaggle hosted-model proof still pending**.
+
 ---
 
 ## 9. Governance rule

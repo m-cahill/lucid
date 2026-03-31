@@ -23,15 +23,16 @@
 3. Install (markdown + code) — **commit-pinned** GitHub archive ZIP URL only in the install cell (see §5).
 4. Environment verification (markdown + code) — `sys.path`, distribution metadata, `lucid` / `lucid.kaggle` resolution.
 5. Imports and constants (markdown + code) — includes fixed `EVAL_ROWS` for M01.
-6. Adapter layer (markdown + code) — plain-text responses → strict JSON parse (no `schema=` on `llm.prompt`).
-7. Prompt builders (markdown + code).
+6. Adapter layer (markdown + code) — documents `lucid.kaggle.text_adapter` (no inlined parser fork).
+7. Prompt builders (markdown + code) — documents `lucid.kaggle.prompts` (no inlined prompt fork).
 8. Deterministic scoring (markdown + code) — D, L, O, A, C and scalar  
    `0.40*D + 0.20*(1-L) + 0.15*(1-O) + 0.15*A + 0.10*C` (transport must match profile **1.1.0**).
-9. Episode runner (markdown + code) — `llm.prompt(...)` then `parse_turn_payload(raw)` only.
-10. Optional debug cell (markdown + code) — may be commented out.
-11. **Exactly one** `@kbench.task(name="lucid_main_task")` (code).
-12. `lucid_main_task.run(kbench.llm)` (code).
-13. **Exactly one** `%choose lucid_main_task` (code) — final cell.
+9. Episode runner (markdown + code) — `llm.prompt(...)` only **inside** `run_lucid_episode`; `parse_turn_payload(..., require_answer=False)` for turn 1, `require_answer=True` for turn 2.
+10. **Exactly one** `@kbench.task(name="lucid_main_task")` (code).
+11. `lucid_main_task.run(kbench.llm)` (code).
+12. **Exactly one** `%choose lucid_main_task` (code) — final cell.
+
+**No** top-level cells that call `llm.prompt(...)` outside task runtime (no `kbench.llm` debug cells).
 
 ---
 
@@ -50,12 +51,16 @@
 
 ## 4. JSON extraction (M01.1)
 
+Implementation lives in **`src/lucid/kaggle/text_adapter.py`** (imported by the notebook; **do not** duplicate logic in the `.ipynb`).
+
 For `parse_turn_payload`, the model returns a **flat** JSON object with keys  
 `answer`, `confidence`, `response_mode`, `drift_detected`.
 
 **Pattern:** `JSON_OBJECT_RE = re.compile(r"\{[^{}]*\}", re.DOTALL)`
 
 **Rationale:** Greedy `\{.*\}` can over-match across multiple JSON objects or prose. The flat pattern matches a single object **without nested `{`/`}` inside the payload**, which matches the LUCID turn schema. Parsing applies to **model output only**, not to long prompt text.
+
+**Strictness:** `parse_turn_payload(raw, require_answer=False)` for turn 1; `require_answer=True` for turn 2. When `require_answer=True`, a non-null `answer` is required **only** if `response_mode == "ANSWER"`.
 
 If future payloads need nesting, replace with balanced-brace extraction and document here.
 
@@ -77,7 +82,7 @@ The banner and `%pip` URL may reference a commit **older than** the branch tip w
 - Verify with `git diff <PIN_SHA>..<BRANCH_TIP> -- src/` (empty diff ⇒ same `lucid` code as tip).
 - **Bump the pin** (regenerate with a new `--pin-sha`) whenever **`src/lucid/`** or wheel-relevant metadata changes.
 
-**M01.1 current pin:** `da080cda0760ff742c7e4a69a0a873822049620c`. **Parity check:** `git diff da080cda0760ff742c7e4a69a0a873822049620c..HEAD -- src/` must be empty for the ZIP to match the same `lucid` package as tip (re-run before each Kaggle proof if tip moved).
+**M01.1 pin:** The metadata banner and `M01_KAGGLE_RUNBOOK.md` §2.1 list the **40-char commit SHA** used in the `%pip` ZIP. **Bump** that pin whenever **`src/lucid`** transport code the notebook imports changes. **Parity check:** `git diff <PIN_SHA>..HEAD -- src/` must be empty if later commits are docs/notebook-only (re-run before each Kaggle proof if tip moved).
 
 ---
 

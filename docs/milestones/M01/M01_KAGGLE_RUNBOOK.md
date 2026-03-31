@@ -23,10 +23,10 @@ Many Kaggle notebook kernels **do not include `git`**, so `pip install git+https
 
 ### 2.1 Preferred — pinned GitHub archive ZIP (no git)
 
-**M01.1 proof pin (matches canonical notebook banner + install cell):** use this for an audit-clean install aligned with `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (same `src/lucid` as branch tip while pin trails only notebook/docs commits — see `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1):
+**M01.1 proof pin (matches canonical notebook banner + install cell):** use the **same 40-char SHA** as the notebook’s first markdown cell and `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1. Example (replace `<FULL_SHA>` with that value):
 
 ```text
-%pip install -q "https://github.com/m-cahill/lucid/archive/da080cda0760ff742c7e4a69a0a873822049620c.zip"
+%pip install -q "https://github.com/m-cahill/lucid/archive/<FULL_SHA>.zip"
 ```
 
 **Branch tip (moves with branch head; not commit-pinned):**
