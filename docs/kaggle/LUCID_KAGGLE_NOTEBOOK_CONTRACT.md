@@ -77,7 +77,7 @@ The banner and `%pip` URL may reference a commit **older than** the branch tip w
 - Verify with `git diff <PIN_SHA>..<BRANCH_TIP> -- src/` (empty diff ⇒ same `lucid` code as tip).
 - **Bump the pin** (regenerate with a new `--pin-sha`) whenever **`src/lucid/`** or wheel-relevant metadata changes.
 
-**M01.1 current pin:** `da080cda0760ff742c7e4a69a0a873822049620c` — matches `src/lucid` at branch tip through `d3fd3aec06a18cd1490fbb23f4c3c3628aef1a52` (no `src/` changes between pin and tip).
+**M01.1 current pin:** `da080cda0760ff742c7e4a69a0a873822049620c`. **Parity check:** `git diff da080cda0760ff742c7e4a69a0a873822049620c..HEAD -- src/` must be empty for the ZIP to match the same `lucid` package as tip (re-run before each Kaggle proof if tip moved).
 
 ---
 
