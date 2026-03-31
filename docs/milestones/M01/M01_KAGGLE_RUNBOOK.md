@@ -31,6 +31,8 @@ Many Kaggle notebook kernels **do not include `git`**, so `pip install git+https
 
 (SHA `45cfa43be89575fc7d94545eae838e413abd30e7` — first commit with `lucid.kaggle.text_adapter` + centralized prompts; see `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1.)
 
+**404 on the ZIP URL:** GitHub only serves archives for commits that exist **on the remote**. If `pip` reports **404**, the pin commit was not pushed yet — run `git push origin m01-kaggle-transport-proof` (or confirm `https://github.com/m-cahill/lucid/commit/<SHA>` loads). Until then, use the **branch tip** ZIP below for smoke tests (not SHA-pinned).
+
 **Branch tip (moves with branch head; not commit-pinned):**
 
 ```text
