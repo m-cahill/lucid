@@ -47,8 +47,12 @@ When documents or code disagree, use this order:
 | Canonical Kaggle notebook (generated) | `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (`scripts/generate_kaggle_notebook.py`) |
 | Kaggle transport fixture manifest | `tests/fixtures/kaggle_transport/transport_manifest.json` |
 | M01 Kaggle handoff runbook | `docs/milestones/M01/M01_KAGGLE_RUNBOOK.md` |
-| M01 closeout (complete) | `M01_run1.md`, `M01_summary.md`, `M01_audit.md` |
-| M02 (planned) | `docs/milestones/M02/M02_plan.md` |
+| Competition alignment (submission strategy, judging, family priorities) | `docs/LUCID_COMPETITION_ALIGNMENT.md` |
+| M01 closeout (complete) | `docs/milestones/M01/M01_run1.md`, `docs/milestones/M01/M01_summary.md`, `docs/milestones/M01/M01_audit.md` |
+| M02 plan & closeout (complete) | `docs/milestones/M02/M02_plan.md`, `docs/milestones/M02/M02_summary.md`, `docs/milestones/M02/M02_audit.md` |
+| M02 evidence / CI run record | `docs/milestones/M02/M02_run1.md` |
+| M03 plan (stub; next milestone) | `docs/milestones/M03/M03_plan.md` |
+| M03 tool log | `docs/milestones/M03/M03_toolcalls.md` |
 
 ---
 
@@ -91,7 +95,45 @@ Use these labels consistently in milestone docs and run analyses:
 
 ## 6. Competition alignment
 
-Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark construction** entry. Full facts, links, and scope (M00 docs-only vs M01 E2E) are in **`docs/LUCID_COMPETITION_ALIGNMENT.md`**.
+Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark construction** entry. Full facts, links, scope (M00 docs-only vs M01 E2E), submission strategy, and family priorities are in **`docs/LUCID_COMPETITION_ALIGNMENT.md`**.
+
+### 6.1 Competition win conditions (standing)
+
+| Judged axis (priority) | Role for LUCID |
+|------------------------|----------------|
+| **Dataset quality & task construction** | Highest-value axis; synthetic rule-worlds, explicit drift, audit-ready episodes. |
+| **Novelty / insights / discriminatory power** | Second; hosted-model sweeps and family-level spread must show a meaningful gradient. |
+| **Writeup quality** | Third; judge-facing narrative and evidence packaging. |
+
+**Primary faculty (one):** LUCID optimizes for **metacognition** (detection, calibration, recovery under instructional drift) — not solver performance or multi-faculty sprawl.
+
+**Standing rule:** Each future milestone should state **which judged axis** it primarily advances.
+
+### 6.2 Submission posture
+
+- **M01** established **transport proof** and an initial **hosted-model spread** on a fixed acceptance slice (`symbolic_negation_v1`).
+- LUCID is **not submission-ready** after M01.
+- **Remaining gaps** before a competition-ready submission include: benchmark-family **depth**, **defensibility**, broader **Kaggle evidence** on a mature benchmark pack, and **writeup / packaging** aligned to the rules.
+
+### 6.3 Standing family promotion rules (at milestone close)
+
+Each future benchmark-family milestone must record:
+
+1. **Sample size** (episodes / scale).
+2. **Hosted-model spread summary** (or equivalent discriminatory evidence).
+3. **Family verdict:** **promote**, **retain provisionally**, or **drop**.
+
+This guards against faculty sprawl and “benchmark theater.”
+
+### 6.4 Submission blockers (standing)
+
+Until addressed, the entry should not be treated as submission-complete:
+
+- **Mature family depth** beyond the M01 transport slice.
+- **Family-level discriminatory power** evidence on scaled packs.
+- **Defensibility / ambiguity audit** (contamination resistance, task clarity).
+- **Final writeup pack** (figures, narrative, judge-facing framing).
+- **Final Kaggle benchmark / task / writeup linkage** per competition requirements.
 
 ### Kaggle hosted models — score ledger (reference)
 
@@ -136,15 +178,36 @@ _Update this table when new platform runs produce different aggregates; cite not
 
 ## 7. Milestone ledger
 
+Planned milestone arc (competition charter locked in **M02**):
+
 | Milestone | Goal | Status |
 |-----------|------|--------|
 | **M00** | Bootstrap repo, semantic lock, local minimal green path, baseline CI | **Complete** |
 | **M01** | Kaggle Community Benchmarks E2E verification | **Complete** |
-| **M02** | Next auditable step (charter TBD) | **Planned** — see `docs/milestones/M02/M02_plan.md` |
+| **M02** | Competition charter lock & milestone arc formalization | **Complete** |
+| **M03** | Family 1 scale-up — symbolic negation / local rule-reversal dataset expansion | **Planned** |
+| **M04** | Family 1 analytics — difficulty ladder, spread analysis, and promotion decision | **Planned** |
+| **M05** | Family 2 — contradiction / clarification benchmark family | **Planned** |
+| **M06** | Family 3 — scope / precedence / exception drift family | **Planned** |
+| **M07** | Unified benchmark pack normalization across families | **Planned** |
+| **M08** | Defensibility, QA, and contamination-resistance hardening | **Planned** |
+| **M09** | Expanded Kaggle evidence run on mature benchmark | **Planned** |
+| **M10** | Writeup evidence pack, figures, and judge-facing narrative | **Planned** |
+| **M11** | Submission lock: final benchmark freeze and submission checklist | **Planned** |
+| **M12** | Contingency A — platform / benchmark replacement buffer | **Planned** |
+| **M13** | Contingency B — final polish / writeup / evidence cleanup buffer | **Planned** |
+
+**Benchmark family priorities (first three, locked in M02):**
+
+1. **Family 1 — symbolic negation / local rule reversal:** transport already proven in M01; fastest path to dataset scale.  
+2. **Family 2 — contradiction / clarification:** metacognitive honesty, abstention, recovery.  
+3. **Family 3 — scope / precedence / exception drift:** broadens drift taxonomy within the same faculty thesis.
 
 ---
 
-## 8. Historical milestone — M01 (closed)
+## 8. Historical milestones (closed)
+
+### M01 — Kaggle Community Benchmarks E2E verification
 
 **Closed:** 2026-03-31 (repository record). **M01.1** (notebook contract, generator, text adapter) was **in-milestone** hardening, not a separate milestone.
 
@@ -155,8 +218,21 @@ _Update this table when new platform runs produce different aggregates; cite not
 - **Signal:** Initial **discriminative spread** across the full hosted-model set (see §6); not a claim of final benchmark maturity.
 
 **Authoritative plan (archived goal):** `docs/milestones/M01/M01_plan.md`  
-**Evidence:** `docs/milestones/M01/M01_run1.md`, `M01_summary.md`, `M01_audit.md`  
+**Evidence:** `docs/milestones/M01/M01_run1.md`, `docs/milestones/M01/M01_summary.md`, `docs/milestones/M01/M01_audit.md`  
 **Handbook:** `docs/milestones/M01/M01_KAGGLE_RUNBOOK.md`
+
+### M02 — Competition charter lock & milestone arc formalization
+
+**Closed:** 2026-03-31 (repository record).
+
+**What M02 delivered**
+
+- **Charter:** Submission strategy locked around **metacognition under instructional drift**; judged axes and standing promotion rules recorded in this ledger and in `docs/LUCID_COMPETITION_ALIGNMENT.md`.
+- **Arc:** Planned milestones **M03–M13** recorded in §7; first three benchmark-family priorities fixed at planning level (no new family implementation in M02).
+- **Scope:** Documentation and governance only — **no** benchmark semantic change, **no** transport change, **no** Kaggle rerun, benchmark version remains **1.1.0**.
+
+**Plan / evidence:** `docs/milestones/M02/M02_plan.md`, `docs/milestones/M02/M02_summary.md`, `docs/milestones/M02/M02_audit.md`, `docs/milestones/M02/M02_run1.md`  
+**Tool log:** `docs/milestones/M02/M02_toolcalls.md`
 
 ### Canonical notebook regeneration rule (standing)
 
@@ -167,14 +243,16 @@ _Update this table when new platform runs produce different aggregates; cite not
 
 ---
 
-## 9. Active milestone — M02 (next)
+## 9. Active milestone — M03 (next)
 
-**Status:** **Planned / not opened** — stub only.
+**Status:** **Planned / not opened** — stubs only until M03 execution begins (see §7).
 
-**Plan:** `docs/milestones/M02/M02_plan.md`  
-**Tool log:** `docs/milestones/M02/M02_toolcalls.md`
+**Goal (from planned arc):** Family 1 scale-up — symbolic negation / local rule-reversal dataset expansion.
 
-M02 is intended to be **smaller, enterprise-grade, auditable, and E2E-testable**, building on M01 evidence **without** redefining LUCID as a solver or casually widening benchmark semantics.
+**Plan (stub):** `docs/milestones/M03/M03_plan.md`  
+**Tool log:** `docs/milestones/M03/M03_toolcalls.md`
+
+M03 continues from M01/M02 evidence **without** redefining LUCID as a solver or widening benchmark semantics outside change control.
 
 ---
 

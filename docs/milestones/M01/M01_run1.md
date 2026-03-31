@@ -35,6 +35,8 @@ LUCID remains a **benchmark construction** entry: scores measure model behavior 
 
 *Add or paste stable links from the Kaggle UI if you want them versioned in git; they are optional for ledger honesty if the platform UI is the system of record.*
 
+**M02 hygiene note:** Repository search did not surface notebook/task/benchmark permalinks beyond the competition hub URLs in `docs/LUCID_COMPETITION_ALIGNMENT.md`. No backfill applied; copy from Kaggle UI when convenient (optional per M01 audit).
+
 | Field | Value |
 |--------|--------|
 | Date (UTC) | 2026-03 (M01 closeout window) |
