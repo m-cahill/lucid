@@ -93,6 +93,7 @@ Before claiming the notebook is ready for a Kaggle proof run:
 
 1. **After any edit** to `scripts/generate_kaggle_notebook.py`, re-run the generator and commit the updated `.ipynb` so `--check` and CI stay green.
 2. **Pin** the banner and `%pip` URL to a **40-character commit SHA** you intend to ship (e.g. `git rev-parse HEAD` at release time). After a commit that changes the generator, you may amend with a freshly regenerated notebook so the pin matches the tree you publish.
+3. **`--check` comparison** ignores per-cell `id` fields (Jupyter may add them when you open/save the notebook; the generator does not emit them).
 
 ## 8. Related docs
 

@@ -11,6 +11,7 @@ See ``docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md``.
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import re
 import subprocess
@@ -19,6 +20,15 @@ from pathlib import Path
 from typing import Any
 
 _PIN_RE = re.compile(r"`([0-9a-f]{40})`")
+
+
+def _strip_cell_ids(nb: dict[str, Any]) -> dict[str, Any]:
+    """Drop per-cell ``id`` (Jupyter adds these when editing; generator does not emit them)."""
+    out = copy.deepcopy(nb)
+    for c in out.get("cells", []):
+        if isinstance(c, dict):
+            c.pop("id", None)
+    return out
 
 
 def extract_pin_sha_from_notebook(path: Path) -> str | None:
@@ -729,9 +739,10 @@ def main(argv: list[str] | None = None) -> int:
             return 2
         extracted = extract_pin_sha_from_notebook(out_path)
         check_pin = extracted if extracted is not None else pin_sha
-        rendered_check = _canonical_json(build_notebook(check_pin))
-        existing = out_path.read_text(encoding="utf-8")
-        if existing != rendered_check:
+        rendered_check = _canonical_json(_strip_cell_ids(build_notebook(check_pin)))
+        existing_raw = out_path.read_text(encoding="utf-8").replace("\r\n", "\n")
+        existing_norm = _canonical_json(_strip_cell_ids(json.loads(existing_raw)))
+        if existing_norm != rendered_check:
             print(
                 f"ERROR: {out_path} differs from generator output (check_pin={check_pin}).\n"
                 f"Run: python scripts/generate_kaggle_notebook.py --pin-sha <40-char-sha> -o {args.output}",
