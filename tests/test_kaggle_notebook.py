@@ -37,8 +37,7 @@ def test_canonical_kaggle_notebook_contract() -> None:
     assert "EVAL_ROWS" in joined
     assert '"generation_seed": 100' in joined
     assert "parse_turn_payload" in joined
-    assert "def parse_turn_payload" not in joined  # lives in package, not inlined
-    assert "def _strip_code_fences" in joined
+    assert "def parse_turn_payload" not in joined  # lives in lucid.kaggle.text_adapter
     md_all = "".join(
         "".join(c.get("source", [])) for c in data["cells"] if c.get("cell_type") == "markdown"
     )

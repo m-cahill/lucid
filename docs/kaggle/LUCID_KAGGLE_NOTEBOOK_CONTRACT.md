@@ -82,7 +82,7 @@ The banner and `%pip` URL may reference a commit **older than** the branch tip w
 - Verify with `git diff <PIN_SHA>..<BRANCH_TIP> -- src/` (empty diff ⇒ same `lucid` code as tip).
 - **Bump the pin** (regenerate with a new `--pin-sha`) whenever **`src/lucid/`** or wheel-relevant metadata changes.
 
-**M01.1 pin:** The metadata banner and `M01_KAGGLE_RUNBOOK.md` §2.1 list the **40-char commit SHA** used in the `%pip` ZIP. **Bump** that pin whenever **`src/lucid`** transport code the notebook imports changes. **Parity check:** `git diff <PIN_SHA>..HEAD -- src/` must be empty if later commits are docs/notebook-only (re-run before each Kaggle proof if tip moved).
+**M01.1 pin (transport `src/lucid` for text adapter):** `45cfa43be89575fc7d94545eae838e413abd30e7`. **Parity check:** `git diff 45cfa43be89575fc7d94545eae838e413abd30e7..HEAD -- src/` must be empty if later commits are docs/notebook-only (re-run before each Kaggle proof if tip moved). **Bump** the pin when **`src/lucid`** transport code the notebook imports changes.
 
 ---
 
