@@ -56,11 +56,21 @@ If `pytest` / `--check` ever fails on drift, regenerate the canonical notebook w
 | **Trigger** | `push` to `main` (merge PR #3) |
 | **`headSha`** | `4e47f8e5a16c74860e97a6b76167eaae02bf8c99` |
 
-### 3.3 Workflow analysis (brief)
+### 3.3 `main` — M02_run1 CI documentation hygiene (post-merge)
 
-**Workflow:** `CI` (`.github/workflows/ci.yml`). **Signal:** Both runs concluded **success**; required job **`lint-test`** completed green. **Change context:** M02 docs/governance + M03 stubs + canonical notebook parity — **release-related** milestone closure, not corrective. **Invariant:** Benchmark semantics unchanged (**1.1.0**); gates match local verification table in §1.
+| Field | Value |
+|--------|--------|
+| **Run ID** | **23824739348** |
+| **URL** | https://github.com/m-cahill/lucid/actions/runs/23824739348 |
+| **Conclusion** | success |
+| **Trigger** | `push` to `main` (`docs(m02): record post-merge CI runs in M02_run1`) |
+| **`headSha`** | `359e729f196a540c0f24e47c428d34a18a0933a2` |
 
-**Historical (pre-M02 on `main`):** Run **23821168938** (merge PR #2 / M01) — https://github.com/m-cahill/lucid/actions/runs/23821168938 — superseded for M02 closure by §3.1–3.2.
+### 3.4 Workflow analysis (brief)
+
+**Workflow:** `CI` (`.github/workflows/ci.yml`). **Signal:** PR and `main` runs in §3.1–3.3 concluded **success**; required job **`lint-test`** completed green. **Change context:** M02 docs/governance + M03 stubs + canonical notebook parity — **release-related** milestone closure, not corrective. **Invariant:** Benchmark semantics unchanged (**1.1.0**); gates match local verification table in §1.
+
+**Historical (pre-M02 on `main`):** Run **23821168938** (merge PR #2 / M01) — https://github.com/m-cahill/lucid/actions/runs/23821168938 — superseded for M02 closure by §3.1–3.3.
 
 ---
 
