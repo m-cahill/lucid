@@ -1,0 +1,51 @@
+{
+  "benchmark_version": "1.1.0",
+  "scoring_profile_version": "1.1.0",
+  "template_family": "symbolic_negation_v1",
+  "reference_turns": "lucid.runner.fixture_turns",
+  "notes": "Expected metrics assume the reference multi-turn fixture in lucid.runner.fixture_turns (M00 smoke). Transport-only; not a new benchmark release.",
+  "fixtures": [
+    {
+      "id": "symneg_100_low",
+      "generation_seed": 100,
+      "drift_severity": "LOW",
+      "episode_id": "ep_symneg_1f438ab471eb138c",
+      "expected": {
+        "D": 1.0,
+        "L": 0.0,
+        "O": 0.0,
+        "A": 1.0,
+        "C": 1.0,
+        "lucid_score_episode": 1.0
+      }
+    },
+    {
+      "id": "symneg_42_medium",
+      "generation_seed": 42,
+      "drift_severity": "MEDIUM",
+      "episode_id": "ep_symneg_25a9ad581e1d9cb4",
+      "expected": {
+        "D": 1.0,
+        "L": 0.0,
+        "O": 0.0,
+        "A": 1.0,
+        "C": 1.0,
+        "lucid_score_episode": 1.0
+      }
+    },
+    {
+      "id": "symneg_200_high",
+      "generation_seed": 200,
+      "drift_severity": "HIGH",
+      "episode_id": "ep_symneg_6d0d42c996f9c1ab",
+      "expected": {
+        "D": 1.0,
+        "L": 0.0,
+        "O": 0.0,
+        "A": 1.0,
+        "C": 1.0,
+        "lucid_score_episode": 1.0
+      }
+    }
+  ]
+}

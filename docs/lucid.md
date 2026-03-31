@@ -43,6 +43,10 @@ When documents or code disagree, use this order:
 | Operating manual | `docs/LUCID_OPERATING_MANUAL.md` |
 | Archived bundle export (v1.0.1) | `docs/archive/LUCID_contracts_master_bundle_v1.0.1_ARCHIVED.md` |
 | Milestone plans | `docs/milestones/MNN/` |
+| Kaggle notebook contract (standing) | `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` |
+| Canonical Kaggle notebook (generated) | `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (`scripts/generate_kaggle_notebook.py`) |
+| Kaggle transport fixture manifest | `tests/fixtures/kaggle_transport/transport_manifest.json` |
+| M01 Kaggle handoff runbook | `docs/milestones/M01/M01_KAGGLE_RUNBOOK.md` |
 
 ---
 
@@ -53,8 +57,20 @@ When documents or code disagree, use this order:
 | Active template families | **symbolic_negation_v1** (documented in M00; see `docs/families/`) |
 | Active scoring profile | **LUCID_SCORING_PROFILE v1.1.0** |
 | Local minimal green path | **Complete (M00)** — `scripts/run_local_smoke.py` + tests |
-| Kaggle Community Benchmarks E2E | **Deferred to M01** (M00 = docs alignment + local smoke only) |
-| Remote GitHub Actions | **Verified (PR #1)** — `pull_request` CI green; evidence and run IDs in `docs/milestones/M00/M00_run1.md` (PR head moves with new commits) |
+| Kaggle Community Benchmarks E2E | **In progress (M01)** — repo transport + offline equivalence; **platform proof pending** real Kaggle run (see `docs/milestones/M01/`) |
+| Remote GitHub Actions | **Verified** — `pull_request` / `push` CI per `.github/workflows/ci.yml`; historical evidence in `docs/milestones/M00/M00_run1.md` |
+
+### Proof classes (audit-clean ledger)
+
+Use these labels consistently in milestone docs and run analyses:
+
+| Proof class | What it demonstrates | Typical evidence |
+|-------------|------------------------|------------------|
+| **Local proof** | Deterministic generate → score → bundle on a developer machine | `pytest`, `scripts/run_local_smoke.py`, transport fixture tests |
+| **GitHub CI proof** | Lint/type/test gates on `ubuntu-latest` in CI | Green workflow run logs / run IDs |
+| **Kaggle platform proof** | Real execution in Kaggle’s benchmark/task environment | Notebook version, task/benchmark links, model run outputs (see `M01_KAGGLE_EVIDENCE_TEMPLATE.md`) |
+
+**Rule:** **Kaggle Community Benchmarks E2E** is satisfied only when **Kaggle platform proof** exists. CI green alone is **not** external platform proof.
 
 ### Local execution posture
 
@@ -82,19 +98,35 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 | Milestone | Goal | Status |
 |-----------|------|--------|
 | **M00** | Bootstrap repo, semantic lock, local minimal green path, baseline CI | **Complete** |
-| **M01** | Kaggle Community Benchmarks E2E verification | **Next** |
+| **M01** | Kaggle Community Benchmarks E2E verification | **Open / in progress** |
 
 ---
 
-## 8. Planned next milestone (M01)
+## 8. Active milestone (M01)
 
 **Priority:** **Kaggle Community Benchmarks E2E verification.**
 
-**Goal:** Prove that the local LUCID benchmark structure can be represented, run, and validated through Kaggle’s benchmark/task workflow **without changing** core benchmark semantics.
+**Goal:** Prove that the local LUCID **1.1.0** benchmark line can be transported into Kaggle’s benchmark/task workflow and executed on-platform **without changing** core benchmark semantics.
 
-Details: `docs/milestones/M01/M01_plan_stub.md`.
+**Authoritative plan:** `docs/milestones/M01/M01_plan.md` (supersedes the historical stub `M01_plan_stub.md`).
 
-**M01 setup (observations only — do not execute before M01 is opened):** the next milestone should prove transport of the **1.1.0** benchmark line through **Kaggle Community Benchmarks** (tasks/benchmarks, documented in `docs/LUCID_COMPETITION_ALIGNMENT.md`) without changing scoring semantics. Record platform-specific friction in the M01 milestone folder when work starts.
+**Repo-side status:** transport package under `src/lucid/kaggle/`, deterministic fixture manifest, offline equivalence tests, **`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md`**, and the **generated** canonical notebook `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (plain-text adapter + one `lucid_main_task` + `%choose`). **M01.1** added the contract and generator to prevent notebook drift; older schema-based notebooks are **archived** under `notebooks/archive/` (non-canonical).
+
+**Branch / CI:** `m01-kaggle-transport-proof` is pushed to `origin`; latest pushed head (for PR / CI) should match GitHub. The canonical notebook’s **install pin** may trail tip when only docs/generator/notebook churn; see **`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1** — bump the pin if `src/lucid/` changes.
+
+**Kaggle platform proof** is tracked via `docs/milestones/M01/M01_KAGGLE_EVIDENCE_TEMPLATE.md` and `M01_KAGGLE_RUNBOOK.md`. **M01 is not closed** until a real on-platform run with evidence.
+
+**Competition alignment:** `docs/LUCID_COMPETITION_ALIGNMENT.md`.
+
+### Canonical notebook regeneration rule (M01.1+)
+
+- **Never** edit `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` by hand (cell-by-cell patches in the IDE). That path previously caused fence/truncation bugs and drifts from CI.
+- **Always** change transport behavior in **`src/lucid/kaggle/`** (and tests), update **`scripts/generate_kaggle_notebook.py`** if cell narrative or wiring changes, then run  
+  `python scripts/generate_kaggle_notebook.py --pin-sha <40-char-SHA> -o notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb`  
+  and commit the regenerated JSON. **`--check`** must pass.
+- **Pin:** use a commit SHA whose tree includes any **`src/lucid`** change the notebook imports at runtime (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1).
+
+**M01.1 (repo-side):** text adapter (`lucid.kaggle.text_adapter.parse_turn_payload` with `require_answer` split), prompts centralized in `lucid.kaggle.prompts`, unsafe top-level `llm` debug cells removed from the generated notebook; **Kaggle hosted-model proof still pending**.
 
 ---
 

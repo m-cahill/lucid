@@ -23,6 +23,10 @@ classifiers = [
 
 dependencies = []
 
+[project.urls]
+Homepage = "https://github.com/m-cahill/lucid"
+Repository = "https://github.com/m-cahill/lucid"
+
 [project.scripts]
 lucid-smoke = "lucid.runner:main"
 
@@ -34,10 +38,15 @@ dev = [
   "ruff>=0.3.0",
 ]
 
+# Wheel: ship the full `lucid` package tree under `src/lucid/` (including subpackages
+# like `lucid.kaggle`). Distribution name on PyPI/pip metadata is `lucid-benchmark`;
+# import name remains `lucid`. Verify with: `pip show lucid-benchmark` and
+# `python -c "import lucid.kaggle"`.
 [tool.hatch.build.targets.wheel]
 packages = ["src/lucid"]
 
 [tool.hatch.build.targets.sdist]
+# Include the entire source tree so `pip install` from an sdist/git build sees all modules.
 include = ["src/lucid", "README.md", "LICENSE", "pyproject.toml"]
 
 [tool.ruff]
@@ -51,6 +60,7 @@ extend-select = ["I"]
 
 [tool.ruff.lint.per-file-ignores]
 "src/lucid/scorer.py" = ["E741"]
+"scripts/generate_kaggle_notebook.py" = ["E501"]
 
 [tool.mypy]
 python_version = "3.11"
