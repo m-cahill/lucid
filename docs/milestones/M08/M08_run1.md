@@ -106,7 +106,7 @@ Commands executed in order (all **exit code 0** unless noted):
 | **URL** | https://github.com/m-cahill/lucid/actions/runs/23866907808 |
 | **Conclusion** | **success** |
 
-### 4.2 Post-closeout documentation commits on `main` (authoritative HEAD)
+### 4.2 Post-closeout documentation commits on `main`
 
 Follow-up commits after §4.1 corrected run-record placeholders and the tool log; each triggered **success** on `CI`.
 
@@ -114,8 +114,10 @@ Follow-up commits after §4.1 corrected run-record placeholders and the tool log
 |--------|-------------------|--------|------------|
 | `1ba5a6e4986f17c968132a0e9b58f82fa0506825` | Amend run1/summary with closeout SHA + run `23866907808` | `23867033843` | **success** |
 | `3dff713985c3dcb70c3ea0db84bffd39c8d84005` | Tool log entry for run1/summary amend | `23867038224` | **success** |
+| `d9c05fc95bd14113ba3651b7289cb94a2a6d5d4e` | Run1 §4.2 + summary + audit (introduced evidence lock) | `23867155623` | **success** |
+| `4ba853f1c6749cc005d7cb60b8205a95833687b0` | Evidence lock SHA alignment | `23867296294` | **success** |
 
-**Evidence lock (immutable):** `d9c05fc95bd14113ba3651b7289cb94a2a6d5d4e` — **CI** run `23867155623` — https://github.com/m-cahill/lucid/actions/runs/23867155623 — **success** (`docs(m08): run1 §4.2, summary, audit — authoritative main HEAD + CI`). Further doc-only SHA alignment commits, if any, do not change M08 deliverables or benchmark **1.1.0**.
+**Evidence lock (immutable):** `d9c05fc95bd14113ba3651b7289cb94a2a6d5d4e` — **CI** run `23867155623` — https://github.com/m-cahill/lucid/actions/runs/23867155623 — **success** (`docs(m08): run1 §4.2, summary, audit — authoritative main HEAD + CI`). Doc-only follow-ups in the table above (including `4ba853f…` / run `23867296294`) align cross-references only; they do **not** change M08 deliverables or benchmark **1.1.0**.
 
 ---
 
