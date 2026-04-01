@@ -17,9 +17,10 @@
 | 2026-03-31 | Notes | **Working tree:** dirty pre-commit — excluded non-M03 paths: `notebooks/archive/lucid_kaggle_benchmark_SCHEMA_SUPERSEDED.ipynb`, `notebooks/lucid_kaggle_transport_text_adapter_m_01.txt`, `notebooks/m01-baseline-e2e-2.ipynb` | — | recorded |
 | 2026-03-31 | `gh run list` | Reference **main** CI | run **23824761555** success | recorded in `M03_run1.md` |
 | 2026-03-31 | `gh` | `gh run list --workflow=CI.yml` | **HTTP 404** — workflow filename mismatch; use `gh run list` without filter | recorded |
+| 2026-04-01 | `git` / `gh` | Formal closeout: commit `0c7bb38`, PR **#4**, merge `f035a17`, post-merge CI **23826240850**; hygiene commits `9048e03` / `293de40`, CI **23826258186** | `main`, `m04-family-1-analytics` | done |
 
 ---
 
 ## Recovery
 
-If resuming: read this table and `M03_run1.md`; next step is **merge M03 to `main`** (if authorized), then record merge run URL in `M03_run1.md`, then create **`m04-family-1-analytics`** from `main`.
+M03 is merged to **`main`** (PR **#4**). Next step: **M04** on branch **`m04-family-1-analytics`** (see `docs/milestones/M04/M04_plan.md`).
