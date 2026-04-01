@@ -519,6 +519,130 @@ This must be the **only** `%choose` cell in the notebook.
     return seq
 
 
+def build_m04_notebook_cells(pin_sha: str) -> list[dict[str, Any]]:
+    """M04 Family 1 analytics notebook — separate from M01 transport proof (see docs/milestones/M04)."""
+    cells = build_cells(pin_sha)
+    m04_banner = f"""# LUCID — generated M04 Family 1 analytics metadata
+
+| Field | Value |
+|------|--------|
+| **Repository pin (commit SHA)** | `{pin_sha}` |
+| **Benchmark version** | 1.1.0 |
+| **Template family** | symbolic_negation_v1 |
+| **Scoring profile** | 1.1.0 |
+| **M04 panel** | **24** episodes — **8 LOW / 8 MEDIUM / 8 HIGH** (`m04_decision_eval_rows`) |
+
+This notebook is **not** the M01 transport proof. It evaluates a **stratified subset** of the M03 canonical pack for spread / ladder evidence.
+"""
+
+    m04_title = """# LUCID — M04 Family 1 analytics (Kaggle Benchmarks)
+
+This notebook is an **additive** analytics surface for **M04** — separate from the canonical M01 transport notebook.
+
+- **one** Kaggle Benchmark task: `lucid_family1_m04_task`
+- **24** episodes from `lucid.packs.family1_core_m03.m04_decision_eval_rows()` (deterministic stratified panel)
+
+Uses the same transport stack as M01: plain-text prompts, JSON parsing via `lucid.kaggle.text_adapter`, local scoring — **no** `schema=` on `llm.prompt`.
+"""
+
+    m04_imports = """import json
+import math
+import re
+from typing import Any
+
+import kaggle_benchmarks as kbench
+
+from lucid.families.symbolic_negation_v1 import generate_episode
+from lucid.models import DriftSeverity
+from lucid.kaggle.prompts import turn1_user_prompt, turn2_user_prompt
+from lucid.kaggle.text_adapter import parse_turn_payload
+from lucid.packs.family1_core_m03 import m04_decision_eval_rows
+
+# M04 stratified panel: 24 episodes (8 / 8 / 8) from canonical pack logic.
+EVAL_ROWS = m04_decision_eval_rows()
+
+print("=== M04 Family 1 analytics ===")
+print("distribution:", "lucid-benchmark")
+print("benchmark_version:", "1.1.0")
+print("template_family:", "symbolic_negation_v1")
+print("panel_episodes:", len(EVAL_ROWS))
+print("first_rows:", [(r["generation_seed"], r["drift_severity"]) for r in EVAL_ROWS[:3]])
+print("last_rows:", [(r["generation_seed"], r["drift_severity"]) for r in EVAL_ROWS[-3:]])
+"""
+
+    m04_task_md = """## 8. Kaggle Benchmark task (M04)
+
+Only **one** task is decorated here. The task loops the **M04** 24-row stratified panel and returns the **mean** episode score.
+
+Task name **`lucid_family1_m04_task`** is distinct from M01's `lucid_main_task`.
+"""
+
+    m04_task_code = """@kbench.task(
+    name="lucid_family1_m04_task",
+    description=(
+        "LUCID 1.1.0 Family 1 M04 stratified panel (24 episodes) — symbolic_negation_v1"
+    ),
+)
+def lucid_family1_m04_task(llm) -> float:
+    episode_scores: list[float] = []
+
+    print("=== lucid_family1_m04_task start ===")
+    print("Rows:", len(EVAL_ROWS))
+
+    for row in EVAL_ROWS:
+        result = run_lucid_episode(
+            llm=llm,
+            generation_seed=row["generation_seed"],
+            drift_severity=row["drift_severity"],
+        )
+        episode_scores.append(float(result["score"]["lucid_score_episode"]))
+        print(
+            f"row=({row['generation_seed']}, {row['drift_severity']}) "
+            f"episode_score={result['score']['lucid_score_episode']:.6f}"
+        )
+
+    mean_score = sum(episode_scores) / len(episode_scores)
+    print("=== lucid_family1_m04_task complete ===")
+    print("mean_score =", mean_score)
+    return float(mean_score)
+"""
+
+    m04_exec = """lucid_family1_m04_task.run(kbench.llm)"""
+
+    m04_choose_md = """## 10. Select the M04 leaderboard task
+
+This must be the **only** `%choose` cell in this notebook. Choose **`lucid_family1_m04_task`** (not M01's task name).
+"""
+
+    m04_choose = """%choose lucid_family1_m04_task"""
+
+    cells[0]["source"] = _source_lines(m04_banner)
+    cells[1]["source"] = _source_lines(m04_title)
+    cells[7]["source"] = _source_lines(m04_imports)
+    cells[16]["source"] = _source_lines(m04_task_md)
+    cells[17]["source"] = _source_lines(m04_task_code)
+    cells[20]["source"] = _source_lines(m04_choose_md)
+    cells[21]["source"] = _source_lines(m04_choose)
+    cells[19]["source"] = _source_lines(m04_exec)
+    return cells
+
+
+def build_m04_notebook(pin_sha: str) -> dict[str, Any]:
+    return {
+        "nbformat": 4,
+        "nbformat_minor": 5,
+        "metadata": {
+            "kernelspec": {
+                "display_name": "Python 3",
+                "language": "python",
+                "name": "python3",
+            },
+            "language_info": {"name": "python", "version": "3.11.0"},
+        },
+        "cells": build_m04_notebook_cells(pin_sha),
+    }
+
+
 def build_notebook(pin_sha: str) -> dict[str, Any]:
     return {
         "nbformat": 4,
