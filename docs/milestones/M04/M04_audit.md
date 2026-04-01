@@ -4,7 +4,7 @@
 **Mode:** **DELTA AUDIT**  
 **Range:** `b84df4e5c94854e1e6c7b3ef668cf29fab3b5c48` (merge-base with `main`) → **`HEAD`** on `m04-family-1-analytics` at merge time (see `M04_toolcalls.md` for session `git rev-parse`).  
 **diff_range:** `b84df4e5c94854e1e6c7b3ef668cf29fab3b5c48...HEAD` (resolve `HEAD` at audit time)  
-**CI status (pre-merge):** **Pending PR run** — record URL in `M04_run1.md` after push  
+**CI status:** **Green** — PR run `23827390034`; post-merge `main` run `23827404774` (see `M04_run1.md` §6).  
 **Audit verdict:** **Green** — analytics-only delta; no scoring semantic drift; local gates pass.
 
 ---
@@ -132,7 +132,7 @@
   "benchmark_version": "1.1.0",
   "semantic_changes": false,
   "quality_gates": {
-    "ci": "pending_pr",
+    "ci": "pass",
     "tests": "pass",
     "coverage": "pass",
     "workflows": "pass",

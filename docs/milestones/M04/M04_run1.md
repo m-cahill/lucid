@@ -73,15 +73,15 @@ All commands below completed with **exit code 0** on the closeout verification p
 
 ## 6. GitHub Actions (authoritative CI)
 
-**Pre-merge:** No PR-specific run ID captured in this session — after opening/updating the PR, paste the **`CI` workflow** run URL for the M04 branch here:
+**Pull request:** https://github.com/m-cahill/lucid/pull/5 (merged to `main`).
 
 | Field | Value |
 |-------|--------|
 | Workflow | `CI` (`.github/workflows/ci.yml`) |
-| Run URL | _Record after PR push_ |
-| Conclusion | _Expected: success_ |
+| PR / `pull_request` run (`m04-family-1-analytics`) | https://github.com/m-cahill/lucid/actions/runs/23827390034 — **success** |
+| `main` / `push` run (merge commit) | https://github.com/m-cahill/lucid/actions/runs/23827404774 — **success** |
 
-**Post-merge on `main`:** Record a green `main` run URL after merge for audit parity.
+**Note:** GitHub may surface Node.js deprecation notices for `actions/checkout` / `actions/setup-python`; they do not change the correctness signal for this milestone.
 
 ---
 
