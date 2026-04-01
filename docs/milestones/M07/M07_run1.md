@@ -78,6 +78,17 @@ python scripts/run_unified_pack_smoke.py
 | **Run URL** | https://github.com/m-cahill/lucid/actions/runs/23831565243 |
 | **Conclusion** | **success** |
 
+### 2.3 Follow-up `main` CI (closeout docs only)
+
+After merge, closeout artifacts (`M07_summary.md`, `M07_audit.md`, updated `M07_run1.md`, `docs/lucid.md` doc map) landed in commit `26f7c1b…` with an additional green run:
+
+| Field | Value |
+|-------|--------|
+| **Commit** | `26f7c1ba8f264f2ecf533e01a475a8677d73723c` |
+| **Run ID** | `23831601498` |
+| **Run URL** | https://github.com/m-cahill/lucid/actions/runs/23831601498 |
+| **Conclusion** | **success** |
+
 ---
 
 ## 3. Workflow analysis (per `docs/prompts/workflowprompt.md`)
