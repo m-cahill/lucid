@@ -6,6 +6,7 @@
 **PR:** https://github.com/m-cahill/lucid/pull/9  
 **CI PR (authoritative):** https://github.com/m-cahill/lucid/actions/runs/23866649886 — **success**  
 **CI main (post-merge):** https://github.com/m-cahill/lucid/actions/runs/23866754720 — **success**  
+**CI main (closeout docs, authoritative HEAD):** https://github.com/m-cahill/lucid/actions/runs/23867038224 — **success** on `3dff713985c3dcb70c3ea0db84bffd39c8d84005` (see `M08_run1.md` §4.2)  
 **Audit Verdict:** **Green** — governance aligned; merge completed; no semantic benchmark bump.
 
 ---
