@@ -3,8 +3,8 @@
 **Milestone:** M05 — Family 2: contradiction / clarification  
 **Mode:** DELTA AUDIT  
 **Range:** prior `main` … M05 branch head (see `M05_run1.md` for exact SHAs)  
-**CI Status:** *Record from GitHub — see `M05_run1.md` §3*  
-**Audit Verdict:** 🟢 *Pending confirmation of green PR CI — then “delta acceptable; governance aligned.”*
+**CI Status:** Green — PR run `23829293654` (head `12b441a…`); post-merge `main` run `23829309009`  
+**Audit Verdict:** 🟢 Delta acceptable; governance aligned; merge completed.
 
 ---
 

@@ -37,8 +37,9 @@ No command renames or path deviations vs the milestone plan.
 |-------|--------|
 | **PR** | [#6](https://github.com/m-cahill/lucid/pull/6) |
 | **PR URL** | https://github.com/m-cahill/lucid/pull/6 |
-| **PR state** | *(update after merge — target: merged)* |
-| **Final PR head SHA (pre-merge, CI-verified)** | `f9e63dbd8d930c07aa8cc4faf7a87773b8d11536` |
+| **PR state** | **MERGED** (2026-04-01) |
+| **Final PR head SHA (last commit on PR, CI-verified)** | `12b441a7c8a15ca413d03791cb22e49114312315` |
+| **Merge commit on `main`** | `c87d9593d82dc8127c16efd16d78ae24c627a52d` |
 
 ---
 
@@ -49,11 +50,11 @@ Workflow file: `.github/workflows/ci.yml` (job: `lint-test` on `ubuntu-latest`, 
 | Field | Value |
 |-------|--------|
 | **Workflow name** | CI |
-| **Run ID** | `23829276463` |
-| **Workflow URL** | https://github.com/m-cahill/lucid/actions/runs/23829276463 |
+| **Run ID (authoritative for merge)** | `23829293654` |
+| **Workflow URL** | https://github.com/m-cahill/lucid/actions/runs/23829293654 |
 | **Conclusion** | **success** |
 | **Event** | `pull_request` |
-| **PR head SHA** | `f9e63dbd8d930c07aa8cc4faf7a87773b8d11536` (matches §2) |
+| **PR head SHA** | `12b441a7c8a15ca413d03791cb22e49114312315` (matches §2) |
 
 ### 3.1 Workflow analysis (per `docs/prompts/workflowprompt.md`)
 
@@ -81,24 +82,25 @@ No `continue-on-error` on required steps.
 
 **Step 6 — Verdict**
 
-**Verdict:** CI run `23829276463` completed **`success`** for head `f9e63dbd8d930c07aa8cc4faf7a87773b8d11536`. All merge-blocking steps executed (lint, format, mypy, pytest+coverage, wheel+kaggle verify, both notebook `--check` steps, Family 1 and Family 2 manifest `--check`). **Merge approved** per workflow prompt §6–7.
+**Verdict:** CI run `23829293654` completed **`success`** for head `12b441a7c8a15ca413d03791cb22e49114312315` (final PR tip). All merge-blocking steps executed (lint, format, mypy, pytest+coverage, wheel+kaggle verify, both notebook `--check` steps, Family 1 and Family 2 manifest `--check`). **Merge approved** per workflow prompt §6–7.
 
-**Prior green runs on this PR:** `23829238083` (`a5aa401…` — feature), `23829259120` (`05045ea…` — first M05_run1 update).
+**Other green runs on this PR:** `23829238083` (`a5aa401…`), `23829259120` (`05045ea…`), `23829276463` (`f9e63db…`).
 
 **Annotation (informational):** GitHub surfaced a Node.js 20 deprecation notice for `actions/checkout@v4` / `actions/setup-python@v5` — does not fail the job; track for future workflow updates.
 
-**Step 7 — Next actions:** Merge PR #6 to `main`; confirm post-merge `main` CI (§4).
+**Step 7 — Next actions:** ~~Merge PR #6~~ **Done** — post-merge `main` CI recorded in §4.
 
 ---
 
-## 4. Post-merge `main` workflow (if applicable)
+## 4. Post-merge `main` workflow
 
 | Field | Value |
 |-------|--------|
-| **Merge SHA** | *(fill after merge — `git rev-parse main` on updated clone)* |
-| **Run ID** | *(push workflow on `main` after merge)* |
-| **Workflow URL** | *(https://github.com/m-cahill/lucid/actions/runs/<ID>)* |
-| **Conclusion** | *(success / failure)* |
+| **Merge commit** | `c87d9593d82dc8127c16efd16d78ae24c627a52d` |
+| **Run ID** | `23829309009` |
+| **Workflow URL** | https://github.com/m-cahill/lucid/actions/runs/23829309009 |
+| **Conclusion** | **success** |
+| **Event** | `push` (merge of PR #6 to `main`) |
 
 ---
 

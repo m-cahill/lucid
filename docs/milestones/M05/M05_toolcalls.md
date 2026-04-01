@@ -9,3 +9,4 @@
 |-----------------|------|---------|----------------|--------|
 | 2026-03-31 | — | Stub seeded at M04 closeout | this file | seeded |
 | 2026-04-01 | implementation | Family 2 generator, pack, runner, scripts, tests, CI, docs | `src/lucid/families/contradiction_clarification_v1.py`, `src/lucid/packs/family2_core_m05.py`, `src/lucid/runner_family2.py`, `scripts/`, `tests/`, `.github/workflows/ci.yml`, `docs/` | complete |
+| 2026-04-01 | gh / git | PR #6 opened, CI watched, merged to `main`; `M05_run1.md` finalized with run IDs | GitHub Actions, `docs/milestones/M05/M05_run1.md` | complete |

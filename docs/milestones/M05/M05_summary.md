@@ -4,7 +4,7 @@
 **Phase:** Benchmark family expansion (locked roadmap)  
 **Milestone:** M05 — Family 2 offline core pack (`contradiction_clarification_v1` / `family2_core_m05_v1`)  
 **Timeframe:** 2026-04-01 → 2026-04-01 (repository record)  
-**Status:** Closed (pending final PR merge confirmation — see `M05_run1.md` for PR/CI URLs)
+**Status:** Closed (merged to `main` 2026-04-01 — see `M05_run1.md`)
 
 ---
 
@@ -110,7 +110,7 @@ Milestone objectives met for **offline dataset construction and governance**. Me
 ## 12. Canonical References
 
 - Branch: `m05-family-2-contradiction-clarification`
-- PR / merge: **`M05_run1.md`** (authoritative URLs, SHAs, CI run IDs)
+- PR [#6](https://github.com/m-cahill/lucid/pull/6) merged; authoritative SHAs and CI: **`M05_run1.md`**
 - Plan: `docs/milestones/M05/M05_plan.md`
 - Audit: `docs/milestones/M05/M05_audit.md`
 - Family spec: `docs/families/contradiction_clarification_v1.md`
