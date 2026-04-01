@@ -49,6 +49,9 @@ When documents or code disagree, use this order:
 | Kaggle notebook contract (standing) | `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` |
 | Canonical Kaggle notebook — M01 transport (generated) | `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (`scripts/generate_kaggle_notebook.py`) |
 | Kaggle notebook — M04 Family 1 analytics (generated) | `notebooks/lucid_kaggle_family1_m04_analytics.ipynb` (`scripts/generate_family1_m04_notebook.py`) |
+| M09 evidence panel (code) | `src/lucid/kaggle/m09_evidence_panel.py` — deterministic 72-row slice on `unified_core_m07_v1` |
+| M09 panel JSON (generated) | `docs/milestones/M09/artifacts/m09_model_panel.json` (`scripts/generate_m09_panel_artifact.py --write` / `--check`) |
+| Kaggle notebook — M09 mature evidence (generated) | `notebooks/lucid_kaggle_m09_mature_evidence.ipynb` (`scripts/generate_m09_kaggle_notebook.py`); task `lucid_m09_mature_evidence_task` |
 | M04 Kaggle analytics note | `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_M04_FAMILY1_ANALYTICS.md` |
 | Kaggle transport fixture manifest | `tests/fixtures/kaggle_transport/transport_manifest.json` |
 | Canonical Family 1 pack (M03) | `tests/fixtures/family1_core_m03/family1_core_m03_manifest.json` (`scripts/generate_family1_core_m03_manifest.py --check`) |
@@ -76,8 +79,22 @@ When documents or code disagree, use this order:
 | M07 unified pack stats | `docs/milestones/M07/artifacts/unified_pack_stats.json` |
 | M08 plan & closeout (complete) | `docs/milestones/M08/M08_plan.md`, `docs/milestones/M08/M08_run1.md`, `docs/milestones/M08/M08_summary.md`, `docs/milestones/M08/M08_audit.md` |
 | M08 tool log | `docs/milestones/M08/M08_toolcalls.md` |
-| M09 plan (stub) | `docs/milestones/M09/M09_plan.md` |
+| M09 plan | `docs/milestones/M09/M09_plan.md` |
+| M09 Kaggle runbook (Phase C handoff) | `docs/milestones/M09/M09_KAGGLE_RUNBOOK.md` |
+| M09 run log | `docs/milestones/M09/M09_run1.md` |
+| M09 summary / audit | `docs/milestones/M09/M09_summary.md`, `docs/milestones/M09/M09_audit.md` |
+| M09 platform + score artifacts | `docs/milestones/M09/artifacts/` (`m09_model_panel.json`, `m09_kaggle_run_manifest.md`, CSVs — populate after Kaggle run) |
 | M09 tool log | `docs/milestones/M09/M09_toolcalls.md` |
+
+### 3.1 External evidence index (Kaggle — audit trail)
+
+| Milestone / surface | Notebook (generated) | Task name | Machine-readable panel / notes |
+|---------------------|----------------------|-----------|----------------------------------|
+| M01 transport | `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` | `lucid_main_task` | `tests/fixtures/kaggle_transport/transport_manifest.json` |
+| M04 Family 1 analytics | `notebooks/lucid_kaggle_family1_m04_analytics.ipynb` | `lucid_family1_m04_task` | `docs/milestones/M04/artifacts/m04_model_panel.json` |
+| M09 mature benchmark (Phase B repo) | `notebooks/lucid_kaggle_m09_mature_evidence.ipynb` | `lucid_m09_mature_evidence_task` | `docs/milestones/M09/artifacts/m09_model_panel.json` |
+
+Platform CSV exports and run manifests for M09 live under `docs/milestones/M09/artifacts/`. **Phase C:** populate `m09_model_scores.csv` and breakdown CSVs after the first real Kaggle run; until then manifests and CSVs document **pending** platform evidence honestly (`m09_kaggle_run_manifest.md`).
 
 ---
 
@@ -96,17 +113,18 @@ When documents or code disagree, use this order:
 | Kaggle Community Benchmarks E2E | **Complete (M01)** — repo transport + offline equivalence + **Kaggle platform proof** (hosted models, task wiring, scores); see `docs/milestones/M01/M01_run1.md` and §6 score ledger |
 | Remote GitHub Actions | **Verified** — `pull_request` / `push` CI per `.github/workflows/ci.yml`; historical evidence in `docs/milestones/M00/M00_run1.md` |
 | Unified defensibility audit (M08) | **Complete (M08)** — `scripts/run_unified_defensibility_audit.py`; blocking `--check` in CI; artifacts under `docs/milestones/M08/artifacts/`; **no** Kaggle platform proof in milestone scope |
+| M09 mature-benchmark Kaggle evidence (panel + notebook) | **Phase B (repo) complete** — deterministic 72-episode panel (`m09_mature_evidence_v1`), committed `m09_model_panel.json`, generated notebook + CI `--check`; **Kaggle platform proof + scored CSV rows (Phase C+)** **not yet recorded** — see `docs/milestones/M09/artifacts/m09_kaggle_run_manifest.md` and `M09_KAGGLE_RUNBOOK.md` |
 
 ### Submission blockers (compact)
 
 Standing gaps before treating the competition entry as **submission-complete** (see §6.4 for narrative):
 
-| Blocker | Status | Last milestone touched | Exit criteria (high level) |
-|----------------------|--------|-------------------------|----------------------------|
-| Hosted-model discriminatory power (full closure) | Open | M04 | Populate `family1_model_scores.csv` or document blocked panel / fallback; revisit family verdicts |
-| Defensibility / ambiguity / contamination QA | **M08 done (automated layer)** | **M08** | Green `run_unified_defensibility_audit.py --check`; artifacts committed; judge-facing narrative remains for M10 |
-| Final writeup pack | Open | — | Figures, narrative, packaging per competition |
-| Final Kaggle benchmark / task / writeup linkage | Open | — | Per official rules |
+| Blocker | Status | Owner / resolution path | Last milestone touched | Exit criteria (high level) |
+|----------------------|--------|-------------------------|-------------------------|----------------------------|
+| Hosted-model discriminatory power (full closure) | Open | **M09** closes or supersedes M04 CSV gap via `m09_m04_blocker_disposition.md` + artifacts | M04 / M09 | Populate evidence CSVs or document blocked panel / fallback; revisit family verdicts |
+| Defensibility / ambiguity / contamination QA | **M08 done (automated layer)** | **M10** judge-facing narrative | **M08** | Green `run_unified_defensibility_audit.py --check`; artifacts committed; judge-facing narrative remains for M10 |
+| Final writeup pack | Open | **M10** | — | Figures, narrative, packaging per competition |
+| Final Kaggle benchmark / task / writeup linkage | Open | **M11** | — | Per official rules |
 
 ---
 
@@ -146,7 +164,7 @@ Use these labels consistently in milestone docs and run analyses:
 | **GitHub CI proof** | Lint/type/test gates on `ubuntu-latest` in CI | Green workflow run logs / run IDs |
 | **Kaggle platform proof** | Real execution in Kaggle’s benchmark/task environment | Notebook version, task/benchmark links, model run outputs (see `M01_KAGGLE_EVIDENCE_TEMPLATE.md`) |
 
-**Rule:** **Kaggle Community Benchmarks E2E** requires **Kaggle platform proof** (not CI alone). **M01** delivered that proof; **future milestones** must record their own external evidence when they claim platform work.
+**Rule:** **Kaggle Community Benchmarks E2E** requires **Kaggle platform proof** (not CI alone). **M01** delivered that proof; **future milestones** must record their own external evidence when they claim platform work. **M09** platform proof is **pending** a recorded Kaggle run (`m09_kaggle_run_manifest.md`); Phase B is **local + CI proof** for the generator and panel artifact only.
 
 ### Local execution posture
 
@@ -189,6 +207,8 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 
 **M08 judged axis:** **Dataset quality & task construction** — deterministic defensibility / QA audit layer over `unified_core_m07_v1` and canonical source manifests; hard vs soft checks; contamination-resistance posture doc; CI `--check` on audit artifacts; **no** benchmark version bump and **no** Kaggle platform proof in milestone scope.
 
+**M09 judged axis:** **Novelty / insights / discriminatory power** — deterministic **72-episode** evidence panel on the mature unified pack (`m09_mature_evidence_v1`), generated Kaggle notebook (`lucid_m09_mature_evidence_task`), committed panel JSON; **Kaggle platform proof** and CSV analysis when Phase C+ closeout completes. Benchmark **1.1.0** unchanged.
+
 ### 6.2 Submission posture
 
 - **M01** established **transport proof** and an initial **hosted-model spread** on a fixed acceptance slice (`symbolic_negation_v1`).
@@ -198,8 +218,9 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 - **M06** added a **canonical deterministic Family 3 offline pack** (72 episodes, `scope_precedence_exception_v1`; drift types `SCOPE` / `PRECEDENCE` / `EXCEPTION`) with local smoke and CI `--check`; Family 3 verdict **retain provisionally** pending future discriminatory evidence (no Kaggle Family 3 task in M06).
 - **M07** added a **canonical unified offline pack** (`unified_core_m07_v1`, 240 episodes) — normalized cross-family manifest + lineage over the three core packs; local unified smoke and CI `--check`; **not** a Kaggle or hosted-model evidence milestone; family verdicts unchanged (**retain provisionally**).
 - **M08** added a **blocking defensibility audit** (`scripts/run_unified_defensibility_audit.py`, CI `--check`) with committed artifacts under `docs/milestones/M08/artifacts/` and canonical standard `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md` — **not** Kaggle platform proof; benchmark **1.1.0** unchanged.
-- LUCID is **not submission-ready** after M08 (hosted-model closure, final Kaggle linkage, and writeup packaging remain).
-- **Remaining gaps** before a competition-ready submission include: **populated** hosted-model spread on the M04 panel (or documented fallback), broader **Kaggle evidence** on the mature pack as needed, **final writeup / packaging**, and **final** benchmark–task–writeup **linkage** per rules — see §4 submission blockers table.
+- **M09 (in progress)** adds the **mature-benchmark Kaggle evidence** surface: panel code + committed `m09_model_panel.json` + generated `notebooks/lucid_kaggle_m09_mature_evidence.ipynb` (Phase B). **Platform runs and exported scores** are Phase C+; M01 score ledger remains **historical M01 evidence** (not overwritten).
+- LUCID is **not submission-ready** after M08 (hosted-model closure, final Kaggle linkage, and writeup packaging remain); M09 Phase B advances the **repo** side of mature hosted-model evidence.
+- **Remaining gaps** before a competition-ready submission include: **M09** platform completion + M04 blocker disposition, **final writeup / packaging**, and **final** benchmark–task–writeup **linkage** per rules — see §4 submission blockers table.
 
 ### 6.3 Standing family promotion rules (at milestone close)
 
@@ -215,7 +236,7 @@ This guards against faculty sprawl and “benchmark theater.”
 
 Until addressed, the entry should not be treated as submission-complete. **Compact tracker:** §4 *Submission blockers (compact)*.
 
-- **Family-level discriminatory power (full evidentiary closure)** — M04 delivered infrastructure + **retain provisionally**; **populate** `family1_model_scores.csv` from Kaggle (see `M04_run2.md`) or record an explicit blocked panel / subset rationale before claiming submission-grade spread.
+- **Family-level discriminatory power (full evidentiary closure)** — M04 delivered infrastructure + **retain provisionally**; **M09** provides the mature-panel Kaggle path; **populate** hosted-model artifacts or record **closed vs superseded** in `m09_m04_blocker_disposition.md` (see `M04_run2.md`) before claiming submission-grade spread.
 - **Defensibility / ambiguity / contamination posture** — **M08** delivers the **automated, CI-enforced** audit layer + artifacts (`docs/milestones/M08/artifacts/`, `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md`). Judge-facing narrative and final packaging remain **out of scope** for M08 (see M10).
 - **Final writeup pack** (figures, narrative, judge-facing framing).
 - **Final Kaggle benchmark / task / writeup linkage** per competition requirements.
@@ -276,7 +297,7 @@ Planned milestone arc (competition charter locked in **M02**):
 | **M06** | Family 3 — scope / precedence / exception drift family | **Complete** |
 | **M07** | Unified benchmark pack normalization across families | **Complete** |
 | **M08** | Defensibility, QA, and contamination-resistance hardening | **Complete** |
-| **M09** | Expanded Kaggle evidence run on mature benchmark | **Planned** |
+| **M09** | Expanded Kaggle evidence run on mature benchmark | **In progress** — Phase B (repo): panel + notebook + CI; Phase C+ (platform): pending |
 | **M10** | Writeup evidence pack, figures, and judge-facing narrative | **Planned** |
 | **M11** | Submission lock: final benchmark freeze and submission checklist | **Planned** |
 | **M12** | Contingency A — platform / benchmark replacement buffer | **Planned** |
@@ -416,19 +437,23 @@ Planned milestone arc (competition charter locked in **M02**):
 - **Never** hand-edit canonical `.ipynb` JSON; regenerate via generators; **`--check`** must pass in CI.  
   - **M01 transport:** `scripts/generate_kaggle_notebook.py` → `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md`).  
   - **M04 Family 1 analytics:** `scripts/generate_family1_m04_notebook.py` → `notebooks/lucid_kaggle_family1_m04_analytics.ipynb` (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_M04_FAMILY1_ANALYTICS.md`).  
-- **Pin** ZIP installs to a commit whose tree includes required transport code (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1 for M01; same discipline for M04).
+  - **M09 mature evidence:** `scripts/generate_m09_kaggle_notebook.py` → `notebooks/lucid_kaggle_m09_mature_evidence.ipynb` (panel: `src/lucid/kaggle/m09_evidence_panel.py`).  
+- **Pin** ZIP installs to a commit whose tree includes required transport code (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1 for M01; same discipline for M04/M09).
 
 **Competition alignment:** `docs/LUCID_COMPETITION_ALIGNMENT.md`.
 
 ---
 
-## 9. Active milestone — M09 (next)
+## 9. Active milestone — M09
 
-**Status:** **Planned** — follows M08 closeout (see §7).
+**Status:** **Open** — **Phase B (repo) complete** (panel, `m09_model_panel.json`, generated notebook, CI `--check`, tests). **Phase C–E (Kaggle platform run, score CSVs, full closeout)** **pending** — no platform scores ingested in this revision; see `docs/milestones/M09/M09_summary.md`, `docs/milestones/M09/artifacts/m09_kaggle_run_manifest.md`, `docs/milestones/M09/M09_KAGGLE_RUNBOOK.md`.
 
-**Goal (from planned arc):** Expanded Kaggle evidence run on the mature benchmark.
+**Goal:** Expanded **Kaggle platform evidence** on the mature unified benchmark (**Novelty / insights / discriminatory power**); benchmark version **1.1.0** unless change control.
 
-**Plan:** `docs/milestones/M09/M09_plan.md` (stub at M08 handoff)  
+**Judged axis:** **Novelty / insights / discriminatory power** (see §6.1).
+
+**Plan:** `docs/milestones/M09/M09_plan.md`  
+**Run log:** `docs/milestones/M09/M09_run1.md`  
 **Tool log:** `docs/milestones/M09/M09_toolcalls.md`
 
 **M08 (closed):** `docs/milestones/M08/M08_plan.md` — defensibility audit artifacts `docs/milestones/M08/artifacts/`.
