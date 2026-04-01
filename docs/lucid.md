@@ -49,6 +49,7 @@ When documents or code disagree, use this order:
 | M04 Kaggle analytics note | `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_M04_FAMILY1_ANALYTICS.md` |
 | Kaggle transport fixture manifest | `tests/fixtures/kaggle_transport/transport_manifest.json` |
 | Canonical Family 1 pack (M03) | `tests/fixtures/family1_core_m03/family1_core_m03_manifest.json` (`scripts/generate_family1_core_m03_manifest.py --check`) |
+| Canonical Family 2 pack (M05) | `tests/fixtures/family2_core_m05/family2_core_m05_manifest.json` (`scripts/generate_family2_core_m05_manifest.py --check`) |
 | M01 Kaggle handoff runbook | `docs/milestones/M01/M01_KAGGLE_RUNBOOK.md` |
 | Competition alignment (submission strategy, judging, family priorities) | `docs/LUCID_COMPETITION_ALIGNMENT.md` |
 | M01 closeout (complete) | `docs/milestones/M01/M01_run1.md`, `docs/milestones/M01/M01_summary.md`, `docs/milestones/M01/M01_audit.md` |
@@ -59,8 +60,11 @@ When documents or code disagree, use this order:
 | M04 plan & closeout (complete) | `docs/milestones/M04/M04_plan.md`, `docs/milestones/M04/M04_summary.md`, `docs/milestones/M04/M04_audit.md`, `docs/milestones/M04/M04_run1.md`, `docs/milestones/M04/M04_run2.md` |
 | M04 tool log | `docs/milestones/M04/M04_toolcalls.md` |
 | M04 Family 1 evidence artifacts | `docs/milestones/M04/artifacts/` |
-| M05 plan (stub; next milestone) | `docs/milestones/M05/M05_plan.md` |
+| M05 plan & closeout (complete) | `docs/milestones/M05/M05_plan.md`, `docs/milestones/M05/M05_summary.md`, `docs/milestones/M05/M05_audit.md`, `docs/milestones/M05/M05_run1.md` |
 | M05 tool log | `docs/milestones/M05/M05_toolcalls.md` |
+| M05 Family 2 structural artifact | `docs/milestones/M05/artifacts/family2_pack_stats.json` |
+| M06 plan (stub; next milestone) | `docs/milestones/M06/M06_plan.md` |
+| M06 tool log | `docs/milestones/M06/M06_toolcalls.md` |
 
 ---
 
@@ -68,10 +72,11 @@ When documents or code disagree, use this order:
 
 | Item | Status |
 |------|--------|
-| Active template families | **symbolic_negation_v1** (documented in M00; see `docs/families/`) |
+| Active template families | **symbolic_negation_v1**, **contradiction_clarification_v1** (see `docs/families/`) |
 | Active scoring profile | **LUCID_SCORING_PROFILE v1.1.0** |
 | Local minimal green path | **Complete (M00)** — `scripts/run_local_smoke.py` + tests |
 | Family 1 offline core pack | **Complete (M03)** — pack `family1_core_m03_v1` (96 episodes, LOW/MEDIUM/HIGH balanced); committed manifest under `tests/fixtures/family1_core_m03/`; `scripts/generate_family1_core_m03_manifest.py`; Family 1 smoke `scripts/run_family1_pack_smoke.py` |
+| Family 2 offline core pack | **Complete (M05)** — pack `family2_core_m05_v1` (72 episodes, LOW/MEDIUM/HIGH balanced; 12 unresolved + 12 resolved per bucket); committed manifest under `tests/fixtures/family2_core_m05/`; `scripts/generate_family2_core_m05_manifest.py`; Family 2 smoke `scripts/run_family2_pack_smoke.py` |
 | Family 1 M04 analytics (local + Kaggle surface) | **Complete (M04)** — difficulty ladder / deterministic baseline artifacts; **additive** Kaggle notebook `lucid_family1_m04_task` on a **24-episode** stratified panel; verdict **retain provisionally** pending populated hosted-model CSV (`docs/milestones/M04/artifacts/`) |
 | Kaggle Community Benchmarks E2E | **Complete (M01)** — repo transport + offline equivalence + **Kaggle platform proof** (hosted models, task wiring, scores); see `docs/milestones/M01/M01_run1.md` and §6 score ledger |
 | Remote GitHub Actions | **Verified** — `pull_request` / `push` CI per `.github/workflows/ci.yml`; historical evidence in `docs/milestones/M00/M00_run1.md` |
@@ -83,12 +88,14 @@ For each implemented family, record the canonical offline pack (audit trail for 
 | Family | Pack ID | Episodes | LOW / MED / HIGH | Canonical path | Last milestone |
 |--------|---------|----------|------------------|------------------|----------------|
 | `symbolic_negation_v1` | `family1_core_m03_v1` | 96 | 32 / 32 / 32 | `tests/fixtures/family1_core_m03/family1_core_m03_manifest.json` | M04 |
+| `contradiction_clarification_v1` | `family2_core_m05_v1` | 72 | 24 / 24 / 24 | `tests/fixtures/family2_core_m05/family2_core_m05_manifest.json` | M05 |
 
 ### Family verdict ledger (standing)
 
 | Family | Pack ID | Last analytics milestone | Verdict | Rationale pointer |
 |--------|---------|---------------------------|---------|-------------------|
 | `symbolic_negation_v1` | `family1_core_m03_v1` | **M04** | **retain provisionally** | `docs/milestones/M04/artifacts/family1_promotion_decision.md` |
+| `contradiction_clarification_v1` | `family2_core_m05_v1` | **M05** | **retain provisionally** | `docs/milestones/M05/M05_summary.md` |
 
 ### Proof classes (audit-clean ledger)
 
@@ -135,12 +142,15 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 
 **M04 judged axis:** **Novelty / insights / discriminatory power** — difficulty-ladder + spread-analysis tooling and an additive Kaggle analytics notebook; dataset-quality positioning inherited from M03.
 
+**M05 judged axis:** **Dataset quality & task construction** — canonical deterministic Family 2 offline pack (`contradiction_clarification_v1` / `family2_core_m05_v1`), tests, CI manifest check, and family spec; no hosted-model Family 2 evidence in milestone scope.
+
 ### 6.2 Submission posture
 
 - **M01** established **transport proof** and an initial **hosted-model spread** on a fixed acceptance slice (`symbolic_negation_v1`).
 - **M03** added a **canonical deterministic Family 1 offline pack** (96 episodes) including the M01 acceptance rows as an explicit subset — dataset construction advance; not a substitute for full **Kaggle evidence** on scaled runs.
 - **M04** added **Family 1 analytics** (structural ladder + deterministic baseline + **M04** Kaggle analytics notebook on a **24-episode** stratified panel) and recorded verdict **retain provisionally** until hosted-model results populate `docs/milestones/M04/artifacts/family1_model_scores.csv`.
-- LUCID is **not submission-ready** after M04.
+- **M05** added a **canonical deterministic Family 2 offline pack** (72 episodes, `contradiction_clarification_v1`) with local smoke and CI `--check`; Family 2 verdict **retain provisionally** pending future discriminatory evidence (no Kaggle Family 2 task in M05).
+- LUCID is **not submission-ready** after M05.
 - **Remaining gaps** before a competition-ready submission include: **populated** hosted-model spread on the M04 panel (or documented fallback), **defensibility** hardening, broader **Kaggle evidence** on the mature pack as needed, and **writeup / packaging** aligned to the rules.
 
 ### 6.3 Standing family promotion rules (at milestone close)
@@ -214,7 +224,7 @@ Planned milestone arc (competition charter locked in **M02**):
 | **M02** | Competition charter lock & milestone arc formalization | **Complete** |
 | **M03** | Family 1 scale-up — symbolic negation / local rule-reversal dataset expansion | **Complete** |
 | **M04** | Family 1 analytics — difficulty ladder, spread analysis, and promotion decision | **Complete** |
-| **M05** | Family 2 — contradiction / clarification benchmark family | **Planned** |
+| **M05** | Family 2 — contradiction / clarification benchmark family | **Complete** |
 | **M06** | Family 3 — scope / precedence / exception drift family | **Planned** |
 | **M07** | Unified benchmark pack normalization across families | **Planned** |
 | **M08** | Defensibility, QA, and contamination-resistance hardening | **Planned** |
@@ -292,6 +302,20 @@ Planned milestone arc (competition charter locked in **M02**):
 **Plan / evidence:** `docs/milestones/M04/M04_plan.md`, `docs/milestones/M04/M04_summary.md`, `docs/milestones/M04/M04_audit.md`, `docs/milestones/M04/M04_run1.md`, `docs/milestones/M04/M04_run2.md`  
 **Tool log:** `docs/milestones/M04/M04_toolcalls.md`
 
+### M05 — Family 2 — contradiction / clarification core pack
+
+**Closed:** 2026-04-01 (repository record).
+
+**What M05 delivered**
+
+- **Canonical pack:** `family2_core_m05_v1` — **72** episodes, **24 / 24 / 24** LOW/MEDIUM/HIGH, **12** unresolved + **12** resolved contradiction episodes per bucket; committed manifest `tests/fixtures/family2_core_m05/family2_core_m05_manifest.json`; deterministic regeneration via `scripts/generate_family2_core_m05_manifest.py` (`--write` / `--check`); generator `src/lucid/families/contradiction_clarification_v1.py`, pack `src/lucid/packs/family2_core_m05.py`, local runner `src/lucid/runner_family2.py`.
+- **Local proof:** Tests + `scripts/run_family2_pack_smoke.py` (six representative episodes: unresolved + resolved per difficulty bucket).
+- **Verdict:** **retain provisionally** — offline core-pack milestone; no Family 2 hosted-model spread in scope.
+- **Benchmark:** **1.1.0** unchanged.
+
+**Plan / evidence:** `docs/milestones/M05/M05_plan.md`, `docs/milestones/M05/M05_summary.md`, `docs/milestones/M05/M05_audit.md`, `docs/milestones/M05/M05_run1.md`  
+**Tool log:** `docs/milestones/M05/M05_toolcalls.md`
+
 ### Canonical notebook regeneration rule (standing)
 
 - **Never** hand-edit canonical `.ipynb` JSON; regenerate via generators; **`--check`** must pass in CI.  
@@ -303,14 +327,14 @@ Planned milestone arc (competition charter locked in **M02**):
 
 ---
 
-## 9. Active milestone — M05 (next)
+## 9. Active milestone — M06 (next)
 
-**Status:** **Planned** — stub at M04 closeout (see §7).
+**Status:** **Planned** — stub at M05 closeout (see §7).
 
-**Goal (from planned arc):** Family 2 — contradiction / clarification benchmark family.
+**Goal (from planned arc):** Family 3 — scope / precedence / exception drift family.
 
-**Plan (stub):** `docs/milestones/M05/M05_plan.md`  
-**Tool log:** `docs/milestones/M05/M05_toolcalls.md`
+**Plan (stub):** `docs/milestones/M06/M06_plan.md`  
+**Tool log:** `docs/milestones/M06/M06_toolcalls.md`
 
 ---
 
