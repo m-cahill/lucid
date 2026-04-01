@@ -212,6 +212,18 @@ Defined in:
 * run 1 episode
 * confirm full bundle
 
+### Offline core packs (canonical manifests)
+
+As of **M06**, committed deterministic packs (regenerate with `--check` in CI) include:
+
+| Pack ID | Family (`template_family`) | Manifest check script |
+|---------|----------------------------|------------------------|
+| `family1_core_m03_v1` | `symbolic_negation_v1` | `scripts/generate_family1_core_m03_manifest.py` |
+| `family2_core_m05_v1` | `contradiction_clarification_v1` | `scripts/generate_family2_core_m05_manifest.py` |
+| `family3_core_m06_v1` | `scope_precedence_exception_v1` | `scripts/generate_family3_core_m06_manifest.py` |
+
+**Benchmark version** for scoring and episode generation remains **1.1.0** unless change control bumps it.
+
 ---
 
 ## 12. Kaggle Integration Model

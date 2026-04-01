@@ -69,6 +69,7 @@ When documents or code disagree, use this order:
 | M06 Family 3 structural artifact | `docs/milestones/M06/artifacts/family3_pack_stats.json` |
 | M07 plan (stub; next milestone) | `docs/milestones/M07/M07_plan.md` |
 | M07 tool log | `docs/milestones/M07/M07_toolcalls.md` |
+| M07 CI run log (stub) | `docs/milestones/M07/M07_run1.md` |
 
 ---
 
@@ -358,7 +359,8 @@ Planned milestone arc (competition charter locked in **M02**):
 **Goal (from planned arc):** Unified benchmark pack normalization across families.
 
 **Plan (stub):** `docs/milestones/M07/M07_plan.md`  
-**Tool log:** `docs/milestones/M07/M07_toolcalls.md`
+**Tool log:** `docs/milestones/M07/M07_toolcalls.md`  
+**CI run log (stub):** `docs/milestones/M07/M07_run1.md`
 
 ---
 
