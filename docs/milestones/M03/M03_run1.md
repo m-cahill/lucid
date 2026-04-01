@@ -6,7 +6,8 @@
 **Repository root:** `c:\coding\kaggle\lucid`
 
 **HEAD at start of formal closeout verification:** `e10021d7705e1a6bc6b46e9d5e373b93aa111f2f`  
-**Note:** After staging and committing M03 artifacts, **HEAD will change** — update this line and the machine-readable footer after merge to record the **merge commit** and **GitHub Actions** run on `main`.
+**M03 branch tip (pre-merge):** `0c7bb380d5c8425a18a610a6299018c5935f76a5`  
+**Merge to `main`:** PR **#4** — https://github.com/m-cahill/lucid/pull/4 — merge commit **`f035a172618ae88238b83a9f25bbb78befb36a27`**
 
 ---
 
@@ -64,13 +65,23 @@ all_ok scores=[1.0, 1.0, 1.0]
 
 ## 4. Remote CI reference (GitHub Actions)
 
-**Pre-merge:** Latest green **`CI`** run observed on **`main`** at closeout time:
+**Pre-merge (baseline on `main` at closeout):**
 
 | Run ID | Conclusion | Event | Branch | URL |
 |--------|------------|-------|--------|-----|
 | **23824761555** | success | push | `main` | `https://github.com/m-cahill/lucid/actions/runs/23824761555` |
 
-**Post-merge (required hygiene):** After M03 lands on `main`, record the new workflow run ID/URL here (merge commit and PR run).
+**M03 pull request CI** (`CI` workflow on branch `m03-family-1-scale-up`):
+
+| Run ID | Conclusion | Event | URL |
+|--------|------------|-------|-----|
+| **23826225247** | success | `pull_request` | `https://github.com/m-cahill/lucid/actions/runs/23826225247` |
+
+**Post-merge `main` CI** (push of merge commit `f035a17`):
+
+| Run ID | Conclusion | Event | URL |
+|--------|------------|-------|-----|
+| **23826240850** | success | push | `https://github.com/m-cahill/lucid/actions/runs/23826240850` |
 
 ---
 
@@ -93,12 +104,17 @@ all_ok scores=[1.0, 1.0, 1.0]
 {
   "milestone": "M03",
   "verification_date": "2026-03-31",
-  "local_head_sha": "e10021d7705e1a6bc6b46e9d5e373b93aa111f2f",
+  "local_head_sha_at_verification_start": "e10021d7705e1a6bc6b46e9d5e373b93aa111f2f",
+  "m03_branch_tip_sha": "0c7bb380d5c8425a18a610a6299018c5935f76a5",
+  "merge_pr": "https://github.com/m-cahill/lucid/pull/4",
+  "merge_commit_sha": "f035a172618ae88238b83a9f25bbb78befb36a27",
   "python": "3.11.9",
   "pytest_passed": 46,
   "coverage_total_pct": 88.41,
   "manifest_check": "ok",
-  "reference_main_ci_run_id": "23824761555",
-  "reference_main_ci_url": "https://github.com/m-cahill/lucid/actions/runs/23824761555"
+  "ci_pr_run_id": "23826225247",
+  "ci_pr_run_url": "https://github.com/m-cahill/lucid/actions/runs/23826225247",
+  "ci_main_post_merge_run_id": "23826240850",
+  "ci_main_post_merge_url": "https://github.com/m-cahill/lucid/actions/runs/23826240850"
 }
 ```
