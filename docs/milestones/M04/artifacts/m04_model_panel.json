@@ -1,0 +1,17 @@
+{
+  "description": "Default 10-model decision panel for M04 hosted-model runs (M01 ledger reference scores).",
+  "m01_ledger_reference_only": true,
+  "models": [
+    {"name": "Claude Opus 4.1", "m01_mean_score": 0.9},
+    {"name": "Gemini 2.5 Pro", "m01_mean_score": 0.89},
+    {"name": "Qwen 3 Coder 480B", "m01_mean_score": 0.89},
+    {"name": "Claude Haiku 4.5", "m01_mean_score": 0.83},
+    {"name": "Claude Sonnet 4.6", "m01_mean_score": 0.68},
+    {"name": "Gemini 2.0 Flash", "m01_mean_score": 0.68},
+    {"name": "DeepSeek-R1", "m01_mean_score": 0.66},
+    {"name": "Deepseek V3.1", "m01_mean_score": 0.47},
+    {"name": "Gemma 3 4B", "m01_mean_score": 0.47},
+    {"name": "Gemma 3 1B", "m01_mean_score": 0.46}
+  ],
+  "note": "Run `notebooks/lucid_kaggle_family1_m04_analytics.ipynb` on Kaggle; paste per-episode rows into family1_model_scores.csv."
+}

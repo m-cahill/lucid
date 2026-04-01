@@ -143,3 +143,22 @@ def test_manifest_episode_scorer_regression() -> None:
         assert spec.episode_id == row["episode_spec"]["episode_id"]
         turns = fixture_turns(spec)
         score_episode(spec, turns)
+
+
+def test_m04_decision_subset_shape_and_m01_seeds() -> None:
+    rows = p.m04_decision_eval_rows()
+    assert len(rows) == 24
+    low = [r for r in rows if r["drift_severity"] == "LOW"]
+    med = [r for r in rows if r["drift_severity"] == "MEDIUM"]
+    high = [r for r in rows if r["drift_severity"] == "HIGH"]
+    assert len(low) == len(med) == len(high) == 8
+    assert {r["generation_seed"] for r in low} == {1, 2, 3, 4, 5, 6, 7, 100}
+    assert {r["generation_seed"] for r in med} == {32, 33, 34, 35, 36, 37, 38, 42}
+    assert {r["generation_seed"] for r in high} == {64, 65, 66, 67, 68, 69, 70, 200}
+
+
+def test_m04_seeds_match_sequence_order() -> None:
+    """Stratified subset seeds must exist in canonical episode_sequence."""
+    seq = {s for s, _ in p.episode_sequence()}
+    for seed, _sev in p.m04_decision_subset_seeds():
+        assert seed in seq

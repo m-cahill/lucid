@@ -44,7 +44,9 @@ When documents or code disagree, use this order:
 | Archived bundle export (v1.0.1) | `docs/archive/LUCID_contracts_master_bundle_v1.0.1_ARCHIVED.md` |
 | Milestone plans | `docs/milestones/MNN/` |
 | Kaggle notebook contract (standing) | `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` |
-| Canonical Kaggle notebook (generated) | `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (`scripts/generate_kaggle_notebook.py`) |
+| Canonical Kaggle notebook — M01 transport (generated) | `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (`scripts/generate_kaggle_notebook.py`) |
+| Kaggle notebook — M04 Family 1 analytics (generated) | `notebooks/lucid_kaggle_family1_m04_analytics.ipynb` (`scripts/generate_family1_m04_notebook.py`) |
+| M04 Kaggle analytics note | `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_M04_FAMILY1_ANALYTICS.md` |
 | Kaggle transport fixture manifest | `tests/fixtures/kaggle_transport/transport_manifest.json` |
 | Canonical Family 1 pack (M03) | `tests/fixtures/family1_core_m03/family1_core_m03_manifest.json` (`scripts/generate_family1_core_m03_manifest.py --check`) |
 | M01 Kaggle handoff runbook | `docs/milestones/M01/M01_KAGGLE_RUNBOOK.md` |
@@ -54,8 +56,11 @@ When documents or code disagree, use this order:
 | M02 evidence / CI run record | `docs/milestones/M02/M02_run1.md` |
 | M03 plan & closeout (complete) | `docs/milestones/M03/M03_plan.md`, `docs/milestones/M03/M03_summary.md`, `docs/milestones/M03/M03_audit.md`, `docs/milestones/M03/M03_run1.md` |
 | M03 tool log | `docs/milestones/M03/M03_toolcalls.md` |
-| M04 plan (stub; next milestone) | `docs/milestones/M04/M04_plan.md` |
+| M04 plan & closeout (complete) | `docs/milestones/M04/M04_plan.md`, `docs/milestones/M04/M04_summary.md`, `docs/milestones/M04/M04_audit.md`, `docs/milestones/M04/M04_run1.md`, `docs/milestones/M04/M04_run2.md` |
 | M04 tool log | `docs/milestones/M04/M04_toolcalls.md` |
+| M04 Family 1 evidence artifacts | `docs/milestones/M04/artifacts/` |
+| M05 plan (stub; next milestone) | `docs/milestones/M05/M05_plan.md` |
+| M05 tool log | `docs/milestones/M05/M05_toolcalls.md` |
 
 ---
 
@@ -67,6 +72,7 @@ When documents or code disagree, use this order:
 | Active scoring profile | **LUCID_SCORING_PROFILE v1.1.0** |
 | Local minimal green path | **Complete (M00)** — `scripts/run_local_smoke.py` + tests |
 | Family 1 offline core pack | **Complete (M03)** — pack `family1_core_m03_v1` (96 episodes, LOW/MEDIUM/HIGH balanced); committed manifest under `tests/fixtures/family1_core_m03/`; `scripts/generate_family1_core_m03_manifest.py`; Family 1 smoke `scripts/run_family1_pack_smoke.py` |
+| Family 1 M04 analytics (local + Kaggle surface) | **Complete (M04)** — difficulty ladder / deterministic baseline artifacts; **additive** Kaggle notebook `lucid_family1_m04_task` on a **24-episode** stratified panel; verdict **retain provisionally** pending populated hosted-model CSV (`docs/milestones/M04/artifacts/`) |
 | Kaggle Community Benchmarks E2E | **Complete (M01)** — repo transport + offline equivalence + **Kaggle platform proof** (hosted models, task wiring, scores); see `docs/milestones/M01/M01_run1.md` and §6 score ledger |
 | Remote GitHub Actions | **Verified** — `pull_request` / `push` CI per `.github/workflows/ci.yml`; historical evidence in `docs/milestones/M00/M00_run1.md` |
 
@@ -76,7 +82,13 @@ For each implemented family, record the canonical offline pack (audit trail for 
 
 | Family | Pack ID | Episodes | LOW / MED / HIGH | Canonical path | Last milestone |
 |--------|---------|----------|------------------|------------------|----------------|
-| `symbolic_negation_v1` | `family1_core_m03_v1` | 96 | 32 / 32 / 32 | `tests/fixtures/family1_core_m03/family1_core_m03_manifest.json` | M03 |
+| `symbolic_negation_v1` | `family1_core_m03_v1` | 96 | 32 / 32 / 32 | `tests/fixtures/family1_core_m03/family1_core_m03_manifest.json` | M04 |
+
+### Family verdict ledger (standing)
+
+| Family | Pack ID | Last analytics milestone | Verdict | Rationale pointer |
+|--------|---------|---------------------------|---------|-------------------|
+| `symbolic_negation_v1` | `family1_core_m03_v1` | **M04** | **retain provisionally** | `docs/milestones/M04/artifacts/family1_promotion_decision.md` |
 
 ### Proof classes (audit-clean ledger)
 
@@ -121,12 +133,15 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 
 **Standing rule:** Each future milestone should state **which judged axis** it primarily advances.
 
+**M04 judged axis:** **Novelty / insights / discriminatory power** — difficulty-ladder + spread-analysis tooling and an additive Kaggle analytics notebook; dataset-quality positioning inherited from M03.
+
 ### 6.2 Submission posture
 
 - **M01** established **transport proof** and an initial **hosted-model spread** on a fixed acceptance slice (`symbolic_negation_v1`).
 - **M03** added a **canonical deterministic Family 1 offline pack** (96 episodes) including the M01 acceptance rows as an explicit subset — dataset construction advance; not a substitute for full **Kaggle evidence** on scaled runs.
-- LUCID is **not submission-ready** after M03.
-- **Remaining gaps** before a competition-ready submission include: Family 1 **analytics / discriminatory power** on the mature pack (see **M04**), **defensibility** hardening, broader **Kaggle evidence**, and **writeup / packaging** aligned to the rules.
+- **M04** added **Family 1 analytics** (structural ladder + deterministic baseline + **M04** Kaggle analytics notebook on a **24-episode** stratified panel) and recorded verdict **retain provisionally** until hosted-model results populate `docs/milestones/M04/artifacts/family1_model_scores.csv`.
+- LUCID is **not submission-ready** after M04.
+- **Remaining gaps** before a competition-ready submission include: **populated** hosted-model spread on the M04 panel (or documented fallback), **defensibility** hardening, broader **Kaggle evidence** on the mature pack as needed, and **writeup / packaging** aligned to the rules.
 
 ### 6.3 Standing family promotion rules (at milestone close)
 
@@ -142,7 +157,7 @@ This guards against faculty sprawl and “benchmark theater.”
 
 Until addressed, the entry should not be treated as submission-complete:
 
-- **Family-level discriminatory power** on the **M03** canonical pack (hosted-model spread or equivalent — **M04**) and any follow-on validation required for submission.
+- **Family-level discriminatory power (full evidentiary closure)** — M04 delivered infrastructure + **retain provisionally**; **populate** `family1_model_scores.csv` from Kaggle (see `M04_run2.md`) or record an explicit blocked panel / subset rationale before claiming submission-grade spread.
 - **Defensibility / ambiguity audit** (contamination resistance, task clarity).
 - **Final writeup pack** (figures, narrative, judge-facing framing).
 - **Final Kaggle benchmark / task / writeup linkage** per competition requirements.
@@ -198,7 +213,7 @@ Planned milestone arc (competition charter locked in **M02**):
 | **M01** | Kaggle Community Benchmarks E2E verification | **Complete** |
 | **M02** | Competition charter lock & milestone arc formalization | **Complete** |
 | **M03** | Family 1 scale-up — symbolic negation / local rule-reversal dataset expansion | **Complete** |
-| **M04** | Family 1 analytics — difficulty ladder, spread analysis, and promotion decision | **Planned** |
+| **M04** | Family 1 analytics — difficulty ladder, spread analysis, and promotion decision | **Complete** |
 | **M05** | Family 2 — contradiction / clarification benchmark family | **Planned** |
 | **M06** | Family 3 — scope / precedence / exception drift family | **Planned** |
 | **M07** | Unified benchmark pack normalization across families | **Planned** |
@@ -262,25 +277,40 @@ Planned milestone arc (competition charter locked in **M02**):
 **Plan / evidence:** `docs/milestones/M03/M03_plan.md`, `docs/milestones/M03/M03_summary.md`, `docs/milestones/M03/M03_audit.md`, `docs/milestones/M03/M03_run1.md`  
 **Tool log:** `docs/milestones/M03/M03_toolcalls.md`
 
+### M04 — Family 1 analytics — difficulty ladder, spread analysis, and promotion decision
+
+**Closed:** 2026-03-31 (repository record).
+
+**What M04 delivered**
+
+- **Analytics scripts:** `scripts/analyze_family1_core_m03.py` (structural ladder + full-pack deterministic baseline), `scripts/summarize_family1_model_results.py`.  
+- **M04 Kaggle surface:** generated notebook `notebooks/lucid_kaggle_family1_m04_analytics.ipynb` — task **`lucid_family1_m04_task`**, **24-episode** stratified panel via `m04_decision_eval_rows()`; generator `scripts/generate_family1_m04_notebook.py` + `build_m04_notebook_cells` in `scripts/generate_kaggle_notebook.py`.  
+- **Artifacts:** `docs/milestones/M04/artifacts/` — `family1_bucket_stats.json`, `family1_deterministic_baseline.csv`, `family1_model_scores.csv` (fill from Kaggle), `family1_component_metrics.csv`, `family1_promotion_decision.md`, `m04_model_panel.json`.  
+- **Verdict:** **retain provisionally** — structural ladder coherent; hosted-model CSV placeholders pending platform runs (`M04_run2.md`).  
+- **Benchmark:** **1.1.0** unchanged.
+
+**Plan / evidence:** `docs/milestones/M04/M04_plan.md`, `docs/milestones/M04/M04_summary.md`, `docs/milestones/M04/M04_audit.md`, `docs/milestones/M04/M04_run1.md`, `docs/milestones/M04/M04_run2.md`  
+**Tool log:** `docs/milestones/M04/M04_toolcalls.md`
+
 ### Canonical notebook regeneration rule (standing)
 
-- **Never** hand-edit the canonical `.ipynb`; regenerate via `scripts/generate_kaggle_notebook.py` after changing `src/lucid/kaggle/` or the generator; **`--check`** must pass.
-- **Pin** ZIP installs to a commit whose tree includes required transport code (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1).
+- **Never** hand-edit canonical `.ipynb` JSON; regenerate via generators; **`--check`** must pass in CI.  
+  - **M01 transport:** `scripts/generate_kaggle_notebook.py` → `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md`).  
+  - **M04 Family 1 analytics:** `scripts/generate_family1_m04_notebook.py` → `notebooks/lucid_kaggle_family1_m04_analytics.ipynb` (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_M04_FAMILY1_ANALYTICS.md`).  
+- **Pin** ZIP installs to a commit whose tree includes required transport code (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1 for M01; same discipline for M04).
 
 **Competition alignment:** `docs/LUCID_COMPETITION_ALIGNMENT.md`.
 
 ---
 
-## 9. Active milestone — M04 (next)
+## 9. Active milestone — M05 (next)
 
-**Status:** **Planned / not opened** — stub until M04 execution begins (see §7).
+**Status:** **Planned** — stub at M04 closeout (see §7).
 
-**Goal (from planned arc):** Family 1 analytics — difficulty ladder, spread analysis, and **promote / retain provisionally / drop** verdict for Family 1 using the **M03 canonical pack** and hosted-model evidence as planned.
+**Goal (from planned arc):** Family 2 — contradiction / clarification benchmark family.
 
-**Plan (stub):** `docs/milestones/M04/M04_plan.md`  
-**Tool log:** `docs/milestones/M04/M04_toolcalls.md`
-
-M04 consumes the M03 **offline** pack **without** changing benchmark semantics outside change control.
+**Plan (stub):** `docs/milestones/M05/M05_plan.md`  
+**Tool log:** `docs/milestones/M05/M05_toolcalls.md`
 
 ---
 

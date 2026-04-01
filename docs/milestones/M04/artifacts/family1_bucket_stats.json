@@ -1,0 +1,181 @@
+{
+  "deterministic_baseline": {
+    "full_pack_row_count": 96,
+    "method": "fixture_turns + score_episode (official scorer)",
+    "per_bucket_mean": {
+      "HIGH": {
+        "A": 1.0,
+        "C": 1.0,
+        "D": 1.0,
+        "L": 0.0,
+        "O": 0.0,
+        "lucid_score_episode": 1.0
+      },
+      "LOW": {
+        "A": 1.0,
+        "C": 1.0,
+        "D": 1.0,
+        "L": 0.0,
+        "O": 0.0,
+        "lucid_score_episode": 1.0
+      },
+      "MEDIUM": {
+        "A": 1.0,
+        "C": 1.0,
+        "D": 1.0,
+        "L": 0.0,
+        "O": 0.0,
+        "lucid_score_episode": 1.0
+      }
+    }
+  },
+  "m04_decision_subset": {
+    "episode_count": 24,
+    "eval_rows": [
+      {
+        "drift_severity": "LOW",
+        "generation_seed": 1
+      },
+      {
+        "drift_severity": "LOW",
+        "generation_seed": 2
+      },
+      {
+        "drift_severity": "LOW",
+        "generation_seed": 3
+      },
+      {
+        "drift_severity": "LOW",
+        "generation_seed": 4
+      },
+      {
+        "drift_severity": "LOW",
+        "generation_seed": 5
+      },
+      {
+        "drift_severity": "LOW",
+        "generation_seed": 6
+      },
+      {
+        "drift_severity": "LOW",
+        "generation_seed": 7
+      },
+      {
+        "drift_severity": "LOW",
+        "generation_seed": 100
+      },
+      {
+        "drift_severity": "MEDIUM",
+        "generation_seed": 32
+      },
+      {
+        "drift_severity": "MEDIUM",
+        "generation_seed": 33
+      },
+      {
+        "drift_severity": "MEDIUM",
+        "generation_seed": 34
+      },
+      {
+        "drift_severity": "MEDIUM",
+        "generation_seed": 35
+      },
+      {
+        "drift_severity": "MEDIUM",
+        "generation_seed": 36
+      },
+      {
+        "drift_severity": "MEDIUM",
+        "generation_seed": 37
+      },
+      {
+        "drift_severity": "MEDIUM",
+        "generation_seed": 38
+      },
+      {
+        "drift_severity": "MEDIUM",
+        "generation_seed": 42
+      },
+      {
+        "drift_severity": "HIGH",
+        "generation_seed": 64
+      },
+      {
+        "drift_severity": "HIGH",
+        "generation_seed": 65
+      },
+      {
+        "drift_severity": "HIGH",
+        "generation_seed": 66
+      },
+      {
+        "drift_severity": "HIGH",
+        "generation_seed": 67
+      },
+      {
+        "drift_severity": "HIGH",
+        "generation_seed": 68
+      },
+      {
+        "drift_severity": "HIGH",
+        "generation_seed": 69
+      },
+      {
+        "drift_severity": "HIGH",
+        "generation_seed": 70
+      },
+      {
+        "drift_severity": "HIGH",
+        "generation_seed": 200
+      }
+    ]
+  },
+  "manifest_path": "tests/fixtures/family1_core_m03/family1_core_m03_manifest.json",
+  "structural": {
+    "benchmark_version": "1.1.0",
+    "buckets": {
+      "HIGH": {
+        "episode_count": 32,
+        "structural_parameters": {
+          "drift_type": "NEGATION",
+          "n_colors": 4,
+          "n_items": 12,
+          "n_shapes": 3,
+          "predicate": "negation_of_conjunction"
+        },
+        "uniform_within_bucket": true
+      },
+      "LOW": {
+        "episode_count": 32,
+        "structural_parameters": {
+          "drift_type": "NEGATION",
+          "n_colors": 3,
+          "n_items": 4,
+          "n_shapes": 2,
+          "predicate": "negation_of_conjunction"
+        },
+        "uniform_within_bucket": true
+      },
+      "MEDIUM": {
+        "episode_count": 32,
+        "structural_parameters": {
+          "drift_type": "NEGATION",
+          "n_colors": 4,
+          "n_items": 8,
+          "n_shapes": 2,
+          "predicate": "negation_of_conjunction"
+        },
+        "uniform_within_bucket": true
+      }
+    },
+    "duplicate_episode_ids": [],
+    "episode_count": 96,
+    "ladder_design": {
+      "attribute_cardinality_note": "Per symbolic_negation_v1: LOW/MEDIUM/HIGH differ in n_items and color\u00d7shape grid size (see n_colors \u00d7 n_shapes).",
+      "high_n_items": 12,
+      "low_n_items": 4,
+      "medium_n_items": 8
+    },
+    "pack_id": "family1_core_m03_v1"
+  }
+}

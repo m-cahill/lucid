@@ -83,6 +83,33 @@ def episode_row(seed: int, drift_severity: DriftSeverity) -> dict[str, Any]:
     return row
 
 
+def m04_decision_subset_seeds() -> list[tuple[int, DriftSeverity]]:
+    """M04 stratified panel: 24 episodes (8 LOW / 8 MEDIUM / 8 HIGH).
+
+    Deterministic selection includes the three M01 transport seeds (100, 42, 200)
+    and spreads remaining slots across each bucket's seed grid.
+    """
+    low = [1, 2, 3, 4, 5, 6, 7, 100]
+    medium = [32, 33, 34, 35, 36, 37, 38, 42]
+    high = [64, 65, 66, 67, 68, 69, 70, 200]
+    out: list[tuple[int, DriftSeverity]] = []
+    for s in low:
+        out.append((s, DriftSeverity.LOW))
+    for s in medium:
+        out.append((s, DriftSeverity.MEDIUM))
+    for s in high:
+        out.append((s, DriftSeverity.HIGH))
+    return out
+
+
+def m04_decision_eval_rows() -> list[dict[str, str | int]]:
+    """Rows for M04 Kaggle analytics notebook: ``generation_seed`` + ``drift_severity``."""
+    return [
+        {"generation_seed": seed, "drift_severity": sev.value}
+        for seed, sev in m04_decision_subset_seeds()
+    ]
+
+
 def build_manifest_dict() -> dict[str, Any]:
     """Deterministic manifest payload (canonical JSON comparable)."""
     episodes: list[dict[str, Any]] = []
