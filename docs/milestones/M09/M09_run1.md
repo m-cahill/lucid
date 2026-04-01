@@ -80,3 +80,6 @@ No notebook URL, task URL, hosted-model roster, or scores were supplied for inge
 | Post-merge conclusion | **success** (`push` on `main`, job `lint-test`, ~2m30s) |
 
 **Merge discipline:** Merged after PR CI green; post-merge `main` CI recorded **success** on merge commit `f306df2…`.
+
+**Docs follow-up on `main`:** Commit `cb9c820f2e5f0087729c26f085a0dde5e4214cbc` (run1/summary/audit/ledger alignment) — CI run `23871579384` — **success** — https://github.com/m-cahill/lucid/actions/runs/23871579384  
+**Authoritative `main` HEAD** for milestone docs: `cb9c820…`.
