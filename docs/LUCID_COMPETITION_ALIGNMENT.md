@@ -80,6 +80,7 @@ Official docs state that **tasks** are Python-defined evaluations and **benchmar
 | **M00** | Repo, contracts, **local** deterministic smoke path, baseline CI, **documentation alignment** with official Kaggle URLs and Benchmarks docs |
 | **M01** | **Kaggle Community Benchmarks end-to-end** — LUCID expressed and run through the platform without changing benchmark semantics; hosted-model score ledger |
 | **M02** | **Competition charter lock** — submission strategy, M03–M13 planned arc, first three family priorities, promotion/retention rules (docs only; benchmark **1.1.0** unchanged) |
+| **M03** | **Family 1 offline core pack** — 96-episode deterministic `symbolic_negation_v1` manifest (`family1_core_m03_v1`); M01 transport rows included; `--check` CI guard; benchmark **1.1.0** unchanged |
 
 **Do not** claim in writeups that Kaggle E2E is complete **before M01** closes.
 
@@ -90,6 +91,7 @@ Official docs state that **tasks** are Python-defined evaluations and **benchmar
 - **Primary story:** Metacognition under **instructional drift** — detection, calibration, recovery — with **confidence-bearing outputs** and calibration-related signals (e.g. calibration lag) as first-class measurements.
 - **Not a solver entry:** LUCID does not optimize for winning tasks as a reasoning system; it diagnoses behavior under drift.
 - **M01** proved **transport** and **initial hosted-model spread**; **submission readiness** still requires family depth, defensibility, mature Kaggle evidence, and writeup packaging (see `docs/lucid.md` §6.4).
+- **M03** delivered a **committed canonical Family 1 pack** (deterministic regeneration + manifest `--check`) so dataset construction is **auditable and drift-resistant** — the highest-leverage judged axis for benchmark entries. One-faculty posture and family priority order (**Family 1 first**) are unchanged.
 
 ---
 

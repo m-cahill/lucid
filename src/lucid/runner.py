@@ -7,7 +7,7 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from lucid.families.symbolic_negation_v1 import episode_spec_to_dict, generate_episode
-from lucid.models import EpisodeResponse, EpisodeSpec, TurnRecord
+from lucid.models import DriftSeverity, EpisodeResponse, EpisodeSpec, TurnRecord
 from lucid.scorer import score_episode
 from lucid.writer import build_episode_result, write_bundle
 
@@ -37,9 +37,16 @@ def fixture_turns(spec: EpisodeSpec) -> Sequence[TurnRecord]:
     )
 
 
-def run_smoke(*, seed: int, out_root: Path, model_id: str = "fixture") -> tuple[Path, float]:
+def run_smoke(
+    *,
+    seed: int,
+    out_root: Path,
+    model_id: str = "fixture",
+    drift_severity: DriftSeverity | None = None,
+) -> tuple[Path, float]:
     """Execute one deterministic smoke run; returns bundle path and score."""
-    spec = generate_episode(seed=seed)
+    sev = drift_severity if drift_severity is not None else DriftSeverity.MEDIUM
+    spec = generate_episode(seed=seed, drift_severity=sev)
     turns = fixture_turns(spec)
     final = turns[-1].response
     scores = score_episode(spec, turns)
@@ -59,9 +66,17 @@ def main() -> None:
     """CLI entry (`python -m lucid.runner` or console script)."""
     p = argparse.ArgumentParser(description="LUCID local smoke run")
     p.add_argument("--seed", type=int, default=42)
+    p.add_argument(
+        "--drift-severity",
+        type=str,
+        default="MEDIUM",
+        choices=("LOW", "MEDIUM", "HIGH"),
+        help="Drift severity for symbolic_negation_v1 (default MEDIUM).",
+    )
     p.add_argument("--out", type=Path, default=Path("out") / "smoke")
     args = p.parse_args()
-    bundle, s = run_smoke(seed=args.seed, out_root=args.out)
+    sev = DriftSeverity[args.drift_severity]
+    bundle, s = run_smoke(seed=args.seed, out_root=args.out, drift_severity=sev)
     print(f"bundle={bundle}")
     print(f"LUCID_SCORE_EPISODE={s:.6f}")
 

@@ -42,3 +42,6 @@ jobs:
 
       - name: Verify canonical Kaggle notebook matches generator (HEAD)
         run: python scripts/generate_kaggle_notebook.py --check -o notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb
+
+      - name: Verify Family 1 M03 canonical pack manifest
+        run: python scripts/generate_family1_core_m03_manifest.py --check
