@@ -38,7 +38,7 @@ No command renames or path deviations vs the milestone plan.
 | **PR** | [#6](https://github.com/m-cahill/lucid/pull/6) |
 | **PR URL** | https://github.com/m-cahill/lucid/pull/6 |
 | **PR state** | *(update after merge — target: merged)* |
-| **Final PR head SHA (pre-merge, CI-verified)** | `05045ea5d752a6ddd1525a16c3da050e05ff8923` |
+| **Final PR head SHA (pre-merge, CI-verified)** | `f9e63dbd8d930c07aa8cc4faf7a87773b8d11536` |
 
 ---
 
@@ -49,11 +49,11 @@ Workflow file: `.github/workflows/ci.yml` (job: `lint-test` on `ubuntu-latest`, 
 | Field | Value |
 |-------|--------|
 | **Workflow name** | CI |
-| **Run ID** | `23829259120` |
-| **Workflow URL** | https://github.com/m-cahill/lucid/actions/runs/23829259120 |
+| **Run ID** | `23829276463` |
+| **Workflow URL** | https://github.com/m-cahill/lucid/actions/runs/23829276463 |
 | **Conclusion** | **success** |
 | **Event** | `pull_request` |
-| **PR head SHA** | `05045ea5d752a6ddd1525a16c3da050e05ff8923` (matches §2) |
+| **PR head SHA** | `f9e63dbd8d930c07aa8cc4faf7a87773b8d11536` (matches §2) |
 
 ### 3.1 Workflow analysis (per `docs/prompts/workflowprompt.md`)
 
@@ -81,9 +81,9 @@ No `continue-on-error` on required steps.
 
 **Step 6 — Verdict**
 
-**Verdict:** CI run `23829259120` completed **`success`** for head `05045ea5d752a6ddd1525a16c3da050e05ff8923` (includes M05_run1 evidence update). All merge-blocking steps executed (lint, format, mypy, pytest+coverage, wheel+kaggle verify, both notebook `--check` steps, Family 1 and Family 2 manifest `--check`). **Merge approved** per workflow prompt §6–7.
+**Verdict:** CI run `23829276463` completed **`success`** for head `f9e63dbd8d930c07aa8cc4faf7a87773b8d11536`. All merge-blocking steps executed (lint, format, mypy, pytest+coverage, wheel+kaggle verify, both notebook `--check` steps, Family 1 and Family 2 manifest `--check`). **Merge approved** per workflow prompt §6–7.
 
-*(Earlier run `23829238083` on `a5aa401983ca419213c90abc8f1193dab6244d42` also succeeded for the initial feature commit.)*
+**Prior green runs on this PR:** `23829238083` (`a5aa401…` — feature), `23829259120` (`05045ea…` — first M05_run1 update).
 
 **Annotation (informational):** GitHub surfaced a Node.js 20 deprecation notice for `actions/checkout@v4` / `actions/setup-python@v5` — does not fail the job; track for future workflow updates.
 
