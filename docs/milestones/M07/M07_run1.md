@@ -1,7 +1,8 @@
 # M07 — CI / verification run log
 
 **Milestone:** M07 — Unified benchmark pack normalization across families  
-**Branch:** `m07-unified-benchmark-pack-normalization`  
+**Status:** **Closed** — PR #8 merged to `main` (`07e349ef7ff68cad79be3c41bb94839045fe18b3`)  
+**Branch (historical):** `m07-unified-benchmark-pack-normalization` (deleted on remote after merge)  
 **Local environment:** Windows 10, Python 3.11, repo root `c:\coding\kaggle\lucid`
 
 ---
@@ -60,22 +61,22 @@ python scripts/run_unified_pack_smoke.py
 
 | Field | Value |
 |-------|--------|
-| **PR URL** | *(filled after push)* |
-| **PR state** | |
-| **PR head SHA** | |
+| **PR URL** | https://github.com/m-cahill/lucid/pull/8 |
+| **PR state** | **MERGED** |
+| **PR head SHA** | `b5109f7de6f87039f3e671dad8c378fe64e05784` |
 | **Workflow name** | `CI` (`.github/workflows/ci.yml`) |
-| **Run ID** | |
-| **Run URL** | |
-| **Conclusion** | |
+| **Run ID** | `23831550017` |
+| **Run URL** | https://github.com/m-cahill/lucid/actions/runs/23831550017 |
+| **Conclusion** | **success** |
 
-### 2.2 Post-merge `main` CI (if merged)
+### 2.2 Post-merge `main` CI
 
 | Field | Value |
 |-------|--------|
-| **Merge SHA** | |
-| **Run ID** | |
-| **Run URL** | |
-| **Conclusion** | |
+| **Merge SHA** | `07e349ef7ff68cad79be3c41bb94839045fe18b3` |
+| **Run ID** | `23831565243` |
+| **Run URL** | https://github.com/m-cahill/lucid/actions/runs/23831565243 |
+| **Conclusion** | **success** |
 
 ---
 
@@ -91,17 +92,17 @@ python scripts/run_unified_pack_smoke.py
 
 | Job / Check | Required? | Purpose | Pass/Fail | Notes |
 |-------------|-----------|---------|-----------|--------|
-| Checkout | Yes | Source tree | | |
-| Setup Python 3.11 | Yes | Toolchain | | |
-| pip install `-e ".[dev]"` | Yes | Dev deps | | |
-| Ruff check | Yes | Lint | | |
-| Ruff format --check | Yes | Format | | |
-| Mypy | Yes | Types | | |
-| Pytest + coverage | Yes | Tests + ≥85% `lucid` | | |
-| Build wheel + verify_kaggle | Yes | Package sanity | | |
-| Notebook `--check` (M01, M04) | Yes | Generated notebooks | | |
-| Family 1–3 manifest `--check` | Yes | Canonical family manifests | | |
-| **Unified M07 manifest `--check`** | Yes | **Canonical unified manifest** | | **New in M07** |
+| Checkout | Yes | Source tree | Pass | |
+| Setup Python 3.11 | Yes | Toolchain | Pass | |
+| pip install `-e ".[dev]"` | Yes | Dev deps | Pass | |
+| Ruff check | Yes | Lint | Pass | |
+| Ruff format --check | Yes | Format | Pass | |
+| Mypy | Yes | Types | Pass | |
+| Pytest + coverage | Yes | Tests + ≥85% `lucid` | Pass | |
+| Build wheel + verify_kaggle | Yes | Package sanity | Pass | |
+| Notebook `--check` (M01, M04) | Yes | Generated notebooks | Pass | |
+| Family 1–3 manifest `--check` | Yes | Canonical family manifests | Pass | |
+| **Unified M07 manifest `--check`** | Yes | **Canonical unified manifest** | Pass | **New in M07** |
 
 No `continue-on-error` on required steps.
 
@@ -112,16 +113,15 @@ No `continue-on-error` on required steps.
 - **Static:** Ruff + mypy unchanged in intent.
 - **New signal:** Unified manifest regeneration must match committed JSON (determinism).
 
-### Step 6 — Verdict (pre-merge)
+### Step 6 — Verdict
 
-> **Verdict:** Pending final PR head SHA and green **`CI`** run on that SHA — treat as **merge-ready** once PR workflow shows **success** with no step regressions.
+> **Verdict:** PR run **`23831550017`** and post-merge **`main`** run **`23831565243`** both **succeeded**. Required jobs ran with **no** `continue-on-error` bypass. The change set is **dataset packaging + CI guard** only; signals match declared intent.
 
-- *(Update to ✅ Merge approved after green PR run is recorded below.)*
+**✅ Merge approved** — executed (PR #8 merged).
 
 ### Step 7 — Next actions
 
-- Human: merge PR when green; confirm post-merge `main` run.
-- Track: fill §2 tables with URLs and SHAs after `gh pr` / merge.
+- **M08:** Open defensibility / QA work from current `main` when prioritized (`docs/milestones/M08/M08_plan.md`).
 
 ---
 

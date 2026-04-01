@@ -68,9 +68,8 @@ When documents or code disagree, use this order:
 | M06 plan & implementation | `docs/milestones/M06/M06_plan.md` |
 | M06 tool log | `docs/milestones/M06/M06_toolcalls.md` |
 | M06 Family 3 structural artifact | `docs/milestones/M06/artifacts/family3_pack_stats.json` |
-| M07 plan | `docs/milestones/M07/M07_plan.md` |
+| M07 plan & closeout (complete) | `docs/milestones/M07/M07_plan.md`, `docs/milestones/M07/M07_summary.md`, `docs/milestones/M07/M07_audit.md`, `docs/milestones/M07/M07_run1.md` |
 | M07 tool log | `docs/milestones/M07/M07_toolcalls.md` |
-| M07 CI / verification log | `docs/milestones/M07/M07_run1.md` |
 | M07 unified pack stats | `docs/milestones/M07/artifacts/unified_pack_stats.json` |
 | M08 plan (stub) | `docs/milestones/M08/M08_plan.md` |
 | M08 tool log | `docs/milestones/M08/M08_toolcalls.md` |

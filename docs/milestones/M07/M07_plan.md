@@ -41,6 +41,7 @@ Create the first **canonical unified benchmark pack** that composes the three ex
 - [x] `docs/milestones/M07/artifacts/unified_pack_stats.json`
 - [x] CI manifest check
 - [x] Ledger / alignment / operating manual updates
+- [x] `M07_summary.md`, `M07_audit.md`, `M07_run1.md` (PR + CI evidence)
 
 ## 4. Ordering rule
 
