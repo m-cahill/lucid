@@ -96,6 +96,8 @@ This yields **80 / 80 / 80** LOW / MEDIUM / HIGH overall.
 | Manifest script | `scripts/generate_unified_core_m07_manifest.py` (`--write` / `--check`) |
 | Unified smoke | `scripts/run_unified_pack_smoke.py` (9 episodes) |
 | Structural stats | `docs/milestones/M07/artifacts/unified_pack_stats.json` |
+| M08 defensibility audit artifacts | `docs/milestones/M08/artifacts/` (`m08_defensibility_audit.json`, `m08_duplicate_scan.json`, `m08_defensibility_summary.md`, `m08_contamination_posture.md`) |
+| Defensibility standard | `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md` |
 
 **Regenerate manifest (maintainers):**
 
@@ -107,6 +109,13 @@ python scripts/generate_unified_core_m07_manifest.py --write
 
 ```bash
 python scripts/generate_unified_core_m07_manifest.py --check
+```
+
+**M08 defensibility audit (CI):**
+
+```bash
+python scripts/run_unified_defensibility_audit.py --write   # maintainers — refresh committed artifacts
+python scripts/run_unified_defensibility_audit.py --check  # merge gate (matches committed artifacts)
 ```
 
 ---

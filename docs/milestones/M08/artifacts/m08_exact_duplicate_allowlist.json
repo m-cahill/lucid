@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "description": "Explicit approvals for multi-row collisions on identical canonical episode_spec bytes. Default empty — no silent exceptions.",
+  "entries": []
+}

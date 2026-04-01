@@ -85,6 +85,7 @@ Official docs state that **tasks** are Python-defined evaluations and **benchmar
 | **M05** | **Family 2 offline core pack** — deterministic `contradiction_clarification_v1` manifest (`family2_core_m05_v1`, 72 episodes); `--check` CI guard; Family 2 verdict **retain provisionally**; no Kaggle Family 2 task in milestone scope; benchmark **1.1.0** unchanged |
 | **M06** | **Family 3 offline core pack** — deterministic `scope_precedence_exception_v1` manifest (`family3_core_m06_v1`, 72 episodes; `SCOPE` / `PRECEDENCE` / `EXCEPTION`); `--check` CI guard; Family 3 verdict **retain provisionally**; no Kaggle Family 3 task in milestone scope; benchmark **1.1.0** unchanged |
 | **M07** | **Unified offline benchmark pack** — deterministic cross-family manifest `unified_core_m07_v1` (240 episodes: full composition of the three canonical core packs); normalized metadata + lineage; `--check` CI guard; spec `docs/benchmark_packs/unified_core_m07.md`; **nominal** difficulty alignment only (not psychometric cross-family equivalence); no Kaggle / hosted-model proof in milestone scope; benchmark **1.1.0** unchanged |
+| **M08** | **Defensibility / QA hardening** — blocking `scripts/run_unified_defensibility_audit.py --check` in CI; committed artifacts under `docs/milestones/M08/artifacts/`; canonical standard `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md`; **no** Kaggle platform proof; benchmark **1.1.0** unchanged |
 
 **Do not** claim in writeups that Kaggle E2E is complete **before M01** closes.
 
@@ -100,6 +101,7 @@ Official docs state that **tasks** are Python-defined evaluations and **benchmar
 - **M05** added a **canonical Family 2 offline pack** (`family2_core_m05_v1`) for `contradiction_clarification_v1` with local proof and CI manifest verification. **Verdict:** **retain provisionally** — dataset construction advance; discriminatory hosted-model evidence for Family 2 is out of milestone scope.
 - **M06** added a **canonical Family 3 offline pack** (`family3_core_m06_v1`) for `scope_precedence_exception_v1` (scope / precedence / exception drift; 24 episodes per `DriftType`) with local proof and CI manifest verification. **Verdict:** **retain provisionally** — dataset construction advance; discriminatory hosted-model evidence for Family 3 is out of milestone scope.
 - **M07** added a **canonical unified offline pack** (`unified_core_m07_v1`) — full **96 + 72 + 72** composition with cross-family normalization and lineage; local unified smoke + CI manifest verification. **Not** Kaggle evidence; family verdicts unchanged. Difficulty labels are **nominally** normalized — do not claim psychometric equivalence across families.
+- **M08** added a **CI-enforced defensibility audit** over the unified pack and source manifests (`run_unified_defensibility_audit.py --check`) plus `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md` and `docs/milestones/M08/artifacts/*`. This improves **dataset-quality defensibility** evidence; it is **not** Kaggle platform proof and **not** a benchmark version bump.
 
 ---
 

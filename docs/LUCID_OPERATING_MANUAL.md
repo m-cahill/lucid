@@ -223,6 +223,8 @@ As of **M07**, committed deterministic packs (regenerate with `--check` in CI) i
 | `family3_core_m06_v1` | `scope_precedence_exception_v1` | `scripts/generate_family3_core_m06_manifest.py` |
 | `unified_core_m07_v1` | *(multi-family composition)* | `scripts/generate_unified_core_m07_manifest.py` |
 
+**M08 — defensibility audit (CI):** After manifests match generators, CI runs `python scripts/run_unified_defensibility_audit.py --check`, which verifies lineage, duplicate posture, hash integrity, and regenerable artifacts under `docs/milestones/M08/artifacts/`. Policy: `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md`. This is **local + CI proof** only — not Kaggle execution evidence.
+
 **Benchmark version** for scoring and episode generation remains **1.1.0** unless change control bumps it. The unified pack does **not** change episode semantics; see `docs/benchmark_packs/unified_core_m07.md`.
 
 ---
