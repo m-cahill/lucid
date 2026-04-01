@@ -13,3 +13,4 @@
 | 2026-04-01 | gh | PR CI watch: run `23866649886` success on `4e4fb2c` | GitHub Actions | complete |
 | 2026-04-01 | gh | Merge PR #9 to `main`; post-merge CI `23866754720` success | `main` | complete |
 | 2026-04-01 | — | Closeout docs: `M08_run1.md`, `M08_summary.md`, `M08_audit.md` | `docs/milestones/M08/` | complete |
+| 2026-04-01 | git | Amend run1/summary with closeout SHA + CI `23866907808` | commit `1ba5a6e` | complete |
