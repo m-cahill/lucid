@@ -83,6 +83,7 @@ Official docs state that **tasks** are Python-defined evaluations and **benchmar
 | **M03** | **Family 1 offline core pack** — 96-episode deterministic `symbolic_negation_v1` manifest (`family1_core_m03_v1`); M01 transport rows included; `--check` CI guard; benchmark **1.1.0** unchanged |
 | **M04** | **Family 1 analytics** — structural difficulty ladder + deterministic baseline artifacts; **additive** Kaggle notebook on a **24-episode** stratified panel (`lucid_family1_m04_task`); Family 1 verdict **retain provisionally** pending populated hosted-model results (`docs/milestones/M04/artifacts/`); benchmark **1.1.0** unchanged |
 | **M05** | **Family 2 offline core pack** — deterministic `contradiction_clarification_v1` manifest (`family2_core_m05_v1`, 72 episodes); `--check` CI guard; Family 2 verdict **retain provisionally**; no Kaggle Family 2 task in milestone scope; benchmark **1.1.0** unchanged |
+| **M06** | **Family 3 offline core pack** — deterministic `scope_precedence_exception_v1` manifest (`family3_core_m06_v1`, 72 episodes; `SCOPE` / `PRECEDENCE` / `EXCEPTION`); `--check` CI guard; Family 3 verdict **retain provisionally**; no Kaggle Family 3 task in milestone scope; benchmark **1.1.0** unchanged |
 
 **Do not** claim in writeups that Kaggle E2E is complete **before M01** closes.
 
@@ -96,6 +97,7 @@ Official docs state that **tasks** are Python-defined evaluations and **benchmar
 - **M03** delivered a **committed canonical Family 1 pack** (deterministic regeneration + manifest `--check`) so dataset construction is **auditable and drift-resistant** — the highest-leverage judged axis for benchmark entries. One-faculty posture and family priority order (**Family 1 first**) are unchanged.
 - **M04** analytically evaluated Family 1 on that pack (structural ladder + local deterministic baseline + separate Kaggle analytics notebook). **Verdict:** **retain provisionally** — structural coherence is strong; **submission strategy** should treat hosted-model **spread evidence** on the M04 panel (or a documented fallback) as the next gate before claiming **promote** for Family 1. Populate `docs/milestones/M04/artifacts/family1_model_scores.csv` from Kaggle runs and revise the verdict when evidence warrants.
 - **M05** added a **canonical Family 2 offline pack** (`family2_core_m05_v1`) for `contradiction_clarification_v1` with local proof and CI manifest verification. **Verdict:** **retain provisionally** — dataset construction advance; discriminatory hosted-model evidence for Family 2 is out of milestone scope.
+- **M06** added a **canonical Family 3 offline pack** (`family3_core_m06_v1`) for `scope_precedence_exception_v1` (scope / precedence / exception drift; 24 episodes per `DriftType`) with local proof and CI manifest verification. **Verdict:** **retain provisionally** — dataset construction advance; discriminatory hosted-model evidence for Family 3 is out of milestone scope.
 
 ---
 

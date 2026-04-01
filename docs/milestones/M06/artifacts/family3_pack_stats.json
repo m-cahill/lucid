@@ -1,0 +1,22 @@
+{
+  "pack_id": "family3_core_m06_v1",
+  "family_id": "scope_precedence_exception_v1",
+  "episode_count": 72,
+  "difficulty_distribution": { "LOW": 24, "MEDIUM": 24, "HIGH": 24 },
+  "drift_type_distribution": {
+    "SCOPE": 24,
+    "PRECEDENCE": 24,
+    "EXCEPTION": 24
+  },
+  "drift_subtype_distribution": {
+    "scope": 24,
+    "precedence": 24,
+    "exception": 24
+  },
+  "final_resolution": {
+    "final_state_unresolved": false,
+    "acceptable_final_modes": ["ANSWER"]
+  },
+  "benchmark_version": "1.1.0",
+  "notes": "Structural summary for M06 audit; regenerate manifest via scripts/generate_family3_core_m06_manifest.py"
+}
