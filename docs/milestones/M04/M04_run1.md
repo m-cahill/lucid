@@ -80,6 +80,7 @@ All commands below completed with **exit code 0** on the closeout verification p
 | Workflow | `CI` (`.github/workflows/ci.yml`) |
 | PR / `pull_request` run (`m04-family-1-analytics`) | https://github.com/m-cahill/lucid/actions/runs/23827390034 — **success** |
 | `main` / `push` run (merge commit) | https://github.com/m-cahill/lucid/actions/runs/23827404774 — **success** |
+| `main` / `push` run (docs-only: record CI URLs in `M04_run1`) | https://github.com/m-cahill/lucid/actions/runs/23827432740 — **success** |
 
 **Note:** GitHub may surface Node.js deprecation notices for `actions/checkout` / `actions/setup-python`; they do not change the correctness signal for this milestone.
 
