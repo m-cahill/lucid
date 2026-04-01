@@ -46,6 +46,12 @@ jobs:
       - name: Verify M04 Family 1 analytics Kaggle notebook matches generator (HEAD)
         run: python scripts/generate_family1_m04_notebook.py --check -o notebooks/lucid_kaggle_family1_m04_analytics.ipynb
 
+      - name: Verify M09 panel artifact matches generator
+        run: python scripts/generate_m09_panel_artifact.py --check
+
+      - name: Verify M09 mature-evidence Kaggle notebook matches generator (HEAD)
+        run: python scripts/generate_m09_kaggle_notebook.py --check -o notebooks/lucid_kaggle_m09_mature_evidence.ipynb
+
       - name: Verify Family 1 M03 canonical pack manifest
         run: python scripts/generate_family1_core_m03_manifest.py --check
 
