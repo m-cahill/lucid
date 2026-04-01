@@ -102,6 +102,17 @@ No `continue-on-error` on required steps.
 | **Conclusion** | **success** |
 | **Event** | `push` (merge of PR #6 to `main`) |
 
+### 4.1 Follow-up `main` run (M05_run1 / evidence docs)
+
+After merge, `docs/milestones/M05/` closeout edits landed on `main` as `f235267f33b130418481d36f521c004b1fb58302`.
+
+| Field | Value |
+|-------|--------|
+| **Run ID** | `23829327006` |
+| **Workflow URL** | https://github.com/m-cahill/lucid/actions/runs/23829327006 |
+| **Conclusion** | **success** |
+| **Head SHA** | `f235267f33b130418481d36f521c004b1fb58302` |
+
 ---
 
 ## 5. Governance notes
