@@ -2,7 +2,7 @@
 
 **Project:** LUCID  
 **Milestone:** M09 — Expanded Kaggle evidence on the mature benchmark  
-**Branch:** `m09-kaggle-evidence`  
+**Branch:** `m09-kaggle-evidence` → merged to `main` (PR #10).  
 
 ---
 
@@ -30,10 +30,12 @@ python scripts/generate_m09_kaggle_notebook.py --check -o notebooks/lucid_kaggle
 | Field | Value |
 |-------|--------|
 | PR | https://github.com/m-cahill/lucid/pull/10 |
-| PR head SHA | `594f0e2d1ad64a2945a5819fd81aeb13b1ac7d38` |
-| Authoritative `pull_request` CI run ID | `23871248291` |
-| CI URL | https://github.com/m-cahill/lucid/actions/runs/23871248291 |
-| CI conclusion | **success** (job `lint-test`, ~2m23s) |
+| PR head SHA (at merge) | `c5073e7e5f7d917e6c09f92b187320303865878f` |
+| Authoritative `pull_request` CI run ID | `23871354120` |
+| CI URL | https://github.com/m-cahill/lucid/actions/runs/23871354120 |
+| CI conclusion | **success** (job `lint-test`, ~2m19s) |
+
+Earlier PR CI on `594f0e2…`: run `23871248291` — **success** (superseded by run above after `M09_run1.md` doc commit).
 
 **Workflow:** `CI` — job `lint-test` per `.github/workflows/ci.yml`.
 
@@ -71,8 +73,10 @@ No notebook URL, task URL, hosted-model roster, or scores were supplied for inge
 
 | Field | Value |
 |-------|--------|
-| Merge commit SHA | *Fill after merge to `main`* |
-| Post-merge `main` CI run ID | *Fill after merge* |
-| Post-merge CI URL | *Fill after merge* |
+| Merge commit SHA | `f306df2f3171bf18c3d41ac53a7457817e057cf6` |
+| Merge | https://github.com/m-cahill/lucid/pull/10 |
+| Post-merge `main` CI run ID | `23871459171` |
+| Post-merge CI URL | https://github.com/m-cahill/lucid/actions/runs/23871459171 |
+| Post-merge conclusion | **success** (`push` on `main`, job `lint-test`, ~2m30s) |
 
-**Merge discipline:** Merge only after PR CI is green; post-merge CI should be recorded when available.
+**Merge discipline:** Merged after PR CI green; post-merge `main` CI recorded **success** on merge commit `f306df2…`.

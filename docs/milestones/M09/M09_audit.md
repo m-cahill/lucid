@@ -2,7 +2,9 @@
 
 **Milestone:** M09 — Expanded Kaggle evidence on the mature benchmark  
 **Mode:** **DELTA AUDIT**  
-**Range:** Baseline `main` at merge-base through PR head *TBD* (record at merge)  
+**Range:** `main` @ `23e7103153552935d0ccabe20b956a8b01627f03` … `f306df2f3171bf18c3d41ac53a7457817e057cf6` (PR #10 merge)  
+**PR CI:** https://github.com/m-cahill/lucid/actions/runs/23871354120 — **success**  
+**Main CI (post-merge):** https://github.com/m-cahill/lucid/actions/runs/23871459171 — **success**  
 **Audit Verdict:** **Yellow** — governance-aligned repo work; **Kaggle platform proof absent**; milestone **open** per acceptance criteria.
 
 ---

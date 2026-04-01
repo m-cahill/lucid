@@ -51,7 +51,7 @@ Without M09, the project would lack a **defined 72-episode** cross-family panel 
 | Proof class | Status |
 |-------------|--------|
 | **Local proof** | **Yes** — generators, smoke, pytest, panel/notebook `--check` |
-| **GitHub CI proof** | **Pending PR** — record run ID in `M09_run1.md` after `pull_request` CI |
+| **GitHub CI proof** | **Yes** — PR #10 `pull_request` CI run `23871354120` (head `c5073e7…`); post-merge `main` run `23871459171` on merge `f306df2…` — see `M09_run1.md` |
 | **Kaggle platform proof** | **No** — not available in this closeout; manifest documents gap |
 
 **Benchmark version:** **1.1.0** (unchanged).

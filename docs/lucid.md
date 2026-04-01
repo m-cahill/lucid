@@ -297,7 +297,7 @@ Planned milestone arc (competition charter locked in **M02**):
 | **M06** | Family 3 — scope / precedence / exception drift family | **Complete** |
 | **M07** | Unified benchmark pack normalization across families | **Complete** |
 | **M08** | Defensibility, QA, and contamination-resistance hardening | **Complete** |
-| **M09** | Expanded Kaggle evidence run on mature benchmark | **In progress** — Phase B (repo): panel + notebook + CI; Phase C+ (platform): pending |
+| **M09** | Expanded Kaggle evidence run on mature benchmark | **Open** — Phase B **merged to `main`** (PR #10); **Kaggle platform proof + scored CSVs** still **pending** |
 | **M10** | Writeup evidence pack, figures, and judge-facing narrative | **Planned** |
 | **M11** | Submission lock: final benchmark freeze and submission checklist | **Planned** |
 | **M12** | Contingency A — platform / benchmark replacement buffer | **Planned** |
