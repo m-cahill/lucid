@@ -25,18 +25,37 @@ python scripts/generate_m09_kaggle_notebook.py --check -o notebooks/lucid_kaggle
 
 ---
 
-## 2. PR / CI (update after push)
+## 2. PR / CI
 
 | Field | Value |
 |-------|--------|
-| PR URL | *Fill after `gh pr create` or GitHub UI* |
-| PR head SHA | *Fill after push* |
-| Authoritative `pull_request` CI run ID | *Fill from GitHub Actions* |
-| CI conclusion | *Expected: success* |
+| PR | https://github.com/m-cahill/lucid/pull/10 |
+| PR head SHA | `594f0e2d1ad64a2945a5819fd81aeb13b1ac7d38` |
+| Authoritative `pull_request` CI run ID | `23871248291` |
+| CI URL | https://github.com/m-cahill/lucid/actions/runs/23871248291 |
+| CI conclusion | **success** (job `lint-test`, ~2m23s) |
 
-**Workflow:** `CI` — job `lint-test` per `.github/workflows/ci.yml` (Ruff, Ruff format, Mypy, Pytest+coverage, wheel verify, M01/M04/M09 notebook `--check`, manifest `--check`s, M08 defensibility `--check`).
+**Workflow:** `CI` — job `lint-test` per `.github/workflows/ci.yml`.
 
-**Workflow analysis:** Follow structure in `docs/prompts/workflowprompt.md` — treat CI as truth signal; record job inventory and conclusion once the PR run exists.
+### Workflow inventory (Step 1 — `workflowprompt.md`)
+
+| Step / check | Required | Pass |
+|--------------|----------|------|
+| Ruff check | yes | yes |
+| Ruff format | yes | yes |
+| Mypy | yes | yes |
+| Pytest + coverage (≥85%) | yes | yes |
+| Wheel + `lucid.kaggle` verify | yes | yes |
+| M01 notebook `--check` | yes | yes |
+| M04 notebook `--check` | yes | yes |
+| M09 panel artifact `--check` | yes | yes |
+| M09 notebook `--check` | yes | yes |
+| F1/F2/F3/M07 manifest `--check` | yes | yes |
+| M08 defensibility `--check` | yes | yes |
+
+**Annotation:** Node.js 20 deprecation notice on `actions/checkout@v4` / `actions/setup-python@v5` — informational; does not fail the job.
+
+**Signal:** PR head is a **trusted green** for merge gating on this change set.
 
 ---
 
@@ -48,12 +67,12 @@ No notebook URL, task URL, hosted-model roster, or scores were supplied for inge
 
 ---
 
-## 4. Merge / post-merge (update after merge)
+## 4. Merge / post-merge
 
 | Field | Value |
 |-------|--------|
-| Merge commit SHA | *TBD* |
-| Post-merge `main` CI run ID | *TBD* |
-| Post-merge CI URL | *TBD* |
+| Merge commit SHA | *Fill after merge to `main`* |
+| Post-merge `main` CI run ID | *Fill after merge* |
+| Post-merge CI URL | *Fill after merge* |
 
-**Merge discipline:** Merge only after PR CI is green and governance docs are reviewed; avoid needless post-merge doc-only churn unless required.
+**Merge discipline:** Merge only after PR CI is green; post-merge CI should be recorded when available.
