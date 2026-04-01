@@ -35,9 +35,10 @@ No command renames or path deviations vs the milestone plan.
 
 | Field | Value |
 |-------|--------|
-| **PR URL** | *(fill after `gh pr create`)* |
-| **PR state** | *(open / merged)* |
-| **Final PR head SHA** | *(see section 4 after push)* |
+| **PR** | [#6](https://github.com/m-cahill/lucid/pull/6) |
+| **PR URL** | https://github.com/m-cahill/lucid/pull/6 |
+| **PR state** | *(update after merge — target: merged)* |
+| **PR head SHA (pre-merge, CI-verified)** | `a5aa401983ca419213c90abc8f1193dab6244d42` |
 
 ---
 
@@ -48,10 +49,11 @@ Workflow file: `.github/workflows/ci.yml` (job: `lint-test` on `ubuntu-latest`, 
 | Field | Value |
 |-------|--------|
 | **Workflow name** | CI |
-| **Run ID** | *(after run completes)* |
-| **Workflow URL** | `https://github.com/m-cahill/lucid/actions/runs/<RUN_ID>` |
-| **Conclusion** | *(success / failure)* |
-| **PR head SHA** | *(must match section 2)* |
+| **Run ID** | `23829238083` |
+| **Workflow URL** | https://github.com/m-cahill/lucid/actions/runs/23829238083 |
+| **Conclusion** | **success** |
+| **Event** | `pull_request` |
+| **PR head SHA** | `a5aa401983ca419213c90abc8f1193dab6244d42` (matches §2) |
 
 ### 3.1 Workflow analysis (per `docs/prompts/workflowprompt.md`)
 
@@ -77,9 +79,13 @@ Workflow file: `.github/workflows/ci.yml` (job: `lint-test` on `ubuntu-latest`, 
 
 No `continue-on-error` on required steps.
 
-**Step 6 — Verdict (after green run)**
+**Step 6 — Verdict**
 
-* *(Update after CI completes: merge-approved if `conclusion: success` on the PR head SHA.)*
+**Verdict:** CI run `23829238083` completed **`success`** for head `a5aa401983ca419213c90abc8f1193dab6244d42`. All merge-blocking steps executed (lint, format, mypy, pytest+coverage, wheel+kaggle verify, both notebook `--check` steps, Family 1 and Family 2 manifest `--check`). **Merge approved** per workflow prompt §6–7.
+
+**Annotation (informational):** GitHub surfaced a Node.js 20 deprecation notice for `actions/checkout@v4` / `actions/setup-python@v5` — does not fail the job; track for future workflow updates.
+
+**Step 7 — Next actions:** Merge PR #6 to `main`; confirm post-merge `main` CI (§4).
 
 ---
 
@@ -87,9 +93,9 @@ No `continue-on-error` on required steps.
 
 | Field | Value |
 |-------|--------|
-| **Merge SHA** | *(if merged)* |
-| **Run ID** | *(push to main)* |
-| **Workflow URL** | *(if applicable)* |
+| **Merge SHA** | *(fill after merge — `git rev-parse main` on updated clone)* |
+| **Run ID** | *(push workflow on `main` after merge)* |
+| **Workflow URL** | *(https://github.com/m-cahill/lucid/actions/runs/<ID>)* |
 | **Conclusion** | *(success / failure)* |
 
 ---
