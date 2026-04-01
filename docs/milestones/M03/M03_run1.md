@@ -83,6 +83,12 @@ all_ok scores=[1.0, 1.0, 1.0]
 |--------|------------|-------|-----|
 | **23826240850** | success | push | `https://github.com/m-cahill/lucid/actions/runs/23826240850` |
 
+**Post-merge doc hygiene** (commit `9048e03` — `docs(m03): record PR and main CI run IDs in M03_run1`):
+
+| Run ID | Conclusion | Event | URL |
+|--------|------------|-------|-----|
+| **23826258186** | success | push | `https://github.com/m-cahill/lucid/actions/runs/23826258186` |
+
 ---
 
 ## 5. Artifact inventory
