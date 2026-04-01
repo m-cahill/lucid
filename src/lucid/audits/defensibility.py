@@ -439,8 +439,7 @@ def run_defensibility_audit(
                     {
                         "code": "H_DRIFT_TYPE_ROW_SPEC_MISMATCH",
                         "message": (
-                            "Top-level drift_type must match "
-                            "episode_spec.drift_event.drift_type."
+                            "Top-level drift_type must match episode_spec.drift_event.drift_type."
                         ),
                         "detail": {"unified_episode_id": uid},
                     }
