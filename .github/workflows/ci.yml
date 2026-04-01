@@ -54,3 +54,6 @@ jobs:
 
       - name: Verify Family 3 M06 canonical pack manifest
         run: python scripts/generate_family3_core_m06_manifest.py --check
+
+      - name: Verify M07 unified canonical pack manifest
+        run: python scripts/generate_unified_core_m07_manifest.py --check

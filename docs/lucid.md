@@ -51,6 +51,7 @@ When documents or code disagree, use this order:
 | Canonical Family 1 pack (M03) | `tests/fixtures/family1_core_m03/family1_core_m03_manifest.json` (`scripts/generate_family1_core_m03_manifest.py --check`) |
 | Canonical Family 2 pack (M05) | `tests/fixtures/family2_core_m05/family2_core_m05_manifest.json` (`scripts/generate_family2_core_m05_manifest.py --check`) |
 | Canonical Family 3 pack (M06) | `tests/fixtures/family3_core_m06/family3_core_m06_manifest.json` (`scripts/generate_family3_core_m06_manifest.py --check`) |
+| Canonical unified pack (M07) | `tests/fixtures/unified_core_m07/unified_core_m07_manifest.json` (`scripts/generate_unified_core_m07_manifest.py --check`); spec `docs/benchmark_packs/unified_core_m07.md` |
 | M01 Kaggle handoff runbook | `docs/milestones/M01/M01_KAGGLE_RUNBOOK.md` |
 | Competition alignment (submission strategy, judging, family priorities) | `docs/LUCID_COMPETITION_ALIGNMENT.md` |
 | M01 closeout (complete) | `docs/milestones/M01/M01_run1.md`, `docs/milestones/M01/M01_summary.md`, `docs/milestones/M01/M01_audit.md` |
@@ -67,9 +68,12 @@ When documents or code disagree, use this order:
 | M06 plan & implementation | `docs/milestones/M06/M06_plan.md` |
 | M06 tool log | `docs/milestones/M06/M06_toolcalls.md` |
 | M06 Family 3 structural artifact | `docs/milestones/M06/artifacts/family3_pack_stats.json` |
-| M07 plan (stub; next milestone) | `docs/milestones/M07/M07_plan.md` |
+| M07 plan | `docs/milestones/M07/M07_plan.md` |
 | M07 tool log | `docs/milestones/M07/M07_toolcalls.md` |
-| M07 CI run log (stub) | `docs/milestones/M07/M07_run1.md` |
+| M07 CI / verification log | `docs/milestones/M07/M07_run1.md` |
+| M07 unified pack stats | `docs/milestones/M07/artifacts/unified_pack_stats.json` |
+| M08 plan (stub) | `docs/milestones/M08/M08_plan.md` |
+| M08 tool log | `docs/milestones/M08/M08_toolcalls.md` |
 
 ---
 
@@ -83,6 +87,7 @@ When documents or code disagree, use this order:
 | Family 1 offline core pack | **Complete (M03)** — pack `family1_core_m03_v1` (96 episodes, LOW/MEDIUM/HIGH balanced); committed manifest under `tests/fixtures/family1_core_m03/`; `scripts/generate_family1_core_m03_manifest.py`; Family 1 smoke `scripts/run_family1_pack_smoke.py` |
 | Family 2 offline core pack | **Complete (M05)** — pack `family2_core_m05_v1` (72 episodes, LOW/MEDIUM/HIGH balanced; 12 unresolved + 12 resolved per bucket); committed manifest under `tests/fixtures/family2_core_m05/`; `scripts/generate_family2_core_m05_manifest.py`; Family 2 smoke `scripts/run_family2_pack_smoke.py` |
 | Family 3 offline core pack | **Complete (M06)** — pack `family3_core_m06_v1` (72 episodes, LOW/MEDIUM/HIGH balanced; 8 scope + 8 precedence + 8 exception per bucket; drift types `SCOPE` / `PRECEDENCE` / `EXCEPTION`); committed manifest under `tests/fixtures/family3_core_m06/`; `scripts/generate_family3_core_m06_manifest.py`; Family 3 smoke `scripts/run_family3_pack_smoke.py` |
+| Unified offline benchmark pack | **Complete (M07)** — pack `unified_core_m07_v1` (240 episodes: full composition of `family1_core_m03_v1` + `family2_core_m05_v1` + `family3_core_m06_v1`); normalized cross-family metadata + lineage; `scripts/generate_unified_core_m07_manifest.py`; unified smoke `scripts/run_unified_pack_smoke.py`; **no** Kaggle platform proof in milestone scope |
 | Family 1 M04 analytics (local + Kaggle surface) | **Complete (M04)** — difficulty ladder / deterministic baseline artifacts; **additive** Kaggle notebook `lucid_family1_m04_task` on a **24-episode** stratified panel; verdict **retain provisionally** pending populated hosted-model CSV (`docs/milestones/M04/artifacts/`) |
 | Kaggle Community Benchmarks E2E | **Complete (M01)** — repo transport + offline equivalence + **Kaggle platform proof** (hosted models, task wiring, scores); see `docs/milestones/M01/M01_run1.md` and §6 score ledger |
 | Remote GitHub Actions | **Verified** — `pull_request` / `push` CI per `.github/workflows/ci.yml`; historical evidence in `docs/milestones/M00/M00_run1.md` |
@@ -96,6 +101,14 @@ For each implemented family, record the canonical offline pack (audit trail for 
 | `symbolic_negation_v1` | `family1_core_m03_v1` | 96 | 32 / 32 / 32 | `NEGATION` | `tests/fixtures/family1_core_m03/family1_core_m03_manifest.json` | M04 |
 | `contradiction_clarification_v1` | `family2_core_m05_v1` | 72 | 24 / 24 / 24 | `CONTRADICTION` | `tests/fixtures/family2_core_m05/family2_core_m05_manifest.json` | M05 |
 | `scope_precedence_exception_v1` | `family3_core_m06_v1` | 72 | 24 / 24 / 24 | `SCOPE`, `PRECEDENCE`, `EXCEPTION` (24 each) | `tests/fixtures/family3_core_m06/family3_core_m06_manifest.json` | M06 |
+
+### Unified benchmark pack inventory (standing)
+
+Cross-family artifact: normalized composition of the three canonical core packs (no subsetting). **Difficulty labels are nominally aligned across families, not psychometrically equated** (see `docs/benchmark_packs/unified_core_m07.md`).
+
+| Pack ID | Episodes | Source packs (lineage) | LOW / MED / HIGH | Canonical path | Milestone |
+|---------|----------|------------------------|------------------|------------------|-----------|
+| `unified_core_m07_v1` | 240 | `family1_core_m03_v1` (96) + `family2_core_m05_v1` (72) + `family3_core_m06_v1` (72) | 80 / 80 / 80 | `tests/fixtures/unified_core_m07/unified_core_m07_manifest.json` | M07 |
 
 ### Family verdict ledger (standing)
 
@@ -154,6 +167,8 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 
 **M06 judged axis:** **Dataset quality & task construction** — canonical deterministic Family 3 offline pack (`scope_precedence_exception_v1` / `family3_core_m06_v1`), tests, CI manifest check, and family spec; no Kaggle Family 3 task or hosted-model evidence in milestone scope.
 
+**M07 judged axis:** **Dataset quality & task construction** — canonical unified offline pack (`unified_core_m07_v1`) composing the three family core packs with deterministic ordering, lineage, metadata normalization, and manifest `--check`; no Kaggle notebook/task or hosted-model evidence in milestone scope.
+
 ### 6.2 Submission posture
 
 - **M01** established **transport proof** and an initial **hosted-model spread** on a fixed acceptance slice (`symbolic_negation_v1`).
@@ -161,7 +176,8 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 - **M04** added **Family 1 analytics** (structural ladder + deterministic baseline + **M04** Kaggle analytics notebook on a **24-episode** stratified panel) and recorded verdict **retain provisionally** until hosted-model results populate `docs/milestones/M04/artifacts/family1_model_scores.csv`.
 - **M05** added a **canonical deterministic Family 2 offline pack** (72 episodes, `contradiction_clarification_v1`) with local smoke and CI `--check`; Family 2 verdict **retain provisionally** pending future discriminatory evidence (no Kaggle Family 2 task in M05).
 - **M06** added a **canonical deterministic Family 3 offline pack** (72 episodes, `scope_precedence_exception_v1`; drift types `SCOPE` / `PRECEDENCE` / `EXCEPTION`) with local smoke and CI `--check`; Family 3 verdict **retain provisionally** pending future discriminatory evidence (no Kaggle Family 3 task in M06).
-- LUCID is **not submission-ready** after M06.
+- **M07** added a **canonical unified offline pack** (`unified_core_m07_v1`, 240 episodes) — normalized cross-family manifest + lineage over the three core packs; local unified smoke and CI `--check`; **not** a Kaggle or hosted-model evidence milestone; family verdicts unchanged (**retain provisionally**).
+- LUCID is **not submission-ready** after M07.
 - **Remaining gaps** before a competition-ready submission include: **populated** hosted-model spread on the M04 panel (or documented fallback), **defensibility** hardening, broader **Kaggle evidence** on the mature pack as needed, and **writeup / packaging** aligned to the rules.
 
 ### 6.3 Standing family promotion rules (at milestone close)
@@ -237,7 +253,7 @@ Planned milestone arc (competition charter locked in **M02**):
 | **M04** | Family 1 analytics — difficulty ladder, spread analysis, and promotion decision | **Complete** |
 | **M05** | Family 2 — contradiction / clarification benchmark family | **Complete** |
 | **M06** | Family 3 — scope / precedence / exception drift family | **Complete** |
-| **M07** | Unified benchmark pack normalization across families | **Planned** |
+| **M07** | Unified benchmark pack normalization across families | **Complete** |
 | **M08** | Defensibility, QA, and contamination-resistance hardening | **Planned** |
 | **M09** | Expanded Kaggle evidence run on mature benchmark | **Planned** |
 | **M10** | Writeup evidence pack, figures, and judge-facing narrative | **Planned** |
@@ -341,6 +357,23 @@ Planned milestone arc (competition charter locked in **M02**):
 **Plan / evidence:** `docs/milestones/M06/M06_plan.md`, `docs/milestones/M06/M06_summary.md`, `docs/milestones/M06/M06_audit.md`, `docs/milestones/M06/M06_run1.md`  
 **Tool log:** `docs/milestones/M06/M06_toolcalls.md`
 
+### M07 — Unified benchmark pack normalization across families
+
+**Closed:** 2026-03-31 (repository record).
+
+**What M07 delivered**
+
+- **Unified pack:** `unified_core_m07_v1` — **240** episodes (full **96 + 72 + 72** composition of `family1_core_m03_v1`, `family2_core_m05_v1`, `family3_core_m06_v1`); committed manifest `tests/fixtures/unified_core_m07/unified_core_m07_manifest.json`; deterministic regeneration via `scripts/generate_unified_core_m07_manifest.py` (`--write` / `--check`); implementation `src/lucid/packs/unified_core_m07.py`, `src/lucid/runner_unified.py`.
+- **Normalization:** Cross-family metadata, `unified_episode_id`, `source_episode_spec_hash` (SHA-256 of canonical `episode_spec` JSON), `normalization_version` **1.0.0**; canonical ordering: difficulty → Family 1 → 2 → 3 → source order.
+- **Local proof:** Tests + `scripts/run_unified_pack_smoke.py` (nine representative episodes); CI unified manifest `--check`.
+- **Docs:** `docs/benchmark_packs/unified_core_m07.md` — **nominal difficulty only**; no cross-family psychometric equivalence claim.
+- **Verdicts:** Family 1–3 standing verdicts **unchanged** (**retain provisionally**).
+- **Benchmark:** **1.1.0** unchanged; no scorer/parser/schema edits.
+
+**Plan / evidence:** `docs/milestones/M07/M07_plan.md`  
+**Tool log:** `docs/milestones/M07/M07_toolcalls.md`  
+**Stats:** `docs/milestones/M07/artifacts/unified_pack_stats.json`
+
 ### Canonical notebook regeneration rule (standing)
 
 - **Never** hand-edit canonical `.ipynb` JSON; regenerate via generators; **`--check`** must pass in CI.  
@@ -352,15 +385,16 @@ Planned milestone arc (competition charter locked in **M02**):
 
 ---
 
-## 9. Active milestone — M07 (next)
+## 9. Active milestone — M08 (next)
 
-**Status:** **Planned** — stub at M06 handoff (see §7).
+**Status:** **Planned** — stub at M07 handoff (see §7).
 
-**Goal (from planned arc):** Unified benchmark pack normalization across families.
+**Goal (from planned arc):** Defensibility, QA, and contamination-resistance hardening.
 
-**Plan (stub):** `docs/milestones/M07/M07_plan.md`  
-**Tool log:** `docs/milestones/M07/M07_toolcalls.md`  
-**CI run log (stub):** `docs/milestones/M07/M07_run1.md`
+**Plan (stub):** `docs/milestones/M08/M08_plan.md`  
+**Tool log:** `docs/milestones/M08/M08_toolcalls.md`
+
+**M07 (closed):** `docs/milestones/M07/M07_plan.md` — verification log `docs/milestones/M07/M07_run1.md`.
 
 ---
 

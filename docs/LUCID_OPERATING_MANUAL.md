@@ -214,15 +214,16 @@ Defined in:
 
 ### Offline core packs (canonical manifests)
 
-As of **M06**, committed deterministic packs (regenerate with `--check` in CI) include:
+As of **M07**, committed deterministic packs (regenerate with `--check` in CI) include the three per-family core packs plus one **unified** cross-family pack (full composition, normalized metadata):
 
 | Pack ID | Family (`template_family`) | Manifest check script |
 |---------|----------------------------|------------------------|
 | `family1_core_m03_v1` | `symbolic_negation_v1` | `scripts/generate_family1_core_m03_manifest.py` |
 | `family2_core_m05_v1` | `contradiction_clarification_v1` | `scripts/generate_family2_core_m05_manifest.py` |
 | `family3_core_m06_v1` | `scope_precedence_exception_v1` | `scripts/generate_family3_core_m06_manifest.py` |
+| `unified_core_m07_v1` | *(multi-family composition)* | `scripts/generate_unified_core_m07_manifest.py` |
 
-**Benchmark version** for scoring and episode generation remains **1.1.0** unless change control bumps it.
+**Benchmark version** for scoring and episode generation remains **1.1.0** unless change control bumps it. The unified pack does **not** change episode semantics; see `docs/benchmark_packs/unified_core_m07.md`.
 
 ---
 
