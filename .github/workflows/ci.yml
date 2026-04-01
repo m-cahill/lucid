@@ -57,3 +57,6 @@ jobs:
 
       - name: Verify M07 unified canonical pack manifest
         run: python scripts/generate_unified_core_m07_manifest.py --check
+
+      - name: M08 unified defensibility audit (--check)
+        run: python scripts/run_unified_defensibility_audit.py --check

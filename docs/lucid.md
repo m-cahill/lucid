@@ -23,7 +23,7 @@ When documents or code disagree, use this order:
 1. **`docs/LUCID_MOONSHOT.md`** — ambition, faculty, philosophy, refusals  
 2. **Layer A & B contracts** in **`docs/contracts/`** — identity and execution semantics  
 3. **`docs/LUCID_OPERATING_MANUAL.md`** — how the pipeline maps to components  
-4. **Adjacent docs** — `LUCID_BOUNDARIES.md`, `LUCID_ASSUMED_GUARANTEES.md`, `LUCID_STACK_INTERACTION.md`, `LUCID_TERMINOLOGY_GUIDE_LLM.md`, `LUCID_COMPETITION_ALIGNMENT.md`  
+4. **Adjacent docs** — `LUCID_BOUNDARIES.md`, `LUCID_ASSUMED_GUARANTEES.md`, `LUCID_STACK_INTERACTION.md`, `LUCID_TERMINOLOGY_GUIDE_LLM.md`, `LUCID_COMPETITION_ALIGNMENT.md`, `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md`  
 5. **`docs/lucid.md` (this file)** — milestone status, active profile, canonical paths  
 6. **Implementation** under `src/lucid/` — must satisfy the above; defects are tracked against contracts  
 
@@ -41,6 +41,9 @@ When documents or code disagree, use this order:
 | Template family specs | `docs/families/` |
 | Moonshot anchor | `docs/LUCID_MOONSHOT.md` |
 | Operating manual | `docs/LUCID_OPERATING_MANUAL.md` |
+| Defensibility / dataset-quality standard | `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md` |
+| M08 defensibility audit artifacts | `docs/milestones/M08/artifacts/` (`m08_defensibility_audit.json`, `m08_duplicate_scan.json`, `m08_defensibility_summary.md`, `m08_contamination_posture.md`, `m08_exact_duplicate_allowlist.json`) |
+| Unified defensibility audit script | `scripts/run_unified_defensibility_audit.py` (`--write` / `--check`; CI: `--check`) |
 | Archived bundle export (v1.0.1) | `docs/archive/LUCID_contracts_master_bundle_v1.0.1_ARCHIVED.md` |
 | Milestone plans | `docs/milestones/MNN/` |
 | Kaggle notebook contract (standing) | `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` |
@@ -71,8 +74,10 @@ When documents or code disagree, use this order:
 | M07 plan & closeout (complete) | `docs/milestones/M07/M07_plan.md`, `docs/milestones/M07/M07_summary.md`, `docs/milestones/M07/M07_audit.md`, `docs/milestones/M07/M07_run1.md` |
 | M07 tool log | `docs/milestones/M07/M07_toolcalls.md` |
 | M07 unified pack stats | `docs/milestones/M07/artifacts/unified_pack_stats.json` |
-| M08 plan (stub) | `docs/milestones/M08/M08_plan.md` |
+| M08 plan & closeout (complete) | `docs/milestones/M08/M08_plan.md`, `docs/milestones/M08/M08_run1.md`, `docs/milestones/M08/M08_summary.md`, `docs/milestones/M08/M08_audit.md` |
 | M08 tool log | `docs/milestones/M08/M08_toolcalls.md` |
+| M09 plan (stub) | `docs/milestones/M09/M09_plan.md` |
+| M09 tool log | `docs/milestones/M09/M09_toolcalls.md` |
 
 ---
 
@@ -90,6 +95,20 @@ When documents or code disagree, use this order:
 | Family 1 M04 analytics (local + Kaggle surface) | **Complete (M04)** — difficulty ladder / deterministic baseline artifacts; **additive** Kaggle notebook `lucid_family1_m04_task` on a **24-episode** stratified panel; verdict **retain provisionally** pending populated hosted-model CSV (`docs/milestones/M04/artifacts/`) |
 | Kaggle Community Benchmarks E2E | **Complete (M01)** — repo transport + offline equivalence + **Kaggle platform proof** (hosted models, task wiring, scores); see `docs/milestones/M01/M01_run1.md` and §6 score ledger |
 | Remote GitHub Actions | **Verified** — `pull_request` / `push` CI per `.github/workflows/ci.yml`; historical evidence in `docs/milestones/M00/M00_run1.md` |
+| Unified defensibility audit (M08) | **Complete (M08)** — `scripts/run_unified_defensibility_audit.py`; blocking `--check` in CI; artifacts under `docs/milestones/M08/artifacts/`; **no** Kaggle platform proof in milestone scope |
+
+### Submission blockers (compact)
+
+Standing gaps before treating the competition entry as **submission-complete** (see §6.4 for narrative):
+
+| Blocker | Status | Last milestone touched | Exit criteria (high level) |
+|----------------------|--------|-------------------------|----------------------------|
+| Hosted-model discriminatory power (full closure) | Open | M04 | Populate `family1_model_scores.csv` or document blocked panel / fallback; revisit family verdicts |
+| Defensibility / ambiguity / contamination QA | **M08 done (automated layer)** | **M08** | Green `run_unified_defensibility_audit.py --check`; artifacts committed; judge-facing narrative remains for M10 |
+| Final writeup pack | Open | — | Figures, narrative, packaging per competition |
+| Final Kaggle benchmark / task / writeup linkage | Open | — | Per official rules |
+
+---
 
 ### Family pack inventory (standing)
 
@@ -168,6 +187,8 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 
 **M07 judged axis:** **Dataset quality & task construction** — canonical unified offline pack (`unified_core_m07_v1`) composing the three family core packs with deterministic ordering, lineage, metadata normalization, and manifest `--check`; no Kaggle notebook/task or hosted-model evidence in milestone scope.
 
+**M08 judged axis:** **Dataset quality & task construction** — deterministic defensibility / QA audit layer over `unified_core_m07_v1` and canonical source manifests; hard vs soft checks; contamination-resistance posture doc; CI `--check` on audit artifacts; **no** benchmark version bump and **no** Kaggle platform proof in milestone scope.
+
 ### 6.2 Submission posture
 
 - **M01** established **transport proof** and an initial **hosted-model spread** on a fixed acceptance slice (`symbolic_negation_v1`).
@@ -176,8 +197,9 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 - **M05** added a **canonical deterministic Family 2 offline pack** (72 episodes, `contradiction_clarification_v1`) with local smoke and CI `--check`; Family 2 verdict **retain provisionally** pending future discriminatory evidence (no Kaggle Family 2 task in M05).
 - **M06** added a **canonical deterministic Family 3 offline pack** (72 episodes, `scope_precedence_exception_v1`; drift types `SCOPE` / `PRECEDENCE` / `EXCEPTION`) with local smoke and CI `--check`; Family 3 verdict **retain provisionally** pending future discriminatory evidence (no Kaggle Family 3 task in M06).
 - **M07** added a **canonical unified offline pack** (`unified_core_m07_v1`, 240 episodes) — normalized cross-family manifest + lineage over the three core packs; local unified smoke and CI `--check`; **not** a Kaggle or hosted-model evidence milestone; family verdicts unchanged (**retain provisionally**).
-- LUCID is **not submission-ready** after M07.
-- **Remaining gaps** before a competition-ready submission include: **populated** hosted-model spread on the M04 panel (or documented fallback), **defensibility** hardening, broader **Kaggle evidence** on the mature pack as needed, and **writeup / packaging** aligned to the rules.
+- **M08** added a **blocking defensibility audit** (`scripts/run_unified_defensibility_audit.py`, CI `--check`) with committed artifacts under `docs/milestones/M08/artifacts/` and canonical standard `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md` — **not** Kaggle platform proof; benchmark **1.1.0** unchanged.
+- LUCID is **not submission-ready** after M08 (hosted-model closure, final Kaggle linkage, and writeup packaging remain).
+- **Remaining gaps** before a competition-ready submission include: **populated** hosted-model spread on the M04 panel (or documented fallback), broader **Kaggle evidence** on the mature pack as needed, **final writeup / packaging**, and **final** benchmark–task–writeup **linkage** per rules — see §4 submission blockers table.
 
 ### 6.3 Standing family promotion rules (at milestone close)
 
@@ -191,10 +213,10 @@ This guards against faculty sprawl and “benchmark theater.”
 
 ### 6.4 Submission blockers (standing)
 
-Until addressed, the entry should not be treated as submission-complete:
+Until addressed, the entry should not be treated as submission-complete. **Compact tracker:** §4 *Submission blockers (compact)*.
 
 - **Family-level discriminatory power (full evidentiary closure)** — M04 delivered infrastructure + **retain provisionally**; **populate** `family1_model_scores.csv` from Kaggle (see `M04_run2.md`) or record an explicit blocked panel / subset rationale before claiming submission-grade spread.
-- **Defensibility / ambiguity audit** (contamination resistance, task clarity).
+- **Defensibility / ambiguity / contamination posture** — **M08** delivers the **automated, CI-enforced** audit layer + artifacts (`docs/milestones/M08/artifacts/`, `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md`). Judge-facing narrative and final packaging remain **out of scope** for M08 (see M10).
 - **Final writeup pack** (figures, narrative, judge-facing framing).
 - **Final Kaggle benchmark / task / writeup linkage** per competition requirements.
 
@@ -253,7 +275,7 @@ Planned milestone arc (competition charter locked in **M02**):
 | **M05** | Family 2 — contradiction / clarification benchmark family | **Complete** |
 | **M06** | Family 3 — scope / precedence / exception drift family | **Complete** |
 | **M07** | Unified benchmark pack normalization across families | **Complete** |
-| **M08** | Defensibility, QA, and contamination-resistance hardening | **Planned** |
+| **M08** | Defensibility, QA, and contamination-resistance hardening | **Complete** |
 | **M09** | Expanded Kaggle evidence run on mature benchmark | **Planned** |
 | **M10** | Writeup evidence pack, figures, and judge-facing narrative | **Planned** |
 | **M11** | Submission lock: final benchmark freeze and submission checklist | **Planned** |
@@ -373,6 +395,22 @@ Planned milestone arc (competition charter locked in **M02**):
 **Tool log:** `docs/milestones/M07/M07_toolcalls.md`  
 **Stats:** `docs/milestones/M07/artifacts/unified_pack_stats.json`
 
+### M08 — Defensibility, QA, and contamination-resistance hardening
+
+**Closed:** 2026-03-31 (repository record).
+
+**What M08 delivered**
+
+- **Audit layer:** `src/lucid/audits/defensibility.py` — deterministic hard checks (rebuild parity, uniqueness, lineage to three canonical source manifests, hash integrity, metadata completeness, drift/variant validity, distribution consistency, unapproved exact-duplicate groups) and soft informational checks (token / character n-gram similarity, prompt-skeleton repetition, ambiguity-window heuristics).
+- **CLI:** `scripts/run_unified_defensibility_audit.py` (`--write` / `--check`); **blocking** `--check` in CI alongside manifest generators.
+- **Artifacts:** `docs/milestones/M08/artifacts/` — `m08_defensibility_audit.json`, `m08_duplicate_scan.json`, `m08_defensibility_summary.md`, `m08_contamination_posture.md`, `m08_exact_duplicate_allowlist.json` (empty default).
+- **Canonical standard:** `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md`.
+- **Tests:** `tests/test_unified_defensibility_audit.py`.
+- **Benchmark:** **1.1.0** unchanged; **no** Kaggle platform proof; **no** scorer/parser/schema semantic edits.
+
+**Plan:** `docs/milestones/M08/M08_plan.md`  
+**Tool log:** `docs/milestones/M08/M08_toolcalls.md`
+
 ### Canonical notebook regeneration rule (standing)
 
 - **Never** hand-edit canonical `.ipynb` JSON; regenerate via generators; **`--check`** must pass in CI.  
@@ -384,16 +422,16 @@ Planned milestone arc (competition charter locked in **M02**):
 
 ---
 
-## 9. Active milestone — M08 (next)
+## 9. Active milestone — M09 (next)
 
-**Status:** **Planned** — stub at M07 handoff (see §7).
+**Status:** **Planned** — follows M08 closeout (see §7).
 
-**Goal (from planned arc):** Defensibility, QA, and contamination-resistance hardening.
+**Goal (from planned arc):** Expanded Kaggle evidence run on the mature benchmark.
 
-**Plan (stub):** `docs/milestones/M08/M08_plan.md`  
-**Tool log:** `docs/milestones/M08/M08_toolcalls.md`
+**Plan:** `docs/milestones/M09/M09_plan.md` (stub at M08 handoff)  
+**Tool log:** `docs/milestones/M09/M09_toolcalls.md`
 
-**M07 (closed):** `docs/milestones/M07/M07_plan.md` — verification log `docs/milestones/M07/M07_run1.md`.
+**M08 (closed):** `docs/milestones/M08/M08_plan.md` — defensibility audit artifacts `docs/milestones/M08/artifacts/`.
 
 ---
 
