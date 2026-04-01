@@ -55,7 +55,7 @@ Mechanical / packaging / audit only — **no** scoring semantic change.
 - **PR CI:** Authoritative run `23866649886` — **success** on `4e4fb2c…`.
 - **Main CI (merge):** Run `23866754720` — **success** on merge commit `2ceca1f…`.
 - **Main CI (closeout docs):** Run `23866907808` — **success** on `7fbd741…`.
-- **Main CI (final doc amend chain):** Run `23867038224` — **success** on authoritative HEAD `3dff713…` (after run1/summary + tool log fixes).
+- **Main CI (final closeout documentation):** Run `23867155623` — **success** on authoritative HEAD `d9c05fc…` (run1 §4.2 + summary + audit alignment).
 
 ---
 
@@ -123,7 +123,7 @@ M08 objectives met **for automated defensibility QA and governance**. Merge to `
 - **CI (main, merge):** https://github.com/m-cahill/lucid/actions/runs/23866754720  
 - **CI (main, closeout docs):** https://github.com/m-cahill/lucid/actions/runs/23866907808  
 - **Closeout commit:** `7fbd7416fa2987c9f9ad45df66f54f5914a8beec`  
-- **Authoritative `main` (post–closeout docs):** `3dff713985c3dcb70c3ea0db84bffd39c8d84005` — CI https://github.com/m-cahill/lucid/actions/runs/23867038224  
+- **Authoritative `main` (post–closeout docs):** `d9c05fc95bd14113ba3651b7289cb94a2a6d5d4e` — CI https://github.com/m-cahill/lucid/actions/runs/23867155623  
 - **Standard:** `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md`  
 - **Audit script:** `scripts/run_unified_defensibility_audit.py`  
 - **Run log:** `docs/milestones/M08/M08_run1.md`  

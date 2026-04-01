@@ -14,4 +14,5 @@
 | 2026-04-01 | gh | Merge PR #9 to `main`; post-merge CI `23866754720` success | `main` | complete |
 | 2026-04-01 | — | Closeout docs: `M08_run1.md`, `M08_summary.md`, `M08_audit.md` | `docs/milestones/M08/` | complete |
 | 2026-04-01 | git | Amend run1/summary with closeout SHA + CI `23866907808` | commit `1ba5a6e` | complete |
-| 2026-04-01 | — | Run1 §4.2 + summary + audit: authoritative main `3dff713` + CI `23867038224` | `M08_run1.md`, `M08_summary.md`, `M08_audit.md` | complete |
+| 2026-04-01 | — | Run1 §4.2 + summary + audit; evidence lock `d9c05fc` + CI `23867155623` | `M08_run1.md`, `M08_summary.md`, `M08_audit.md` | complete |
+| 2026-04-01 | git | Evidence lock wording + SHA alignment (no M08 scope change) | `M08_run1.md`, `M08_summary.md`, `M08_audit.md`, `M08_toolcalls.md` | complete |
