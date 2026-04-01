@@ -21,7 +21,7 @@ python scripts/generate_m09_kaggle_notebook.py --check -o notebooks/lucid_kaggle
 
 **Outcome:** All steps **passed** (unified manifest OK; M08 audit artifacts OK; unified pack smoke `all_ok n=9`; pytest with coverage ≥85%; M09 panel JSON OK; M09 notebook `--check` OK).
 
-**Notebook `--check` pin:** Extracted from `notebooks/lucid_kaggle_m09_mature_evidence.ipynb` at time of verification (must match embedded 40-char SHA in banner cell).
+**Notebook `--check` pin:** Extracted from `notebooks/lucid_kaggle_m09_mature_evidence.ipynb` — embeds **`3a0f774d6f7ed069ed088364ab7d9c175b079b01`** (GitHub ZIP install target; that commit contains `m09_evidence_panel.py`). Branch tip may be one commit ahead (notebook-only pin alignment).
 
 ---
 
