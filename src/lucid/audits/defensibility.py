@@ -210,6 +210,15 @@ def _check_ambiguity_window_shape(episode_spec: Mapping[str, Any]) -> str | None
     return None
 
 
+def _repo_relative_posix(repo_root: Path, path: Path) -> str:
+    """Stable path for audit JSON (POSIX, relative to repo root when possible)."""
+    root = repo_root.resolve()
+    try:
+        return path.resolve().relative_to(root).as_posix()
+    except ValueError:
+        return path.resolve().as_posix()
+
+
 def run_defensibility_audit(
     *,
     repo_root: Path,
@@ -620,8 +629,8 @@ def run_defensibility_audit(
             ),
         },
         "paths": {
-            "unified_manifest": str(unified_manifest_path),
-            "allowlist": str(allow_path),
+            "unified_manifest": _repo_relative_posix(repo_root, unified_manifest_path),
+            "allowlist": _repo_relative_posix(repo_root, allow_path),
         },
     }
 
