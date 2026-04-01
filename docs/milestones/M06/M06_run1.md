@@ -72,6 +72,7 @@ No command paths differ from the list above in this repository state.
 |----------------|--------|-----|------------|
 | `ce745c3` (closeout docs) | `23830549522` | https://github.com/m-cahill/lucid/actions/runs/23830549522 | **success** |
 | `d30f4a9` (M06_run1 CI cross-ref) | `23830562792` | https://github.com/m-cahill/lucid/actions/runs/23830562792 | **success** |
+| `10669d0` (final M06_run1 table) | `23830580103` | https://github.com/m-cahill/lucid/actions/runs/23830580103 | **success** |
 
 ---
 
@@ -127,5 +128,6 @@ No `continue-on-error` on required checks. Annotation: Node.js 20 deprecation no
 
 | Field | Value |
 |-------|--------|
-| **Merge commit** | `ded1c1a798189bda78acae90926da982e4066f88` |
+| **Merge commit (PR #7)** | `ded1c1a798189bda78acae90926da982e4066f88` |
 | **Base before merge** | `7b702bdd6b752586f05616571d5c642b7ad737b9` (prior `main` tip) |
+| **`main` tip after M06 closeout docs** | `10669d0ab8038c226d765e6cb128a1a16286b4ad` |
