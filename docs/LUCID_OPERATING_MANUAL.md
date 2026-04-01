@@ -1,7 +1,7 @@
 # LUCID Operating Manual
 
 **Project:** LUCID  
-**Benchmark Version:** 1.0.1  
+**Benchmark Version:** 1.1.0  
 **Document Type:** Operating Manual (Execution Context)  
 **Authority:** Practical execution guide over frozen contracts  
 **Status:** Canonical execution reference

@@ -1,0 +1,24 @@
+{
+  "pack_id": "family2_core_m05_v1",
+  "family_id": "contradiction_clarification_v1",
+  "template_version": "1.0.0",
+  "benchmark_version": "1.1.0",
+  "episode_count": 72,
+  "difficulty_distribution": {
+    "LOW": 24,
+    "MEDIUM": 24,
+    "HIGH": 24
+  },
+  "contradiction_state_totals": {
+    "unresolved": 36,
+    "resolved": 36
+  },
+  "per_difficulty_bucket": {
+    "unresolved": 12,
+    "resolved": 12
+  },
+  "drift_type": "CONTRADICTION",
+  "canonical_manifest_path": "tests/fixtures/family2_core_m05/family2_core_m05_manifest.json",
+  "milestone": "M05",
+  "judged_axis": "Dataset quality & task construction"
+}
