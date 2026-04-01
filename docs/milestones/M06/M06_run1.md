@@ -66,6 +66,16 @@ No command paths differ from the list above in this repository state.
 | **Merge / `main` SHA** | `ded1c1a798189bda78acae90926da982e4066f88` |
 | **Conclusion** | **success** |
 
+### 4.1 Follow-up documentation commit on `main`
+
+After merge, closeout documentation was committed on `main` (`ce745c33b75bae7a59f8e485082fa182d840b724`). CI validation:
+
+| Field | Value |
+|-------|--------|
+| **Run ID** | `23830549522` |
+| **URL** | https://github.com/m-cahill/lucid/actions/runs/23830549522 |
+| **Conclusion** | **success** |
+
 ---
 
 ## 5. CI / workflow analysis (per `docs/prompts/workflowprompt.md`)
