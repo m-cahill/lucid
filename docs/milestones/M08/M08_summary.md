@@ -4,7 +4,7 @@
 **Phase:** Benchmark construction (locked roadmap)  
 **Milestone:** M08 — Defensibility, QA, and contamination-resistance hardening  
 **Timeframe:** 2026-03-31 → 2026-04-01 (repository record)  
-**Status:** **Closed** — merged to `main` (`2ceca1f979c1b8de68827786184d742223d15043`)  
+**Status:** **Closed** — merged to `main` (`2ceca1f979c1b8de68827786184d742223d15043`); closeout docs commit `7fbd7416fa2987c9f9ad45df66f54f5914a8beec`  
 **Baseline reference:** `main` at `c29212acef18b0005613237fdca29d29eaeb7381`; PR #9 head `4e4fb2c8b5bece0cf5bcf6233c16a4f5decdc90e`  
 
 ---
@@ -53,7 +53,8 @@ Mechanical / packaging / audit only — **no** scoring semantic change.
 
 - **Local:** Commands and results in `M08_run1.md` §1 — all pass; coverage ≥85%.
 - **PR CI:** Authoritative run `23866649886` — **success** on `4e4fb2c…`.
-- **Main CI:** Run `23866754720` — **success** on merge commit `2ceca1f…`.
+- **Main CI (merge):** Run `23866754720` — **success** on merge commit `2ceca1f…`.
+- **Main CI (closeout docs):** Run `23866907808` — **success** on `7fbd741…`.
 
 ---
 
@@ -118,7 +119,9 @@ M08 objectives met **for automated defensibility QA and governance**. Merge to `
 - **PR head (green):** `4e4fb2c8b5bece0cf5bcf6233c16a4f5decdc90e`  
 - **Merge commit:** `2ceca1f979c1b8de68827786184d742223d15043`  
 - **CI (PR):** https://github.com/m-cahill/lucid/actions/runs/23866649886  
-- **CI (main):** https://github.com/m-cahill/lucid/actions/runs/23866754720  
+- **CI (main, merge):** https://github.com/m-cahill/lucid/actions/runs/23866754720  
+- **CI (main, closeout docs):** https://github.com/m-cahill/lucid/actions/runs/23866907808  
+- **Closeout commit:** `7fbd7416fa2987c9f9ad45df66f54f5914a8beec`  
 - **Standard:** `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md`  
 - **Audit script:** `scripts/run_unified_defensibility_audit.py`  
 - **Run log:** `docs/milestones/M08/M08_run1.md`  
