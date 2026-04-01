@@ -3,7 +3,7 @@
 **Family ID:** `symbolic_negation_v1`  
 **Family version:** `1.0.0`  
 **Benchmark version:** 1.1.0 (scoring profile `1.1.0`)  
-**Status:** Active (M00)
+**Status:** Active (M00); canonical offline pack **M03** (`family1_core_m03_v1`)
 
 ---
 
@@ -94,3 +94,25 @@ Generator MUST serialize `pre_drift_rule` and `post_drift_rule` as structured ob
 ## 8. One-line summary
 
 > `symbolic_negation_v1` is the canonical **NEGATION-only**, **no-clarification** starter family with typed item-id answers and full drift metadata for audit and scoring.
+
+---
+
+## 9. Canonical M03 pack (`family1_core_m03_v1`)
+
+**Milestone:** M03  
+**Pack ID:** `family1_core_m03_v1`  
+**Episodes:** 96 (**32** LOW, **32** MEDIUM, **32** HIGH)  
+**Committed manifest:** `tests/fixtures/family1_core_m03/family1_core_m03_manifest.json`
+
+**Drift event (unchanged):** single primary **NEGATION** drift; severity ∈ {LOW, MEDIUM, HIGH} parameterized via `drift_severity` and item-space knobs (`n_items`, `n_colors`, `n_shapes`).
+
+**Difficulty (M03):** balanced buckets; seed grids and stable ordering are defined in `src/lucid/packs/family1_core_m03.py` (LOW: seeds `1..31` and `100`; MEDIUM: `32..63`; HIGH: `64..94` and `200`).
+
+**M01 transport subset:** The three **Kaggle acceptance** episodes in `tests/fixtures/kaggle_transport/transport_manifest.json` are **members** of this pack and labeled with `m01_transport_fixture_id` (`symneg_100_low`, `symneg_42_medium`, `symneg_200_high`). The transport file remains the **preserved** definition of that acceptance slice; the Family 1 pack is the **superset** for offline benchmark use.
+
+**Regeneration:** `python scripts/generate_family1_core_m03_manifest.py --write`  
+**Verification:** `python scripts/generate_family1_core_m03_manifest.py --check`
+
+**Local E2E smoke (not full pack):** `scripts/run_family1_pack_smoke.py` — one episode per difficulty bucket (M01 seeds).
+
+**Deferred:** **Promote / retain / drop** verdict and hosted-model spread analysis on the full pack — **M04** (`docs/lucid.md` §7).
