@@ -1,1 +1,2 @@
-model_name,family_id,notebook_version,panel_id,run_date_utc,episode_count,mean_score,status,notes
+family_id,mean_score,episode_count,status,notes
+NA,NA,NA,not_available_from_export,"Per-family means are not available from the leaderboard export. The export provides per-task aggregate means only (no per-episode rows or family-keyed slice). Do not infer family-level scores from task-level aggregates."

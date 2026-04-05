@@ -5,22 +5,21 @@
 
 ---
 
-## Verdict (this revision)
+## Verdict (closeout revision)
 
-**Provisional — evidence incomplete.**
+**Provisional — partial hosted evidence.**
 
-Hosted-model scores for the M09 panel are **not** yet populated in `m09_model_scores.csv` (no Kaggle platform run was available to this closeout). Therefore:
-
-- A **meaningful gradient** across hosted models on the **mature** 72-episode surface **cannot** be asserted from repository data alone.
-- **Family verdicts** (`retain provisionally` for Families 1–3) are **unchanged**; M09 does not promote or drop families without discriminatory evidence.
+- **Ingested:** Leaderboard export committed as `m09_kaggle_leaderboard_export.csv`; derived **`m09_model_scores.csv`** with **15** models showing numeric M09 means and **18** documented **non-completions** (`failed_platform_limited` — see `m09_kaggle_run_manifest.md`).
+- A **meaningful gradient** on the mature 72-episode surface is **supported for the completing subset**; the roster is **not** fully complete (18 / 33 non-completions), so claims must stay **scoped** to evidence breadth, not full hosted coverage.
+- **Family verdicts** (`retain provisionally` for Families 1–3) remain **unchanged** — M09 does not promote or drop families on partial platform evidence alone.
 
 ---
 
 ## Implications for M10 writeup
 
-- Treat **M09 Phase B** as **instrument + panel + notebook** readiness on the unified substrate.
-- **Do not** claim full **Kaggle platform proof** for M09 until `m09_kaggle_run_manifest.md` lists a real run and `m09_model_scores.csv` has rows.
-- When scores exist, revisit this file and record **strong / provisional / mixed / blocked** with cited artifact paths.
+- Cite **`m09_model_scores.csv`**, raw export path, and manifest counts (15 / 33).
+- Frame non-completions as **platform / token / cost breadth limits**, not benchmark defects.
+- Do **not** infer family, difficulty, or component curves from task-level means alone (see NA CSVs).
 
 ---
 

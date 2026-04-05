@@ -1,1 +1,6 @@
-model_name,notebook_version,panel_id,run_date_utc,D,L,O,A,C,mean_episode_score,status,notes
+component,mean_value,status,notes
+D,NA,not_available_from_export,"Component D is not present in the leaderboard export and cannot be reconstructed from the available evidence without per-episode or component-level scores."
+L,NA,not_available_from_export,"Component L is not present in the leaderboard export and cannot be reconstructed from the available evidence without per-episode or component-level scores."
+O,NA,not_available_from_export,"Component O is not present in the leaderboard export and cannot be reconstructed from the available evidence without per-episode or component-level scores."
+A,NA,not_available_from_export,"Component A is not present in the leaderboard export and cannot be reconstructed from the available evidence without per-episode or component-level scores."
+C,NA,not_available_from_export,"Component C is not present in the leaderboard export and cannot be reconstructed from the available evidence without per-episode or component-level scores."
