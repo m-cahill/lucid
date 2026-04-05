@@ -3,8 +3,8 @@
 **Project:** LUCID  
 **Phase:** Benchmark construction  
 **Milestone:** M09 — Expanded Kaggle evidence on the mature benchmark  
-**Timeframe:** 2026-04-01 → *open* (platform phase pending)  
-**Status:** **Open** — Phase B (repo) complete; Phase C–E (Kaggle platform run + score ingestion) **pending**  
+**Timeframe:** 2026-04-01 → **closed** (2026-04-05 repository record — evidence ingest PR)  
+**Status:** **Complete** — Phase B (repo) + Phase C (platform export ingest + derived CSVs + manifest)
 
 ---
 
@@ -12,37 +12,31 @@
 
 Add **deterministic, auditable** infrastructure for **hosted-model evidence** on the **mature unified** benchmark (`unified_core_m07_v1`) without changing scoring semantics, and record **real** Kaggle platform results when available.
 
-Without M09, the project would lack a **defined 72-episode** cross-family panel and **generated** notebook path aligned to the post-M08 substrate.
-
 ---
 
 ## 2. Scope Definition
 
-### In scope (delivered in repo)
+### In scope (delivered)
 
 - `src/lucid/kaggle/m09_evidence_panel.py` — panel `m09_mature_evidence_v1` (72 rows; Family 1 = exact M04 decision continuity).
 - `docs/milestones/M09/artifacts/m09_model_panel.json` — reproducible via `scripts/generate_m09_panel_artifact.py`.
 - `scripts/generate_m09_kaggle_notebook.py` → `notebooks/lucid_kaggle_m09_mature_evidence.ipynb`; task **`lucid_m09_mature_evidence_task`**.
 - CI `--check` for panel artifact + notebook.
-- Tests: `tests/test_m09_evidence_panel.py`.
-- Governance docs: `docs/lucid.md`, `docs/LUCID_COMPETITION_ALIGNMENT.md`, `docs/LUCID_OPERATING_MANUAL.md`, runbook, disposition/promotion stubs.
-- **Honest** Phase C placeholders: header-only CSVs + `m09_kaggle_run_manifest.md` stating **no platform run** recorded yet.
+- **Phase C:** Raw leaderboard export + **`m09_model_scores.csv`** (15 successes, 18 non-completions) + NA breakdown/component CSVs where export cannot support slices + updated **`m09_kaggle_run_manifest.md`**.
 
 ### Out of scope
 
-- Fabricated Kaggle scores or URLs.
+- Fabricated metrics beyond the export.
 - Benchmark version bump (remains **1.1.0**).
 - M10 writeup pack implementation.
-- Full 240-episode hosted sweep.
+- Full 240-episode hosted sweep or re-running the panel to “fill” the 18 non-completions.
 
 ---
 
 ## 3. Work Executed
 
-- Implemented deterministic panel selectors (F2/F3 balanced; F1 = M04 keys).
-- Added notebook generator (dedicated cell pipeline, not M01/M04 index patches).
-- Committed panel JSON; wired CI; added tests; documentation and external evidence index updates.
-- Recorded **M04 blocker disposition**: **superseded by M09** as the successor evidence surface, with **operational** hosted closure still pending scored CSV rows (`m09_m04_blocker_disposition.md`).
+- Phase B: panel, notebook generator, tests, CI, M04 disposition docs (PR #10, merged earlier).
+- Phase C: Ingest **`m09_kaggle_leaderboard_export.csv`**; derive scores; document limitations (no family/difficulty/component inference); classify non-completions as **`failed_platform_limited`**; refresh promotion + ledger alignment.
 
 ---
 
@@ -51,8 +45,8 @@ Without M09, the project would lack a **defined 72-episode** cross-family panel 
 | Proof class | Status |
 |-------------|--------|
 | **Local proof** | **Yes** — generators, smoke, pytest, panel/notebook `--check` |
-| **GitHub CI proof** | **Yes** — PR #10 `pull_request` CI run `23871354120` (head `c5073e7…`); post-merge `main` run `23871459171` on merge `f306df2…` — see `M09_run1.md` |
-| **Kaggle platform proof** | **No** — not available in this closeout; manifest documents gap |
+| **GitHub CI proof** | **Yes** — see `M09_run1.md` for Phase B PR #10 and **Phase C closeout PR** (recorded when merged) |
+| **Kaggle platform proof** | **Yes (partial roster)** — ingested export with **15** numeric M09 means + **18** documented non-completions |
 
 **Benchmark version:** **1.1.0** (unchanged).
 
@@ -60,13 +54,13 @@ Without M09, the project would lack a **defined 72-episode** cross-family panel 
 
 ## 5. Judged Axis
 
-**Novelty / insights / discriminatory power** — **partially advanced**: repo delivers the **evaluation panel + notebook** required for discriminatory sweeps; **insight from hosted spread** awaits platform CSV population.
+**Novelty / insights / discriminatory power** — **advanced** with **honest limits**: mature-panel **instrument + notebook + scored subset**; full hosted roster **not** completed.
 
 ---
 
 ## 6. M04 Hosted-Model Evidence
 
-**Disposition:** **Superseded by M09** as the canonical **mature-benchmark** hosted evidence path (M04 Family 1 rows embedded in M09 panel). **Direct population** of `family1_model_scores.csv` was **not** performed; **full closure** of the discriminatory evidence gap requires **`m09_model_scores.csv`** rows from a real run (`m09_m04_blocker_disposition.md`).
+**Disposition:** **Superseded by M09** as the canonical **mature-benchmark** hosted evidence path. **`m09_model_scores.csv`** is populated; **`family1_model_scores.csv`** was **not** backfilled by design.
 
 ---
 
@@ -74,30 +68,21 @@ Without M09, the project would lack a **defined 72-episode** cross-family panel 
 
 | Artifact | Role |
 |----------|------|
-| `src/lucid/kaggle/m09_evidence_panel.py` | Panel logic |
-| `docs/milestones/M09/artifacts/m09_model_panel.json` | Committed panel |
-| `notebooks/lucid_kaggle_m09_mature_evidence.ipynb` | Generated notebook |
-| `docs/milestones/M09/artifacts/m09_kaggle_run_manifest.md` | Platform run record (pending) |
-| `docs/milestones/M09/artifacts/m09_model_scores.csv` | Scores (header-only until run) |
-| `docs/milestones/M09/artifacts/m09_component_metrics.csv` | Components if exported |
-| `docs/milestones/M09/artifacts/m09_family_breakdown.csv` | Per-family breakdown |
-| `docs/milestones/M09/artifacts/m09_difficulty_breakdown.csv` | Per-difficulty breakdown |
+| `docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv` | Raw platform export (audit trail) |
+| `docs/milestones/M09/artifacts/m09_model_scores.csv` | Derived per-model M01 / M09 means and status |
+| `docs/milestones/M09/artifacts/m09_kaggle_run_manifest.md` | Linkage, counts, limitations |
+| `docs/milestones/M09/artifacts/m09_*_breakdown.csv`, `m09_component_metrics.csv` | Explicit NA where export cannot support slices |
 | `docs/milestones/M09/artifacts/m09_promotion_decision.md` | Provisional posture |
-| `docs/milestones/M09/artifacts/m09_m04_blocker_disposition.md` | M04 gap disposition |
+| `docs/milestones/M09/artifacts/m09_m04_blocker_disposition.md` | M04 vs M09 operational notes |
 
 ---
 
-## 8. Exit Criteria (milestone)
+## 8. Exit Criteria
 
-Original acceptance criteria required **at least one authoritative Kaggle platform proof run**. That criterion is **not met** in this revision. **Phase B** exit criteria **are met**. **M09 remains open** until platform evidence is recorded.
+**Met:** At least one **authoritative** Kaggle-linked evidence ingest with **real** task/benchmark identifiers and **non-fabricated** numeric rows for the completing subset, plus explicit accounting for non-completions.
 
 ---
 
 ## 9. Authorized Next Step
 
-1. Push PR; confirm green CI.  
-2. Run Kaggle per `M09_KAGGLE_RUNBOOK.md`; regenerate notebook with `--pin-sha` = PR head.  
-3. Populate CSVs and update `m09_kaggle_run_manifest.md`.  
-4. Re-close summary or add `M09_run2.md` when platform evidence exists.
-
-**M10** — **not** seeded until M09 is **fully** closed per project rules.
+**M10** — writeup evidence pack, figures, faculty framing, M01→M09 comparison, defensibility / contamination narrative, judge-facing packaging (see `docs/milestones/M10/M10_plan.md`).

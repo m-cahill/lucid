@@ -2,7 +2,7 @@
 
 **Project:** LUCID  
 **Milestone:** M09 — Expanded Kaggle evidence on the mature benchmark  
-**Branch:** `m09-kaggle-evidence` → merged to `main` (PR #10).  
+**Branches:** `m09-kaggle-evidence` → merged to `main` (PR #10, Phase B). **`m09-closeout`** → Phase C evidence ingest (PR *TBD*).  
 
 ---
 
@@ -63,13 +63,29 @@ Earlier PR CI on `594f0e2…`: run `23871248291` — **success** (superseded by 
 
 ## 3. Kaggle platform evidence (Phase C)
 
-**Not recorded in this session** — see `docs/milestones/M09/artifacts/m09_kaggle_run_manifest.md`.
+**Recorded in this closeout** — see `docs/milestones/M09/artifacts/m09_kaggle_run_manifest.md`.
 
-No notebook URL, task URL, hosted-model roster, or scores were supplied for ingestion. CSVs under `docs/milestones/M09/artifacts/` are **header-only** placeholders until a real run.
+| Item | Value |
+|------|--------|
+| Raw export | `docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv` |
+| Derived scores | `docs/milestones/M09/artifacts/m09_model_scores.csv` |
+| Completing M09 runs (numeric mean) | **15** |
+| Non-completions (no M09 numeric; documented in CSV) | **18** |
+| Exact Kaggle notebook URL / version | **Not in export** — manifest states strongest available linkage |
+
+**Phase C closeout PR:** branch **`m09-closeout`** — record PR number, head SHA, `pull_request` CI run ID, and merge commit below when merged.
+
+| Field | Value |
+|-------|--------|
+| PR | *TBD — fill on merge* |
+| PR head SHA | *TBD* |
+| Authoritative `pull_request` CI run ID | *TBD* |
+| Merge commit SHA | *TBD* |
+| Post-merge `main` CI | *TBD* |
 
 ---
 
-## 4. Merge / post-merge
+## 4. Merge / post-merge (Phase B — PR #10)
 
 | Field | Value |
 |-------|--------|

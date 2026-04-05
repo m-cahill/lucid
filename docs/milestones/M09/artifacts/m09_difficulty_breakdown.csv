@@ -1,1 +1,2 @@
-model_name,difficulty,notebook_version,panel_id,run_date_utc,episode_count,mean_score,status,notes
+difficulty_bucket,mean_score,episode_count,status,notes
+NA,NA,NA,not_available_from_export,"Per-difficulty (LOW/MEDIUM/HIGH) means are not available from the leaderboard export. The export provides per-task aggregate means only (no per-episode rows or difficulty-keyed slice). Do not infer difficulty-level scores from task-level aggregates."
