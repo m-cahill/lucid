@@ -2,7 +2,7 @@
 
 **Project:** LUCID  
 **Milestone:** M09 — Expanded Kaggle evidence on the mature benchmark  
-**Branches:** `m09-kaggle-evidence` → merged to `main` (PR #10, Phase B). **`m09-closeout`** → Phase C evidence ingest (PR *TBD*).  
+**Branches:** `m09-kaggle-evidence` → merged to `main` (PR #10, Phase B). **`m09-closeout`** → merged to `main` (PR #11, Phase C — Kaggle export ingest + closeout).  
 
 ---
 
@@ -73,15 +73,21 @@ Earlier PR CI on `594f0e2…`: run `23871248291` — **success** (superseded by 
 | Non-completions (no M09 numeric; documented in CSV) | **18** |
 | Exact Kaggle notebook URL / version | **Not in export** — manifest states strongest available linkage |
 
-**Phase C closeout PR:** branch **`m09-closeout`** — record PR number, head SHA, `pull_request` CI run ID, and merge commit below when merged.
+**Phase C closeout PR:** branch **`m09-closeout`** — merged as **PR #11** after green `pull_request` CI on the PR head.
 
 | Field | Value |
 |-------|--------|
-| PR | *TBD — fill on merge* |
-| PR head SHA | *TBD* |
-| Authoritative `pull_request` CI run ID | *TBD* |
-| Merge commit SHA | *TBD* |
-| Post-merge `main` CI | *TBD* |
+| PR | https://github.com/m-cahill/lucid/pull/11 |
+| PR head SHA (at merge) | `dce4a0b92ac096b4d4fd3cb827516b53c64fc5dc` |
+| Authoritative `pull_request` CI run ID | `24010847394` |
+| PR CI URL | https://github.com/m-cahill/lucid/actions/runs/24010847394 |
+| PR CI conclusion | **success** (job `lint-test`, ~2m20s) |
+| Merge commit SHA | `c88a91d983cda73f789230fb4d32beb2004e7fa7` |
+| Post-merge `main` CI run ID (`push` on merge commit) | `24012795048` |
+| Post-merge CI URL | https://github.com/m-cahill/lucid/actions/runs/24012795048 |
+| Post-merge conclusion | **success** (`push` on `main`, job `lint-test`, ~2m22s) |
+
+**Merge discipline (Phase C):** Merged **after** authoritative PR-head CI **success**; post-merge `main` CI on merge commit **`c88a91d…`** recorded **success**.
 
 ---
 
