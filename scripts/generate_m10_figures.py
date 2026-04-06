@@ -59,6 +59,29 @@ def _png_bytes(fig: Figure) -> bytes:
     return buf.getvalue()
 
 
+def _png_committed_matches_generated(committed: bytes, generated: bytes) -> bool:
+    """Exact bytes match, or pixel-wise match within tolerance (OS/matplotlib AA variance).
+
+    CI runs Linux; developers may run Windows — Agg output can differ slightly in RGBA.
+    """
+    if committed == generated:
+        return True
+    try:
+        from PIL import Image
+
+        import numpy as np
+    except ImportError:
+        return False
+    try:
+        ia = np.asarray(Image.open(io.BytesIO(committed)).convert("RGBA"))
+        ib = np.asarray(Image.open(io.BytesIO(generated)).convert("RGBA"))
+    except OSError:
+        return False
+    if ia.shape != ib.shape:
+        return False
+    return bool(np.allclose(ia.astype(np.float64), ib.astype(np.float64), atol=2.0, rtol=0.0))
+
+
 def fig_m01_m09_paired(rows: list[ModelScoreRow]) -> bytes:
     _apply_style()
     rows = sorted(rows, key=lambda r: r.m09_mean or 0.0, reverse=True)
@@ -248,9 +271,9 @@ def generate_figures(root: Path, *, write: bool) -> int:
             print(f"ERROR: {p} missing (run with --write)", file=sys.stderr)
             ok = False
             continue
-        if p.read_bytes() != data:
+        if not _png_committed_matches_generated(p.read_bytes(), data):
             print(
-                f"ERROR: {p} differs from generator.\n"
+                f"ERROR: {p} differs from generator (beyond pixel tolerance).\n"
                 f"Run: python scripts/generate_m10_figures.py --write",
                 file=sys.stderr,
             )
