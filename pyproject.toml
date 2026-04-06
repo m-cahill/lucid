@@ -32,6 +32,7 @@ lucid-smoke = "lucid.runner:main"
 
 [project.optional-dependencies]
 dev = [
+  "matplotlib>=3.8.0",
   "mypy>=1.8.0",
   "pytest>=8.0.0",
   "pytest-cov>=4.1.0",
@@ -63,6 +64,8 @@ extend-select = ["I"]
 "scripts/generate_kaggle_notebook.py" = ["E501"]
 "scripts/generate_family1_m04_notebook.py" = ["E501"]
 "scripts/generate_m09_kaggle_notebook.py" = ["E501"]
+"scripts/generate_m10_figures.py" = ["E402", "E501"]
+"scripts/generate_m10_tables.py" = ["E402", "E501"]
 
 [tool.mypy]
 python_version = "3.11"
