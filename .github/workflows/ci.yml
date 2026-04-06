@@ -66,3 +66,9 @@ jobs:
 
       - name: M08 unified defensibility audit (--check)
         run: python scripts/run_unified_defensibility_audit.py --check
+
+      - name: Verify M10 tables match generator
+        run: python scripts/generate_m10_tables.py --check
+
+      - name: Verify M10 figures match generator
+        run: python scripts/generate_m10_figures.py --check

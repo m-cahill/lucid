@@ -1,0 +1,39 @@
+{
+  "benchmark_version": "1.1.0",
+  "figures": [
+    {
+      "id": "m10_fig_completion_status.png",
+      "path": "docs/milestones/M10/artifacts/figures/m10_fig_completion_status.png",
+      "sha256": "ddcf7efb608a20e38e7360848b9ddeee5475b3d7679051fd131298caa63bac8c"
+    },
+    {
+      "id": "m10_fig_delta_m09_minus_m01.png",
+      "path": "docs/milestones/M10/artifacts/figures/m10_fig_delta_m09_minus_m01.png",
+      "sha256": "031bd6b2928c07bef5e1c2de503f90a514aac9e3b78e1508cac8da6aef5e0795"
+    },
+    {
+      "id": "m10_fig_m01_m09_paired.png",
+      "path": "docs/milestones/M10/artifacts/figures/m10_fig_m01_m09_paired.png",
+      "sha256": "28b19c9fa7e74b6cb9735404cf14cc8ca3ee59ce32736ccbb780d36f0135dbe5"
+    },
+    {
+      "id": "m10_fig_m09_ranked.png",
+      "path": "docs/milestones/M10/artifacts/figures/m10_fig_m09_ranked.png",
+      "sha256": "cbb2bc498af986f41ed686ac903bc101c859fa3be768999e642b9e5f2cf775ac"
+    },
+    {
+      "id": "m10_fig_milestone_evidence_ladder.png",
+      "path": "docs/milestones/M10/artifacts/figures/m10_fig_milestone_evidence_ladder.png",
+      "sha256": "62f2b61c0ff6f237dcf4036d70d032e8780beb1c78fcabcdf422812120d8a7d6"
+    }
+  ],
+  "generator": "scripts/generate_m10_figures.py",
+  "manifest_kind": "m10_figure_manifest",
+  "provenance_sources": [
+    "docs/milestones/M09/artifacts/m09_model_scores.csv",
+    "docs/milestones/M09/artifacts/m09_kaggle_run_manifest.md",
+    "docs/milestones/M08/artifacts/m08_defensibility_summary.md",
+    "docs/milestones/M08/artifacts/m08_contamination_posture.md",
+    "docs/lucid.md"
+  ]
+}

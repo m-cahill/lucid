@@ -85,8 +85,12 @@ When documents or code disagree, use this order:
 | M09 summary / audit | `docs/milestones/M09/M09_summary.md`, `docs/milestones/M09/M09_audit.md` |
 | M09 platform + score artifacts | `docs/milestones/M09/artifacts/` (`m09_model_panel.json`, `m09_kaggle_leaderboard_export.csv`, `m09_kaggle_run_manifest.md`, `m09_model_scores.csv`, NA breakdown/component CSVs where export cannot support slices) |
 | M09 tool log | `docs/milestones/M09/M09_toolcalls.md` |
-| M10 plan (stub) | `docs/milestones/M10/M10_plan.md` |
+| M10 plan & closeout (complete) | `docs/milestones/M10/M10_plan.md`, `docs/milestones/M10/M10_summary.md`, `docs/milestones/M10/M10_audit.md`, `docs/milestones/M10/M10_run1.md` |
+| M10 judge-facing narrative & evidence pack | `docs/milestones/M10/artifacts/` (`m10_submission_narrative.md`, `m10_claims_evidence_matrix.md`, `m10_limitations_and_scope.md`, `m10_representative_models.md`, `m10_faq_for_judges.md`, `figures/`, `tables/`, `m10_figure_manifest.json`) |
+| M10 figure/table generators (CI `--check`) | `scripts/generate_m10_figures.py`, `scripts/generate_m10_tables.py` |
 | M10 tool log | `docs/milestones/M10/M10_toolcalls.md` |
+| M11 plan (stub) | `docs/milestones/M11/M11_plan.md` |
+| M11 tool log | `docs/milestones/M11/M11_toolcalls.md` |
 
 ### 3.1 External evidence index (Kaggle — audit trail)
 
@@ -124,8 +128,8 @@ Standing gaps before treating the competition entry as **submission-complete** (
 | Blocker | Status | Owner / resolution path | Last milestone touched | Exit criteria (high level) |
 |----------------------|--------|-------------------------|-------------------------|----------------------------|
 | Hosted-model discriminatory power (full roster completion) | **Narrowed** | **M09** ingested **`m09_model_scores.csv`** (**15** completions + **18** non-completions); full numeric coverage of **all** tracked models **not** achieved | M04 / M09 / M10 | Accept partial evidence + narrative scope, or rerun/expand platform coverage; family verdicts remain **retain provisionally** |
-| Defensibility / ambiguity / contamination QA | **M08 done (automated layer)** | **M10** judge-facing narrative | **M08** | Green `run_unified_defensibility_audit.py --check`; artifacts committed; judge-facing narrative remains for M10 |
-| Final writeup pack | Open | **M10** | — | Figures, narrative, packaging per competition |
+| Defensibility / ambiguity / contamination QA | **M08 done (automated layer)**; **M10** judge-facing narrative shipped | **M08** / **M10** | **M08** | Green `run_unified_defensibility_audit.py --check`; M10 narrative artifacts in `docs/milestones/M10/artifacts/` |
+| Final writeup pack | **Complete (M10)** | — | **M10** | Judge-facing narrative, figures, tables, claims matrix (`docs/milestones/M10/artifacts/`) |
 | Final Kaggle benchmark / task / writeup linkage | Open | **M11** | — | Per official rules |
 
 ---
@@ -211,6 +215,8 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 
 **M09 judged axis:** **Novelty / insights / discriminatory power** — deterministic **72-episode** evidence panel on the mature unified pack (`m09_mature_evidence_v1`), generated Kaggle notebook (`lucid_m09_mature_evidence_task`), committed panel JSON; **Kaggle platform proof** via ingested export + **`m09_model_scores.csv`** (partial roster). Benchmark **1.1.0** unchanged.
 
+**M10 judged axis:** **Writeup quality** (primary) — judge-facing narrative pack, deterministic figures/tables from committed M09 evidence, claims-to-evidence matrix, limitations register; synthesis of **dataset quality & task construction** and **discriminatory power** without new benchmark semantics. Benchmark **1.1.0** unchanged.
+
 ### 6.2 Submission posture
 
 - **M01** established **transport proof** and an initial **hosted-model spread** on a fixed acceptance slice (`symbolic_negation_v1`).
@@ -221,8 +227,8 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 - **M07** added a **canonical unified offline pack** (`unified_core_m07_v1`, 240 episodes) — normalized cross-family manifest + lineage over the three core packs; local unified smoke and CI `--check`; **not** a Kaggle or hosted-model evidence milestone; family verdicts unchanged (**retain provisionally**).
 - **M08** added a **blocking defensibility audit** (`scripts/run_unified_defensibility_audit.py`, CI `--check`) with committed artifacts under `docs/milestones/M08/artifacts/` and canonical standard `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md` — **not** Kaggle platform proof; benchmark **1.1.0** unchanged.
 - **M09 (closed)** added the **mature-benchmark Kaggle evidence** surface (Phase B repo) and **ingested** platform scores (Phase C): **`m09_model_scores.csv`** + raw **`m09_kaggle_leaderboard_export.csv`**; **15** / **33** models with numeric M09 means; **18** non-completions documented. M01 score ledger remains **historical M01 evidence** (not overwritten).
-- LUCID is **not submission-ready** after M09 (full hosted roster, final writeup packaging, and **final** benchmark–task–writeup **linkage** per rules may remain) — see §4 submission blockers table.
-- **Remaining gaps** before a competition-ready submission include: **M10** writeup / figures / judge narrative, optional **full** hosted roster reruns, and **M11** final linkage — see §4 submission blockers table.
+- **M10 (closed)** packaged **judge-facing** narrative, **figures**, **tables**, and **claims traceability** under `docs/milestones/M10/artifacts/`; generators are CI-checked (`generate_m10_figures.py`, `generate_m10_tables.py` `--check`).
+- **Remaining gaps** before treating the entry as **submission-complete** (see §4) include: optional **full** hosted roster reruns and **M11** final benchmark–task–writeup **linkage** per official rules.
 
 ### 6.3 Standing family promotion rules (at milestone close)
 
@@ -239,8 +245,8 @@ This guards against faculty sprawl and “benchmark theater.”
 Until addressed, the entry should not be treated as submission-complete. **Compact tracker:** §4 *Submission blockers (compact)*.
 
 - **Family-level discriminatory power (full evidentiary closure)** — M04 delivered infrastructure + **retain provisionally**; **M09** **populated** `m09_model_scores.csv` from platform export (**partial** roster: **15** completions); **`m09_m04_blocker_disposition.md`** records supersession + limits; **submission-grade** “full spread” claims still require **honest** partial-coverage framing or more platform runs.
-- **Defensibility / ambiguity / contamination posture** — **M08** delivers the **automated, CI-enforced** audit layer + artifacts (`docs/milestones/M08/artifacts/`, `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md`). Judge-facing narrative and final packaging remain **out of scope** for M08 (see M10).
-- **Final writeup pack** (figures, narrative, judge-facing framing).
+- **Defensibility / ambiguity / contamination posture** — **M08** delivers the **automated, CI-enforced** audit layer + artifacts (`docs/milestones/M08/artifacts/`, `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md`).
+- **Judge-facing writeup pack (figures, narrative, traceability)** — **M10** delivered (`docs/milestones/M10/artifacts/`).
 - **Final Kaggle benchmark / task / writeup linkage** per competition requirements.
 
 ### Kaggle hosted models — score ledger (reference)
@@ -300,8 +306,8 @@ Planned milestone arc (competition charter locked in **M02**):
 | **M07** | Unified benchmark pack normalization across families | **Complete** |
 | **M08** | Defensibility, QA, and contamination-resistance hardening | **Complete** |
 | **M09** | Expanded Kaggle evidence run on mature benchmark | **Complete** — Phase B (PR #10) + Phase C (export ingest + `m09_model_scores.csv` + manifest) |
-| **M10** | Writeup evidence pack, figures, and judge-facing narrative | **Active (stub)** — `docs/milestones/M10/M10_plan.md` |
-| **M11** | Submission lock: final benchmark freeze and submission checklist | **Planned** |
+| **M10** | Writeup evidence pack, figures, and judge-facing narrative | **Complete** — `docs/milestones/M10/M10_summary.md` |
+| **M11** | Submission lock: final benchmark freeze and submission checklist | **Active (stub)** — `docs/milestones/M11/M11_plan.md` |
 | **M12** | Contingency A — platform / benchmark replacement buffer | **Planned** |
 | **M13** | Contingency B — final polish / writeup / evidence cleanup buffer | **Planned** |
 
@@ -449,6 +455,20 @@ Planned milestone arc (competition charter locked in **M02**):
 **Tool log:** `docs/milestones/M09/M09_toolcalls.md`  
 **Runbook:** `docs/milestones/M09/M09_KAGGLE_RUNBOOK.md`
 
+### M10 — Writeup evidence pack, figures, and judge-facing narrative
+
+**Closed:** 2026-04-06 (repository record — branch `m10-writeup-pack`).
+
+**What M10 delivered**
+
+- **Judge-facing narrative pack:** `docs/milestones/M10/artifacts/m10_submission_narrative.md`, `m10_claims_evidence_matrix.md`, `m10_limitations_and_scope.md`, `m10_representative_models.md`, optional `m10_faq_for_judges.md`.
+- **Deterministic figures and tables:** `scripts/generate_m10_figures.py` / `scripts/generate_m10_tables.py` (`--write` / `--check`; **CI:** `--check`); committed PNGs under `docs/milestones/M10/artifacts/figures/`, tables under `tables/`, `m10_figure_manifest.json`.
+- **Doc alignment:** `docs/lucid.md`, `docs/LUCID_COMPETITION_ALIGNMENT.md`, `docs/LUCID_OPERATING_MANUAL.md` (navigation + M10 pointers); benchmark **1.1.0** unchanged.
+- **No** new benchmark semantics, **no** benchmark version bump, **no** inferred metrics beyond committed exports.
+
+**Plan / evidence:** `docs/milestones/M10/M10_plan.md`, `docs/milestones/M10/M10_summary.md`, `docs/milestones/M10/M10_audit.md`, `docs/milestones/M10/M10_run1.md`  
+**Tool log:** `docs/milestones/M10/M10_toolcalls.md`
+
 ### Canonical notebook regeneration rule (standing)
 
 - **Never** hand-edit canonical `.ipynb` JSON; regenerate via generators; **`--check`** must pass in CI.  
@@ -461,19 +481,17 @@ Planned milestone arc (competition charter locked in **M02**):
 
 ---
 
-## 9. Active milestone — M10
+## 9. Active milestone — M11
 
-**Status:** **Stub / active planning** — writeup pack, figures, and judge-facing narrative (**not** execution-complete).
+**Status:** **Stub / active planning** — submission lock: final benchmark freeze, competition linkage, and checklist (**not** execution-complete).
 
-**Goal:** Package M01–M09 evidence for judges with **honest** partial-coverage framing where hosted roster completion is incomplete.
+**Goal:** Final **benchmark–task–writeup** linkage per official rules and any remaining submission gates after M10 packaging.
 
-**Judged axes:** Primarily **writeup quality** + synthesis of **dataset quality** and **discriminatory power** (see §6.1).
+**Plan:** `docs/milestones/M11/M11_plan.md`  
+**Tool log:** `docs/milestones/M11/M11_toolcalls.md`
 
-**Plan:** `docs/milestones/M10/M10_plan.md`  
-**Tool log:** `docs/milestones/M10/M10_toolcalls.md`
-
-**M09 (closed):** `docs/milestones/M09/M09_summary.md` — artifacts `docs/milestones/M09/artifacts/`.  
-**M08 (closed):** `docs/milestones/M08/M08_plan.md` — defensibility audit artifacts `docs/milestones/M08/artifacts/`.
+**M10 (closed):** `docs/milestones/M10/M10_summary.md` — narrative and figures `docs/milestones/M10/artifacts/`.  
+**M09 (closed):** `docs/milestones/M09/M09_summary.md` — `docs/milestones/M09/artifacts/`.
 
 ---
 

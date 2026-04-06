@@ -1,0 +1,4 @@
+category,count,notes
+completed,15,Numeric M09 mean present on `lucid_m09_mature_evidence_task`
+failed_platform_limited,18,No M09 numeric in export; see M09 manifest
+total_tracked_models,33,
