@@ -102,6 +102,16 @@ Additional parity checks (same as CI bundle):
 | Conclusion | **success** |
 | Trigger | `push` to `main` (merge) |
 
+### Docs-only closeout commit (final `M10_run1` / summary / audit / toolcalls)
+
+| Field | Value |
+|-------|--------|
+| Commit SHA | `fd2fd92` |
+| Post-merge CI run ID | `24016329033` |
+| URL | https://github.com/m-cahill/lucid/actions/runs/24016329033 |
+| Conclusion | **success** |
+| Trigger | `push` to `main` (docs finalize after PR merge) |
+
 ---
 
 ## 5. Resolutions / follow-ups
