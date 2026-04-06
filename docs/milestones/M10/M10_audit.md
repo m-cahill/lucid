@@ -33,8 +33,8 @@
 
 ## 3. CI / reproducibility
 
-- M10 **`--check`** steps enforce byte/text parity for committed figures/tables.
-- **Residual risk:** PNG bytes may differ across matplotlib/OS builds. CI on **Linux** is the authoritative check for committed PNGs if Windows-generated blobs diverge. See `M10_run1.md` for run-specific resolution.
+- M10 **`--check`** enforces exact parity for **tables**; for **PNG** figures, **`generate_m10_figures.py --check`** accepts exact bytes **or** **RGBA pixel** match within a small tolerance (see `scripts/generate_m10_figures.py`) so **Linux CI** and **Windows** dev machines do not fight over Agg anti-aliasing. First PR CI failed on exact bytes; fixed on branch before merge (`556e97e`).
+- **Residual risk:** extreme matplotlib/font drift could still exceed tolerance — see `M10_run1.md`.
 
 ---
 

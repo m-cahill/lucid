@@ -3,8 +3,8 @@
 **Project:** LUCID  
 **Milestone:** M10  
 **Phase:** Benchmark construction — submission packaging  
-**Date range:** 2026-04-05 → **closed** (merge to `main` per repository record)  
-**Status:** **Complete** (pending final merge record in `M10_run1.md` §4)  
+**Date range:** 2026-04-05 → **closed** (merge to `main` **2026-04-06**, PR **#12**, merge commit `4a3fe92`)  
+**Status:** **Complete**  
 **Baseline:** M09 closed with ingested `m09_model_scores.csv` (15 completions, 18 non-completions)  
 **Benchmark version:** **1.1.0** (unchanged)
 
