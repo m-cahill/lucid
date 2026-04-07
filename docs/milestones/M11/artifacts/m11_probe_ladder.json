@@ -1,0 +1,1737 @@
+{
+  "allocations": {
+    "P12": {
+      "per_difficulty": {
+        "HIGH": 1,
+        "LOW": 1,
+        "MEDIUM": 2
+      },
+      "per_family_total": 4,
+      "rationale": "9-cell base (one per family×difficulty) + one extra MEDIUM per family (signal-rich tier); first-N within each bucket by sorted unified_episode_id."
+    },
+    "P24": {
+      "per_difficulty": {
+        "HIGH": 3,
+        "LOW": 2,
+        "MEDIUM": 3
+      },
+      "per_family_total": 8,
+      "rationale": "Equal family totals; MEDIUM emphasis; nested superset of P12."
+    },
+    "P48": {
+      "per_difficulty": {
+        "HIGH": 5,
+        "LOW": 5,
+        "MEDIUM": 6
+      },
+      "per_family_total": 16,
+      "rationale": "Equal family totals; MEDIUM emphasis; nested superset of P24."
+    },
+    "P72": {
+      "per_difficulty": "use_exact_m09_family_blocks",
+      "per_family_total": 24,
+      "rationale": "Identical to m09_mature_evidence_v1 (72 episodes)."
+    }
+  },
+  "artifact_id": "m11_probe_ladder_v1",
+  "m09_panel_id": "m09_mature_evidence_v1",
+  "repeat_lane_note": "P12_repeat uses the same unified_episode_ids as P12.",
+  "rows_by_tier": {
+    "P12": [
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 100,
+        "source_episode_id": "ep_symneg_1f438ab471eb138c",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_1f438ab471eb138c"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 37,
+        "source_episode_id": "ep_symneg_5016dc088483a28e",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_5016dc088483a28e"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 42,
+        "source_episode_id": "ep_symneg_25a9ad581e1d9cb4",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_25a9ad581e1d9cb4"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 66,
+        "source_episode_id": "ep_symneg_1fcec0af58e01fa0",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_1fcec0af58e01fa0"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 9,
+        "source_episode_id": "ep_cc_02341440765e147a",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_02341440765e147a"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 107,
+        "source_episode_id": "ep_cc_007de7414c73aa8b",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_007de7414c73aa8b"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 123,
+        "source_episode_id": "ep_cc_07cbba3e0ccc8f22",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_07cbba3e0ccc8f22"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 213,
+        "source_episode_id": "ep_cc_00358ecc826f312c",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_00358ecc826f312c"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 22,
+        "source_episode_id": "ep_spe_207425d8dda3b709",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_207425d8dda3b709"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 112,
+        "source_episode_id": "ep_spe_10aa095b13096ed2",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_10aa095b13096ed2"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 117,
+        "source_episode_id": "ep_spe_2c15484fa9fed9ed",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_2c15484fa9fed9ed"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 206,
+        "source_episode_id": "ep_spe_1290a49fee60d2d5",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_1290a49fee60d2d5"
+      }
+    ],
+    "P24": [
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 5,
+        "source_episode_id": "ep_symneg_2f70169502091e4a",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_2f70169502091e4a"
+      },
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 100,
+        "source_episode_id": "ep_symneg_1f438ab471eb138c",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_1f438ab471eb138c"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 37,
+        "source_episode_id": "ep_symneg_5016dc088483a28e",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_5016dc088483a28e"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 38,
+        "source_episode_id": "ep_symneg_5417d9672edc9d1c",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_5417d9672edc9d1c"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 42,
+        "source_episode_id": "ep_symneg_25a9ad581e1d9cb4",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_25a9ad581e1d9cb4"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 66,
+        "source_episode_id": "ep_symneg_1fcec0af58e01fa0",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_1fcec0af58e01fa0"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 67,
+        "source_episode_id": "ep_symneg_510ff510c2122caf",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_510ff510c2122caf"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 70,
+        "source_episode_id": "ep_symneg_37f36a5b8c79e0ff",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_37f36a5b8c79e0ff"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 9,
+        "source_episode_id": "ep_cc_02341440765e147a",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_02341440765e147a"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 15,
+        "source_episode_id": "ep_cc_1566336cb2b81d6e",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_1566336cb2b81d6e"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 107,
+        "source_episode_id": "ep_cc_007de7414c73aa8b",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_007de7414c73aa8b"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 102,
+        "source_episode_id": "ep_cc_234fd0b0587e8963",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_234fd0b0587e8963"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 123,
+        "source_episode_id": "ep_cc_07cbba3e0ccc8f22",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_07cbba3e0ccc8f22"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 213,
+        "source_episode_id": "ep_cc_00358ecc826f312c",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_00358ecc826f312c"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 221,
+        "source_episode_id": "ep_cc_06c6c8310908fab1",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_06c6c8310908fab1"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 215,
+        "source_episode_id": "ep_cc_12caf79ebb658e04",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_12caf79ebb658e04"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 4,
+        "source_episode_id": "ep_spe_2d46892010ca498d",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_2d46892010ca498d"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 22,
+        "source_episode_id": "ep_spe_207425d8dda3b709",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_207425d8dda3b709"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 112,
+        "source_episode_id": "ep_spe_10aa095b13096ed2",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_10aa095b13096ed2"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 113,
+        "source_episode_id": "ep_spe_42297c0ff241488c",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_42297c0ff241488c"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 117,
+        "source_episode_id": "ep_spe_2c15484fa9fed9ed",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_2c15484fa9fed9ed"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 206,
+        "source_episode_id": "ep_spe_1290a49fee60d2d5",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_1290a49fee60d2d5"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 207,
+        "source_episode_id": "ep_spe_24a2237d5706b9cf",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_24a2237d5706b9cf"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 210,
+        "source_episode_id": "ep_spe_1cb8bbec290718c9",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_1cb8bbec290718c9"
+      }
+    ],
+    "P48": [
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 1,
+        "source_episode_id": "ep_symneg_9d866e4878111df6",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_9d866e4878111df6"
+      },
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 2,
+        "source_episode_id": "ep_symneg_779c267696344303",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_779c267696344303"
+      },
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 4,
+        "source_episode_id": "ep_symneg_58cf537122423b35",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_58cf537122423b35"
+      },
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 5,
+        "source_episode_id": "ep_symneg_2f70169502091e4a",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_2f70169502091e4a"
+      },
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 100,
+        "source_episode_id": "ep_symneg_1f438ab471eb138c",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_1f438ab471eb138c"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 33,
+        "source_episode_id": "ep_symneg_7287234a7c0eaa0a",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_7287234a7c0eaa0a"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 35,
+        "source_episode_id": "ep_symneg_966ca06a216c52b6",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_966ca06a216c52b6"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 36,
+        "source_episode_id": "ep_symneg_bb9bf4e13bd63ecb",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_bb9bf4e13bd63ecb"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 37,
+        "source_episode_id": "ep_symneg_5016dc088483a28e",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_5016dc088483a28e"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 38,
+        "source_episode_id": "ep_symneg_5417d9672edc9d1c",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_5417d9672edc9d1c"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 42,
+        "source_episode_id": "ep_symneg_25a9ad581e1d9cb4",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_25a9ad581e1d9cb4"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 65,
+        "source_episode_id": "ep_symneg_5d031e37c7411980",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_5d031e37c7411980"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 66,
+        "source_episode_id": "ep_symneg_1fcec0af58e01fa0",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_1fcec0af58e01fa0"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 67,
+        "source_episode_id": "ep_symneg_510ff510c2122caf",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_510ff510c2122caf"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 70,
+        "source_episode_id": "ep_symneg_37f36a5b8c79e0ff",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_37f36a5b8c79e0ff"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 200,
+        "source_episode_id": "ep_symneg_6d0d42c996f9c1ab",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_6d0d42c996f9c1ab"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 9,
+        "source_episode_id": "ep_cc_02341440765e147a",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_02341440765e147a"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 6,
+        "source_episode_id": "ep_cc_5474c512b155433b",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_5474c512b155433b"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 15,
+        "source_episode_id": "ep_cc_1566336cb2b81d6e",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_1566336cb2b81d6e"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 17,
+        "source_episode_id": "ep_cc_1da4a4cf2413690e",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_1da4a4cf2413690e"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 19,
+        "source_episode_id": "ep_cc_23a735be9b49599b",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_23a735be9b49599b"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 107,
+        "source_episode_id": "ep_cc_007de7414c73aa8b",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_007de7414c73aa8b"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 102,
+        "source_episode_id": "ep_cc_234fd0b0587e8963",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_234fd0b0587e8963"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 103,
+        "source_episode_id": "ep_cc_371022992cacba42",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_371022992cacba42"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 123,
+        "source_episode_id": "ep_cc_07cbba3e0ccc8f22",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_07cbba3e0ccc8f22"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 119,
+        "source_episode_id": "ep_cc_2537ba93a1534d3f",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_2537ba93a1534d3f"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 124,
+        "source_episode_id": "ep_cc_37461490e6046169",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_37461490e6046169"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 205,
+        "source_episode_id": "ep_cc_176e5b2e5c7e4dca",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_176e5b2e5c7e4dca"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 213,
+        "source_episode_id": "ep_cc_00358ecc826f312c",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_00358ecc826f312c"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 221,
+        "source_episode_id": "ep_cc_06c6c8310908fab1",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_06c6c8310908fab1"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 215,
+        "source_episode_id": "ep_cc_12caf79ebb658e04",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_12caf79ebb658e04"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 219,
+        "source_episode_id": "ep_cc_2626e6f9de8f2575",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_2626e6f9de8f2575"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 4,
+        "source_episode_id": "ep_spe_2d46892010ca498d",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_2d46892010ca498d"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 12,
+        "source_episode_id": "ep_spe_31edfd5151720cfb",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_31edfd5151720cfb"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 16,
+        "source_episode_id": "ep_spe_4175de96d07a4610",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_4175de96d07a4610"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 22,
+        "source_episode_id": "ep_spe_207425d8dda3b709",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_207425d8dda3b709"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 18,
+        "source_episode_id": "ep_spe_34cb799c68552d62",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_34cb799c68552d62"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 105,
+        "source_episode_id": "ep_spe_6fef45ff84cec8c3",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_6fef45ff84cec8c3"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 112,
+        "source_episode_id": "ep_spe_10aa095b13096ed2",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_10aa095b13096ed2"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 113,
+        "source_episode_id": "ep_spe_42297c0ff241488c",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_42297c0ff241488c"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 117,
+        "source_episode_id": "ep_spe_2c15484fa9fed9ed",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_2c15484fa9fed9ed"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 119,
+        "source_episode_id": "ep_spe_4ccec1d90413e1e5",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_4ccec1d90413e1e5"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 121,
+        "source_episode_id": "ep_spe_621c1ad7812b92c2",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_621c1ad7812b92c2"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 206,
+        "source_episode_id": "ep_spe_1290a49fee60d2d5",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_1290a49fee60d2d5"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 207,
+        "source_episode_id": "ep_spe_24a2237d5706b9cf",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_24a2237d5706b9cf"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 210,
+        "source_episode_id": "ep_spe_1cb8bbec290718c9",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_1cb8bbec290718c9"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 223,
+        "source_episode_id": "ep_spe_29063ac0ad0a92ab",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_29063ac0ad0a92ab"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 224,
+        "source_episode_id": "ep_spe_53116fbee2920ab5",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_53116fbee2920ab5"
+      }
+    ],
+    "P72": [
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 1,
+        "source_episode_id": "ep_symneg_9d866e4878111df6",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_9d866e4878111df6"
+      },
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 2,
+        "source_episode_id": "ep_symneg_779c267696344303",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_779c267696344303"
+      },
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 3,
+        "source_episode_id": "ep_symneg_e0d74bdb548fb01a",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_e0d74bdb548fb01a"
+      },
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 4,
+        "source_episode_id": "ep_symneg_58cf537122423b35",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_58cf537122423b35"
+      },
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 5,
+        "source_episode_id": "ep_symneg_2f70169502091e4a",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_2f70169502091e4a"
+      },
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 6,
+        "source_episode_id": "ep_symneg_eeb0d405599718e4",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_eeb0d405599718e4"
+      },
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 7,
+        "source_episode_id": "ep_symneg_b5ff34c7660b18bf",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_b5ff34c7660b18bf"
+      },
+      {
+        "difficulty": "LOW",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 100,
+        "source_episode_id": "ep_symneg_1f438ab471eb138c",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_1f438ab471eb138c"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 32,
+        "source_episode_id": "ep_symneg_f19086712926a24a",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_f19086712926a24a"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 33,
+        "source_episode_id": "ep_symneg_7287234a7c0eaa0a",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_7287234a7c0eaa0a"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 34,
+        "source_episode_id": "ep_symneg_c4967a9531462590",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_c4967a9531462590"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 35,
+        "source_episode_id": "ep_symneg_966ca06a216c52b6",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_966ca06a216c52b6"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 36,
+        "source_episode_id": "ep_symneg_bb9bf4e13bd63ecb",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_bb9bf4e13bd63ecb"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 37,
+        "source_episode_id": "ep_symneg_5016dc088483a28e",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_5016dc088483a28e"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 38,
+        "source_episode_id": "ep_symneg_5417d9672edc9d1c",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_5417d9672edc9d1c"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 42,
+        "source_episode_id": "ep_symneg_25a9ad581e1d9cb4",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_25a9ad581e1d9cb4"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 64,
+        "source_episode_id": "ep_symneg_efeee23117bb633d",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_efeee23117bb633d"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 65,
+        "source_episode_id": "ep_symneg_5d031e37c7411980",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_5d031e37c7411980"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 66,
+        "source_episode_id": "ep_symneg_1fcec0af58e01fa0",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_1fcec0af58e01fa0"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 67,
+        "source_episode_id": "ep_symneg_510ff510c2122caf",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_510ff510c2122caf"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 68,
+        "source_episode_id": "ep_symneg_bd8a302e9de17f77",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_bd8a302e9de17f77"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 69,
+        "source_episode_id": "ep_symneg_f5dfe9c65c192a95",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_f5dfe9c65c192a95"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 70,
+        "source_episode_id": "ep_symneg_37f36a5b8c79e0ff",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_37f36a5b8c79e0ff"
+      },
+      {
+        "difficulty": "HIGH",
+        "family_id": "symbolic_negation_v1",
+        "family_variant": "negation",
+        "generation_seed": 200,
+        "source_episode_id": "ep_symneg_6d0d42c996f9c1ab",
+        "source_pack_id": "family1_core_m03_v1",
+        "unified_episode_id": "u_family1_core_m03_v1__ep_symneg_6d0d42c996f9c1ab"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 9,
+        "source_episode_id": "ep_cc_02341440765e147a",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_02341440765e147a"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 6,
+        "source_episode_id": "ep_cc_5474c512b155433b",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_5474c512b155433b"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 7,
+        "source_episode_id": "ep_cc_6b9b33cb95bc4444",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_6b9b33cb95bc4444"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 4,
+        "source_episode_id": "ep_cc_74337dc03cd2e285",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_74337dc03cd2e285"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 15,
+        "source_episode_id": "ep_cc_1566336cb2b81d6e",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_1566336cb2b81d6e"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 17,
+        "source_episode_id": "ep_cc_1da4a4cf2413690e",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_1da4a4cf2413690e"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 19,
+        "source_episode_id": "ep_cc_23a735be9b49599b",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_23a735be9b49599b"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "LOW",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 14,
+        "source_episode_id": "ep_cc_683a24791c71ce82",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_683a24791c71ce82"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 107,
+        "source_episode_id": "ep_cc_007de7414c73aa8b",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_007de7414c73aa8b"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 102,
+        "source_episode_id": "ep_cc_234fd0b0587e8963",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_234fd0b0587e8963"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 103,
+        "source_episode_id": "ep_cc_371022992cacba42",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_371022992cacba42"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 112,
+        "source_episode_id": "ep_cc_3987dfe2b9e4d33d",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_3987dfe2b9e4d33d"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 123,
+        "source_episode_id": "ep_cc_07cbba3e0ccc8f22",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_07cbba3e0ccc8f22"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 119,
+        "source_episode_id": "ep_cc_2537ba93a1534d3f",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_2537ba93a1534d3f"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 124,
+        "source_episode_id": "ep_cc_37461490e6046169",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_37461490e6046169"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "MEDIUM",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 117,
+        "source_episode_id": "ep_cc_510747f893f76425",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_510747f893f76425"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 205,
+        "source_episode_id": "ep_cc_176e5b2e5c7e4dca",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_176e5b2e5c7e4dca"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 207,
+        "source_episode_id": "ep_cc_2b23da0d65dc9c92",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_2b23da0d65dc9c92"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 208,
+        "source_episode_id": "ep_cc_37f1ee6c59d311c6",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_37f1ee6c59d311c6"
+      },
+      {
+        "contradiction_state": "unresolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "unresolved",
+        "generation_seed": 201,
+        "source_episode_id": "ep_cc_58bba3722413ff8a",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_58bba3722413ff8a"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 213,
+        "source_episode_id": "ep_cc_00358ecc826f312c",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_00358ecc826f312c"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 221,
+        "source_episode_id": "ep_cc_06c6c8310908fab1",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_06c6c8310908fab1"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 215,
+        "source_episode_id": "ep_cc_12caf79ebb658e04",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_12caf79ebb658e04"
+      },
+      {
+        "contradiction_state": "resolved",
+        "difficulty": "HIGH",
+        "family_id": "contradiction_clarification_v1",
+        "family_variant": "resolved",
+        "generation_seed": 219,
+        "source_episode_id": "ep_cc_2626e6f9de8f2575",
+        "source_pack_id": "family2_core_m05_v1",
+        "unified_episode_id": "u_family2_core_m05_v1__ep_cc_2626e6f9de8f2575"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 4,
+        "source_episode_id": "ep_spe_2d46892010ca498d",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_2d46892010ca498d"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 5,
+        "source_episode_id": "ep_spe_5c54f1acd238100e",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_5c54f1acd238100e"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 2,
+        "source_episode_id": "ep_spe_60392c5d20b86984",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_60392c5d20b86984"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 12,
+        "source_episode_id": "ep_spe_31edfd5151720cfb",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_31edfd5151720cfb"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 16,
+        "source_episode_id": "ep_spe_4175de96d07a4610",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_4175de96d07a4610"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 13,
+        "source_episode_id": "ep_spe_6c7258b957414729",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_6c7258b957414729"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 22,
+        "source_episode_id": "ep_spe_207425d8dda3b709",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_207425d8dda3b709"
+      },
+      {
+        "difficulty": "LOW",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 18,
+        "source_episode_id": "ep_spe_34cb799c68552d62",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_34cb799c68552d62"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 105,
+        "source_episode_id": "ep_spe_6fef45ff84cec8c3",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_6fef45ff84cec8c3"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 101,
+        "source_episode_id": "ep_spe_795918725d5fbfbe",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_795918725d5fbfbe"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 104,
+        "source_episode_id": "ep_spe_8907e04420facca0",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_8907e04420facca0"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 112,
+        "source_episode_id": "ep_spe_10aa095b13096ed2",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_10aa095b13096ed2"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 113,
+        "source_episode_id": "ep_spe_42297c0ff241488c",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_42297c0ff241488c"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 117,
+        "source_episode_id": "ep_spe_2c15484fa9fed9ed",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_2c15484fa9fed9ed"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 119,
+        "source_episode_id": "ep_spe_4ccec1d90413e1e5",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_4ccec1d90413e1e5"
+      },
+      {
+        "difficulty": "MEDIUM",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 121,
+        "source_episode_id": "ep_spe_621c1ad7812b92c2",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_621c1ad7812b92c2"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 206,
+        "source_episode_id": "ep_spe_1290a49fee60d2d5",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_1290a49fee60d2d5"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "scope",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "scope",
+        "generation_seed": 207,
+        "source_episode_id": "ep_spe_24a2237d5706b9cf",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_24a2237d5706b9cf"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 210,
+        "source_episode_id": "ep_spe_1cb8bbec290718c9",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_1cb8bbec290718c9"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 214,
+        "source_episode_id": "ep_spe_6357c99f39d55219",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_6357c99f39d55219"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "precedence",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "precedence",
+        "generation_seed": 212,
+        "source_episode_id": "ep_spe_a4e89bdd72412f54",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_a4e89bdd72412f54"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 223,
+        "source_episode_id": "ep_spe_29063ac0ad0a92ab",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_29063ac0ad0a92ab"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 224,
+        "source_episode_id": "ep_spe_53116fbee2920ab5",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_53116fbee2920ab5"
+      },
+      {
+        "difficulty": "HIGH",
+        "family3_subtype": "exception",
+        "family_id": "scope_precedence_exception_v1",
+        "family_variant": "exception",
+        "generation_seed": 222,
+        "source_episode_id": "ep_spe_8d8b4a2f53896828",
+        "source_pack_id": "family3_core_m06_v1",
+        "unified_episode_id": "u_family3_core_m06_v1__ep_spe_8d8b4a2f53896828"
+      }
+    ]
+  },
+  "selector_note": "Nested deterministic subsets within each M09 family block; per-difficulty first-N by sorted unified_episode_id; iteration order = M09 block order (index-stable).",
+  "selector_version": "1.0.0",
+  "tiers": {
+    "P12": {
+      "episode_count": 12,
+      "unified_episode_ids": [
+        "u_family1_core_m03_v1__ep_symneg_1f438ab471eb138c",
+        "u_family1_core_m03_v1__ep_symneg_5016dc088483a28e",
+        "u_family1_core_m03_v1__ep_symneg_25a9ad581e1d9cb4",
+        "u_family1_core_m03_v1__ep_symneg_1fcec0af58e01fa0",
+        "u_family2_core_m05_v1__ep_cc_02341440765e147a",
+        "u_family2_core_m05_v1__ep_cc_007de7414c73aa8b",
+        "u_family2_core_m05_v1__ep_cc_07cbba3e0ccc8f22",
+        "u_family2_core_m05_v1__ep_cc_00358ecc826f312c",
+        "u_family3_core_m06_v1__ep_spe_207425d8dda3b709",
+        "u_family3_core_m06_v1__ep_spe_10aa095b13096ed2",
+        "u_family3_core_m06_v1__ep_spe_2c15484fa9fed9ed",
+        "u_family3_core_m06_v1__ep_spe_1290a49fee60d2d5"
+      ]
+    },
+    "P24": {
+      "episode_count": 24,
+      "unified_episode_ids": [
+        "u_family1_core_m03_v1__ep_symneg_2f70169502091e4a",
+        "u_family1_core_m03_v1__ep_symneg_1f438ab471eb138c",
+        "u_family1_core_m03_v1__ep_symneg_5016dc088483a28e",
+        "u_family1_core_m03_v1__ep_symneg_5417d9672edc9d1c",
+        "u_family1_core_m03_v1__ep_symneg_25a9ad581e1d9cb4",
+        "u_family1_core_m03_v1__ep_symneg_1fcec0af58e01fa0",
+        "u_family1_core_m03_v1__ep_symneg_510ff510c2122caf",
+        "u_family1_core_m03_v1__ep_symneg_37f36a5b8c79e0ff",
+        "u_family2_core_m05_v1__ep_cc_02341440765e147a",
+        "u_family2_core_m05_v1__ep_cc_1566336cb2b81d6e",
+        "u_family2_core_m05_v1__ep_cc_007de7414c73aa8b",
+        "u_family2_core_m05_v1__ep_cc_234fd0b0587e8963",
+        "u_family2_core_m05_v1__ep_cc_07cbba3e0ccc8f22",
+        "u_family2_core_m05_v1__ep_cc_00358ecc826f312c",
+        "u_family2_core_m05_v1__ep_cc_06c6c8310908fab1",
+        "u_family2_core_m05_v1__ep_cc_12caf79ebb658e04",
+        "u_family3_core_m06_v1__ep_spe_2d46892010ca498d",
+        "u_family3_core_m06_v1__ep_spe_207425d8dda3b709",
+        "u_family3_core_m06_v1__ep_spe_10aa095b13096ed2",
+        "u_family3_core_m06_v1__ep_spe_42297c0ff241488c",
+        "u_family3_core_m06_v1__ep_spe_2c15484fa9fed9ed",
+        "u_family3_core_m06_v1__ep_spe_1290a49fee60d2d5",
+        "u_family3_core_m06_v1__ep_spe_24a2237d5706b9cf",
+        "u_family3_core_m06_v1__ep_spe_1cb8bbec290718c9"
+      ]
+    },
+    "P48": {
+      "episode_count": 48,
+      "unified_episode_ids": [
+        "u_family1_core_m03_v1__ep_symneg_9d866e4878111df6",
+        "u_family1_core_m03_v1__ep_symneg_779c267696344303",
+        "u_family1_core_m03_v1__ep_symneg_58cf537122423b35",
+        "u_family1_core_m03_v1__ep_symneg_2f70169502091e4a",
+        "u_family1_core_m03_v1__ep_symneg_1f438ab471eb138c",
+        "u_family1_core_m03_v1__ep_symneg_7287234a7c0eaa0a",
+        "u_family1_core_m03_v1__ep_symneg_966ca06a216c52b6",
+        "u_family1_core_m03_v1__ep_symneg_bb9bf4e13bd63ecb",
+        "u_family1_core_m03_v1__ep_symneg_5016dc088483a28e",
+        "u_family1_core_m03_v1__ep_symneg_5417d9672edc9d1c",
+        "u_family1_core_m03_v1__ep_symneg_25a9ad581e1d9cb4",
+        "u_family1_core_m03_v1__ep_symneg_5d031e37c7411980",
+        "u_family1_core_m03_v1__ep_symneg_1fcec0af58e01fa0",
+        "u_family1_core_m03_v1__ep_symneg_510ff510c2122caf",
+        "u_family1_core_m03_v1__ep_symneg_37f36a5b8c79e0ff",
+        "u_family1_core_m03_v1__ep_symneg_6d0d42c996f9c1ab",
+        "u_family2_core_m05_v1__ep_cc_02341440765e147a",
+        "u_family2_core_m05_v1__ep_cc_5474c512b155433b",
+        "u_family2_core_m05_v1__ep_cc_1566336cb2b81d6e",
+        "u_family2_core_m05_v1__ep_cc_1da4a4cf2413690e",
+        "u_family2_core_m05_v1__ep_cc_23a735be9b49599b",
+        "u_family2_core_m05_v1__ep_cc_007de7414c73aa8b",
+        "u_family2_core_m05_v1__ep_cc_234fd0b0587e8963",
+        "u_family2_core_m05_v1__ep_cc_371022992cacba42",
+        "u_family2_core_m05_v1__ep_cc_07cbba3e0ccc8f22",
+        "u_family2_core_m05_v1__ep_cc_2537ba93a1534d3f",
+        "u_family2_core_m05_v1__ep_cc_37461490e6046169",
+        "u_family2_core_m05_v1__ep_cc_176e5b2e5c7e4dca",
+        "u_family2_core_m05_v1__ep_cc_00358ecc826f312c",
+        "u_family2_core_m05_v1__ep_cc_06c6c8310908fab1",
+        "u_family2_core_m05_v1__ep_cc_12caf79ebb658e04",
+        "u_family2_core_m05_v1__ep_cc_2626e6f9de8f2575",
+        "u_family3_core_m06_v1__ep_spe_2d46892010ca498d",
+        "u_family3_core_m06_v1__ep_spe_31edfd5151720cfb",
+        "u_family3_core_m06_v1__ep_spe_4175de96d07a4610",
+        "u_family3_core_m06_v1__ep_spe_207425d8dda3b709",
+        "u_family3_core_m06_v1__ep_spe_34cb799c68552d62",
+        "u_family3_core_m06_v1__ep_spe_6fef45ff84cec8c3",
+        "u_family3_core_m06_v1__ep_spe_10aa095b13096ed2",
+        "u_family3_core_m06_v1__ep_spe_42297c0ff241488c",
+        "u_family3_core_m06_v1__ep_spe_2c15484fa9fed9ed",
+        "u_family3_core_m06_v1__ep_spe_4ccec1d90413e1e5",
+        "u_family3_core_m06_v1__ep_spe_621c1ad7812b92c2",
+        "u_family3_core_m06_v1__ep_spe_1290a49fee60d2d5",
+        "u_family3_core_m06_v1__ep_spe_24a2237d5706b9cf",
+        "u_family3_core_m06_v1__ep_spe_1cb8bbec290718c9",
+        "u_family3_core_m06_v1__ep_spe_29063ac0ad0a92ab",
+        "u_family3_core_m06_v1__ep_spe_53116fbee2920ab5"
+      ]
+    },
+    "P72": {
+      "episode_count": 72,
+      "unified_episode_ids": [
+        "u_family1_core_m03_v1__ep_symneg_9d866e4878111df6",
+        "u_family1_core_m03_v1__ep_symneg_779c267696344303",
+        "u_family1_core_m03_v1__ep_symneg_e0d74bdb548fb01a",
+        "u_family1_core_m03_v1__ep_symneg_58cf537122423b35",
+        "u_family1_core_m03_v1__ep_symneg_2f70169502091e4a",
+        "u_family1_core_m03_v1__ep_symneg_eeb0d405599718e4",
+        "u_family1_core_m03_v1__ep_symneg_b5ff34c7660b18bf",
+        "u_family1_core_m03_v1__ep_symneg_1f438ab471eb138c",
+        "u_family1_core_m03_v1__ep_symneg_f19086712926a24a",
+        "u_family1_core_m03_v1__ep_symneg_7287234a7c0eaa0a",
+        "u_family1_core_m03_v1__ep_symneg_c4967a9531462590",
+        "u_family1_core_m03_v1__ep_symneg_966ca06a216c52b6",
+        "u_family1_core_m03_v1__ep_symneg_bb9bf4e13bd63ecb",
+        "u_family1_core_m03_v1__ep_symneg_5016dc088483a28e",
+        "u_family1_core_m03_v1__ep_symneg_5417d9672edc9d1c",
+        "u_family1_core_m03_v1__ep_symneg_25a9ad581e1d9cb4",
+        "u_family1_core_m03_v1__ep_symneg_efeee23117bb633d",
+        "u_family1_core_m03_v1__ep_symneg_5d031e37c7411980",
+        "u_family1_core_m03_v1__ep_symneg_1fcec0af58e01fa0",
+        "u_family1_core_m03_v1__ep_symneg_510ff510c2122caf",
+        "u_family1_core_m03_v1__ep_symneg_bd8a302e9de17f77",
+        "u_family1_core_m03_v1__ep_symneg_f5dfe9c65c192a95",
+        "u_family1_core_m03_v1__ep_symneg_37f36a5b8c79e0ff",
+        "u_family1_core_m03_v1__ep_symneg_6d0d42c996f9c1ab",
+        "u_family2_core_m05_v1__ep_cc_02341440765e147a",
+        "u_family2_core_m05_v1__ep_cc_5474c512b155433b",
+        "u_family2_core_m05_v1__ep_cc_6b9b33cb95bc4444",
+        "u_family2_core_m05_v1__ep_cc_74337dc03cd2e285",
+        "u_family2_core_m05_v1__ep_cc_1566336cb2b81d6e",
+        "u_family2_core_m05_v1__ep_cc_1da4a4cf2413690e",
+        "u_family2_core_m05_v1__ep_cc_23a735be9b49599b",
+        "u_family2_core_m05_v1__ep_cc_683a24791c71ce82",
+        "u_family2_core_m05_v1__ep_cc_007de7414c73aa8b",
+        "u_family2_core_m05_v1__ep_cc_234fd0b0587e8963",
+        "u_family2_core_m05_v1__ep_cc_371022992cacba42",
+        "u_family2_core_m05_v1__ep_cc_3987dfe2b9e4d33d",
+        "u_family2_core_m05_v1__ep_cc_07cbba3e0ccc8f22",
+        "u_family2_core_m05_v1__ep_cc_2537ba93a1534d3f",
+        "u_family2_core_m05_v1__ep_cc_37461490e6046169",
+        "u_family2_core_m05_v1__ep_cc_510747f893f76425",
+        "u_family2_core_m05_v1__ep_cc_176e5b2e5c7e4dca",
+        "u_family2_core_m05_v1__ep_cc_2b23da0d65dc9c92",
+        "u_family2_core_m05_v1__ep_cc_37f1ee6c59d311c6",
+        "u_family2_core_m05_v1__ep_cc_58bba3722413ff8a",
+        "u_family2_core_m05_v1__ep_cc_00358ecc826f312c",
+        "u_family2_core_m05_v1__ep_cc_06c6c8310908fab1",
+        "u_family2_core_m05_v1__ep_cc_12caf79ebb658e04",
+        "u_family2_core_m05_v1__ep_cc_2626e6f9de8f2575",
+        "u_family3_core_m06_v1__ep_spe_2d46892010ca498d",
+        "u_family3_core_m06_v1__ep_spe_5c54f1acd238100e",
+        "u_family3_core_m06_v1__ep_spe_60392c5d20b86984",
+        "u_family3_core_m06_v1__ep_spe_31edfd5151720cfb",
+        "u_family3_core_m06_v1__ep_spe_4175de96d07a4610",
+        "u_family3_core_m06_v1__ep_spe_6c7258b957414729",
+        "u_family3_core_m06_v1__ep_spe_207425d8dda3b709",
+        "u_family3_core_m06_v1__ep_spe_34cb799c68552d62",
+        "u_family3_core_m06_v1__ep_spe_6fef45ff84cec8c3",
+        "u_family3_core_m06_v1__ep_spe_795918725d5fbfbe",
+        "u_family3_core_m06_v1__ep_spe_8907e04420facca0",
+        "u_family3_core_m06_v1__ep_spe_10aa095b13096ed2",
+        "u_family3_core_m06_v1__ep_spe_42297c0ff241488c",
+        "u_family3_core_m06_v1__ep_spe_2c15484fa9fed9ed",
+        "u_family3_core_m06_v1__ep_spe_4ccec1d90413e1e5",
+        "u_family3_core_m06_v1__ep_spe_621c1ad7812b92c2",
+        "u_family3_core_m06_v1__ep_spe_1290a49fee60d2d5",
+        "u_family3_core_m06_v1__ep_spe_24a2237d5706b9cf",
+        "u_family3_core_m06_v1__ep_spe_1cb8bbec290718c9",
+        "u_family3_core_m06_v1__ep_spe_6357c99f39d55219",
+        "u_family3_core_m06_v1__ep_spe_a4e89bdd72412f54",
+        "u_family3_core_m06_v1__ep_spe_29063ac0ad0a92ab",
+        "u_family3_core_m06_v1__ep_spe_53116fbee2920ab5",
+        "u_family3_core_m06_v1__ep_spe_8d8b4a2f53896828"
+      ]
+    }
+  }
+}

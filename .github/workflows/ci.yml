@@ -40,6 +40,9 @@ jobs:
           python -m build --wheel
           python scripts/verify_wheel_has_kaggle.py
 
+      - name: Verify M11 probe module is in git at HEAD (Kaggle pin sanity)
+        run: python scripts/verify_m11_git_has_module.py
+
       - name: Verify canonical Kaggle notebook matches generator (HEAD)
         run: python scripts/generate_kaggle_notebook.py --check -o notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb
 
@@ -72,3 +75,18 @@ jobs:
 
       - name: Verify M10 figures match generator
         run: python scripts/generate_m10_figures.py --check
+
+      - name: Verify M11 probe ladder + roster artifacts
+        run: python scripts/generate_m11_probe_artifacts.py --check
+
+      - name: Verify M11 probe Kaggle notebooks match generator
+        run: python scripts/generate_m11_kaggle_notebooks.py --check
+
+      - name: M11 notebook release manifest (--check)
+        run: python scripts/generate_m11_notebook_release_manifest.py --check
+
+      - name: M11 ingest + allocation table + figures (--check)
+        run: |
+          python scripts/ingest_m11_platform_exports.py --check
+          python scripts/generate_m11_tables.py --check
+          python scripts/generate_m11_figures.py --check

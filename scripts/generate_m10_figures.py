@@ -67,9 +67,8 @@ def _png_committed_matches_generated(committed: bytes, generated: bytes) -> bool
     if committed == generated:
         return True
     try:
-        from PIL import Image
-
         import numpy as np
+        from PIL import Image
     except ImportError:
         return False
     try:

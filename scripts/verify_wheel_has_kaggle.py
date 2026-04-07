@@ -1,6 +1,8 @@
 """Fail if the built wheel does not ship `lucid.kaggle` (packaging regression guard).
 
-Run after `python -m build --wheel` with `dist/*.whl` present.
+Also requires ``m11_probe_panels.py`` so Kaggle M11 probe installs cannot silently omit M11.
+
+Run after `python -m build --wheel` with ``dist/*.whl`` present.
 """
 
 from __future__ import annotations
@@ -30,18 +32,23 @@ def main(argv: list[str] | None = None) -> int:
     args = p.parse_args(argv)
 
     wheel = _find_latest_wheel(args.dist)
-    required = "lucid/kaggle/episode_llm.py"
+    required_paths = (
+        "lucid/kaggle/episode_llm.py",
+        "lucid/kaggle/m11_probe_panels.py",
+    )
     with zipfile.ZipFile(wheel) as zf:
         names = zf.namelist()
-    ok = any(n.replace("\\", "/").endswith(required) for n in names)
-    if not ok:
+    normalized = [n.replace("\\", "/") for n in names]
+    missing = [req for req in required_paths if not any(n.endswith(req) for n in normalized)]
+    if missing:
         print(
-            f"ERROR: {required} not found in {wheel.name}.\n"
-            f"Submodules of `lucid` must ship in the wheel. Files:\n" + "\n".join(sorted(names)),
+            f"ERROR: required wheel members missing: {missing}\n"
+            f"Wheel: {wheel.name}. Submodules of `lucid` must ship in full.\n"
+            f"Members (sample): " + "\n".join(sorted(names)[:40]),
             file=sys.stderr,
         )
         return 1
-    print(f"OK: {required} present in {wheel.name} ({len(names)} wheel members)")
+    print(f"OK: kaggle + M11 probe modules present in {wheel.name} ({len(names)} wheel members)")
     return 0
 
 

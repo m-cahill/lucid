@@ -40,9 +40,10 @@ dev = [
 ]
 
 # Wheel: ship the full `lucid` package tree under `src/lucid/` (including subpackages
-# like `lucid.kaggle`). Distribution name on PyPI/pip metadata is `lucid-benchmark`;
-# import name remains `lucid`. Verify with: `pip show lucid-benchmark` and
-# `python -c "import lucid.kaggle"`.
+# like `lucid.kaggle` and `lucid.kaggle.m11_probe_panels`). Distribution name on PyPI/pip
+# metadata is `lucid-benchmark`; import name remains `lucid`. Verify with:
+# `pip show lucid-benchmark`, `python -c "import lucid.kaggle.m11_probe_panels"`, and
+# `python scripts/verify_wheel_has_kaggle.py` after `python -m build --wheel`.
 [tool.hatch.build.targets.wheel]
 packages = ["src/lucid"]
 

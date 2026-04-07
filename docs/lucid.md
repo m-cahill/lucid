@@ -52,6 +52,9 @@ When documents or code disagree, use this order:
 | M09 evidence panel (code) | `src/lucid/kaggle/m09_evidence_panel.py` — deterministic 72-row slice on `unified_core_m07_v1` |
 | M09 panel JSON (generated) | `docs/milestones/M09/artifacts/m09_model_panel.json` (`scripts/generate_m09_panel_artifact.py --write` / `--check`) |
 | Kaggle notebook — M09 mature evidence (generated) | `notebooks/lucid_kaggle_m09_mature_evidence.ipynb` (`scripts/generate_m09_kaggle_notebook.py`); task `lucid_m09_mature_evidence_task` |
+| M11 probe ladder (code) | `src/lucid/kaggle/m11_probe_panels.py` — nested P12/P24/P48 subsets of M09; P72 = M09 panel |
+| M11 probe artifacts (generated) | `docs/milestones/M11/artifacts/m11_probe_ladder.json`, `m11_roster_canonical.json` (`scripts/generate_m11_probe_artifacts.py` `--write` / `--check`) |
+| Kaggle notebooks — M11 probes (generated) | `notebooks/lucid_kaggle_m11_probe_p12.ipynb`, `lucid_kaggle_m11_probe_p24.ipynb`, `lucid_kaggle_m11_probe_p48.ipynb` (`scripts/generate_m11_kaggle_notebooks.py`); tasks `lucid_m11_probe_p12_task`, `lucid_m11_probe_p24_task`, `lucid_m11_probe_p48_task` |
 | M04 Kaggle analytics note | `docs/kaggle/LUCID_KAGGLE_NOTEBOOK_M04_FAMILY1_ANALYTICS.md` |
 | Kaggle transport fixture manifest | `tests/fixtures/kaggle_transport/transport_manifest.json` |
 | Canonical Family 1 pack (M03) | `tests/fixtures/family1_core_m03/family1_core_m03_manifest.json` (`scripts/generate_family1_core_m03_manifest.py --check`) |
@@ -89,8 +92,15 @@ When documents or code disagree, use this order:
 | M10 judge-facing narrative & evidence pack | `docs/milestones/M10/artifacts/` (`m10_submission_narrative.md`, `m10_claims_evidence_matrix.md`, `m10_limitations_and_scope.md`, `m10_representative_models.md`, `m10_faq_for_judges.md`, `figures/`, `tables/`, `m10_figure_manifest.json`) |
 | M10 figure/table generators (CI `--check`) | `scripts/generate_m10_figures.py`, `scripts/generate_m10_tables.py` |
 | M10 tool log | `docs/milestones/M10/M10_toolcalls.md` |
-| M11 plan (stub) | `docs/milestones/M11/M11_plan.md` |
+| M11 ingest + response surface | `scripts/ingest_m11_platform_exports.py` (`--write` / `--check`); `scripts/m11_ingest_common.py` |
+| M11 allocation policy + analytical summary + figure | `scripts/generate_m11_tables.py` (`m11_allocation_policy.md`, `m11_analytical_summary.md`), `scripts/generate_m11_figures.py` (`--write` / `--check`) |
+| M11 notebook release manifest | `scripts/generate_m11_notebook_release_manifest.py` (`--write` / `--check`); `docs/milestones/M11/artifacts/m11_notebook_release_manifest.json` |
+| M11 Kaggle pin sanity | `scripts/verify_m11_git_has_module.py` — `HEAD` must contain `m11_probe_panels.py` before notebooks are uploaded |
+| Wheel packaging guard | `scripts/verify_wheel_has_kaggle.py` after `python -m build --wheel` (CI) — requires `lucid/kaggle/m11_probe_panels.py` in the wheel |
+| M11 plan & runbook | `docs/milestones/M11/M11_plan.md`, `docs/milestones/M11/M11_KAGGLE_RUNBOOK.md` |
 | M11 tool log | `docs/milestones/M11/M11_toolcalls.md` |
+| M12 plan (seed) | `docs/milestones/M12/M12_plan.md` — final linkage + contingency (deferred from old M11 stub) |
+| M12 tool log | `docs/milestones/M12/M12_toolcalls.md` |
 
 ### 3.1 External evidence index (Kaggle — audit trail)
 
@@ -99,8 +109,10 @@ When documents or code disagree, use this order:
 | M01 transport | `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` | `lucid_main_task` | `tests/fixtures/kaggle_transport/transport_manifest.json` |
 | M04 Family 1 analytics | `notebooks/lucid_kaggle_family1_m04_analytics.ipynb` | `lucid_family1_m04_task` | `docs/milestones/M04/artifacts/m04_model_panel.json` |
 | M09 mature benchmark (Phase B repo) | `notebooks/lucid_kaggle_m09_mature_evidence.ipynb` | `lucid_m09_mature_evidence_task` | `docs/milestones/M09/artifacts/m09_model_panel.json` |
+| M11 probe ladder (P12 / P24 / P48) | `notebooks/lucid_kaggle_m11_probe_p12.ipynb`, `lucid_kaggle_m11_probe_p24.ipynb`, `lucid_kaggle_m11_probe_p48.ipynb` | `lucid_m11_probe_p12_task`, `lucid_m11_probe_p24_task`, `lucid_m11_probe_p48_task` | `docs/milestones/M11/artifacts/m11_probe_ladder.json`; canonical roster `m11_roster_canonical.json` (**33** tracked slugs); **P12_repeat = P12** |
+| M11 response surface (ingest) | — | — | `docs/milestones/M11/artifacts/m11_model_response_surface.json` (`scripts/ingest_m11_platform_exports.py`); allocation `m11_allocation_policy.md`; analytical summary `m11_analytical_summary.md`; figure `artifacts/figures/m11_fig_completion_by_tier.png` |
 
-Platform CSV exports and run manifests for M09 live under `docs/milestones/M09/artifacts/`. **Phase C (closeout):** raw leaderboard export + **`m09_model_scores.csv`** (**15** completing models, **18** non-completions on the M09 task); family/difficulty/component CSVs are **NA from export** where sliceable data is absent (`m09_kaggle_run_manifest.md`).
+Platform CSV exports and run manifests for M09 live under `docs/milestones/M09/artifacts/`. **Phase C (closeout):** raw leaderboard export + **`m09_model_scores.csv`** (**15** completing models, **18** non-completions on the M09 task); family/difficulty/component CSVs are **NA from export** where sliceable data is absent (`m09_kaggle_run_manifest.md`). **M11** adds nested probe panels on the same mature substrate; slice claims only from **M11 probe** or raw exports — not from aggregate M09 means alone.
 
 ---
 
@@ -120,6 +132,7 @@ Platform CSV exports and run manifests for M09 live under `docs/milestones/M09/a
 | Remote GitHub Actions | **Verified** — `pull_request` / `push` CI per `.github/workflows/ci.yml`; historical evidence in `docs/milestones/M00/M00_run1.md` |
 | Unified defensibility audit (M08) | **Complete (M08)** — `scripts/run_unified_defensibility_audit.py`; blocking `--check` in CI; artifacts under `docs/milestones/M08/artifacts/`; **no** Kaggle platform proof in milestone scope |
 | M09 mature-benchmark Kaggle evidence (panel + notebook + export ingest) | **Complete** — Phase B (repo) + Phase C (ingested leaderboard export, `m09_model_scores.csv`, manifest); **partial hosted roster** (**15** / **33** models with numeric M09 means) — see `docs/milestones/M09/artifacts/m09_kaggle_run_manifest.md` |
+| M11 hosted-model probe ladder | **In progress (repo + ingest)** — ladder/roster/notebooks + **normalized response surface** from committed M09 export (P72 rows); **P12/P24/P48** await new leaderboard exports after Kaggle runs |
 
 ### Submission blockers (compact)
 
@@ -130,7 +143,17 @@ Standing gaps before treating the competition entry as **submission-complete** (
 | Hosted-model discriminatory power (full roster completion) | **Narrowed** | **M09** ingested **`m09_model_scores.csv`** (**15** completions + **18** non-completions); full numeric coverage of **all** tracked models **not** achieved | M04 / M09 / M10 | Accept partial evidence + narrative scope, or rerun/expand platform coverage; family verdicts remain **retain provisionally** |
 | Defensibility / ambiguity / contamination QA | **M08 done (automated layer)**; **M10** judge-facing narrative shipped | **M08** / **M10** | **M08** | Green `run_unified_defensibility_audit.py --check`; M10 narrative artifacts in `docs/milestones/M10/artifacts/` |
 | Final writeup pack | **Complete (M10)** | — | **M10** | Judge-facing narrative, figures, tables, claims matrix (`docs/milestones/M10/artifacts/`) |
-| Final Kaggle benchmark / task / writeup linkage | Open | **M11** | — | Per official rules |
+| Final Kaggle benchmark / task / writeup linkage | Open | **M12** | — | Per official rules (deferred from repurposed M11; see `docs/milestones/M12/M12_plan.md`) |
+
+### Hosted-model probe frontier (M11 — compact)
+
+| Field | Status / pointer |
+|-------|-------------------|
+| **P12 full-roster probe** | **No platform rows yet** in committed exports — ingest shows `export_missing` for all 33 models (`lucid_m11_probe_p12_task`). Runbook: `docs/milestones/M11/M11_KAGGLE_RUNBOOK.md` |
+| **P24 survivor set** | **No export rows** — `export_missing` for all 33 (`lucid_m11_probe_p24_task`) |
+| **P48 survivor set** | **No export rows** — `export_missing` for all 33 (`lucid_m11_probe_p48_task`) |
+| **P72 comparable (M09 task)** | **Ingested from committed** `m09_kaggle_leaderboard_export.csv` — **15** / **33** `completed`, **18** `platform_limited` (see `m11_model_response_surface.json`) |
+| **Cost / latency metadata** | **NA** in leaderboard CSV columns used — fields `runtime_proxy` / `latency_field` / `cost_field` = `NA` in normalized surface |
 
 ---
 
@@ -217,6 +240,8 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 
 **M10 judged axis:** **Writeup quality** (primary) — judge-facing narrative pack, deterministic figures/tables from committed M09 evidence, claims-to-evidence matrix, limitations register; synthesis of **dataset quality & task construction** and **discriminatory power** without new benchmark semantics. Benchmark **1.1.0** unchanged.
 
+**M11 judged axis:** **Novelty / insights / discriminatory power** (primary) — nested deterministic probe ladder (P12/P24/P48/P72) on the mature substrate, transparent response-surface artifacts, allocation policy for remaining budget; **no** benchmark semantic change. Benchmark **1.1.0** unchanged.
+
 ### 6.2 Submission posture
 
 - **M01** established **transport proof** and an initial **hosted-model spread** on a fixed acceptance slice (`symbolic_negation_v1`).
@@ -228,7 +253,7 @@ Summary: LUCID targets the **Kaggle Measuring AGI** competition as a **benchmark
 - **M08** added a **blocking defensibility audit** (`scripts/run_unified_defensibility_audit.py`, CI `--check`) with committed artifacts under `docs/milestones/M08/artifacts/` and canonical standard `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md` — **not** Kaggle platform proof; benchmark **1.1.0** unchanged.
 - **M09 (closed)** added the **mature-benchmark Kaggle evidence** surface (Phase B repo) and **ingested** platform scores (Phase C): **`m09_model_scores.csv`** + raw **`m09_kaggle_leaderboard_export.csv`**; **15** / **33** models with numeric M09 means; **18** non-completions documented. M01 score ledger remains **historical M01 evidence** (not overwritten).
 - **M10 (closed)** packaged **judge-facing** narrative, **figures**, **tables**, and **claims traceability** under `docs/milestones/M10/artifacts/`; generators are CI-checked (`generate_m10_figures.py`, `generate_m10_tables.py` `--check`).
-- **Remaining gaps** before treating the entry as **submission-complete** (see §4) include: optional **full** hosted roster reruns and **M11** final benchmark–task–writeup **linkage** per official rules.
+- **Remaining gaps** before treating the entry as **submission-complete** (see §4) include: **M11** hosted-model **probe** runs + response-surface ingest (operational), optional **full** hosted roster reruns, and **M12** final benchmark–task–writeup **linkage** per official rules.
 
 ### 6.3 Standing family promotion rules (at milestone close)
 
@@ -247,7 +272,8 @@ Until addressed, the entry should not be treated as submission-complete. **Compa
 - **Family-level discriminatory power (full evidentiary closure)** — M04 delivered infrastructure + **retain provisionally**; **M09** **populated** `m09_model_scores.csv` from platform export (**partial** roster: **15** completions); **`m09_m04_blocker_disposition.md`** records supersession + limits; **submission-grade** “full spread” claims still require **honest** partial-coverage framing or more platform runs.
 - **Defensibility / ambiguity / contamination posture** — **M08** delivers the **automated, CI-enforced** audit layer + artifacts (`docs/milestones/M08/artifacts/`, `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md`).
 - **Judge-facing writeup pack (figures, narrative, traceability)** — **M10** delivered (`docs/milestones/M10/artifacts/`).
-- **Final Kaggle benchmark / task / writeup linkage** per competition requirements.
+- **Hosted-model probe frontier (completion / tier / cost-latency posture)** — **M11** (see §4 *Hosted-model probe frontier*); **no** inferred slices from aggregate M09 export alone.
+- **Final Kaggle benchmark / task / writeup linkage** per competition requirements — **M12** (`docs/milestones/M12/M12_plan.md`).
 
 ### Kaggle hosted models — score ledger (reference)
 
@@ -307,8 +333,8 @@ Planned milestone arc (competition charter locked in **M02**):
 | **M08** | Defensibility, QA, and contamination-resistance hardening | **Complete** |
 | **M09** | Expanded Kaggle evidence run on mature benchmark | **Complete** — Phase B (PR #10) + Phase C (export ingest + `m09_model_scores.csv` + manifest) |
 | **M10** | Writeup evidence pack, figures, and judge-facing narrative | **Complete** — `docs/milestones/M10/M10_summary.md` |
-| **M11** | Submission lock: final benchmark freeze and submission checklist | **Active (stub)** — `docs/milestones/M11/M11_plan.md` |
-| **M12** | Contingency A — platform / benchmark replacement buffer | **Planned** |
+| **M11** | Hosted-model probe ladder + response-surface scaffolding (Phases 2–4: platform + ingest) | **Active (Phase 1 repo)** — `docs/milestones/M11/M11_plan.md` |
+| **M12** | Final benchmark / task / writeup linkage + contingency buffer | **Planned** — `docs/milestones/M12/M12_plan.md` |
 | **M13** | Contingency B — final polish / writeup / evidence cleanup buffer | **Planned** |
 
 **Benchmark family priorities (first three, locked in M02):**
@@ -475,7 +501,18 @@ Planned milestone arc (competition charter locked in **M02**):
   - **M01 transport:** `scripts/generate_kaggle_notebook.py` → `notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb` (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md`).  
   - **M04 Family 1 analytics:** `scripts/generate_family1_m04_notebook.py` → `notebooks/lucid_kaggle_family1_m04_analytics.ipynb` (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_M04_FAMILY1_ANALYTICS.md`).  
   - **M09 mature evidence:** `scripts/generate_m09_kaggle_notebook.py` → `notebooks/lucid_kaggle_m09_mature_evidence.ipynb` (panel: `src/lucid/kaggle/m09_evidence_panel.py`).  
-- **Pin** ZIP installs to a commit whose tree includes required transport code (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1 for M01; same discipline for M04/M09).
+  - **M11 probes:** `scripts/generate_m11_kaggle_notebooks.py` → `notebooks/lucid_kaggle_m11_probe_p12.ipynb`, `lucid_kaggle_m11_probe_p24.ipynb`, `lucid_kaggle_m11_probe_p48.ipynb` (panel: `src/lucid/kaggle/m11_probe_panels.py`).  
+- **Pin** ZIP installs to a commit whose tree includes required transport code (`docs/kaggle/LUCID_KAGGLE_NOTEBOOK_CONTRACT.md` §5.1 for M01; same discipline for M04/M09/M11).
+
+### Kaggle publication policy (standing)
+
+Kaggle notebooks are **disposable execution surfaces**, not editing environments.
+
+1. **Repo is the only source of truth.** All notebook content comes from generators in `scripts/`. Changes to task code, prompts, scoring, or panel definitions happen in the repo, never in the Kaggle UI.
+2. **Never patch cells in the Kaggle UI** for canonical benchmark runs. If a fix is needed, modify the generator or source panel code, regenerate locally, verify with `--check`, and upload the regenerated `.ipynb` from file.
+3. **Retries use the same repo-generated file.** If a run fails for platform/network reasons (DNS, model-proxy, timeout), retry by re-running or re-uploading the identical repo-generated notebook — do not edit task code on-platform.
+4. **Notebook release manifest** (`scripts/generate_m11_notebook_release_manifest.py`) records pin SHA, file SHA-256, and task name for each notebook before upload, providing an auditable link between repo state and platform execution.
+5. **Diagnostic or ad hoc notebooks** (e.g. platform smoke tests) must also be generated from repo — never created by editing cells in the Kaggle UI.
 
 **Competition alignment:** `docs/LUCID_COMPETITION_ALIGNMENT.md`.
 
@@ -483,12 +520,18 @@ Planned milestone arc (competition charter locked in **M02**):
 
 ## 9. Active milestone — M11
 
-**Status:** **Stub / active planning** — submission lock: final benchmark freeze, competition linkage, and checklist (**not** execution-complete).
+**Status:** **Repo + ingest + allocation figure shipped**; **P12 / P24 / P48** rows in the normalized surface are **`export_missing`** until new Kaggle leaderboard exports include `lucid_m11_probe_p12_task` / `p24` / `p48`. **P72** populated from committed M09 export ingest.
 
-**Goal:** Final **benchmark–task–writeup** linkage per official rules and any remaining submission gates after M10 packaging.
+**Goal:** **Hosted-model probe surface** — nested deterministic panels (P12 / P24 / P48 / P72), transparent empirical response model, operational allocation guidance; benchmark **1.1.0** unchanged.
 
-**Plan:** `docs/milestones/M11/M11_plan.md`  
-**Tool log:** `docs/milestones/M11/M11_toolcalls.md`
+**Deferred:** Final **benchmark–task–writeup linkage** → **M12** (`docs/milestones/M12/M12_plan.md`).
+
+**Plan / runbook:** `docs/milestones/M11/M11_plan.md`, `docs/milestones/M11/M11_KAGGLE_RUNBOOK.md`  
+**Tool log:** `docs/milestones/M11/M11_toolcalls.md`  
+**Artifacts:** `docs/milestones/M11/artifacts/` — `m11_model_response_surface.json`, `m11_allocation_policy.md`, `m11_analytical_summary.md`, `m11_notebook_release_manifest.json`, `figures/m11_fig_completion_by_tier.png`, etc.  
+**Closeout docs:** `M11_run1.md`, `M11_summary.md`, `M11_audit.md`
+
+**Operator retry rule:** If a Kaggle run fails for platform/network reasons (DNS resolution, model-proxy timeout, etc.), classify as `run_error` with an explicit reason code (e.g. `platform_dns_failure`). Retry by re-running or re-uploading the **same repo-generated notebook** — do not edit cells in the Kaggle UI. See the publication policy in §8 and the retry workflow in `M11_KAGGLE_RUNBOOK.md`.
 
 **M10 (closed):** `docs/milestones/M10/M10_summary.md` — narrative and figures `docs/milestones/M10/artifacts/`.  
 **M09 (closed):** `docs/milestones/M09/M09_summary.md` — `docs/milestones/M09/artifacts/`.
