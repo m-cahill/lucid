@@ -1,0 +1,19 @@
+{
+  "schema_version": "m12_public_links_v1",
+  "notes": "Curated external URLs referenced in M12 linkage and narrative. Kaggle benchmark and task URLs are null until owner-view confirms public visibility.",
+  "links": {
+    "competition": "https://www.kaggle.com/competitions/kaggle-measuring-agi",
+    "github_repository": "https://github.com/m-cahill/lucid",
+    "kaggle_community_benchmarks_launch_post": "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-community-benchmarks/",
+    "kaggle_benchmark_url": null,
+    "task_urls": {
+      "lucid_main_task": null,
+      "lucid_family1_m04_task": null,
+      "lucid_m09_mature_evidence_task": null,
+      "lucid_m11_probe_p12_task": null,
+      "lucid_m11_probe_p24_task": null,
+      "lucid_m11_probe_p48_task": null
+    },
+    "publication_status": "owner_visible_unverified"
+  }
+}

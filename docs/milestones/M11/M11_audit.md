@@ -33,8 +33,8 @@
 
 | Claim | Supported by |
 |-------|--------------|
-| P12 completion (31 models) | `michael1232_lucid-kaggle-community-benchmarks_leaderboard.csv` (ingested) |
-| P12 cost data | `lucid_m11_probe_p12_task_costs.csv` (operator CSV, per-model totals) |
+| P12 completion (31 models) | `docs/milestones/M11/artifacts/michael1232_lucid-kaggle-community-benchmarks_leaderboard.csv` (ingested) |
+| P12 cost data | `docs/milestones/M11/artifacts/lucid_m11_probe_p12_task_costs.csv` (operator CSV, per-model totals) |
 | P24 cohort (11 models) | Operator P24 run evidence (cost-aware selection) |
 | P48 partial | Operator P48 runs; Gemma 3 12B context overflow documented |
 | P72 from M09 export | `m09_kaggle_leaderboard_export.csv` (15/33 completed) |

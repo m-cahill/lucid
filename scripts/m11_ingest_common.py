@@ -429,9 +429,15 @@ def artifacts_dir(root: Path | None = None) -> Path:
 
 
 def default_export_paths(root: Path) -> list[Path]:
-    """Default committed M09 leaderboard export (contains P72 / M09 task rows)."""
-    p = root / "docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv"
-    return [p]
+    """M09 export (P72) plus full benchmark export (P12/P24/P48 probe task rows)."""
+    m11_lb = (
+        "docs/milestones/M11/artifacts/"
+        "michael1232_lucid-kaggle-community-benchmarks_leaderboard.csv"
+    )
+    return [
+        root / "docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv",
+        root / m11_lb,
+    ]
 
 
 def load_m01_table(root: Path) -> dict[str, float | None]:

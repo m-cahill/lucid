@@ -1,7 +1,7 @@
 # LUCID — Judge-facing submission narrative (M10)
 
 **Benchmark version:** 1.1.0  
-**Evidence scope:** M01–M09 closed; M09 mature-benchmark hosted evidence is **partial** (see limitations).
+**Evidence scope:** M01–M09 closed; M09 mature-benchmark hosted evidence is **partial** (see limitations). **M11** adds nested probe-ladder hosted evidence (**31** active models; **2** exclusions — see §M11 addendum). **M12** packages deterministic **benchmark / task / writeup linkage** (`docs/milestones/M12/artifacts/m12_submission_linkage.json`).
 
 ---
 
@@ -51,6 +51,28 @@ On the **15 models** with numeric M09 means:
 Figures and tables derived from committed CSVs: `docs/milestones/M10/artifacts/figures/`, `docs/milestones/M10/artifacts/tables/`, manifest `m10_figure_manifest.json`.
 
 **Honest boundary:** The export does **not** support per-family, per-difficulty, or component (D/L/O/A/C) slices; those are **not** claimed from aggregate exports. **33** roster rows are tracked; **18** did not yield an M09 numeric in the export (`failed_platform_limited`).
+
+---
+
+## M11 addendum (hosted probe surface — bounded)
+
+**M11** evaluates a deterministic **probe ladder** (P12 / P24 / partial P48; P72 comparable via M09 task rows) on the same mature substrate as M09. Closeout posture:
+
+- **31** active tracked models; **2** exclusions with evidence-backed failure codes (`deepseek-r1-0528`, `gpt-oss-120b`) — see `docs/milestones/M11/artifacts/m11_roster_canonical.json`.
+- **P24:** cost-aware **11-model** cohort (`m11_p24_candidate_set.md`).
+- **P48:** partial; Gemma 3 12B documented operational ceiling (context length), not a benchmark defect.
+
+No new scoring semantics; **no** parser/prompt rescue for excluded models in M11 scope.
+
+---
+
+## Competition-facing links (submission)
+
+- **Primary project link (intended):** Kaggle **Community Benchmark** for slug `michael1232/lucid-kaggle-community-benchmarks` — fill the canonical benchmark URL in `docs/milestones/M12/artifacts/m12_linkage_sources.json` after owner-view confirms public visibility; regenerated linkage lives in `m12_submission_linkage.json`.
+- **Secondary (implementation / source):** https://github.com/m-cahill/lucid
+- **Competition hub:** https://www.kaggle.com/competitions/kaggle-measuring-agi
+
+**Tasks (six)** wired in the repo: `lucid_main_task`, `lucid_family1_m04_task`, `lucid_m09_mature_evidence_task`, `lucid_m11_probe_p12_task`, `lucid_m11_probe_p24_task`, `lucid_m11_probe_p48_task` — see `docs/milestones/M12/artifacts/m12_submission_linkage.md`.
 
 ---
 

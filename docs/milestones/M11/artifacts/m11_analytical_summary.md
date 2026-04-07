@@ -4,14 +4,32 @@ Derived **only** from `m11_model_response_surface` rows. **No** family/difficult
 
 ## 1. Completion coverage by tier
 
-- **P12:** 0 / 31 rows `completed`
+- **P12:** 31 / 31 rows `completed`
 - **P24:** 0 / 31 rows `completed`
 - **P48:** 0 / 31 rows `completed`
 - **P72:** 15 / 31 rows `completed`
 
 ## 2. Ladder score slope (P12 → P72)
 
-**Not computable** with current ingest: need **≥2** completed tiers with numeric `score_mean` per model. Re-run ingest after P12/P24/P48 leaderboard exports exist.
+Models with ≥2 completed tiers with numeric scores (pairwise deltas):
+
+| model_slug | tier_a | mean_a | tier_b | mean_b | delta_b_minus_a |
+|---|---:|---:|---:|---:|---:|
+| `gemini-2.0-flash-001` | P12 | 0.690625 | P72 | 0.683559 | -0.007066 |
+| `gemini-2.0-flash-lite-001` | P12 | 0.692812 | P72 | 0.645278 | -0.047535 |
+| `gemini-2.5-flash` | P12 | 0.674687 | P72 | 0.652378 | -0.022309 |
+| `gemini-2.5-pro` | P12 | 0.895417 | P72 | 0.815712 | -0.079705 |
+| `gemini-3-flash-preview` | P12 | 0.678437 | P72 | 0.662378 | -0.016059 |
+| `gemini-3.1-flash-lite-preview` | P12 | 0.676875 | P72 | 0.642743 | -0.034132 |
+| `gemma-3-27b-it` | P12 | 0.650833 | P72 | 0.724167 | +0.073333 |
+| `glm-5` | P12 | 0.674687 | P72 | 0.660816 | -0.013872 |
+| `gpt-5.4-2026-03-05` | P12 | 0.686375 | P72 | 0.709056 | +0.022681 |
+| `gpt-5.4-mini-2026-03-17` | P12 | 0.649854 | P72 | 0.645132 | -0.004722 |
+| `gpt-5.4-nano-2026-03-17` | P12 | 0.581208 | P72 | 0.612000 | +0.030792 |
+| `qwen3-235b-a22b-instruct-2507` | P12 | 0.677292 | P72 | 0.711753 | +0.034462 |
+| `qwen3-coder-480b-a35b-instruct` | P12 | 0.853646 | P72 | 0.743299 | -0.110347 |
+| `qwen3-next-80b-a3b-instruct` | P12 | 0.693438 | P72 | 0.654358 | -0.039080 |
+| `qwen3-next-80b-a3b-thinking` | P12 | 0.675312 | P72 | 0.651858 | -0.023455 |
 
 ## 3. Sharp degradation / stability (heuristic)
 
