@@ -2,7 +2,7 @@
 
 * **Milestone:** M12 — Final benchmark / task / writeup linkage  
 * **Mode:** DELTA AUDIT  
-* **Range:** `main` baseline prior to M12 … `532a57c0c82f95821fa3e79972d771fca45a8753` (PR #13 head)  
+* **Range:** `main` baseline prior to M12 … `72a6ca213813ad6bfc5c79fef5cb594550364b90` (PR #13 closing head)  
 * **CI Status:** Green  
 * **Audit Verdict:** 🟢 — Linkage and ingest wiring complete; no benchmark semantic drift; deferrals explicit  
 
@@ -61,7 +61,7 @@
 |-------|--------|
 | Required checks on PR #13 | Enforced; workflow `CI` completed successfully |
 | Skipped gates | None observed |
-| Run evidence | https://github.com/m-cahill/lucid/actions/runs/24107725335 |
+| Run evidence | https://github.com/m-cahill/lucid/actions/runs/24107886329 |
 | Deterministic installs | `python -m pip install -e ".[dev]"` unchanged |
 
 Annotation: Node.js 20 deprecation warning on `actions/checkout` / `setup-python` (runner platform notice)—**not** a failing gate.
@@ -74,7 +74,7 @@ Annotation: Node.js 20 deprecation warning on `actions/checkout` / `setup-python
 |------|--------|
 | New tests | `tests/test_m12_submission_linkage.py` — smoke on `build_linkage_payload` |
 | Coverage | Repo gate ≥85% maintained on full `pytest` in CI |
-| Flakes | None observed on run **24107725335** |
+| Flakes | None observed on run **24107886329** |
 
 ---
 
@@ -95,7 +95,7 @@ No HIGH or MEDIUM issues identified. Publication fields are honest (`null` URLs)
 
 | Gate | Result |
 |------|--------|
-| CI Stability | PASS — run **24107725335** success |
+| CI Stability | PASS — run **24107886329** success |
 | Tests | PASS |
 | Coverage | PASS — ≥85% |
 | Workflows | PASS |
@@ -112,8 +112,8 @@ No HIGH or MEDIUM issues identified. Publication fields are honest (`null` URLs)
   "verdict": "green_closeout",
   "benchmark_version": "1.1.0",
   "semantic_changes": false,
-  "ci_run_id": 24107725335,
-  "head_sha": "532a57c0c82f95821fa3e79972d771fca45a8753",
+  "ci_run_id": 24107886329,
+  "head_sha": "72a6ca213813ad6bfc5c79fef5cb594550364b90",
   "linkage_generator": "scripts/generate_m12_submission_linkage.py",
   "m13_seeded": true
 }
