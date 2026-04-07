@@ -596,6 +596,8 @@ Kaggle notebooks are **disposable execution surfaces**, not editing environments
 
 **Plan / tool log:** `docs/milestones/M13/M13_plan.md`, `docs/milestones/M13/M13_toolcalls.md`
 
+**Evidence (M13):** `docs/milestones/M13/M13_run1.md` — first pass: Kaggle public benchmark/task URL verification **deferred** (no owner-view in repo context); `m12_linkage_sources.json` posture unchanged (`owner_visible_unverified`, URLs `null`).
+
 ---
 
 ### M12 (closed)
