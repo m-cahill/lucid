@@ -4,7 +4,10 @@
     python scripts/generate_m11_probe_artifacts.py --check
 
 Ladder JSON is derived from ``lucid.kaggle.m11_probe_panels``. Roster JSON is derived from
-``docs/milestones/M09/artifacts/m09_model_scores.csv`` (33 tracked models; duplicates flagged).
+``docs/milestones/M09/artifacts/m09_model_scores.csv`` (33 unique slugs; duplicates flagged),
+then **operator exclusions** are applied so two slugs remain listed but ``tracked: false``.
+M11 historically started from a 33-model canonical roster; the active decision surface for
+P12/P24 is **31** tracked models after exclusions.
 """
 
 from __future__ import annotations
@@ -15,6 +18,31 @@ import json
 import sys
 from pathlib import Path
 from typing import Any
+
+# Operator exclusions: still listed for audit, but excluded from tracked roster / allocation.
+# Evidence recovered post-retry; now grounded in exact failure payloads.
+_OPERATOR_EXCLUSIONS: dict[str, dict[str, str]] = {
+    "deepseek-r1-0528": {
+        "exclusion_reason": "surface_compatibility_failure",
+        "failure_reason_code": "json_parse_failure_reasoning_wrapper",
+        "failure_detail": (
+            "Model emits <think>...</think> reasoning trace before JSON. "
+            "Text adapter raises ValueError: Confidence is not numeric: None. "
+            "Structured-output / parser-compatibility failure; model reachable, "
+            "benchmark task valid, parse failed before score."
+        ),
+    },
+    "gpt-oss-120b": {
+        "exclusion_reason": "surface_compatibility_failure",
+        "failure_reason_code": "json_parse_failure_truncated_output",
+        "failure_detail": (
+            "Model initially returns valid JSON but later emits truncated "
+            "malformed JSON. Raises ValueError: No JSON object found in model "
+            "output. Structured-output / surface-compatibility failure; model "
+            "reachable, benchmark task valid, parse failed before score."
+        ),
+    },
+}
 
 
 def _repo_root() -> Path:
@@ -70,15 +98,29 @@ def _render_roster_json(root: Path) -> str:
                 }
             )
 
+    for m in models:
+        slug = str(m["model_slug"])
+        if slug in _OPERATOR_EXCLUSIONS:
+            excl = _OPERATOR_EXCLUSIONS[slug]
+            m["tracked"] = False
+            m["exclusion_reason"] = excl["exclusion_reason"]
+            m["failure_reason_code"] = excl["failure_reason_code"]
+            m["failure_detail"] = excl["failure_detail"]
+
     tracked = [m for m in models if m["tracked"]]
     payload = {
         "roster_id": "m11_canonical_roster_v1",
         "source_artifact": "docs/milestones/M09/artifacts/m09_model_scores.csv",
         "canonical_tracked_count": len(tracked),
         "notes": (
-            "Authoritative M11 tracked roster = 33 model_slug values from normalized M09 ingest "
-            "(one row per slug). Raw platform exports may carry duplicate or stray rows; "
-            "duplicates after first occurrence are listed with tracked=false."
+            "Authoritative M11 roster lists 33 unique model_slug values from normalized M09 "
+            "ingest (one row per slug). M11 originally used a 33-model canonical roster; "
+            "after exclusions the active tracked roster for P12/P24 is 31 models. "
+            "Two models (deepseek-r1-0528, gpt-oss-120b) are excluded with "
+            "surface_compatibility_failure: exact failure evidence was recovered from P12 "
+            "runs showing structured-output / parser-compatibility issues on the current "
+            "strict evaluation surface. M11 intentionally does not modify the parser or "
+            "prompt to rescue these runs; they remain excluded to preserve comparability."
         ),
         "models": models,
     }

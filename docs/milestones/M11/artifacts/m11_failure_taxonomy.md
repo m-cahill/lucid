@@ -7,12 +7,12 @@ Codes are **normalized** from ingest; they do **not** assert benchmark defects.
 | Status | Count |
 |--------|------:|
 | `completed` | 15 |
-| `export_missing` | 99 |
-| `platform_limited` | 18 |
+| `export_missing` | 93 |
+| `platform_limited` | 16 |
 
 ## Failure reason codes (non-completed rows with code)
 
 | Code | Count |
 |------|------:|
-| `boolean_false_no_numeric` | 18 |
-| `no_row_for_task` | 99 |
+| `boolean_false_no_numeric` | 16 |
+| `no_row_for_task` | 93 |

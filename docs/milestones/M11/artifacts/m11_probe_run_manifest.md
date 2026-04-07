@@ -10,6 +10,6 @@
 
 ## Coverage
 
-- **Normalized rows (model × tier):** 132
+- **Normalized rows (model × tier):** 124
 - **P72:** from `lucid_m09_mature_evidence_task` when present in export(s).
 - **P12 / P24 / P48:** require `lucid_m11_probe_p*` task rows in an export; otherwise `export_missing`.

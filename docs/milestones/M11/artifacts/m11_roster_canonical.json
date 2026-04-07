@@ -1,5 +1,5 @@
 {
-  "canonical_tracked_count": 33,
+  "canonical_tracked_count": 31,
   "models": [
     {
       "exclusion_reason": null,
@@ -44,10 +44,12 @@
       "tracked": true
     },
     {
-      "exclusion_reason": null,
+      "exclusion_reason": "surface_compatibility_failure",
+      "failure_detail": "Model emits <think>...</think> reasoning trace before JSON. Text adapter raises ValueError: Confidence is not numeric: None. Structured-output / parser-compatibility failure; model reachable, benchmark task valid, parse failed before score.",
+      "failure_reason_code": "json_parse_failure_reasoning_wrapper",
       "model_slug": "deepseek-r1-0528",
       "source": "m09_model_scores_normalized",
-      "tracked": true
+      "tracked": false
     },
     {
       "exclusion_reason": null,
@@ -164,10 +166,12 @@
       "tracked": true
     },
     {
-      "exclusion_reason": null,
+      "exclusion_reason": "surface_compatibility_failure",
+      "failure_detail": "Model initially returns valid JSON but later emits truncated malformed JSON. Raises ValueError: No JSON object found in model output. Structured-output / surface-compatibility failure; model reachable, benchmark task valid, parse failed before score.",
+      "failure_reason_code": "json_parse_failure_truncated_output",
       "model_slug": "gpt-oss-120b",
       "source": "m09_model_scores_normalized",
-      "tracked": true
+      "tracked": false
     },
     {
       "exclusion_reason": null,
@@ -200,7 +204,7 @@
       "tracked": true
     }
   ],
-  "notes": "Authoritative M11 tracked roster = 33 model_slug values from normalized M09 ingest (one row per slug). Raw platform exports may carry duplicate or stray rows; duplicates after first occurrence are listed with tracked=false.",
+  "notes": "Authoritative M11 roster lists 33 unique model_slug values from normalized M09 ingest (one row per slug). M11 originally used a 33-model canonical roster; after exclusions the active tracked roster for P12/P24 is 31 models. Two models (deepseek-r1-0528, gpt-oss-120b) are excluded with surface_compatibility_failure: exact failure evidence was recovered from P12 runs showing structured-output / parser-compatibility issues on the current strict evaluation surface. M11 intentionally does not modify the parser or prompt to rescue these runs; they remain excluded to preserve comparability.",
   "roster_id": "m11_canonical_roster_v1",
   "source_artifact": "docs/milestones/M09/artifacts/m09_model_scores.csv"
 }

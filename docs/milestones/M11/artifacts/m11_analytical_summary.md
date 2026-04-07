@@ -4,10 +4,10 @@ Derived **only** from `m11_model_response_surface` rows. **No** family/difficult
 
 ## 1. Completion coverage by tier
 
-- **P12:** 0 / 33 rows `completed`
-- **P24:** 0 / 33 rows `completed`
-- **P48:** 0 / 33 rows `completed`
-- **P72:** 15 / 33 rows `completed`
+- **P12:** 0 / 31 rows `completed`
+- **P24:** 0 / 31 rows `completed`
+- **P48:** 0 / 31 rows `completed`
+- **P72:** 15 / 31 rows `completed`
 
 ## 2. Ladder score slope (P12 → P72)
 

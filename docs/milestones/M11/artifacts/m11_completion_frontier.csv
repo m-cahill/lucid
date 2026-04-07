@@ -6,7 +6,6 @@ claude-opus-4-6-default,NA,none,0,0,0,0,NA
 claude-sonnet-4-20250514,NA,none,0,0,0,0,NA
 claude-sonnet-4-5-20250929,NA,none,0,0,0,0,NA
 claude-sonnet-4-6-default,NA,none,0,0,0,0,NA
-deepseek-r1-0528,NA,none,0,0,0,0,NA
 deepseek-v3.1,NA,none,0,0,0,0,NA
 deepseek-v3.2,NA,none,0,0,0,0,NA
 gemini-2.0-flash-001,P72,P72,0,0,0,1,NA
@@ -26,7 +25,6 @@ glm-5,P72,P72,0,0,0,1,NA
 gpt-5.4-2026-03-05,P72,P72,0,0,0,1,NA
 gpt-5.4-mini-2026-03-17,P72,P72,0,0,0,1,NA
 gpt-5.4-nano-2026-03-17,P72,P72,0,0,0,1,NA
-gpt-oss-120b,NA,none,0,0,0,0,NA
 gpt-oss-20b,NA,none,0,0,0,0,NA
 qwen3-235b-a22b-instruct-2507,P72,P72,0,0,0,1,NA
 qwen3-coder-480b-a35b-instruct,P72,P72,0,0,0,1,NA
