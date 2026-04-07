@@ -1,6 +1,6 @@
 # M11 — Probe run manifest (ingest)
 
-**Notebook pin SHA:** `13137d907e938c6ed36c2b17eb0c4347f2d3943c`
+**Notebook pin SHA:** `a13afadadd89a6aed0cd434682b2675017ceab3c`
 
 ## Source exports
 

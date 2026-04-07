@@ -3,7 +3,7 @@
 **Milestone:** M11 — hosted-model probe surface  
 **Date (UTC):** 2026-04-06  
 **Branch:** `main` (local development record)  
-**Commit SHA (notebook pin):** see §1 below (must be a commit where `m11_probe_panels.py` exists in git).
+**Notebook `%pip` pin (GitHub archive):** `a13afadadd89a6aed0cd434682b2675017ceab3c` — first commit where `src/lucid/kaggle/m11_probe_panels.py` exists in the tree. A follow-up `chore(m11): repin Kaggle notebooks to post-M11 commit` records regenerated `.ipynb` + manifest + ingest fields; see `git log -2 --oneline`.
 
 ---
 
@@ -21,15 +21,19 @@
 
 ## 1. Notebook pin (Step 2.1)
 
-Regenerated canonical notebooks with the pin above:
+**First commit (M11 in tree):** `a13afadadd89a6aed0cd434682b2675017ceab3c`
+
+**Regenerated** (after that commit, pin = `HEAD` = same SHA):
 
 * `python scripts/generate_m11_kaggle_notebooks.py --write`
-* `python scripts/generate_m09_kaggle_notebook.py --pin-sha 13137d907e938c6ed36c2b17eb0c4347f2d3943c -o notebooks/lucid_kaggle_m09_mature_evidence.ipynb`
+* `python scripts/generate_m09_kaggle_notebook.py --pin-sha a13afadadd89a6aed0cd434682b2675017ceab3c -o notebooks/lucid_kaggle_m09_mature_evidence.ipynb`
 
 Verified:
 
 * `python scripts/generate_m11_kaggle_notebooks.py --check`
 * `python scripts/generate_m09_kaggle_notebook.py --check -o notebooks/lucid_kaggle_m09_mature_evidence.ipynb`
+* `python scripts/verify_m11_git_has_module.py --sha a13afadadd89a6aed0cd434682b2675017ceab3c`
+* `python scripts/generate_m11_notebook_release_manifest.py --check`
 
 ---
 
@@ -46,7 +50,7 @@ Verified:
 Commands (regenerate / verify):
 
 ```text
-python scripts/ingest_m11_platform_exports.py --write --notebook-pin-sha 13137d907e938c6ed36c2b17eb0c4347f2d3943c
+python scripts/ingest_m11_platform_exports.py --write --notebook-pin-sha a13afadadd89a6aed0cd434682b2675017ceab3c
 python scripts/ingest_m11_platform_exports.py --check
 python scripts/generate_m11_tables.py --write
 python scripts/generate_m11_tables.py --check
