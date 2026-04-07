@@ -24,7 +24,7 @@
 | Head commit | `532a57c0c82f95821fa3e79972d771fca45a8753` |
 | Conclusion | **success** |
 
-### Run B — closing tip (authoritative green after closeout docs)
+### Run B — closeout docs (summary / audit / `M12_run1` first pass)
 
 | Field | Value |
 |-------|--------|
@@ -33,7 +33,16 @@
 | Head commit | `72a6ca213813ad6bfc5c79fef5cb594550364b90` |
 | Conclusion | **success** |
 
-**Authoritative CI for M12 merge:** Run **B** (same tree as merge after PR merge).
+### Run C — final PR tip (authoritative green before merge)
+
+| Field | Value |
+|-------|--------|
+| Run ID | **24107986535** |
+| Workflow run URL | https://github.com/m-cahill/lucid/actions/runs/24107986535 |
+| Head commit | `57dd8a6215856d7fbbe61febc6b0da6f7d74b5ee` |
+| Conclusion | **success** |
+
+**Authoritative CI for M12 merge:** Run **C** — last green `pull_request` workflow on the PR branch before merge to `main`.
 
 ## Merge to `main`
 
