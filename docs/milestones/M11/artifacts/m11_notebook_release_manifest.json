@@ -6,7 +6,7 @@
       "benchmark_version": "1.1.0",
       "canonical": "true",
       "evidence_role": "probe",
-      "file_sha256": "8841afe9b7e1dfd805dfb54d4f92758fcf109b2383aaa9a1d2207eeaa2e02ec2",
+      "file_sha256": "3b6ca93293a07fa1e028954434083b390ada0faa0532462c413f7777d698f173",
       "generator": "scripts/generate_m11_kaggle_notebooks.py",
       "notebook_path": "notebooks/lucid_kaggle_m11_probe_p12.ipynb",
       "panel_source": "src/lucid/kaggle/m11_probe_panels.py",
