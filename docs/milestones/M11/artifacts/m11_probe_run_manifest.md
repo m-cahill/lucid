@@ -7,6 +7,7 @@
 | File | SHA-256 |
 |------|---------|
 | `docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv` | `2b29c93dfdea00ea6b886c9c5cb153ebf68d0d7d0200caf55be738d0c69504ff` |
+| `docs/milestones/M11/artifacts/michael1232_lucid-kaggle-community-benchmarks_leaderboard.csv` | `e2749faef0373fe03fc9f149abb09e2aef7f062749e956a4b45a1991c0f3392a` |
 
 ## Coverage
 

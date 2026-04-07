@@ -90,3 +90,6 @@ jobs:
           python scripts/ingest_m11_platform_exports.py --check
           python scripts/generate_m11_tables.py --check
           python scripts/generate_m11_figures.py --check
+
+      - name: M12 submission linkage (--check)
+        run: python scripts/generate_m12_submission_linkage.py --check

@@ -1,0 +1,168 @@
+{
+  "evidence_artifact_sha256": {
+    "m09": {
+      "docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv": "2b29c93dfdea00ea6b886c9c5cb153ebf68d0d7d0200caf55be738d0c69504ff",
+      "docs/milestones/M09/artifacts/m09_model_panel.json": "8cb98e5da2178f229b7567967510e4d147bb9f398b88a584e5cc5f2b9d3a9217",
+      "docs/milestones/M09/artifacts/m09_model_scores.csv": "6a63785d4a39d11987347dc8c799b4e4010900919d05d540c5bec691d8fb607c"
+    },
+    "m10": {
+      "docs/milestones/M10/artifacts/m10_figure_manifest.json": "d55edca270509f5d459d940b6fc531338c3ae1fe1dff5e9480c5400cc8fec19a"
+    },
+    "m11": {
+      "docs/milestones/M11/artifacts/lucid_m11_probe_p12_task_costs.csv": "61f7b5636f97d70a38925c548c36e8edc5b6eb938dea9787598137150ce13c58",
+      "docs/milestones/M11/artifacts/m11_model_response_surface.json": "95031292be6b5df86d63d693354fe9b269b2e86b3ec441fd47920a57cfc0a02b",
+      "docs/milestones/M11/artifacts/m11_notebook_release_manifest.json": "6ee23f4debe165ed26500db0bf301aef79145396b9c4ec5919da5430ee8d44a6",
+      "docs/milestones/M11/artifacts/m11_probe_ladder.json": "3248bdecad71e66aa5464690cbb42e45665bdb27d8f9edb11a29b588512b71c4",
+      "docs/milestones/M11/artifacts/m11_roster_canonical.json": "69aa27bb02054592f5b92f827b7600e05d1d03fbf0dd58cff2b4f95f5c1ed970",
+      "docs/milestones/M11/artifacts/michael1232_lucid-kaggle-community-benchmarks_leaderboard.csv": "e2749faef0373fe03fc9f149abb09e2aef7f062749e956a4b45a1991c0f3392a"
+    }
+  },
+  "generator": "scripts/generate_m12_submission_linkage.py",
+  "linkage": {
+    "benchmark_version": "1.1.0",
+    "competition_url": "https://www.kaggle.com/competitions/kaggle-measuring-agi",
+    "evidence_artifacts": {
+      "m09": [
+        "docs/milestones/M09/artifacts/m09_model_panel.json",
+        "docs/milestones/M09/artifacts/m09_model_scores.csv",
+        "docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv"
+      ],
+      "m10": [
+        "docs/milestones/M10/artifacts/m10_figure_manifest.json"
+      ],
+      "m11": [
+        "docs/milestones/M11/artifacts/m11_model_response_surface.json",
+        "docs/milestones/M11/artifacts/m11_roster_canonical.json",
+        "docs/milestones/M11/artifacts/m11_probe_ladder.json",
+        "docs/milestones/M11/artifacts/m11_notebook_release_manifest.json",
+        "docs/milestones/M11/artifacts/michael1232_lucid-kaggle-community-benchmarks_leaderboard.csv",
+        "docs/milestones/M11/artifacts/lucid_m11_probe_p12_task_costs.csv"
+      ]
+    },
+    "external_rules_citations": [
+      {
+        "summary": "Official launch material: create tasks, group them into a benchmark, run and share evaluations.",
+        "title": "Community Benchmarks: Evaluating modern AI on Kaggle",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-community-benchmarks/"
+      }
+    ],
+    "github_repository_url": "https://github.com/m-cahill/lucid",
+    "kaggle_benchmark_slug": "michael1232/lucid-kaggle-community-benchmarks",
+    "kaggle_benchmark_url": null,
+    "notes_public_visibility": "Benchmark and task public URLs were not verified from the anonymous web at M12 authoring time. Replace null URLs after owner-view confirms live public visibility.",
+    "primary_submission_project_link": "kaggle_benchmark",
+    "publication_status": "owner_visible_unverified",
+    "tasks": [
+      {
+        "generator": "scripts/generate_kaggle_notebook.py",
+        "notebook_path": "notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb",
+        "publication_status": "owner_visible_unverified",
+        "task_name": "lucid_main_task",
+        "task_url": null
+      },
+      {
+        "generator": "scripts/generate_family1_m04_notebook.py",
+        "notebook_path": "notebooks/lucid_kaggle_family1_m04_analytics.ipynb",
+        "publication_status": "owner_visible_unverified",
+        "task_name": "lucid_family1_m04_task",
+        "task_url": null
+      },
+      {
+        "generator": "scripts/generate_m09_kaggle_notebook.py",
+        "notebook_path": "notebooks/lucid_kaggle_m09_mature_evidence.ipynb",
+        "publication_status": "owner_visible_unverified",
+        "task_name": "lucid_m09_mature_evidence_task",
+        "task_url": null
+      },
+      {
+        "generator": "scripts/generate_m11_kaggle_notebooks.py",
+        "notebook_path": "notebooks/lucid_kaggle_m11_probe_p12.ipynb",
+        "publication_status": "owner_visible_unverified",
+        "task_name": "lucid_m11_probe_p12_task",
+        "task_url": null
+      },
+      {
+        "generator": "scripts/generate_m11_kaggle_notebooks.py",
+        "notebook_path": "notebooks/lucid_kaggle_m11_probe_p24.ipynb",
+        "publication_status": "owner_visible_unverified",
+        "task_name": "lucid_m11_probe_p24_task",
+        "task_url": null
+      },
+      {
+        "generator": "scripts/generate_m11_kaggle_notebooks.py",
+        "notebook_path": "notebooks/lucid_kaggle_m11_probe_p48.ipynb",
+        "publication_status": "owner_visible_unverified",
+        "task_name": "lucid_m11_probe_p48_task",
+        "task_url": null
+      }
+    ],
+    "writeup_artifact_paths": [
+      "docs/milestones/M10/artifacts/m10_submission_narrative.md",
+      "docs/milestones/M10/artifacts/m10_claims_evidence_matrix.md",
+      "docs/milestones/M10/artifacts/m10_limitations_and_scope.md",
+      "docs/milestones/M10/artifacts/m10_representative_models.md",
+      "docs/milestones/M10/artifacts/m10_faq_for_judges.md"
+    ]
+  },
+  "m11_notebook_release_manifest_path": "docs/milestones/M11/artifacts/m11_notebook_release_manifest.json",
+  "m11_notebook_release_manifest_sha256": "6ee23f4debe165ed26500db0bf301aef79145396b9c4ec5919da5430ee8d44a6",
+  "notebook_file_sha256": {
+    "notebooks/lucid_kaggle_m09_mature_evidence.ipynb": "0936d3548500172334b9ebe6e108e65ce89301115b31fc2edca4eb61df460d31",
+    "notebooks/lucid_kaggle_m11_probe_p12.ipynb": "3b6ca93293a07fa1e028954434083b390ada0faa0532462c413f7777d698f173",
+    "notebooks/lucid_kaggle_m11_probe_p24.ipynb": "2b5546411362308dec19135a3ec1ad1a624d992960fa876e9fa920fed5c38e64",
+    "notebooks/lucid_kaggle_m11_probe_p48.ipynb": "32530745e330afee75eeebc4093ddccd1e06ab87401e9cf79d17f88b61b59244"
+  },
+  "notebook_release_entries": [
+    {
+      "benchmark_version": "1.1.0",
+      "canonical": "true",
+      "evidence_role": "probe",
+      "file_sha256": "3b6ca93293a07fa1e028954434083b390ada0faa0532462c413f7777d698f173",
+      "generator": "scripts/generate_m11_kaggle_notebooks.py",
+      "notebook_path": "notebooks/lucid_kaggle_m11_probe_p12.ipynb",
+      "panel_source": "src/lucid/kaggle/m11_probe_panels.py",
+      "pin_sha": "a13afadadd89a6aed0cd434682b2675017ceab3c",
+      "probe_tier": "P12",
+      "task_name": "lucid_m11_probe_p12_task"
+    },
+    {
+      "benchmark_version": "1.1.0",
+      "canonical": "true",
+      "evidence_role": "probe",
+      "file_sha256": "2b5546411362308dec19135a3ec1ad1a624d992960fa876e9fa920fed5c38e64",
+      "generator": "scripts/generate_m11_kaggle_notebooks.py",
+      "notebook_path": "notebooks/lucid_kaggle_m11_probe_p24.ipynb",
+      "panel_source": "src/lucid/kaggle/m11_probe_panels.py",
+      "pin_sha": "a13afadadd89a6aed0cd434682b2675017ceab3c",
+      "probe_tier": "P24",
+      "task_name": "lucid_m11_probe_p24_task"
+    },
+    {
+      "benchmark_version": "1.1.0",
+      "canonical": "true",
+      "evidence_role": "probe",
+      "file_sha256": "32530745e330afee75eeebc4093ddccd1e06ab87401e9cf79d17f88b61b59244",
+      "generator": "scripts/generate_m11_kaggle_notebooks.py",
+      "notebook_path": "notebooks/lucid_kaggle_m11_probe_p48.ipynb",
+      "panel_source": "src/lucid/kaggle/m11_probe_panels.py",
+      "pin_sha": "a13afadadd89a6aed0cd434682b2675017ceab3c",
+      "probe_tier": "P48",
+      "task_name": "lucid_m11_probe_p48_task"
+    },
+    {
+      "benchmark_version": "1.1.0",
+      "canonical": "true",
+      "evidence_role": "comparable",
+      "file_sha256": "0936d3548500172334b9ebe6e108e65ce89301115b31fc2edca4eb61df460d31",
+      "generator": "scripts/generate_m09_kaggle_notebook.py",
+      "notebook_path": "notebooks/lucid_kaggle_m09_mature_evidence.ipynb",
+      "panel_source": "src/lucid/kaggle/m09_evidence_panel.py",
+      "pin_sha": "a13afadadd89a6aed0cd434682b2675017ceab3c",
+      "probe_tier": "P72",
+      "task_name": "lucid_m09_mature_evidence_task"
+    }
+  ],
+  "schema_version": "m12_submission_linkage_v1",
+  "sources_file": "docs/milestones/M12/artifacts/m12_linkage_sources.json",
+  "sources_file_sha256": "56353329e2a9660b5813ba8c3b9fc88f742fac3cb161efffa951dda535417669"
+}

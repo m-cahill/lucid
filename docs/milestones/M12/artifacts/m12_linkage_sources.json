@@ -1,0 +1,86 @@
+{
+  "benchmark_version": "1.1.0",
+  "kaggle_benchmark_slug": "michael1232/lucid-kaggle-community-benchmarks",
+  "publication_status": "owner_visible_unverified",
+  "notes_public_visibility": "Benchmark and task public URLs were not verified from the anonymous web at M12 authoring time. Replace null URLs after owner-view confirms live public visibility.",
+  "kaggle_benchmark_url": null,
+  "github_repository_url": "https://github.com/m-cahill/lucid",
+  "primary_submission_project_link": "kaggle_benchmark",
+  "competition_url": "https://www.kaggle.com/competitions/kaggle-measuring-agi",
+  "external_rules_citations": [
+    {
+      "title": "Community Benchmarks: Evaluating modern AI on Kaggle",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-community-benchmarks/",
+      "summary": "Official launch material: create tasks, group them into a benchmark, run and share evaluations."
+    }
+  ],
+  "tasks": [
+    {
+      "task_name": "lucid_main_task",
+      "notebook_path": "notebooks/lucid_kaggle_transport_text_adapter_m_01.ipynb",
+      "generator": "scripts/generate_kaggle_notebook.py",
+      "task_url": null,
+      "publication_status": "owner_visible_unverified"
+    },
+    {
+      "task_name": "lucid_family1_m04_task",
+      "notebook_path": "notebooks/lucid_kaggle_family1_m04_analytics.ipynb",
+      "generator": "scripts/generate_family1_m04_notebook.py",
+      "task_url": null,
+      "publication_status": "owner_visible_unverified"
+    },
+    {
+      "task_name": "lucid_m09_mature_evidence_task",
+      "notebook_path": "notebooks/lucid_kaggle_m09_mature_evidence.ipynb",
+      "generator": "scripts/generate_m09_kaggle_notebook.py",
+      "task_url": null,
+      "publication_status": "owner_visible_unverified"
+    },
+    {
+      "task_name": "lucid_m11_probe_p12_task",
+      "notebook_path": "notebooks/lucid_kaggle_m11_probe_p12.ipynb",
+      "generator": "scripts/generate_m11_kaggle_notebooks.py",
+      "task_url": null,
+      "publication_status": "owner_visible_unverified"
+    },
+    {
+      "task_name": "lucid_m11_probe_p24_task",
+      "notebook_path": "notebooks/lucid_kaggle_m11_probe_p24.ipynb",
+      "generator": "scripts/generate_m11_kaggle_notebooks.py",
+      "task_url": null,
+      "publication_status": "owner_visible_unverified"
+    },
+    {
+      "task_name": "lucid_m11_probe_p48_task",
+      "notebook_path": "notebooks/lucid_kaggle_m11_probe_p48.ipynb",
+      "generator": "scripts/generate_m11_kaggle_notebooks.py",
+      "task_url": null,
+      "publication_status": "owner_visible_unverified"
+    }
+  ],
+  "writeup_artifact_paths": [
+    "docs/milestones/M10/artifacts/m10_submission_narrative.md",
+    "docs/milestones/M10/artifacts/m10_claims_evidence_matrix.md",
+    "docs/milestones/M10/artifacts/m10_limitations_and_scope.md",
+    "docs/milestones/M10/artifacts/m10_representative_models.md",
+    "docs/milestones/M10/artifacts/m10_faq_for_judges.md"
+  ],
+  "evidence_artifacts": {
+    "m09": [
+      "docs/milestones/M09/artifacts/m09_model_panel.json",
+      "docs/milestones/M09/artifacts/m09_model_scores.csv",
+      "docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv"
+    ],
+    "m10": [
+      "docs/milestones/M10/artifacts/m10_figure_manifest.json"
+    ],
+    "m11": [
+      "docs/milestones/M11/artifacts/m11_model_response_surface.json",
+      "docs/milestones/M11/artifacts/m11_roster_canonical.json",
+      "docs/milestones/M11/artifacts/m11_probe_ladder.json",
+      "docs/milestones/M11/artifacts/m11_notebook_release_manifest.json",
+      "docs/milestones/M11/artifacts/michael1232_lucid-kaggle-community-benchmarks_leaderboard.csv",
+      "docs/milestones/M11/artifacts/lucid_m11_probe_p12_task_costs.csv"
+    ]
+  }
+}

@@ -1,14 +1,17 @@
 # M12 — Tool call log
 
-**Milestone:** M12 — Final linkage, submission packaging, and contingency buffer
-**Status:** **Active** — execution begins post-M11 closeout.
+**Milestone:** M12 — Final benchmark / task / writeup linkage  
+**Status:** **Closed** (2026-04-07)
 
 ---
 
 | Timestamp (UTC) | Tool | Purpose | Files / target | Status |
 |-----------------|------|---------|----------------|--------|
 | 2026-04-06 | — | Folder seeded with M11 Phase 1 | this file | seeded |
-| 2026-04-07 | handoff | M11 closed; M12 activated in ledger; `M12_plan.md` reframed for post-closeout execution | `docs/lucid.md`, `docs/milestones/M12/M12_plan.md`, `M12_toolcalls.md` | complete |
+| 2026-04-07 | handoff | M11 closed; M12 activated in ledger | `docs/lucid.md`, `M12_plan.md`, `M12_toolcalls.md` | complete |
+| 2026-04-07 | implementation | M12 linkage generator + CI; M11 ingest dual-export; evidence manifests; runbook; ledger + M10 addendum; M13 branch seed | `scripts/`, `docs/milestones/M12/`, `docs/milestones/M11/artifacts/`, `docs/lucid.md`, `.github/workflows/ci.yml`, `.gitignore` | complete |
+| 2026-04-07 | git / gh | Push `m12-final-linkage`; open PR #13; watch CI run 24107725335 | origin, GitHub Actions | success |
+| 2026-04-07 | closeout | Record CI in `M12_run1.md`; regenerate `M12_summary.md` / `M12_audit.md` per prompts; ledger CI line | `M12_run1.md`, `M12_summary.md`, `M12_audit.md`, `docs/lucid.md` | complete |
 
 ---
 
@@ -21,4 +24,4 @@
 - `docs/milestones/M11/M11_run1.md`
 - `docs/milestones/M11/M11_toolcalls.md`
 
-**M12** owns final benchmark–task–writeup linkage; it does **not** default to reopening M11 probe runs.
+**M12** delivered final benchmark–task–writeup linkage; it does **not** default to reopening M11 probe runs.

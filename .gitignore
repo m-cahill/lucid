@@ -26,6 +26,7 @@ coverage.xml
 htmlcov/
 
 # IDE / OS
+.cursor-ci-runs.json
 .idea/
 .vscode/
 *.swp

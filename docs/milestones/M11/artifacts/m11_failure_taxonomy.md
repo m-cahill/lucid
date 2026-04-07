@@ -6,8 +6,8 @@ Codes are **normalized** from ingest; they do **not** assert benchmark defects.
 
 | Status | Count |
 |--------|------:|
-| `completed` | 15 |
-| `export_missing` | 93 |
+| `completed` | 46 |
+| `export_missing` | 62 |
 | `platform_limited` | 16 |
 
 ## Failure reason codes (non-completed rows with code)
@@ -15,4 +15,4 @@ Codes are **normalized** from ingest; they do **not** assert benchmark defects.
 | Code | Count |
 |------|------:|
 | `boolean_false_no_numeric` | 16 |
-| `no_row_for_task` | 93 |
+| `no_row_for_task` | 62 |

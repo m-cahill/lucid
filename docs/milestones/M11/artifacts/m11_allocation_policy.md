@@ -11,34 +11,34 @@ Each model receives one **allocation_action** using deterministic rules below. T
 
 | model_slug | allocation_action | rationale |
 |------------|-------------------|-----------|
-| `claude-haiku-4-5-20251001` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `claude-opus-4-1-20250805` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `claude-opus-4-5-20251101` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `claude-opus-4-6-default` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `claude-sonnet-4-20250514` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `claude-sonnet-4-5-20250929` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `claude-sonnet-4-6-default` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `deepseek-v3.1` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `deepseek-v3.2` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gemini-2.0-flash-001` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gemini-2.0-flash-lite-001` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gemini-2.5-flash` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gemini-2.5-pro` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gemini-3-flash-preview` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gemini-3.1-flash-lite-preview` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gemini-3.1-pro-preview` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gemma-3-12b-it` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gemma-3-1b-it` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gemma-3-27b-it` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gemma-3-4b-it` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gemma-4-26b-a4b-it` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gemma-4-31b-it` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `glm-5` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gpt-5.4-2026-03-05` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gpt-5.4-mini-2026-03-17` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gpt-5.4-nano-2026-03-17` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `gpt-oss-20b` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `qwen3-235b-a22b-instruct-2507` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `qwen3-coder-480b-a35b-instruct` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `qwen3-next-80b-a3b-instruct` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
-| `qwen3-next-80b-a3b-thinking` | `stop_spending_budget` | P12 not completed — do not escalate spend. |
+| `claude-haiku-4-5-20251001` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `claude-opus-4-1-20250805` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `claude-opus-4-5-20251101` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `claude-opus-4-6-default` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `claude-sonnet-4-20250514` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `claude-sonnet-4-5-20250929` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `claude-sonnet-4-6-default` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `deepseek-v3.1` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `deepseek-v3.2` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gemini-2.0-flash-001` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gemini-2.0-flash-lite-001` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gemini-2.5-flash` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gemini-2.5-pro` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gemini-3-flash-preview` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gemini-3.1-flash-lite-preview` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gemini-3.1-pro-preview` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gemma-3-12b-it` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gemma-3-1b-it` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gemma-3-27b-it` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gemma-3-4b-it` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gemma-4-26b-a4b-it` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gemma-4-31b-it` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `glm-5` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gpt-5.4-2026-03-05` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gpt-5.4-mini-2026-03-17` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gpt-5.4-nano-2026-03-17` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `gpt-oss-20b` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `qwen3-235b-a22b-instruct-2507` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `qwen3-coder-480b-a35b-instruct` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `qwen3-next-80b-a3b-instruct` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
+| `qwen3-next-80b-a3b-thinking` | `repeat_for_stability` | Higher-tier probe exports not present — rerun ladder when exports exist. |
