@@ -17,7 +17,7 @@
 | 2026-04-07 | closeout | Evidence-backed failure classification for DeepSeek-R1 and gpt-oss-120b; roster updated with exact failure codes + detail; M11 docs hardened for closeout | `generate_m11_probe_artifacts.py`, `m11_roster_canonical.json`, `M11_run1.md`, `M11_summary.md`, `M11_audit.md`, `M11_toolcalls.md` | complete |
 | 2026-04-07 | CI / shell | `gh run view 24058104201 --log-failed`; root cause: `generate_m11_notebook_release_manifest.py --check` (manifest JSON drift); `M11_run2.md` per `docs/prompts/workflowprompt.md` | `.github/workflows/ci.yml`, `M11_run2.md`, `M11_toolcalls.md` | complete |
 | 2026-04-07 | CI fix | Notebook manifest: LF-normalize `.ipynb` before SHA-256 (`ba2e866`); ingest: repo-relative `export_paths` + legacy path resolution (`fc60c93`); CSV hashes LF-normalized in `file_sha256` (`c0f55ce`); green **24105189098** | `generate_m11_notebook_release_manifest.py`, `m11_notebook_release_manifest.json`, `ingest_m11_platform_exports.py`, `m11_ingest_common.py`, M11 artifacts | complete |
-| 2026-04-07 | closeout | Roster **31** tracked / **2** excluded via `generate_m11_probe_artifacts.py`; regenerate ingest/tables/figures; align `M11_run1/2`, summary, audit, ledger, M12 handoff; push → confirm `CI` on tip | `docs/milestones/M11/*`, `docs/lucid.md`, `docs/milestones/M12/*`, `scripts/generate_m11_probe_artifacts.py` | complete |
+| 2026-04-07 | closeout | Roster **31** tracked / **2** excluded via `generate_m11_probe_artifacts.py`; regenerate ingest/tables/figures; align `M11_run1/2`, summary, audit, ledger, M12 handoff; **CI** **24105499612** green on **`861aa19`** | `docs/milestones/M11/*`, `docs/lucid.md`, `docs/milestones/M12/*`, `scripts/generate_m11_probe_artifacts.py` | complete |
 
 ---
 

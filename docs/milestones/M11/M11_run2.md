@@ -69,13 +69,15 @@ This file records (1) the **initial** merge-blocking failure on `main`, (2) **ro
 
 ## D — Formal closeout follow-up (this milestone pack)
 
-Content-closeout items (31 tracked / 2 excluded roster, regenerated ingest/tables/figures, ledger alignment) are applied **after** the `c0f55ce` baseline in a **separate** commit that:
+**Closeout commit:** `861aa19f03b0a12ef2ef41ff23ebb5c4151cc0f0` — `docs(m11): formal closeout — roster 31/2, artifacts, ledger, M12 handoff`
+
+That commit:
 
 - Restores **evidence-backed** exclusions in `generate_m11_probe_artifacts.py` and `m11_roster_canonical.json` (**31** `tracked`, **2** excluded).
 - Regenerates **M11 ingest + tables + figures** artifacts so `--check` stays aligned.
-- Updates **M11** summary / audit / toolcalls / `docs/lucid.md` and **M12** handoff files.
+- Updates **M11** summary / audit / run records / `docs/lucid.md` and **M12** handoff files; adds extended P12/P24 artifact files where committed.
 
-**Post–closeout-commit CI:** confirm on GitHub Actions for the **tip** of `main` after that push (run ID recorded in `M11_toolcalls.md`).
+**Post–closeout-commit CI (authoritative):** https://github.com/m-cahill/lucid/actions/runs/24105499612 — **success** on **`861aa19`** (full `CI` workflow green, including all M11 generator `--check` steps).
 
 ---
 
@@ -94,5 +96,4 @@ Content-closeout items (31 tracked / 2 excluded roster, regenerated ingest/table
 
 | Action | Owner |
 | ------ | ----- |
-| Confirm green CI on **closeout** tip after push | Maintainer |
 | M12 execution per `docs/milestones/M12/M12_plan.md` | Maintainer |

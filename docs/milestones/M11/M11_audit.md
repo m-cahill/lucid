@@ -58,7 +58,7 @@ The correct framing: the current strict structured-output surface is part of the
 ## 5. CI / reproducibility
 
 * **Authoritative green CI (tooling recovery, 2026-04-07):** run **24105189098** on commit **`c0f55ce7cdbc8d9b3feca7625379cb59211b0cd1`** — https://github.com/m-cahill/lucid/actions/runs/24105189098 — after fixes for notebook-manifest newline hashing, repo-relative ingest `export_paths`, and LF-normalized CSV hashing in probe manifest tables.
-* **Formal closeout commit** (roster 31/2 + regenerated artifacts + ledger): confirm the **latest** `CI` run on `main` after that push; see `M11_run2.md` §D and `M11_toolcalls.md`.
+* **Formal closeout commit** (roster 31/2 + regenerated artifacts + ledger): run **24105499612** on commit **`861aa19f03b0a12ef2ef41ff23ebb5c4151cc0f0`** — https://github.com/m-cahill/lucid/actions/runs/24105499612 — **success**.
 * All `--check` generators pass deterministically on that tip.
 * `pytest` full suite green with ≥85% coverage.
 * `ruff check` clean on touched scripts.

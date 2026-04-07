@@ -111,4 +111,4 @@ The evidence surface comprises:
 
 No further M11 probing is planned. **M12** is the active follow-on milestone (`docs/milestones/M12/M12_plan.md`). Ledger: `docs/lucid.md` §9.
 
-**CI authority (merge-blocking `main`):** See `M11_run2.md` for the **2026-04-07** corrective series. Tooling recovery reached **green** on run **24105189098** at commit **`c0f55ce7cdbc8d9b3feca7625379cb59211b0cd1`**. The formal **closeout** commit (31/2 roster + regenerated artifacts + ledger alignment) must also pass **`CI`** on `main`; the **latest** run ID is recorded in `M11_toolcalls.md`.
+**CI authority (merge-blocking `main`):** See `M11_run2.md` for the **2026-04-07** corrective series. Tooling recovery reached **green** on run **24105189098** at commit **`c0f55ce7cdbc8d9b3feca7625379cb59211b0cd1`**. The formal **closeout** commit passed **`CI`** on run **24105499612** at commit **`861aa19f03b0a12ef2ef41ff23ebb5c4151cc0f0`** (see `M11_toolcalls.md`).
