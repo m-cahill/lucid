@@ -2,7 +2,7 @@
 
 * **Milestone:** M12 — Final benchmark / task / writeup linkage  
 * **Mode:** DELTA AUDIT  
-* **Range:** `main` baseline prior to M12 … `57dd8a6215856d7fbbe61febc6b0da6f7d74b5ee` (PR #13 final head)  
+* **Range:** `main` baseline prior to M12 … `513d230c0660f1e24b5995abf610e21116048a0f` (PR #13 final head); merged **`6211b0c9b0197ab89ac5ddcc5350f3bc4d3840ed`**  
 * **CI Status:** Green  
 * **Audit Verdict:** 🟢 — Linkage and ingest wiring complete; no benchmark semantic drift; deferrals explicit  
 
@@ -61,7 +61,7 @@
 |-------|--------|
 | Required checks on PR #13 | Enforced; workflow `CI` completed successfully |
 | Skipped gates | None observed |
-| Run evidence | https://github.com/m-cahill/lucid/actions/runs/24107986535 |
+| Run evidence | https://github.com/m-cahill/lucid/actions/runs/24108099234 |
 | Deterministic installs | `python -m pip install -e ".[dev]"` unchanged |
 
 Annotation: Node.js 20 deprecation warning on `actions/checkout` / `setup-python` (runner platform notice)—**not** a failing gate.
@@ -74,7 +74,7 @@ Annotation: Node.js 20 deprecation warning on `actions/checkout` / `setup-python
 |------|--------|
 | New tests | `tests/test_m12_submission_linkage.py` — smoke on `build_linkage_payload` |
 | Coverage | Repo gate ≥85% maintained on full `pytest` in CI |
-| Flakes | None observed on run **24107986535** |
+| Flakes | None observed on run **24108099234** |
 
 ---
 
@@ -95,7 +95,7 @@ No HIGH or MEDIUM issues identified. Publication fields are honest (`null` URLs)
 
 | Gate | Result |
 |------|--------|
-| CI Stability | PASS — run **24107986535** success |
+| CI Stability | PASS — run **24108099234** success |
 | Tests | PASS |
 | Coverage | PASS — ≥85% |
 | Workflows | PASS |
@@ -112,8 +112,9 @@ No HIGH or MEDIUM issues identified. Publication fields are honest (`null` URLs)
   "verdict": "green_closeout",
   "benchmark_version": "1.1.0",
   "semantic_changes": false,
-  "ci_run_id": 24107986535,
-  "head_sha": "57dd8a6215856d7fbbe61febc6b0da6f7d74b5ee",
+  "ci_run_id": 24108099234,
+  "head_sha": "513d230c0660f1e24b5995abf610e21116048a0f",
+  "merge_commit_sha": "6211b0c9b0197ab89ac5ddcc5350f3bc4d3840ed",
   "linkage_generator": "scripts/generate_m12_submission_linkage.py",
   "m13_seeded": true
 }

@@ -550,7 +550,7 @@ Planned milestone arc (competition charter locked in **M02**):
 
 **Closed:** 2026-04-07 (repository record — branch `m12-final-linkage`).
 
-**Authoritative green CI (PR #13):** https://github.com/m-cahill/lucid/actions/runs/24107986535 — run ID **24107986535**, head **`57dd8a6215856d7fbbe61febc6b0da6f7d74b5ee`** (final PR tip before merge).
+**Authoritative green CI (PR #13):** https://github.com/m-cahill/lucid/actions/runs/24108099234 — run ID **24108099234**, head **`513d230c0660f1e24b5995abf610e21116048a0f`** (final PR tip before merge to `main` at **`6211b0c9b0197ab89ac5ddcc5350f3bc4d3840ed`**).
 
 **What M12 delivered**
 

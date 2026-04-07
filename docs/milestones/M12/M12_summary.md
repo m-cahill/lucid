@@ -57,7 +57,7 @@ Mechanical / documentation-only delta on **benchmark execution semantics** in `s
 |-------|--------|
 | Local | `ruff`, `mypy`, `pytest` full suite green with ≥85% coverage |
 | Generators | All `--check` steps in CI workflow, including M12 linkage |
-| GitHub Actions | PR **#13**, final run **24107986535**, head **`57dd8a6215856d7fbbe61febc6b0da6f7d74b5ee`**, conclusion **success** — see `M12_run1.md` |
+| GitHub Actions | PR **#13**, final run **24108099234**, head **`513d230c0660f1e24b5995abf610e21116048a0f`**, conclusion **success** — see `M12_run1.md`; merged to `main` at **`6211b0c9b0197ab89ac5ddcc5350f3bc4d3840ed`** |
 
 Validation is meaningful: CI exercises the same generator graph as release, including M11 ingest and M12 linkage.
 
@@ -127,8 +127,8 @@ Milestone objectives met. Safe to proceed to **M13** for optional URL verificati
 
 | Type | Reference |
 |------|-----------|
-| Commits | `e74c6d6` … `57dd8a6` on `m12-final-linkage` (see git log) |
+| Commits | Feature branch `m12-final-linkage` through **`513d230c0660f1e24b5995abf610e21116048a0f`**; merge **`6211b0c9b0197ab89ac5ddcc5350f3bc4d3840ed`** on `main` |
 | Pull request | https://github.com/m-cahill/lucid/pull/13 |
-| CI run (final green) | https://github.com/m-cahill/lucid/actions/runs/24107986535 |
+| CI run (final green) | https://github.com/m-cahill/lucid/actions/runs/24108099234 |
 | Documents | `docs/milestones/M12/M12_plan.md`, `M12_run1.md`, `M12_audit.md`, `M12_toolcalls.md` |
 

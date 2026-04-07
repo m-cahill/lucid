@@ -33,7 +33,7 @@
 | Head commit | `72a6ca213813ad6bfc5c79fef5cb594550364b90` |
 | Conclusion | **success** |
 
-### Run C — final PR tip (authoritative green before merge)
+### Run C — alignment pass (CI ref churn)
 
 | Field | Value |
 |-------|--------|
@@ -42,16 +42,24 @@
 | Head commit | `57dd8a6215856d7fbbe61febc6b0da6f7d74b5ee` |
 | Conclusion | **success** |
 
-**Authoritative CI for M12 merge:** Run **C** — last green `pull_request` workflow on the PR branch before merge to `main`.
-
-## Merge to `main`
-
-_Updated after merge — see table below._
+### Run D — final PR head (authoritative green before merge)
 
 | Field | Value |
 |-------|--------|
-| Merge commit SHA | _filled after merge_ |
-| Merge method | _filled after merge_ |
+| Run ID | **24108099234** |
+| Workflow run URL | https://github.com/m-cahill/lucid/actions/runs/24108099234 |
+| Head commit | `513d230c0660f1e24b5995abf610e21116048a0f` |
+| Conclusion | **success** |
+
+**Authoritative CI for M12 merge:** Run **D** — last green `pull_request` workflow on the PR branch before merge to `main`.
+
+## Merge to `main`
+
+| Field | Value |
+|-------|--------|
+| Merge commit SHA | `6211b0c9b0197ab89ac5ddcc5350f3bc4d3840ed` |
+| Merge method | merge commit (`Merge branch 'm12-final-linkage' (M12 closeout)`) |
+| PR | https://github.com/m-cahill/lucid/pull/13 |
 
 ## Notes
 

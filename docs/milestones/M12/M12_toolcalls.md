@@ -12,6 +12,7 @@
 | 2026-04-07 | implementation | M12 linkage generator + CI; M11 ingest dual-export; evidence manifests; runbook; ledger + M10 addendum; M13 branch seed | `scripts/`, `docs/milestones/M12/`, `docs/milestones/M11/artifacts/`, `docs/lucid.md`, `.github/workflows/ci.yml`, `.gitignore` | complete |
 | 2026-04-07 | git / gh | Push `m12-final-linkage`; open PR #13; watch CI run 24107725335 | origin, GitHub Actions | success |
 | 2026-04-07 | closeout | Record CI in `M12_run1.md`; regenerate `M12_summary.md` / `M12_audit.md` per prompts; ledger CI line | `M12_run1.md`, `M12_summary.md`, `M12_audit.md`, `docs/lucid.md` | complete |
+| 2026-04-07 | git / gh | PR #13 green runs through **24108099234**; merge to `main` at `6211b0c9b0197ab89ac5ddcc5350f3bc4d3840ed`; post-merge doc sync (final run + merge SHA) | `main`, `M12_run1.md`, ledger, summary, audit | complete |
 
 ---
 
