@@ -1,59 +1,109 @@
-# Milestone Audit — M12 (closeout)
+# Milestone Audit — M12
 
-**Milestone:** M12 — Final benchmark / task / writeup linkage  
-**Mode:** **DELTA** — documentation, manifests, ingest wiring, CI; **no** scorer/parser/schema/family semantic edits  
-**Audit verdict:** **Green** — linkage generator and evidence surface complete; benchmark **1.1.0** held.
-
----
-
-## 1. Executive summary
-
-**Intent:** Package the locked **1.1.0** benchmark and Kaggle task set into an auditable, reproducible submission-facing bundle with honest publication-status fields for external URLs.
-
-**Blast radius**
-
-* **Added/modified:** `scripts/generate_m12_submission_linkage.py`, `scripts/m11_ingest_common.py`, `docs/milestones/M12/**`, `docs/milestones/M11/artifacts/**` (ingest inputs + regenerated surfaces), `docs/lucid.md`, M10 narrative, `.github/workflows/ci.yml`, `.gitignore`, `tests/test_m12_submission_linkage.py`.
-* **Not touched:** `src/lucid/` scorer, parser, families, or profile semantics.
+* **Milestone:** M12 — Final benchmark / task / writeup linkage  
+* **Mode:** DELTA AUDIT  
+* **Range:** `main` baseline prior to M12 … `532a57c0c82f95821fa3e79972d771fca45a8753` (PR #13 head)  
+* **CI Status:** Green  
+* **Audit Verdict:** 🟢 — Linkage and ingest wiring complete; no benchmark semantic drift; deferrals explicit  
 
 ---
 
-## 2. Governance alignment
+## 1. Executive Summary (Delta-Focused)
 
-| Invariant | Status |
-|-----------|--------|
-| Benchmark version **1.1.0** | **Held** |
-| Semantic benchmark change | **None** |
-| No fake Kaggle URLs | **Held** — null URLs + `owner_visible_unverified` until verified |
-| CI generator `--check` | **Held** — includes M12 linkage |
+**Improvements**
 
----
+- Added **deterministic** `generate_m12_submission_linkage.py` with CI `--check`, reducing prose drift for benchmark/task/evidence pointers.
+- **Dual-export M11 ingest** aligns committed response surface with authoritative leaderboard CSV; P12 completion no longer appears as blanket `export_missing`.
+- **Governance artifacts**: runbook, checklist, contingency matrix, evidence-surface manifest.
 
-## 3. Evidence posture
+**Risks**
 
-| Claim | Supported by |
-|-------|----------------|
-| P12 completion from merged exports | Regenerated `m11_model_response_surface.json` with `michael1232_lucid-kaggle-community-benchmarks_leaderboard.csv` in default ingest paths |
-| Cost table | `docs/milestones/M11/artifacts/lucid_m11_probe_p12_task_costs.csv` |
-| CI recovery context | `docs/milestones/M11/artifacts/ci/M11_ci_failure_snippet_run24058104201.txt` |
-| Notebook pins | `m11_notebook_release_manifest.json` referenced by linkage payload |
+- **Publication ambiguity:** Kaggle URLs intentionally null until owner-view; operators must not mistake `owner_visible_unverified` for public proof.
+- **Operational hygiene:** Stray duplicate CSV outside `artifacts/` (if a file handle prevented delete) could confuse operators—mitigated by ledger notes.
+
+**Single most important next action:** On **M13**, fill URLs in `m12_linkage_sources.json` after owner-view and regenerate linkage artifacts.
 
 ---
 
-## 4. CI / reproducibility
+## 2. Delta Map & Blast Radius
 
-* Local **2026-04-07:** full `pytest` green; `ruff` / `mypy` clean; all milestone generators including `generate_m12_submission_linkage.py --check` pass.
-* **GitHub Actions:** record authoritative run URL and SHA in `M12_run1.md` after PR merge.
+| Changed | Notes |
+|---------|--------|
+| `scripts/` | `generate_m12_submission_linkage.py`, `m11_ingest_common.py` |
+| `docs/milestones/M12/**` | Plan, run, summary, audit, artifacts |
+| `docs/milestones/M11/artifacts/**` | Ingest inputs + regenerated JSON/CSV/MD/PNG |
+| `docs/lucid.md`, M10 narrative | Ledger + bounded addendum |
+| `.github/workflows/ci.yml`, `.gitignore` | CI step; ignore local cache |
+
+**Risk zones touched:** CI glue (moderate); contracts / scorer / persistence (none).
 
 ---
 
-## 5. Deferred (M13)
+## 3. Architecture & Modularity
 
-* Public URL verification from anonymous web when owner confirms.
-* Optional narrative polish not required for linkage closure.
+### Keep
+
+- Linkage generator reads editable JSON sources and committed M11 notebook manifest—separation of **human intent** (URLs/status) vs **computed** hashes.
+
+### Fix Now (≤ 90 min)
+
+- None blocking closeout.
+
+### Defer
+
+- Public URL verification → **M13** with exit criteria: URLs populated only with owner evidence.
 
 ---
 
-## 6. Machine-readable appendix
+## 4. CI/CD & Workflow Integrity
+
+| Check | Result |
+|-------|--------|
+| Required checks on PR #13 | Enforced; workflow `CI` completed successfully |
+| Skipped gates | None observed |
+| Run evidence | https://github.com/m-cahill/lucid/actions/runs/24107725335 |
+| Deterministic installs | `python -m pip install -e ".[dev]"` unchanged |
+
+Annotation: Node.js 20 deprecation warning on `actions/checkout` / `setup-python` (runner platform notice)—**not** a failing gate.
+
+---
+
+## 5. Tests & Coverage (Delta-Only)
+
+| Item | Notes |
+|------|--------|
+| New tests | `tests/test_m12_submission_linkage.py` — smoke on `build_linkage_payload` |
+| Coverage | Repo gate ≥85% maintained on full `pytest` in CI |
+| Flakes | None observed on run **24107725335** |
+
+---
+
+## 6. Security & Supply Chain
+
+- No new dependencies in this milestone delta.
+- No secrets committed; linkage JSON uses public repo paths only.
+
+---
+
+## 7. Structured Findings
+
+No HIGH or MEDIUM issues identified. Publication fields are honest (`null` URLs).
+
+---
+
+## 8. Quality Gates
+
+| Gate | Result |
+|------|--------|
+| CI Stability | PASS — run **24107725335** success |
+| Tests | PASS |
+| Coverage | PASS — ≥85% |
+| Workflows | PASS |
+| Contracts | PASS — no unintentional API drift in `src/lucid` |
+
+---
+
+## 9. Machine-readable appendix
 
 ```json
 {
@@ -62,6 +112,8 @@
   "verdict": "green_closeout",
   "benchmark_version": "1.1.0",
   "semantic_changes": false,
+  "ci_run_id": 24107725335,
+  "head_sha": "532a57c0c82f95821fa3e79972d771fca45a8753",
   "linkage_generator": "scripts/generate_m12_submission_linkage.py",
   "m13_seeded": true
 }

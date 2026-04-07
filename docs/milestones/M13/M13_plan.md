@@ -1,6 +1,6 @@
 # M13 — Contingency buffer (stub)
 
-**Status:** **Planned / active** — see `docs/lucid.md` §9.
+**Status:** **Planned / active** — see `docs/lucid.md` section 9 (active milestone).
 
 **Purpose:** Optional follow-ups after M12 closeout that are **not** blocking for the core linkage deliverable:
 

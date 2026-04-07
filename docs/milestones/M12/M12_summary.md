@@ -1,51 +1,134 @@
-# Milestone Summary — M12: Final benchmark / task / writeup linkage
+# 📌 Milestone Summary — M12: Final benchmark / task / writeup linkage
 
 **Project:** LUCID  
-**Milestone:** M12  
-**Status:** **Complete / closed**  
-**Benchmark version:** **1.1.0** (unchanged)
+**Phase:** UNKNOWN  
+**Milestone:** M12 — Final benchmark / task / writeup linkage  
+**Timeframe:** 2026-04-07 → 2026-04-07 (repository record)  
+**Status:** Closed  
 
 ---
 
-## 1. Objective
+## 1. Milestone Objective
 
-Deliver a **single authoritative, CI-checkable linkage package** connecting benchmark **1.1.0**, Kaggle benchmark slug, six tasks, generated notebooks, M09/M10/M11 evidence paths, and judge-facing writeup artifacts—without changing benchmark semantics or defaulting to new M11 probe runs.
+M12 existed to close the gap between **closed M11 probe evidence** and a **submission-ready, auditable package**: one deterministic linkage manifest tying benchmark **1.1.0**, Kaggle benchmark slug, six tasks, generated notebooks, and evidence artifacts—without changing benchmark semantics or defaulting to new M11 probe runs.
 
----
-
-## 2. What shipped
-
-| Area | Evidence |
-|------|------------|
-| M11 ingest default exports | `scripts/m11_ingest_common.py` — dual CSV inputs; regenerated `m11_model_response_surface.*`, tables, figures |
-| Committed operator / ingest CSVs | `docs/milestones/M11/artifacts/michael1232_lucid-kaggle-community-benchmarks_leaderboard.csv`, `lucid_m11_probe_p12_task_costs.csv`, `artifacts/ci/M11_ci_failure_snippet_run24058104201.txt` |
-| Linkage generator | `scripts/generate_m12_submission_linkage.py` (`--write` / `--check`) |
-| Linkage artifacts | `docs/milestones/M12/artifacts/m12_submission_linkage.json`, `m12_submission_linkage.md`, `m12_linkage_sources.json`, `m12_public_links.json` |
-| Evidence surface | `m12_evidence_surface_manifest.json`, `m12_evidence_surface_notes.md` |
-| Operator docs | `M12_SUBMISSION_RUNBOOK.md`, `m12_submission_checklist.md`, `m12_contingency_matrix.md` |
-| Tests | `tests/test_m12_submission_linkage.py` |
-| CI | `.github/workflows/ci.yml` — M12 `--check` step |
-| Ledger / narrative | `docs/lucid.md` updates; M10 narrative addendum + competition links |
-| Non-canonical cache | `.gitignore` — `.cursor-ci-runs.json` |
+> Without M12, operators would lack a single CI-checked source of truth for benchmark/task/writeup linkage and would risk mixing stale placeholders with M11 closeout facts.
 
 ---
 
-## 3. Evidence boundary
+## 2. Scope Definition
 
-- **Kaggle URLs:** `publication_status` remains **`owner_visible_unverified`** in linkage sources until owner-view confirms public visibility; no fabricated benchmark or task URLs.
-- **Primary project link (intended):** Kaggle **benchmark** page; **secondary:** GitHub repository (`https://github.com/m-cahill/lucid`).
-- **Rules citation:** Google launch post on Community Benchmarks linked from `m12_linkage_sources.json` and reproduced in generated linkage Markdown.
+### In Scope
+
+- `scripts/generate_m12_submission_linkage.py` and committed `m12_submission_linkage.json` / `.md`
+- `m12_linkage_sources.json`, `m12_public_links.json`, evidence-surface manifest + notes
+- `M12_SUBMISSION_RUNBOOK.md`, `m12_submission_checklist.md`, `m12_contingency_matrix.md`
+- M11 ingest default paths: merge M09 export + full benchmark leaderboard CSV; regenerate M11 response-surface artifacts
+- Commit authoritative M11 CSVs and CI snippet under `docs/milestones/M11/artifacts/` (including `artifacts/ci/`)
+- Ledger (`docs/lucid.md`) and bounded M10 narrative addendum (links + M11 posture)
+- CI: new `generate_m12_submission_linkage.py --check` step; tests `tests/test_m12_submission_linkage.py`
+- `.gitignore` for `.cursor-ci-runs.json`
+
+### Out of Scope
+
+- Benchmark version bump; scorer/parser/schema/family changes
+- New M11 probe runs; parser rescue for excluded models
+- Fabricated Kaggle public URLs (`owner_visible_unverified` until owner-view)
 
 ---
 
-## 4. Deferred
+## 3. Work Executed
 
-- **M13:** Optional polish, post-submission doc cleanup, or authorized reruns—see `docs/milestones/M13/M13_plan.md` on the M13 branch.
+| Category | What happened |
+|----------|----------------|
+| Linkage | Generator builds JSON + Markdown from `m12_linkage_sources.json` + `m11_notebook_release_manifest.json` + file SHA-256 hashes |
+| M11 ingest | `default_export_paths()` extended to two CSVs; `m11_model_response_surface.json` and derivatives regenerated (P12 rows populated) |
+| Evidence files | Leaderboard export, cost CSV, CI failure snippet committed under `artifacts/` |
+| Docs | Full `M12_plan.md`; runbook; checklist; contingency; closeout run/summary/audit |
+| Automation | CI workflow step added; `.gitignore` for local Cursor cache |
+
+Mechanical / documentation-only delta on **benchmark execution semantics** in `src/lucid/` scoring paths: **none**.
 
 ---
 
-## 5. Key outcomes
+## 4. Validation & Evidence
 
-1. **Deterministic linkage** — one generator builds JSON + Markdown; CI enforces `--check`.
-2. **Evidence hygiene** — authoritative M11 CSVs and CI snippet paths documented; ingest reproduces P12 completion from committed exports.
-3. **Submission readiness** — runbook + checklist + contingency matrix for operators.
+| Layer | Result |
+|-------|--------|
+| Local | `ruff`, `mypy`, `pytest` full suite green with ≥85% coverage |
+| Generators | All `--check` steps in CI workflow, including M12 linkage |
+| GitHub Actions | PR **#13**, run **24107725335**, head **`532a57c0c82f95821fa3e79972d771fca45a8753`**, conclusion **success** — see `M12_run1.md` |
+
+Validation is meaningful: CI exercises the same generator graph as release, including M11 ingest and M12 linkage.
+
+---
+
+## 5. CI / Automation Impact
+
+| Item | Change |
+|------|--------|
+| Workflow | `.github/workflows/ci.yml` — added **M12 submission linkage (--check)** |
+| Enforcement | Linkage JSON/MD must match generator output on PR |
+| Signal | No change to existing Python lint gates; new failure mode if linkage drift |
+
+CI blocked **incorrect** linkage drift via `--check`; validated **correct** regeneration on the closing tip.
+
+---
+
+## 6. Issues & Exceptions
+
+No new issues were introduced during this milestone.
+
+---
+
+## 7. Deferred Work
+
+| Item | Reason | Pre-existed? |
+|------|--------|--------------|
+| Public Kaggle benchmark/task URL verification | Requires owner-view; not provable from repo alone | Yes (competition surface) |
+| Optional full hosted roster reruns | Competition framing / cost | Yes |
+
+---
+
+## 8. Governance Outcomes
+
+- **Single authoritative linkage artifact** with CI enforcement
+- **Evidence surface classification** (authoritative vs superseded vs local cache) documented in ledger
+- **Honest publication** fields for external URLs (`null` + status until verified)
+
+---
+
+## 9. Exit Criteria Evaluation
+
+| Criterion | Result | Evidence |
+|-----------|--------|----------|
+| Benchmark **1.1.0** unchanged | Met | No contract/scorer edits |
+| Deterministic linkage + `--check` | Met | `generate_m12_submission_linkage.py`, CI step |
+| No fake URLs | Met | `m12_linkage_sources.json` |
+| Runbook + checklist | Met | `M12_SUBMISSION_RUNBOOK.md`, `m12_submission_checklist.md` |
+| Green CI on closing tip | Met | `M12_run1.md` |
+
+---
+
+## 10. Final Verdict
+
+Milestone objectives met. Safe to proceed to **M13** for optional URL verification and polish.
+
+---
+
+## 11. Authorized Next Step
+
+- **M13** active per `docs/lucid.md` — contingency buffer (`docs/milestones/M13/M13_plan.md`).
+- No further M12 scope unless a regression is found requiring a linkage-only fix.
+
+---
+
+## 12. Canonical References
+
+| Type | Reference |
+|------|-----------|
+| Commits | `e74c6d6` (feat M12), `532a57c` (M13 seed) on `m12-final-linkage` |
+| Pull request | https://github.com/m-cahill/lucid/pull/13 |
+| CI run | https://github.com/m-cahill/lucid/actions/runs/24107725335 |
+| Documents | `docs/milestones/M12/M12_plan.md`, `M12_run1.md`, `M12_audit.md`, `M12_toolcalls.md` |
+

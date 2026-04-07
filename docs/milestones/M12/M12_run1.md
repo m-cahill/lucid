@@ -11,16 +11,29 @@
 - `python -m pytest` — pass (coverage ≥ 85%)  
 - All generator `--check` commands in `.github/workflows/ci.yml`, including `python scripts/generate_m12_submission_linkage.py --check` — pass  
 
-## GitHub Actions
+## GitHub Actions (authoritative green — PR #13)
 
-_Record the authoritative green workflow run URL and commit SHA for the closing M12 merge after the PR is pushed._
+**Pull request:** https://github.com/m-cahill/lucid/pull/13  
 
 | Field | Value |
 |-------|--------|
-| Workflow run URL | _pending — fill after CI on merge tip_ |
-| Commit SHA | _pending_ |
-| Verdict | _pending_ |
+| Workflow | `CI` (`.github/workflows/ci.yml`) |
+| Event | `pull_request` |
+| Run ID | **24107725335** |
+| Workflow run URL | https://github.com/m-cahill/lucid/actions/runs/24107725335 |
+| Head commit (validated by CI) | `532a57c0c82f95821fa3e79972d771fca45a8753` |
+| Conclusion | **success** |
+| Job | `lint-test` |
+
+## Merge to `main`
+
+_Updated after merge — see table below._
+
+| Field | Value |
+|-------|--------|
+| Merge commit SHA | _filled after merge_ |
+| Merge method | _filled after merge_ |
 
 ## Notes
 
-- M11 default ingest now merges `docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv` with `docs/milestones/M11/artifacts/michael1232_lucid-kaggle-community-benchmarks_leaderboard.csv`, regenerating the committed response-surface artifacts so P12 rows are no longer `export_missing`.
+- M11 default ingest merges `docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv` with `docs/milestones/M11/artifacts/michael1232_lucid-kaggle-community-benchmarks_leaderboard.csv`, regenerating the committed response-surface artifacts so P12 rows are no longer `export_missing`.
