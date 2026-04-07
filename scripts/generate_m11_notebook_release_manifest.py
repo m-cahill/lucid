@@ -50,8 +50,13 @@ def _canonical_json(obj: Any) -> str:
 
 
 def _file_sha256(path: Path) -> str:
+    raw = path.read_bytes()
+    # Notebooks are JSON text; normalize newlines so Windows (CRLF) and Linux
+    # (LF) working trees match Git blob bytes and Ubuntu CI hashes.
+    if path.suffix.lower() == ".ipynb":
+        raw = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
     h = hashlib.sha256()
-    h.update(path.read_bytes())
+    h.update(raw)
     return h.hexdigest()
 
 
