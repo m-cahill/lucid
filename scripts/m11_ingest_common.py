@@ -146,10 +146,13 @@ def m01_by_slug(scores: list[ModelScoreRow]) -> dict[str, float | None]:
 
 
 def file_sha256(path: Path) -> str:
+    raw = path.read_bytes()
+    # Kaggle CSV exports are text; normalize newlines so Windows CRLF and Linux LF
+    # match Git blobs and CI.
+    if path.suffix.lower() == ".csv":
+        raw = raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
     h = hashlib.sha256()
-    with path.open("rb") as f:
-        for chunk in iter(lambda: f.read(65536), b""):
-            h.update(chunk)
+    h.update(raw)
     return h.hexdigest()
 
 
