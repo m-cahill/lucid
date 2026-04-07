@@ -6,7 +6,7 @@
 
 | File | SHA-256 |
 |------|---------|
-| `C:/coding/kaggle/lucid/docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv` | `bf3d017443fa848eeb8774dcfb29af70cf71aad78c11c8f468f438deb83778f5` |
+| `docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv` | `bf3d017443fa848eeb8774dcfb29af70cf71aad78c11c8f468f438deb83778f5` |
 
 ## Coverage
 

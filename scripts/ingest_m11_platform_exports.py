@@ -61,7 +61,34 @@ def _canonical_json(obj: Any) -> str:
     return json.dumps(obj, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
 
 
+def _repo_relative(path: Path, root: Path) -> str:
+    """Store export paths repo-relative so CI on Linux can resolve them."""
+    try:
+        return path.resolve().relative_to(root.resolve()).as_posix()
+    except ValueError:
+        s = path.as_posix().replace("\\", "/")
+        if "/docs/" in s:
+            return "docs/" + s.split("/docs/", 1)[1]
+        return path.name
+
+
+def _meta_export_path(root: Path, stored: str) -> Path:
+    """Resolve export path from ingest meta (repo-relative or legacy absolute)."""
+    s = stored.replace("\\", "/")
+    if s.startswith("/") or (len(s) > 2 and s[1] == ":"):
+        if "/docs/" in s:
+            return root / s.split("/docs/", 1)[1]
+        p = Path(stored)
+        if p.is_file():
+            return p
+    cand = root / stored
+    if cand.is_file():
+        return cand
+    return root / Path(stored)
+
+
 def _render_probe_manifest(
+    root: Path,
     pin_sha: str,
     export_paths: list[Path],
     row_count: int,
@@ -78,7 +105,7 @@ def _render_probe_manifest(
     ]
     for p in export_paths:
         h = file_sha256(p) if p.is_file() else "NA"
-        lines.append(f"| `{p.as_posix()}` | `{h}` |")
+        lines.append(f"| `{_repo_relative(p, root)}` | `{h}` |")
     lines.extend(
         [
             "",
@@ -102,12 +129,12 @@ def _run_ingest(root: Path, export_paths: list[Path], pin_sha: str) -> dict[str,
     rows = build_response_rows(roster, latest, m01, pin_sha, prov)
     frontier = build_completion_frontier(rows)
     tax_md = build_failure_taxonomy_md(rows)
-    manifest_md = _render_probe_manifest(pin_sha, export_paths, len(rows))
+    manifest_md = _render_probe_manifest(root, pin_sha, export_paths, len(rows))
     payload = {
         "meta": {
             "ingest_id": "m11_ingest_v1",
             "notebook_pin_sha": pin_sha,
-            "export_paths": [p.as_posix() for p in export_paths],
+            "export_paths": [_repo_relative(p, root) for p in export_paths],
             "canonical_tracked_models": len(roster),
             "tier_order": list(TIER_ORDER),
         },
@@ -183,7 +210,7 @@ def main(argv: list[str] | None = None) -> int:
             return 2
         existing_json = json.loads(json_path.read_text(encoding="utf-8"))
         meta = existing_json.get("meta") or {}
-        check_paths = [root / Path(p) for p in meta.get("export_paths", [])]
+        check_paths = [_meta_export_path(root, p) for p in meta.get("export_paths", [])]
         if not check_paths:
             check_paths = export_paths
         check_pin = str(meta.get("notebook_pin_sha") or pin_sha)

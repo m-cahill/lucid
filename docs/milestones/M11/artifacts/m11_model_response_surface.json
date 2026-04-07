@@ -2,7 +2,7 @@
   "meta": {
     "canonical_tracked_models": 33,
     "export_paths": [
-      "C:/coding/kaggle/lucid/docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv"
+      "docs/milestones/M09/artifacts/m09_kaggle_leaderboard_export.csv"
     ],
     "ingest_id": "m11_ingest_v1",
     "notebook_pin_sha": "a13afadadd89a6aed0cd434682b2675017ceab3c",
