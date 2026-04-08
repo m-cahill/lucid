@@ -108,7 +108,8 @@ When documents or code disagree, use this order:
 | M12 public links index | `docs/milestones/M12/artifacts/m12_public_links.json` |
 | M13 plan (active) | `docs/milestones/M13/M13_plan.md` |
 | M13 tool log | `docs/milestones/M13/M13_toolcalls.md` |
-| M13 run logs | `docs/milestones/M13/M13_run1.md`, `M13_run2.md` |
+| M13 run logs | `docs/milestones/M13/M13_run1.md`, `M13_run2.md`, `M13_run3.md` |
+| M13 supplemental artifacts | `docs/milestones/M13/artifacts/m13_leaderboard_export_20260408.csv` (April 8 leaderboard — reference evidence, does **not** replace M11 authoritative export) |
 
 ### 3.1 External evidence index (Kaggle — audit trail)
 
@@ -602,6 +603,7 @@ Kaggle notebooks are **disposable execution surfaces**, not editing environments
 
 - `docs/milestones/M13/M13_run1.md` — first pass: Kaggle public benchmark/task URL verification **deferred** (no owner-view in repo context); `m12_linkage_sources.json` posture unchanged (`owner_visible_unverified`, URLs `null`).
 - `docs/milestones/M13/M13_run2.md` — **observed vs intended** benchmark task set: operator-reported surface has **four** tasks attached (`lucid_main_task`, three M11 probes); **`lucid_m09_mature_evidence_task`** missing (treat as drift / reattach in owner UI); **`lucid_family1_m04_task`** not evidenced on-platform — **do not create in M13**. M12 six-task linkage record **preserved**; mismatch documented only.
+- `docs/milestones/M13/M13_run3.md` — **M09 task restored** (confirmed via April 8 leaderboard export); benchmark now has **five** attached tasks. **`deepseek-v3.1`** errored on M09 (`JSONDecodeError` — malformed model JSON); classified as surface-compatibility failure; **no parser rescue** in M13. M09 coverage: **18** numeric completions, **13** failures. Supplemental export: `docs/milestones/M13/artifacts/m13_leaderboard_export_20260408.csv`.
 
 ---
 

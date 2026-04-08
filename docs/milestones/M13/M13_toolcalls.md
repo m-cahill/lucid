@@ -15,5 +15,9 @@
 | 2026-04-07 | python | Local quality gates + M12 linkage `--check` (no `--write`) | `src`, `tests`, `scripts` | pass |
 | 2026-04-07 | read / write | M13 run 2: observed Kaggle state, M09 restore deferred to operator; no M04 creation; no linkage JSON edits | `M13_run2.md`, `M13_plan.md`, `docs/lucid.md` | complete |
 | 2026-04-07 | python | Post-doc: ruff, mypy, pytest, `generate_m12_submission_linkage.py --check` | repo | pass |
+| 2026-04-08 | read | Inspect April 8 leaderboard export (operator-provided) for M09 restoration + DeepSeek v3.1 failure | `michael1232_…leaderboard.csv` (external) | complete |
+| 2026-04-08 | copy / write | Commit supplemental CSV to M13 artifacts; create `M13_run3.md` | `docs/milestones/M13/artifacts/m13_leaderboard_export_20260408.csv`, `M13_run3.md` | complete |
+| 2026-04-08 | edit | Ledger §9 + doc map update for M13_run3 | `docs/lucid.md` | complete |
+| 2026-04-08 | python | Post-doc: ruff, mypy, pytest, `generate_m12_submission_linkage.py --check` | repo | pass |
 
 ---
