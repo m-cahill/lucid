@@ -108,6 +108,7 @@ When documents or code disagree, use this order:
 | M12 public links index | `docs/milestones/M12/artifacts/m12_public_links.json` |
 | M13 plan (active) | `docs/milestones/M13/M13_plan.md` |
 | M13 tool log | `docs/milestones/M13/M13_toolcalls.md` |
+| M13 run logs | `docs/milestones/M13/M13_run1.md`, `M13_run2.md` |
 
 ### 3.1 External evidence index (Kaggle — audit trail)
 
@@ -165,6 +166,7 @@ Standing posture before treating the competition entry as **submission-complete*
 | Item | Notes |
 |------|--------|
 | Benchmark URL or task visibility drift | `docs/milestones/M12/artifacts/m12_contingency_matrix.md` |
+| Observed Kaggle task set vs M12-intended six tasks | Documented in `docs/milestones/M13/M13_run2.md` — e.g. M09 task may need reattachment; M04 task not proved on-platform |
 | Optional full hosted roster reruns | Explicit authorization; not default M12/M13 scope |
 
 ### Authoritative vs superseded M11 evidence (standing)
@@ -596,7 +598,10 @@ Kaggle notebooks are **disposable execution surfaces**, not editing environments
 
 **Plan / tool log:** `docs/milestones/M13/M13_plan.md`, `docs/milestones/M13/M13_toolcalls.md`
 
-**Evidence (M13):** `docs/milestones/M13/M13_run1.md` — first pass: Kaggle public benchmark/task URL verification **deferred** (no owner-view in repo context); `m12_linkage_sources.json` posture unchanged (`owner_visible_unverified`, URLs `null`).
+**Evidence (M13):**
+
+- `docs/milestones/M13/M13_run1.md` — first pass: Kaggle public benchmark/task URL verification **deferred** (no owner-view in repo context); `m12_linkage_sources.json` posture unchanged (`owner_visible_unverified`, URLs `null`).
+- `docs/milestones/M13/M13_run2.md` — **observed vs intended** benchmark task set: operator-reported surface has **four** tasks attached (`lucid_main_task`, three M11 probes); **`lucid_m09_mature_evidence_task`** missing (treat as drift / reattach in owner UI); **`lucid_family1_m04_task`** not evidenced on-platform — **do not create in M13**. M12 six-task linkage record **preserved**; mismatch documented only.
 
 ---
 
