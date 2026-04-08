@@ -3,7 +3,7 @@
 **Project:** LUCID (*Latent Update & Calibration under Instructional Drift*)  
 **Role:** Living ledger, authority map, and integration surface for the repository  
 **Active benchmark version:** **1.1.0** (scoring semantics locked in M00; see semantic changelog below)  
-**Active milestone:** **M13** — contingency buffer / post-submission polish (`docs/milestones/M13/M13_plan.md`)  
+**Active milestone:** **None** — **M13 closed** (`docs/milestones/M13/M13_summary.md`). Standing **open** item: Kaggle benchmark/task **public URL verification** — see §4 and `docs/milestones/M13/M13_run4.md`.  
 **Frozen historical export:** contract bundle **v1.0.1** archived under `docs/archive/` (not editable canon)
 
 **Repository:** https://github.com/m-cahill/lucid  
@@ -106,8 +106,9 @@ When documents or code disagree, use this order:
 | M12 submission runbook / checklist / contingency | `docs/milestones/M12/M12_SUBMISSION_RUNBOOK.md`, `artifacts/m12_submission_checklist.md`, `artifacts/m12_contingency_matrix.md` |
 | M12 evidence surface manifest | `docs/milestones/M12/artifacts/m12_evidence_surface_manifest.json`, `m12_evidence_surface_notes.md` |
 | M12 public links index | `docs/milestones/M12/artifacts/m12_public_links.json` |
-| M13 plan (active) | `docs/milestones/M13/M13_plan.md` |
-| M13 tool log | `docs/milestones/M13/M13_toolcalls.md` |
+| M13 plan & closeout (complete) | `docs/milestones/M13/M13_plan.md`, `M13_run1.md`–`M13_run4.md`, `M13_summary.md`, `M13_audit.md`; tool log `M13_toolcalls.md` |
+| M13 run logs | `docs/milestones/M13/M13_run1.md`, `M13_run2.md`, `M13_run3.md`, `M13_run4.md` |
+| M13 supplemental artifacts | `docs/milestones/M13/artifacts/m13_leaderboard_export_20260408.csv` (April 8 leaderboard — reference evidence, does **not** replace M11 authoritative export) |
 
 ### 3.1 External evidence index (Kaggle — audit trail)
 
@@ -150,7 +151,7 @@ Standing posture before treating the competition entry as **submission-complete*
 | Blocker | Status | Owner / resolution path | Last milestone touched | Exit criteria (high level) |
 |----------------------|--------|-------------------------|-------------------------|----------------------------|
 | Hosted-model discriminatory power (full roster completion) | **Narrowed** | **M09** ingested **`m09_model_scores.csv`** (**15** completions + **18** non-completions); full numeric coverage of **all** tracked models **not** achieved | M04 / M09 / M10 | Accept partial evidence + narrative scope, or rerun/expand platform coverage; family verdicts remain **retain provisionally** |
-| Kaggle benchmark / task **public URL verification** | **Open** | Owner-view confirms public visibility; then fill URLs in `m12_linkage_sources.json` and regenerate linkage | **M13+** | `publication_status: public_verified` only with evidence |
+| Kaggle benchmark / task **public URL verification** | **Open** | Operator copies canonical URLs from Kaggle UI + logged-out check; then fill `m12_linkage_sources.json` and regenerate linkage | **Deferred post-M13** — checklist `M13_run4.md` | `publication_status: public_verified` only with evidence |
 
 #### Closed / satisfied blockers
 
@@ -165,6 +166,7 @@ Standing posture before treating the competition entry as **submission-complete*
 | Item | Notes |
 |------|--------|
 | Benchmark URL or task visibility drift | `docs/milestones/M12/artifacts/m12_contingency_matrix.md` |
+| Observed Kaggle task set vs M12-intended six tasks | M09 reattached (`M13_run3.md`); M04 still not on-platform (`M13_run2.md`); public URLs still unverified (`M13_run4.md`) |
 | Optional full hosted roster reruns | Explicit authorization; not default M12/M13 scope |
 
 ### Authoritative vs superseded M11 evidence (standing)
@@ -324,7 +326,7 @@ Until addressed, the entry should not be treated as submission-complete. **Compa
 - **Defensibility / ambiguity / contamination posture** — **M08** delivers the **automated, CI-enforced** audit layer + artifacts (`docs/milestones/M08/artifacts/`, `docs/benchmark_quality/LUCID_DEFENSIBILITY_STANDARD.md`).
 - **Judge-facing writeup pack (figures, narrative, traceability)** — **M10** delivered (`docs/milestones/M10/artifacts/`).
 - **Hosted-model probe frontier (completion / tier / cost-latency posture)** — **M11** (see §4 *Hosted-model probe frontier*); **no** inferred slices from aggregate M09 export alone.
-- **Final Kaggle benchmark / task / writeup linkage** per competition requirements — **M12 (closed)** — `docs/milestones/M12/M12_summary.md`; **public URL verification** may remain under **M13** (`docs/milestones/M13/M13_plan.md`).
+- **Final Kaggle benchmark / task / writeup linkage** per competition requirements — **M12 (closed)** — `docs/milestones/M12/M12_summary.md`; **public URL verification** remains **open** — checklist `docs/milestones/M13/M13_run4.md` (M13 milestone **closed**; verification deferred).
 
 ### Kaggle hosted models — score ledger (reference)
 
@@ -386,7 +388,7 @@ Planned milestone arc (competition charter locked in **M02**):
 | **M10** | Writeup evidence pack, figures, and judge-facing narrative | **Complete** — `docs/milestones/M10/M10_summary.md` |
 | **M11** | Hosted-model probe ladder + response surface + cost-aware allocation | **Complete (closed)** — `docs/milestones/M11/M11_summary.md`, `M11_audit.md`, `M11_run1.md`, `M11_run2.md` (CI recovery) |
 | **M12** | Final benchmark / task / writeup linkage + submission pack | **Complete** — `docs/milestones/M12/M12_summary.md` |
-| **M13** | Contingency B — final polish / writeup / evidence cleanup buffer | **Active** — `docs/milestones/M13/M13_plan.md` |
+| **M13** | Contingency B — final polish / writeup / evidence cleanup buffer | **Complete** — `docs/milestones/M13/M13_summary.md` |
 
 **Benchmark family priorities (first three, locked in M02):**
 
@@ -546,6 +548,19 @@ Planned milestone arc (competition charter locked in **M02**):
 **Plan / evidence:** `docs/milestones/M10/M10_plan.md`, `docs/milestones/M10/M10_summary.md`, `docs/milestones/M10/M10_audit.md`, `docs/milestones/M10/M10_run1.md`  
 **Tool log:** `docs/milestones/M10/M10_toolcalls.md`
 
+### M13 — Contingency buffer / post-M12 follow-up
+
+**Closed:** 2026-04-08 (repository record — branch `m13-contingency-buffer`).
+
+**What M13 delivered**
+
+- **Run logs** (`M13_run1.md`–`M13_run4.md`): deferred URL verification; observed vs intended benchmark task set; M09 task restoration evidence (five tasks attached); DeepSeek v3.1 M09 parse failure documented; **public URL verification** not completed in-repo — `m12_linkage_sources.json` unchanged (`owner_visible_unverified`, URLs `null`); operator checklist in `M13_run4.md`.
+- **Supplemental evidence:** `docs/milestones/M13/artifacts/m13_leaderboard_export_20260408.csv` (April 8 export — reference only; does **not** replace M11 authoritative leaderboard CSV).
+- **Benchmark:** **1.1.0** unchanged; **no** parser rescue; **no** `lucid_family1_m04_task` creation on-platform.
+
+**Plan / evidence:** `docs/milestones/M13/M13_plan.md`, `M13_summary.md`, `M13_audit.md`, `M13_run1.md`–`M13_run4.md`  
+**Tool log:** `docs/milestones/M13/M13_toolcalls.md`
+
 ### M12 — Final benchmark / task / writeup linkage
 
 **Closed:** 2026-04-07 (repository record — branch `m12-final-linkage`).
@@ -586,15 +601,20 @@ Kaggle notebooks are **disposable execution surfaces**, not editing environments
 
 ---
 
-## 9. Active milestone — M13
+## 9. Active milestone
 
-**Status:** **Active** — contingency buffer for **public URL verification**, optional polish, and explicitly authorized follow-ups; **does not** default to new benchmark semantics or broad M11 probe reruns.
+**None.** **M13** contingency buffer is **closed** — `docs/milestones/M13/M13_summary.md`, `M13_audit.md`.
 
-**Prerequisite:** **M12 closed** — linkage manifest, runbook, and evidence surface (`docs/milestones/M12/M12_summary.md`).
+**Standing open item (not a milestone):** Kaggle benchmark/task **public URL verification** — `publication_status` remains **`owner_visible_unverified`** in `m12_linkage_sources.json` until the operator completes the checklist in `docs/milestones/M13/M13_run4.md` (canonical URLs + optional logged-out check), then `generate_m12_submission_linkage.py --write` / `--check`.
 
-**Goal:** Close any remaining **non-blocking** competition-facing gaps (for example filling `kaggle_benchmark_url` after owner-view) and carry optional cleanup without reopening M12.
+---
 
-**Plan / tool log:** `docs/milestones/M13/M13_plan.md`, `docs/milestones/M13/M13_toolcalls.md`
+### M13 (closed)
+
+**Status:** **Complete** — contingency documentation, M09 restoration evidence, DeepSeek v3.1 M09 parse failure recorded; linkage sources **unchanged** pending verified URLs.
+
+**Closeout:** `docs/milestones/M13/M13_summary.md`, `M13_audit.md`, `M13_run1.md`–`M13_run4.md` — **Tool log:** `M13_toolcalls.md`  
+**Supplemental artifact:** `docs/milestones/M13/artifacts/m13_leaderboard_export_20260408.csv`
 
 ---
 
