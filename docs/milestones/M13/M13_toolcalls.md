@@ -19,5 +19,9 @@
 | 2026-04-08 | copy / write | Commit supplemental CSV to M13 artifacts; create `M13_run3.md` | `docs/milestones/M13/artifacts/m13_leaderboard_export_20260408.csv`, `M13_run3.md` | complete |
 | 2026-04-08 | edit | Ledger §9 + doc map update for M13_run3 | `docs/lucid.md` | complete |
 | 2026-04-08 | python | Post-doc: ruff, mypy, pytest, `generate_m12_submission_linkage.py --check` | repo | pass |
+| 2026-04-08 | web fetch | Non-authoritative probe of guessed Kaggle benchmark URLs (404 / inconclusive) | external | documented in `M13_run4.md` |
+| 2026-04-08 | write | M13 run 4: public URL verification blocked without owner UI; no linkage edits | `M13_run4.md` | complete |
+| 2026-04-08 | write | M13 summary + audit; close milestone in ledger | `M13_summary.md`, `M13_audit.md`, `M13_plan.md`, `docs/lucid.md` | complete |
+| 2026-04-08 | python | Post-closeout: full local gates | repo | pass |
 
 ---
